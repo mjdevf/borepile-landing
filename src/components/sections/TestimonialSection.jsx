@@ -4,97 +4,97 @@ import { CheckCircle2, ChevronLeft, ChevronRight, Phone } from "lucide-react";
 const testimonials = [
   {
     quote: "Pengerjaan borepile buat proyek perumahan saya tepat waktu dan sesuai spek. Timnya profesional, alat lengkap.",
-    name: "Hendra Gunawan",
+    name: "H. Gunawan",
     role: "Pengembang Perumahan",
-    company: "PT Cipta Graha Lestari",
+    company: "Jakarta Selatan",
     project: "150 Titik · Kedalaman 12m",
     verified: true,
   },
   {
     quote: "Kalibrasi alat dan laporan uji tanahnya rapi, memudahkan proses approval konsultan struktur kami.",
-    name: "Rina Wijayanti",
+    name: "R. Wijayanti",
     role: "Site Engineer",
-    company: "Konsultan Struktur Adhikara",
+    company: "Konsultan Struktur, Cikarang",
     project: "Proyek Gudang Industri · Cikarang",
     verified: true,
   },
   {
     quote: "Koordinasi jadwal fleksibel meski lahan kami sempit dan akses terbatas.",
-    name: "Bambang Setiawan",
+    name: "B. Setiawan",
     role: "Project Manager",
-    company: "PT Mitra Beton Utama",
+    company: "Kontraktor, Bekasi",
     project: "Ruko 4 Lantai · Bekasi",
     verified: true,
   },
   {
     quote: "Hasil pengeboran tembus lapisan keras tanpa perlu pindah titik, hemat biaya dan waktu proyek.",
-    name: "Andi Pratama",
+    name: "A. Pratama",
     role: "Owner",
-    company: "CV Bangun Jaya Perkasa",
+    company: "Kontraktor, Karawang",
     project: "Pabrik 2 Lantai · Karawang",
     verified: true,
   },
   {
     quote: "Survey gratis & detail, laporan uji tanah dikirim cepat. Tim teknis responsif saat ada perubahan di lapangan.",
-    name: "Siti Rahmawati",
+    name: "S. Rahmawati",
     role: "Project Coordinator",
-    company: "PT Cipta Bangun Nusantara",
+    company: "Pengembang, Jakarta Selatan",
     project: "Hotel 5 Lantai · Jakarta Selatan",
     verified: true,
   },
   {
     quote: "Alat bor mesin kondisi prima, operator berpengalaman. Pengecoran beton lancar tanpa void.",
-    name: "Dedi Kurniawan",
+    name: "D. Kurniawan",
     role: "Kepala Teknik",
-    company: "PT Jaya Konstruksi Mandiri",
+    company: "Kontraktor, Tangerang",
     project: "Mall Regional · Tangerang",
     verified: true,
   },
   {
     quote: "Penanganan lahan gambut tricky ditangani profesional. Stabilisasi tanah & casing rapi.",
-    name: "Ir. Antonius Wijaya",
+    name: "A. Wijaya",
     role: "Konsultan Geoteknik",
-    company: "PT Geo Teknik Indonesia",
+    company: "Konsultan, Depok",
     project: "Perkantoran 8 Lantai · Depok",
     verified: true,
   },
   {
-    quote: "Garansi pekerjaan jelas, after-sales responsif. Sudah 3 proyek pakai jasa ini, konsisten.",
-    name: "Hasan Basri",
+    quote: "After-sales responsif, komunikasi lancar. Sudah 3 proyek pakai jasa ini, konsisten.",
+    name: "H. Basri",
     role: "Direktur",
-    company: "PT Bangun Sejahtera Abadi",
+    company: "Kontraktor, Bekasi",
     project: "Gudang Logistik · Bekasi",
     verified: true,
   },
   {
     quote: "Laporan harian & foto dokumentasi lengkap, memudahkan pelaporan ke owner & bank pembiayaan.",
-    name: "Dewi Sartika",
+    name: "D. Sartika",
     role: "Project Control",
-    company: "PT Properti Nusantara",
+    company: "Pengembang, Jakarta Pusat",
     project: "Apartemen 12 Lantai · Jakarta Pusat",
     verified: true,
   },
   {
     quote: "Harga transparan, tidak ada biaya tersembunyi. Termin pembayaran fleksibel sesuai progress.",
-    name: "Ahmad Fauzi",
+    name: "A. Fauzi",
     role: "Finance Manager",
-    company: "PT Investama Properti",
+    company: "Pengembang, Bogor",
     project: "Kompleks Ruko · Bogor",
     verified: true,
   },
   {
     quote: "Tim safety sangat disiplin, HSE plan diterapkan ketat. Zero accident di proyek kami 200+ titik.",
-    name: "Ir. Budi Santoso, ST, MT",
+    name: "B. Santoso",
     role: "HSE Manager",
-    company: "PT Karya Bangsa Gemilang",
+    company: "Kontraktor, Cilegon",
     project: "Pabrik Kimia · Cilegon",
     verified: true,
   },
   {
     quote: "Komunikasi lancar lewat grup WhatsApp proyek. Setiap kendala diselesaikan kurang dari 24 jam.",
-    name: "Yuni Marlina",
+    name: "Y. Marlina",
     role: "Site Manager",
-    company: "PT Arsitek Muda Indonesia",
+    company: "Kontraktor, Bekasi",
     project: "Sekolah 3 Lantai · Bekasi",
     verified: true,
   },
@@ -176,11 +176,26 @@ export default function TestimonialSection() {
         </button>
       </div>
 
-      <a href="tel:+6281514811120"
-              className="fixed bottom-6 right-5 w-14 h-14 rounded-full bg-[#3F6B4A] shadow-lg flex items-center justify-center text-white hover:bg-[#345a3d] transition-colors z-50"
-              aria-label="Hubungi kami via telepon">
-              <Phone size={20} fill="white" />
-      </a>
+      <div className="fixed bottom-6 right-5 z-50 flex flex-col gap-3">
+        <a
+          href="https://wa.me/6281514811120"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-14 h-14 rounded-full bg-emerald-600 shadow-lg flex items-center justify-center text-white hover:bg-emerald-700 transition-colors"
+          aria-label="Chat via WhatsApp"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382A10.244 10.244 0 0 0 12 3C6.477 3 2 7.477 2 13c0 2.005.646 3.875 1.718 5.471l-1.318 4.475 4.575-1.236A10.236 10.236 0 0 0 17.472 14.382z" />
+          </svg>
+        </a>
+        <a
+          href="tel:+6281514811120"
+          className="w-14 h-14 rounded-full bg-[#3F6B4A] shadow-lg flex items-center justify-center text-white hover:bg-[#345a3d] transition-colors"
+          aria-label="Hubungi kami via telepon"
+        >
+          <Phone size={20} fill="white" />
+        </a>
+      </div>
 
       <style>{`
         @keyframes testimonialFadeIn {
