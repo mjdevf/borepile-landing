@@ -150,7 +150,7 @@ export default function TestimonialSection() {
             <div className="mt-6 pt-5 border-t border-[#EDEAE2] flex items-center gap-3">
               <div className="w-11 h-11 bg-[#1C1D1B] flex items-center justify-center shrink-0">
                 <span className="text-[#C9A15A] font-black text-sm" style={{ fontFamily: "'Oswald', sans-serif" }}>
-                  {t.company.split(" ").filter(w => w[0] === w[0].toUpperCase() && w.length > 2).slice(0, 3).map(w => w[0]).join("")}
+                  {t.company?.split(" ")?.filter(w => w[0] === w[0].toUpperCase() && w.length > 2)?.slice(0, 3)?.map(w => w[0])?.join("") || ""}
                 </span>
               </div>
               <div>
