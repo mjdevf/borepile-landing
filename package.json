@@ -1,0 +1,39 @@
+{
+  "name": "borepile-landing",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/prerender.js || true",
+    "build:analyze": "vite build --mode analyze",
+    "prerender": "node scripts/prerender.js",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "optimize": "node scripts/prerender.js"
+  },
+  "dependencies": {
+    "jsdom": "^29.1.1",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^1.23.0",
+    "motion": "^12.42.2",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-leaflet": "^5.0.0",
+    "react-router-dom": "^7.18.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@tailwindcss/vite": "^4.3.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "esbuild": "^0.28.1",
+    "oxlint": "^1.71.0",
+    "sharp": "^0.35.3",
+    "svgo": "^4.0.1",
+    "terser": "^5.49.0",
+    "vite": "^8.1.1",
+    "vite-plugin-image-optimizer": "^2.0.3"
+  }
+}

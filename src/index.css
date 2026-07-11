@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@theme {
+  --color-tanah-50: #f8f6f3;
+  --color-tanah-100: #efeae0;
+  --color-tanah-200: #ddd2bf;
+  --color-tanah-300: #c8b59a;
+  --color-tanah-400: #b49a7a;
+  --color-tanah-500: #a48460;
+  --color-tanah-600: #967152;
+  --color-tanah-700: #7d5b44;
+  --color-tanah-800: #684b3b;
+  --color-tanah-900: #594034;
+  --color-tanah-950: #2f211b;
+
+  --color-emas-400: #f5d686;
+  --color-emas-500: #d4a843;
+  --color-emas-600: #b8862e;
+  --color-emas-700: #9a6d24;
+
+  --color-beton-50: #f5f5f4;
+  --color-beton-100: #e7e5e4;
+  --color-beton-200: #d6d3d1;
+  --color-beton-300: #a8a29e;
+  --color-beton-400: #78716c;
+  --color-beton-500: #57534e;
+  --color-beton-600: #44403c;
+  --color-beton-700: #292524;
+  --color-beton-800: #1c1917;
+  --color-beton-900: #0c0a09;
+  --color-beton-950: #060505;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Base ── */
+html {
+  scroll-behavior: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-tanah-600) transparent;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-emas-600);
+  color: white;
+}
+
+/* ── Decorative divider ── */
+.section-divider {
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-emas-500),
+    transparent
+  );
+  opacity: 0.5;
+}
+
+/* ── Gradient text ── */
+.text-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-emas-400),
+    var(--color-emas-600)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glass card ── */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── Gold shimmer keyframes ── */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--color-emas-500) 0%,
+    #f5d686 30%,
+    var(--color-emas-500) 60%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+/* ── Hover lift ── */
+.hover-lift {
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Leaflet mobile fix ── */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Tap-friendly mobile ── */
+@media (max-width: 640px) {
+  .hover-lift:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* ── Prevent CLS from leaflet CSS loading ── */
+.leaflet-pane {
+  z-index: 1;
+}
+
+/* ── Font display optimization ── */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  src: local('Inter');
+}
+
+/* ── Text color utilities for dark backgrounds ── */
+.text-bright {
+  color: #f5f5f4 !important;
+}
+
+.text-dim {
+  color: #a8a29e !important;
+}
