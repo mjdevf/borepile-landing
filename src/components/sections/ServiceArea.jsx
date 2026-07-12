@@ -30,7 +30,7 @@ export default function ServiceArea() {
                 key={city}
                 initial={{ opacity: 0, scale: 0.85 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{
                   duration: 0.4,
                   delay: i * 0.04,

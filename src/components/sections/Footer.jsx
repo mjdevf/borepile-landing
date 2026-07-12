@@ -24,7 +24,7 @@ export default function Footer() {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-8"
           >
@@ -65,7 +65,7 @@ export default function Footer() {
                 key={item.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
                 <Wrapper

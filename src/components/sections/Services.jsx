@@ -24,7 +24,7 @@ export default function Services() {
                 key={svc.title}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="group relative overflow-hidden border border-beton-200 bg-white p-4 transition-all duration-500 hover:shadow-lg hover:shadow-emas-600/5"
               >

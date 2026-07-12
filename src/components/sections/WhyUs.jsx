@@ -29,7 +29,7 @@ export default function WhyUs() {
                   key={item.title}
                   initial={{ opacity: 0, x: isEven ? -40 : 40 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, amount: 0.3 }}
+                  viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                   className={`group relative flex flex-col gap-4 sm:flex-row ${isEven ? '' : 'sm:flex-row-reverse'}`}
                 >
