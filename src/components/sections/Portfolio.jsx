@@ -40,42 +40,44 @@ export default function Portfolio() {
   }, [selected]);
 
   return (
-    <AnimatedSection id="portfolio" className="bg-beton-100 py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <GradientHeading
-          label="Portfolio"
-          title="Hasil Pekerjaan Kami"
-          desc="Beberapa hasil pekerjaan yang sudah kami selesaikan."
-        />
+    <>
+      <AnimatedSection id="portfolio" className="bg-beton-100 py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <GradientHeading
+            label="Portfolio"
+            title="Hasil Pekerjaan Kami"
+            desc="Beberapa hasil pekerjaan yang sudah kami selesaikan."
+          />
 
-        <div className="grid gap-4 grid-cols-2 md:grid-cols-3 auto-rows-[200px]">
-          {portfolioImages.map((img, i) => (
-            <motion.button
-              key={i}
-              initial={{ opacity: 1 }}
-              whileHover={{ scale: 1.02 }}
-              onClick={() => setSelected(i)}
-              className="group relative overflow-hidden bg-beton-300 text-left focus-visible:ring-2 focus-visible:ring-emas-500 focus-visible:ring-offset-2"
-            >
-              <img
-                src={img.src}
-                alt={img.alt}
-                onError={(e) => {
-                  e.target.src = svgPlaceholder(img.label, i);
-                }}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="absolute inset-x-0 bottom-0 translate-y-4 p-5 transition-transform duration-500 group-hover:translate-y-0">
-                <p className="text-sm font-bold text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                  {img.label}
-                </p>
-              </div>
-            </motion.button>
-          ))}
+          <div className="grid gap-4 grid-cols-2 md:grid-cols-3 auto-rows-[200px]">
+            {portfolioImages.map((img, i) => (
+              <motion.button
+                key={i}
+                initial={{ opacity: 1 }}
+                whileHover={{ scale: 1.02 }}
+                onClick={() => setSelected(i)}
+                className="group relative overflow-hidden bg-beton-300 text-left focus-visible:ring-2 focus-visible:ring-emas-500 focus-visible:ring-offset-2"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  onError={(e) => {
+                    e.target.src = svgPlaceholder(img.label, i);
+                  }}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="absolute inset-x-0 bottom-0 translate-y-4 p-5 transition-transform duration-500 group-hover:translate-y-0">
+                  <p className="text-sm font-bold text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    {img.label}
+                  </p>
+                </div>
+              </motion.button>
+            ))}
+          </div>
         </div>
-      </div>
+      </AnimatedSection>
 
       <AnimatePresence>
         {selected !== null && (
@@ -138,6 +140,6 @@ export default function Portfolio() {
           </motion.div>
         )}
       </AnimatePresence>
-    </AnimatedSection>
+    </>
   );
 }
