@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/prerender.js || true",
+    "build": "vite build && node scripts/prerender.js",
     "build:analyze": "vite build --mode analyze",
     "prerender": "node scripts/prerender.js",
     "lint": "oxlint",
