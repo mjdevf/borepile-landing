@@ -8,7 +8,7 @@
     },
     {
       "source": "/location/:slug",
-      "destination": "/location/:slug"
+      "destination": "/location/:slug.html"
     }
   ],
   "headers": [
