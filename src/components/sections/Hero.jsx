@@ -44,7 +44,7 @@ export default function Hero() {
           />
         </picture>
         {/* Dark overlay for text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-beton-950/30 via-beton-950/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-beton-950/50 via-beton-950/30 to-beton-950/10" />
       </motion.div>
 
       {/* Content */}

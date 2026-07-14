@@ -77,7 +77,7 @@ export default function Footer() {
                     <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-beton-300">
                       {item.sub}
                     </p>
-                    <p className="mt-0.5 text-sm font-semibold truncate">{item.label}</p>
+                    <p className="mt-0.5 text-sm font-semibold break-words">{item.label}</p>
                   </div>
                 </Wrapper>
               </motion.div>
