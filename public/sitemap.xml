@@ -2,127 +2,73 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://borepilemajujaya.com/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://borepilemajujaya.com/jakarta-pusat/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <loc>https://borepilemajujaya.com/location/jakarta.html</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://borepilemajujaya.com/jakarta-selatan/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <loc>https://borepilemajujaya.com/location/jakarta-pusat.html</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://borepilemajujaya.com/jakarta-barat/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <loc>https://borepilemajujaya.com/location/jakarta-selatan.html</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://borepilemajujaya.com/jakarta-timur/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <loc>https://borepilemajujaya.com/location/jakarta-barat.html</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://borepilemajujaya.com/jakarta-utara/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <loc>https://borepilemajujaya.com/location/jakarta-timur.html</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://borepilemajujaya.com/bogor/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <loc>https://borepilemajujaya.com/location/jakarta-utara.html</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://borepilemajujaya.com/depok/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <loc>https://borepilemajujaya.com/location/bogor.html</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://borepilemajujaya.com/tangerang/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <loc>https://borepilemajujaya.com/location/depok.html</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://borepilemajujaya.com/bekasi/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <loc>https://borepilemajujaya.com/location/tangerang.html</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://borepilemajujaya.com/karawang/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <loc>https://borepilemajujaya.com/location/bekasi.html</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://borepilemajujaya.com/location/jasa-bore-pile-jakarta-pusat/</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://borepilemajujaya.com/location/jasa-bore-pile-jakarta-selatan/</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://borepilemajujaya.com/location/jasa-bore-pile-jakarta-barat/</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://borepilemajujaya.com/location/jasa-bore-pile-jakarta-timur/</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://borepilemajujaya.com/location/jasa-bore-pile-jakarta-utara/</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://borepilemajujaya.com/location/jasa-bore-pile-bogor/</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://borepilemajujaya.com/location/jasa-bore-pile-depok/</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://borepilemajujaya.com/location/jasa-bore-pile-tangerang/</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://borepilemajujaya.com/location/jasa-bore-pile-bekasi/</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://borepilemajujaya.com/location/jasa-bore-pile-karawang/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <loc>https://borepilemajujaya.com/location/karawang.html</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>

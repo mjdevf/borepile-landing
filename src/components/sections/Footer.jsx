@@ -113,7 +113,11 @@ export default function Footer() {
               <a
                 key={service.href}
                 href={service.href}
-                className="text-xs text-beton-200 transition-colors hover:text-emas-500"
+                className={`text-xs transition-colors hover:text-emas-500 ${
+                  service.href.includes('/jakarta-') && service.href !== '/location/jakarta'
+                    ? 'pl-4 text-beton-300'
+                    : 'text-beton-200'
+                }`}
               >
                 {service.title}
               </a>

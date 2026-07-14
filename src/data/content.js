@@ -406,7 +406,12 @@ export const footer = {
     { title: "7 Tips Memilih Kontraktor Bore Pile Jakarta", href: "/blog/tips-memilih-kontraktor-bore-pile-jakarta.html" },
   ],
   serviceLinks: [
-    { title: "Jasa Bore Pile Jakarta", href: "/location/jakarta-pusat" },
+    { title: "Jasa Bore Pile Jakarta", href: "/location/jakarta" },
+    { title: "  Jakarta Pusat", href: "/location/jakarta-pusat" },
+    { title: "  Jakarta Selatan", href: "/location/jakarta-selatan" },
+    { title: "  Jakarta Barat", href: "/location/jakarta-barat" },
+    { title: "  Jakarta Timur", href: "/location/jakarta-timur" },
+    { title: "  Jakarta Utara", href: "/location/jakarta-utara" },
     { title: "Jasa Bore Pile Bogor", href: "/location/bogor" },
     { title: "Jasa Bore Pile Tangerang", href: "/location/tangerang" },
     { title: "Jasa Bore Pile Bekasi", href: "/location/bekasi" },
