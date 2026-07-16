@@ -210,7 +210,7 @@ export const serviceArea = [
 
 export const locationPages = [
   {
-    slug: "jasa-bore-pile-jakarta-pusat",
+    slug: "jakarta-pusat",
     city: "Jakarta Pusat",
     region: "DKI Jakarta",
     headline: "Jasa Bore Pile Jakarta Pusat – Kontraktor Pondasi Profesional",
@@ -222,7 +222,7 @@ export const locationPages = [
     metaDesc: "Jasa bore pile & strauss pile Jakarta Pusat sejak 2013. Survey gratis, harga bersaing. Melayani Menteng, Tanah Abang, Gambir, Senayan & area Jakpus lainnya. WA 0815-1481-1120.",
   },
   {
-    slug: "jasa-bore-pile-jakarta-selatan",
+    slug: "jakarta-selatan",
     city: "Jakarta Selatan",
     region: "DKI Jakarta",
     headline: "Jasa Bore Pile Jakarta Selatan – Kontraktor Pondasi Profesional",
@@ -234,7 +234,7 @@ export const locationPages = [
     metaDesc: "Jasa bore pile & strauss pile Jakarta Selatan sejak 2013. Survey gratis, harga bersaing. Melayani Kebayoran Baru, Tebet, Pancoran & area Jaksel lainnya. WA 0815-1481-1120.",
   },
   {
-    slug: "jasa-bore-pile-jakarta-barat",
+    slug: "jakarta-barat",
     city: "Jakarta Barat",
     region: "DKI Jakarta",
     headline: "Jasa Bore Pile Jakarta Barat – Kontraktor Pondasi Profesional",
@@ -246,7 +246,7 @@ export const locationPages = [
     metaDesc: "Jasa bore pile & strauss pile Jakarta Barat sejak 2013. Survey gratis, harga bersaing. Melayani Grogol, Cengkareng, Kalideres & area Jakbar lainnya. WA 0815-1481-1120.",
   },
   {
-    slug: "jasa-bore-pile-jakarta-timur",
+    slug: "jakarta-timur",
     city: "Jakarta Timur",
     region: "DKI Jakarta",
     headline: "Jasa Bore Pile Jakarta Timur – Kontraktor Pondasi Profesional",
@@ -258,7 +258,7 @@ export const locationPages = [
     metaDesc: "Jasa bore pile & strauss pile Jakarta Timur sejak 2013. Survey gratis, harga bersaing. Melayani Matraman, Jatinegara, Cakung & area Jaktim lainnya. WA 0815-1481-1120.",
   },
   {
-    slug: "jasa-bore-pile-jakarta-utara",
+    slug: "jakarta-utara",
     city: "Jakarta Utara",
     region: "DKI Jakarta",
     headline: "Jasa Bore Pile Jakarta Utara – Kontraktor Pondasi Profesional",
@@ -270,7 +270,7 @@ export const locationPages = [
     metaDesc: "Jasa bore pile & strauss pile Jakarta Utara sejak 2013. Survey gratis, harga bersaing. Melayani Kelapa Gading, Tanjung Priok, Koja & area Jakut lainnya. WA 0815-1481-1120.",
   },
   {
-    slug: "jasa-bore-pile-bogor",
+    slug: "bogor",
     city: "Bogor",
     region: "Jawa Barat",
     headline: "Jasa Bore Pile Bogor – Kontraktor Pondasi Profesional",
@@ -282,7 +282,7 @@ export const locationPages = [
     metaDesc: "Jasa bore pile & strauss pile Bogor sejak 2013. Survey gratis, harga bersaing. Melayani seluruh area Bogor & sekitarnya. WA 0815-1481-1120.",
   },
   {
-    slug: "jasa-bore-pile-depok",
+    slug: "depok",
     city: "Depok",
     region: "Jawa Barat",
     headline: "Jasa Bore Pile Depok – Kontraktor Pondasi Profesional",
@@ -294,7 +294,7 @@ export const locationPages = [
     metaDesc: "Jasa bore pile & strauss pile Depok sejak 2013. Survey gratis, harga bersaing. Melayani seluruh area Depok & sekitarnya. WA 0815-1481-1120.",
   },
   {
-    slug: "jasa-bore-pile-tangerang",
+    slug: "tangerang",
     city: "Tangerang",
     region: "Banten",
     headline: "Jasa Bore Pile Tangerang – Kontraktor Pondasi Profesional",
@@ -306,7 +306,7 @@ export const locationPages = [
     metaDesc: "Jasa bore pile & strauss pile Tangerang sejak 2013. Survey gratis, harga bersaing. Melayani BSD, Gading Serpong, Karawaci & seluruh Tangerang. WA 0815-1481-1120.",
   },
   {
-    slug: "jasa-bore-pile-bekasi",
+    slug: "bekasi",
     city: "Bekasi",
     region: "Jawa Barat",
     headline: "Jasa Bore Pile Bekasi – Kontraktor Pondasi Profesional",
@@ -318,7 +318,7 @@ export const locationPages = [
     metaDesc: "Jasa bore pile & strauss pile Bekasi sejak 2013. Survey gratis, harga bersaing. Melayani Cikarang, Tambun & seluruh area Bekasi. WA 0815-1481-1120.",
   },
   {
-    slug: "jasa-bore-pile-karawang",
+    slug: "karawang",
     city: "Karawang",
     region: "Jawa Barat",
     headline: "Jasa Bore Pile Karawang – Kontraktor Pondasi Profesional",
