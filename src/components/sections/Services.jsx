@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Building2, Droplets, Sprout, Ruler } from "lucide-react";
+import { Building2, Droplets, Sprout, Ruler, Search } from "lucide-react";
 import { services } from "../../data/content";
 import AnimatedSection from "../ui/AnimatedSection";
 import GradientHeading from "../ui/GradientHeading";
