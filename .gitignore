@@ -6,3 +6,4 @@ dist/
 __vite_retry__/
 *.md
 preview.log
+.vercel

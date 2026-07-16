@@ -4,7 +4,7 @@ import { services } from "../../data/content";
 import AnimatedSection from "../ui/AnimatedSection";
 import GradientHeading from "../ui/GradientHeading";
 
-const icons = { Building2, Droplets, Sprout, Ruler };
+const icons = { Building2, Droplets, Sprout, Ruler, Search };
 
 export default function Services() {
   return (

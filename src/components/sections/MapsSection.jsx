@@ -30,6 +30,7 @@ function MapsSection() {
   const [inView, setInView] = useState(true); // ponytail: start true to avoid hydration mismatch
   const [sectionVisible, setSectionVisible] = useState(true);
   const [MapContainer, setMapContainer] = useState(null);
+  const [LeafletComponents, setLeafletComponents] = useState(null);
 
   // IntersectionObserver for section fade
   useEffect(() => {
@@ -57,7 +58,7 @@ function MapsSection() {
       import("leaflet"),
       import("react-leaflet"),
       import("leaflet/dist/leaflet.css"),
-    ]).then(([leaflet]) => {
+    ]).then(([leaflet, reactLeaflet]) => {
       if (cancelled) return;
       delete leaflet.default.Icon.Default.prototype._getIconUrl;
       leaflet.default.Icon.Default.mergeOptions({
@@ -65,18 +66,15 @@ function MapsSection() {
         iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
         shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
       });
-    });
-    Promise.all([import("react-leaflet")]).then(([rl]) => {
-      if (cancelled) return;
-      setMapContainer(() => rl.MapContainer);
-      window.__rl = rl;
+      setMapContainer(() => reactLeaflet.MapContainer);
+      setLeafletComponents(() => reactLeaflet);
     });
     return () => { cancelled = true; };
   }, [inView]);
 
-  const mapContent = MapContainer ? (
+  const mapContent = MapContainer && LeafletComponents ? (
     (() => {
-      const { TileLayer, Marker, Popup } = window.__rl;
+      const { TileLayer, Marker, Popup } = LeafletComponents;
       return <div className="h-[400px] w-full rounded-md overflow-hidden border border-beton-200 shadow-sm sm:h-[450px]">
         <MapContainer center={OFFICE_COORDS} zoom={15} scrollWheelZoom={false} tap={true} touchZoom={true} doubleClickZoom={false} boxZoom={false} keyboard={false} className="h-full w-full">
           <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" maxZoom={19} minZoom={10} tileSize={256} zoomOffset={0} crossOrigin="" />

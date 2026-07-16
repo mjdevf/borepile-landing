@@ -1,8 +1,8 @@
 export const navLinks = [
   { label: "Beranda", href: "/", id: "nav-home" },
-  { label: "Tentang Kami", href: "/tentang", id: "nav-about" },
+  { label: "Tentang Kami", href: "/#tentang", id: "nav-about" },
   { label: "Layanan", href: "/#layanan", id: "nav-services" },
-  { label: "Portfolio", href: "/portfolio", id: "nav-portfolio" },
+  { label: "Portfolio", href: "/#portfolio", id: "nav-portfolio" },
   { label: "Lokasi & Layanan", href: "/location/jakarta-pusat", id: "nav-maps" },
   { label: "Kontak", href: "/#kontak", id: "nav-contact" },
 ];
@@ -57,7 +57,7 @@ export const services = [
   {
     title: "Soil Investigation",
     desc: "Uji sondir / soil test untuk analisis daya dukung tanah sebelum pembangunan. Investigasi tanah profesional untuk perencanaan fondasi yang tepat dan aman.",
-    icon: "Ruler",
+    icon: "Search",
     keywords: ["soil test", "soil investigation", "uji sondir", "daya dukung tanah"],
     link: "/#layanan",
   },

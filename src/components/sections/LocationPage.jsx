@@ -4,6 +4,24 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import AnimatedSection from "../ui/AnimatedSection";
 import { locationPages } from "../../data/content";
 import WhatsAppFloatingButton from "../ui/WhatsAppFloatingButton";
+import Navbar from "../layout/Navbar";
+
+class MapErrorBoundary extends React.Component {
+  state = { err: false };
+  static getDerivedStateFromError() { return { err: true }; }
+  render() {
+    if (this.state.err)
+      return (
+        <div className="h-96 flex items-center justify-center bg-beton-50 rounded-md border border-beton-200">
+          <div className="text-center">
+            <p className="text-beton-500 mb-2">Peta gagal dimuat.</p>
+            <button onClick={() => this.setState({ err: false })} className="text-emas-600 underline text-sm">Coba lagi</button>
+          </div>
+        </div>
+      );
+    return this.props.children;
+  }
+}
 
 // Leaflet icon fix
 import L from "leaflet";
@@ -34,6 +52,7 @@ const LocationPage = () => {
 
   return (
     <main className="bg-beton-50">
+      <Navbar />
       <AnimatedSection className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <nav className="mb-6 text-sm text-beton-600" aria-label="Breadcrumb">
@@ -135,7 +154,7 @@ const LocationPage = () => {
                   <a
                                       href="tel:+6281514811120"
                                       className="block w-full bg-beton-100 hover:bg-beton-200 text-beton-900 font-semibold py-3 px-6 rounded-md transition-colors text-center"
-                                    >
+                                      >
                                       Telepon: +62 815 1481 1120
                   </a>
                   <a
@@ -161,6 +180,7 @@ const LocationPage = () => {
       <AnimatedSection className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="h-96 rounded-md overflow-hidden border border-beton-200">
+            <MapErrorBoundary>
             <MapContainer
               center={officeCoords}
               zoom={15}
@@ -188,6 +208,7 @@ const LocationPage = () => {
                 </Popup>
               </Marker>
             </MapContainer>
+            </MapErrorBoundary>
           </div>
         </div>
       </AnimatedSection>
