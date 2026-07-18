@@ -118,7 +118,7 @@ export default function Hero() {
           <div className="h-[500px] w-full overflow-hidden rounded-xl border border-border-muted shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] lg:h-[600px]">
             <img
               src="/images/portfolio/02.jpg"
-              alt="Alat bor bore pile di proyek konstruksi"
+              alt="Jasa Bore Pile Majujaya - Pekerjaan pengeboran tanah untuk pondasi bangunan berpengalaman 12 tahun"
               className="h-full w-full object-cover"
               loading="eager"
             />

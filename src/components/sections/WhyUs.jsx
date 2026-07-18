@@ -15,7 +15,7 @@ export default function WhyUs() {
           Yang membedakan kami dari kontraktor bore pile lainnya.
         </p>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {about.highlights.map((item, i) => (
             <motion.div
               key={item.title}

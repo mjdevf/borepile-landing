@@ -91,6 +91,14 @@ export const about = {
       title: "Harga Kompetitif",
       desc: "Harga bersaing dengan kualitas terbaik untuk setiap proyek pengeboran.",
     },
+    {
+      title: "Cepat & Efisien",
+      desc: "Dapat menyelesaikan pekerjaan sesuai dengan waktu yang ditentukan berdasarkan work schedule.",
+    },
+    {
+      title: "Kepuasan Pelanggan",
+      desc: "Setiap pekerjaan dikerjakan sesuai spesifikasi dan kesepakatan awal yang sudah disepakati bersama.",
+    },
   ],
 };
 
