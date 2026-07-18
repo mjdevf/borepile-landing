@@ -206,6 +206,8 @@ export const serviceArea = [
   "Purwakarta",
   "Serang",
   "Cilegon",
+  "Subang",
+  "Cianjur",
 ];
 
 export const locationPages = [
@@ -328,6 +330,30 @@ export const locationPages = [
     areaCovered: ["Karawang Kota", "Klari", "Cikampek", "Purwasari", "Teluk Jambe", "Ciampel", "Rengasdengklok", "Batujaya"],
     image: "/images/portfolio/10.jpg",
     metaDesc: "Jasa bore pile & strauss pile Karawang sejak 2013. Survey gratis, harga bersaing. Melayani Cikampek, Klari & seluruh area Karawang. WA 0815-1481-1120.",
+  },
+  {
+    slug: "subang",
+    city: "Subang",
+    region: "Jawa Barat",
+    headline: "Jasa Bore Pile Subang – Kontraktor Pondasi Profesional",
+    intro: "Kami melayani jasa bore pile dan strauss pile di Subang termasuk Subang Kota, Ciasem, Patokbeusi, Pagaden, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile di Subang.",
+    keywords: ["bore pile subang", "jasa bore pile subang", "kontraktor pondasi subang", "strauss pile subang"],
+    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
+    areaCovered: ["Subang Kota", "Ciasem", "Patokbeusi", "Pagaden", "Pamanukan", "Binong", "Cibogo", "Cipeundeuy"],
+    image: "/images/portfolio/01.jpg",
+    metaDesc: "Jasa bore pile & strauss pile Subang sejak 2013. Survey gratis, harga bersaing. Melayani seluruh area Subang. WA 0815-1481-1120.",
+  },
+  {
+    slug: "cianjur",
+    city: "Cianjur",
+    region: "Jawa Barat",
+    headline: "Jasa Bore Pile Cianjur – Kontraktor Pondasi Profesional",
+    intro: "Kami melayani jasa bore pile dan strauss pile di Cianjur termasuk Cianjur Kota, Cipanas, Pacet, Sukaresmi, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile di Cianjur.",
+    keywords: ["bore pile cianjur", "jasa bore pile cianjur", "kontraktor pondasi cianjur", "strauss pile cianjur"],
+    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
+    areaCovered: ["Cianjur Kota", "Cipanas", "Pacet", "Sukaresmi", "Cilaku", "Cibeber", "Bojongpicung", "Karangtengah"],
+    image: "/images/portfolio/02.jpg",
+    metaDesc: "Jasa bore pile & strauss pile Cianjur sejak 2013. Survey gratis, harga bersaing. Melayani seluruh area Cianjur & sekitarnya. WA 0815-1481-1120.",
   },
 ];
 

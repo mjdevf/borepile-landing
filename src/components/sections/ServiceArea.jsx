@@ -1,6 +1,12 @@
 import { motion } from "motion/react";
 import { MapPin } from "lucide-react";
-import { serviceArea } from "../../data/content";
+import { serviceArea, locationPages } from "../../data/content";
+
+// Build slug lookup from locationPages data
+const slugMap = {};
+locationPages.forEach((loc) => {
+  slugMap[loc.city] = loc.slug;
+});
 
 export default function ServiceArea() {
   return (
@@ -17,29 +23,35 @@ export default function ServiceArea() {
             Area Layanan
           </h2>
           <p className="mt-3 text-base text-on-primary-container">
-            Wilayah yang kami layani untuk jasa pengeboran.
+            Klik kota untuk info layanan bore pile & strauss pile di wilayah tersebut.
           </p>
         </div>
 
         <div className="flex flex-wrap justify-center gap-3">
-          {serviceArea.map((city, i) => (
-            <motion.span
-              key={city}
-              initial={{ opacity: 0, scale: 0.85 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.4,
-                delay: i * 0.04,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              whileHover={{ scale: 1.08 }}
-              className="inline-flex items-center gap-2 rounded-lg border border-on-primary/20 bg-on-primary/5 px-4 py-3 text-sm font-medium text-on-primary/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.2)] transition-all hover:border-tertiary/40 hover:bg-primary-container hover:text-on-primary"
-            >
-              <MapPin className="h-4 w-4 shrink-0 text-accent-gold" />
-              {city}
-            </motion.span>
-          ))}
+          {serviceArea.map((city, i) => {
+            const slug = slugMap[city];
+            const Tag = slug ? motion.a : motion.span;
+
+            return (
+              <Tag
+                key={city}
+                {...(slug ? { href: `/location/${slug}` } : {})}
+                initial={{ opacity: 0, scale: 0.85 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.4,
+                  delay: i * 0.04,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                whileHover={{ scale: 1.08 }}
+                className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-on-primary/20 bg-on-primary/5 px-4 py-3 text-sm font-medium text-on-primary/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.2)] transition-all hover:border-tertiary/40 hover:bg-primary-container hover:text-on-primary"
+              >
+                <MapPin className="h-4 w-4 shrink-0 text-accent-gold" />
+                {city}
+              </Tag>
+            );
+          })}
         </div>
       </div>
     </section>
