@@ -169,7 +169,7 @@ const LocationPage = () => {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-tertiary" />
-                    <span>Garansi hasil pengeboran</span>
+                    <span>Hasil pengeboran sesuai spesifikasi</span>
                   </li>
                 </ul>
               </div>
