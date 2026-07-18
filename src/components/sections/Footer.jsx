@@ -144,7 +144,7 @@ export default function Footer() {
       </section>
 
       {/* Footer bottom */}
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-8 px-4 py-12 md:grid-cols-4 md:px-10">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-8 px-4 py-12 md:grid-cols-5 md:px-10">
         {/* Brand */}
         <div className="md:col-span-2">
           <h4 className="mb-4 text-2xl font-bold text-primary" style={{ letterSpacing: "-0.02em" }}>
@@ -165,12 +165,22 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Blog */}
+        {/* Blog & Artikel */}
         <div className="flex flex-col gap-2">
-          <h5 className="mb-2 text-xs font-semibold uppercase tracking-[0.05em] text-secondary">Blog</h5>
-          {footer.blogLinks.slice(0, 3).map((link) => (
+          <h5 className="mb-2 text-xs font-semibold uppercase tracking-[0.05em] text-secondary">Blog & Artikel</h5>
+          {footer.blogLinks.map((link) => (
             <a key={link.href} href={link.href} className="text-sm text-on-surface-variant transition-colors hover:text-tertiary-container">
               {link.title}
+            </a>
+          ))}
+        </div>
+
+        {/* Wilayah Layanan */}
+        <div className="flex flex-col gap-2">
+          <h5 className="mb-2 text-xs font-semibold uppercase tracking-[0.05em] text-secondary">Wilayah Layanan</h5>
+          {footer.serviceLinks.map((link) => (
+            <a key={link.href} href={link.href} className="text-sm text-on-surface-variant transition-colors hover:text-tertiary-container">
+              {link.title.trim()}
             </a>
           ))}
         </div>

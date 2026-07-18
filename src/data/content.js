@@ -491,5 +491,11 @@ export const footer = {
     { title: "Jasa Bore Pile Bekasi", href: "/location/bekasi" },
     { title: "Jasa Bore Pile Depok", href: "/location/depok" },
     { title: "Jasa Bore Pile Karawang", href: "/location/karawang" },
+    { title: "Jasa Bore Pile Cikarang", href: "/location/cikarang" },
+    { title: "Jasa Bore Pile Purwakarta", href: "/location/purwakarta" },
+    { title: "Jasa Bore Pile Serang", href: "/location/serang" },
+    { title: "Jasa Bore Pile Cilegon", href: "/location/cilegon" },
+    { title: "Jasa Bore Pile Subang", href: "/location/subang" },
+    { title: "Jasa Bore Pile Cianjur", href: "/location/cianjur" },
   ],
 };
