@@ -50,12 +50,6 @@ export default function Navbar() {
               {label}
             </a>
           ))}
-          <a
-            href="#kontak"
-            className="inline-flex h-[44px] items-center justify-center rounded-lg bg-primary px-6 text-xs font-semibold uppercase tracking-[0.05em] text-on-primary transition-all hover:bg-on-surface-variant active:scale-[0.98]"
-          >
-            Get a Quote
-          </a>
         </div>
 
         {/* Mobile hamburger */}
