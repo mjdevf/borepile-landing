@@ -94,13 +94,6 @@ export default function Navbar() {
                   {label}
                 </motion.a>
               ))}
-              <a
-                href="#kontak"
-                className="mt-4 inline-flex h-[44px] items-center justify-center rounded-lg bg-primary text-xs font-semibold uppercase tracking-[0.05em] text-on-primary"
-                onClick={() => setOpen(false)}
-              >
-                Get a Quote
-              </a>
             </div>
           </motion.div>
         )}
