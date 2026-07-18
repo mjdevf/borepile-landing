@@ -1,52 +1,71 @@
 import { motion } from "motion/react";
-import { Building2, Droplets, Sprout, Ruler, Search } from "lucide-react";
+import { Building2, Droplets, Ruler, Sprout, Search, Drill } from "lucide-react";
 import { services } from "../../data/content";
-import AnimatedSection from "../ui/AnimatedSection";
-import GradientHeading from "../ui/GradientHeading";
 
-const icons = { Building2, Droplets, Sprout, Ruler, Search };
+const icons = { Building2, Droplets, Ruler, Sprout, Search, Drill };
 
 export default function Services() {
   return (
-    <AnimatedSection id="layanan" className="relative bg-beton-50 py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <GradientHeading
-          label="What We Do"
-          title="Layanan Kami"
-          desc="Berbagai jenis jasa pengeboran yang kami sediakan untuk kebutuhan Anda."
-        />
+    <section
+      id="layanan"
+      className="border-y border-border-muted bg-surface-container-low px-4 py-16 md:px-10 md:py-24"
+    >
+      <div className="mx-auto w-full max-w-7xl space-y-12">
+        {/* Header */}
+        <div className="space-y-3">
+          <h2
+            className="max-w-2xl text-3xl font-semibold text-primary"
+            style={{ letterSpacing: "-0.01em", lineHeight: "1.3" }}
+          >
+            Layanan Kami
+          </h2>
+          <p className="max-w-2xl text-base text-secondary">
+            Layanan pondasi inti yang dirancang untuk kondisi tanah menantang dan lingkungan urban yang membutuhkan kapasitas beban tinggi.
+          </p>
+        </div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
+        {/* Cards grid */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((svc, i) => {
-            const Icon = icons[svc.icon] || Building2;
+            const Icon = icons[svc.icon] || Drill;
             return (
               <motion.div
                 key={svc.title}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="group relative overflow-hidden border border-beton-200 bg-white p-4 transition-all duration-500 hover:shadow-lg hover:shadow-emas-600/5"
+                transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                className="group flex h-full flex-col rounded-lg border border-border-muted bg-surface p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] transition-colors hover:border-outline"
               >
-                <div className="absolute inset-x-0 top-0 h-0.5 scale-x-0 bg-emas-600 transition-transform duration-300 group-hover:scale-x-100" />
-
-                <div className="flex items-start gap-3">
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center bg-emas-600 text-white transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-emas-600/20">
-                    <Icon className="h-7 w-7" />
-                  </div>
-
-                  <div className="min-w-0">
-                    <h3 className="text-lg font-bold text-tanah-900">{svc.title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-beton-700">
-                      {svc.desc}
-                    </p>
-                  </div>
+                {/* Icon box */}
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded bg-secondary-container text-tertiary-container transition-transform group-hover:scale-110">
+                  <Icon className="h-5 w-5" />
                 </div>
+
+                {/* Title */}
+                <h3 className="mb-2 text-lg font-bold text-primary">{svc.title}</h3>
+
+                {/* Description */}
+                <p className="mb-6 flex-grow text-sm leading-relaxed text-secondary">{svc.desc}</p>
+
+                {/* Tech tags */}
+                {svc.keywords && (
+                  <div className="mt-auto flex flex-wrap gap-1.5">
+                    {svc.keywords.slice(0, 2).map((kw) => (
+                      <span
+                        key={kw}
+                        className="rounded border border-border-muted px-2 py-0.5 font-mono text-xs text-secondary"
+                      >
+                        {kw}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </motion.div>
             );
           })}
         </div>
       </div>
-    </AnimatedSection>
+    </section>
   );
 }

@@ -9,7 +9,7 @@ export default function WhatsAppFloatingButton() {
       href={`https://wa.me/${footer.wa}?text=${MSG}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed right-4 bottom-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-beton-900 text-white shadow-lg transition-all duration-200 hover:bg-emas-700 hover:scale-110 sm:right-6 sm:bottom-6"
+      className="fixed right-4 bottom-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-on-primary shadow-lg transition-all duration-200 hover:bg-on-surface-variant hover:scale-110 sm:right-6 sm:bottom-6"
       aria-label="Chat via WhatsApp"
     >
       <Phone className="h-6 w-6" />

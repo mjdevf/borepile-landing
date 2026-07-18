@@ -2,49 +2,47 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import { faq } from "../../data/content";
-import AnimatedSection from "../ui/AnimatedSection";
-import GradientHeading from "../ui/GradientHeading";
 
 function AccordionItem({ item, isOpen, onClick, idx }) {
   const contentRef = useRef(null);
 
   return (
     <div
-      className={`overflow-hidden border rounded-md border-beton-200 transition-all duration-300 ${
-        isOpen ? "border-emas-600 bg-emas-600/[0.02]" : "hover:border-beton-300"
+      className={`overflow-hidden rounded-lg border border-border-muted transition-all ${
+        isOpen ? "shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)]" : ""
       }`}
     >
       <button
         onClick={onClick}
-        className="flex w-full items-center justify-between px-6 py-5 text-left focus-visible:ring-2 focus-visible:ring-emas-500 focus-visible:ring-offset-2 focus-visible:outline-none"
+        className={`flex w-full items-center justify-between px-5 py-4 text-left text-sm font-semibold transition-colors ${
+          isOpen ? "text-primary" : "text-on-surface"
+        }`}
+        aria-expanded={isOpen}
       >
-        <span className="flex items-start gap-3 pr-4 text-sm font-bold text-tanah-900 sm:text-base">
-          <span className="mt-0.5 text-xs font-black text-emas-600">
-            {String(idx + 1).padStart(2, "0")}
-          </span>
-          {item.q}
-        </span>
+        <span>{item.q}</span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.2 }}
+          className="ml-4 shrink-0"
         >
-          <ChevronDown
-            className={`h-4 w-4 shrink-0 transition-colors duration-300 ${
-              isOpen ? "text-emas-600" : "text-beton-200"
-            }`}
-          />
+          <ChevronDown className="h-4 w-4 text-secondary" />
         </motion.div>
       </button>
-      <div
-        className="overflow-hidden transition-[height] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
-        style={{ height: isOpen ? contentRef.current?.scrollHeight + 24 + "px" : "0px" }}
-      >
-        <div ref={contentRef}>
-          <p className="px-6 pb-6 text-sm leading-relaxed text-beton-700">
-            {item.a}
-          </p>
-        </div>
-      </div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            ref={contentRef}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <div className="border-t border-border-muted px-5 py-4 text-sm leading-relaxed text-secondary">
+              {item.a}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -53,33 +51,32 @@ export default function FAQ() {
   const [openIdx, setOpenIdx] = useState(null);
 
   return (
-    <AnimatedSection className="relative bg-beton-50 py-20 sm:py-28">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <GradientHeading
-          label="FAQ"
-          title="Pertanyaan Umum"
-          desc="Pertanyaan yang sering diajukan."
-        />
+    <section className="bg-surface px-4 py-16 md:px-10 md:py-24">
+      <div className="mx-auto max-w-3xl">
+        <div className="mb-10 text-center">
+          <h2
+            className="text-3xl font-semibold text-primary"
+            style={{ letterSpacing: "-0.01em", lineHeight: "1.3" }}
+          >
+            Pertanyaan Umum
+          </h2>
+          <p className="mt-3 text-base text-secondary">
+            Jawaban untuk pertanyaan yang sering diajukan.
+          </p>
+        </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="space-y-3">
           {faq.map((item, i) => (
-            <motion.div
+            <AccordionItem
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
-            >
-              <AccordionItem
-                item={item}
-                idx={i}
-                isOpen={openIdx === i}
-                onClick={() => setOpenIdx(openIdx === i ? null : i)}
-              />
-            </motion.div>
+              item={item}
+              idx={i}
+              isOpen={openIdx === i}
+              onClick={() => setOpenIdx(openIdx === i ? null : i)}
+            />
           ))}
         </div>
       </div>
-    </AnimatedSection>
+    </section>
   );
 }

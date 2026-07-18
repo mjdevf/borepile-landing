@@ -9,33 +9,33 @@ export default function GradientHeading({
   return (
     <div className={`mb-14 ${center ? 'text-center' : ''} ${className}`}>
       {label && (
-        <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.25em] text-emas-600">
+        <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.05em] text-secondary">
           {label}
         </span>
       )}
       <h2
-        className={`text-4xl font-black tracking-tight sm:text-5xl ${
-          light ? 'text-white' : 'text-tanah-900'
+        className={`text-4xl font-bold tracking-tight sm:text-5xl ${
+          light ? 'text-on-primary' : 'text-primary'
         }`}
+        style={{ letterSpacing: '-0.02em', lineHeight: '1.2' }}
       >
         {light ? (
           title
         ) : (
-          <span className="text-gradient">{title}</span>
+          <span>{title}</span>
         )}
       </h2>
       {desc && (
         <p
-          className={`mx-auto mt-4 max-w-xl text-lg leading-relaxed ${
-            light ? 'text-beton-200' : 'text-beton-700'
+          className={`mx-auto mt-4 max-w-xl text-base leading-relaxed ${
+            light ? 'text-secondary' : 'text-secondary'
           }`}
         >
           {desc}
         </p>
       )}
-      {/* underline decoration */}
       <div
-        className={`mx-auto mt-5 h-0.5 w-16 rounded-full bg-gradient-to-r from-emas-600 to-emas-400 ${
+        className={`mt-5 h-0.5 w-16 rounded-full bg-primary/10 ${
           center ? 'mx-auto' : ''
         }`}
       />

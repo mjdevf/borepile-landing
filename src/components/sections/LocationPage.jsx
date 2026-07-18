@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import AnimatedSection from "../ui/AnimatedSection";
 import { locationPages } from "../../data/content";
@@ -12,10 +12,10 @@ class MapErrorBoundary extends React.Component {
   render() {
     if (this.state.err)
       return (
-        <div className="h-96 flex items-center justify-center bg-beton-50 rounded-md border border-beton-200">
+        <div className="flex h-96 items-center justify-center rounded-lg border border-border-muted bg-surface-container-low">
           <div className="text-center">
-            <p className="text-beton-500 mb-2">Peta gagal dimuat.</p>
-            <button onClick={() => this.setState({ err: false })} className="text-emas-600 underline text-sm">Coba lagi</button>
+            <p className="mb-2 text-secondary">Peta gagal dimuat.</p>
+            <button onClick={() => this.setState({ err: false })} className="text-sm text-tertiary underline">Coba lagi</button>
           </div>
         </div>
       );
@@ -38,10 +38,11 @@ const LocationPage = () => {
 
   if (!location) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-beton-50">
+      <div className="flex min-h-screen items-center justify-center bg-background">
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-beton-900 mb-4">Lokasi Tidak Ditemukan</h1>
-          <p className="text-beton-700">Halaman layanan ini mungkin belum tersedia.</p>
+          <h1 className="mb-4 text-3xl font-bold text-primary">Lokasi Tidak Ditemukan</h1>
+          <p className="text-secondary">Halaman layanan ini mungkin belum tersedia.</p>
+          <Link to="/" className="mt-6 inline-block text-sm text-tertiary underline">Kembali ke Beranda</Link>
         </div>
       </div>
     );
@@ -51,46 +52,34 @@ const LocationPage = () => {
   const whatsappUrl = "https://wa.me/6281514811120";
 
   return (
-    <main className="bg-beton-50">
+    <main className="bg-background">
       <Navbar />
-      <AnimatedSection className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <nav className="mb-6 text-sm text-beton-600" aria-label="Breadcrumb">
-            <ol className="flex items-center space-x-2 text-[#5A5A5A]">
-              <li>
-                <a href="/" className="hover:text-emas-600 transition-colors">
-                  Beranda
-                </a>
-              </li>
-              <li className="text-[#B0B0B0]">/</li>
-              <li>
-                <a href="/#layanan" className="hover:text-emas-600 transition-colors">
-                  Layanan
-                </a>
-              </li>
-              <li className="text-[#B0B0B0]">/</li>
-              <li className="text-beton-900 font-semibold" aria-current="page">
-                {location.city}
-              </li>
+      {/* Hero */}
+      <AnimatedSection className="bg-surface pt-[72px] pb-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          {/* Breadcrumb */}
+          <nav className="mb-6 text-sm text-secondary" aria-label="Breadcrumb">
+            <ol className="flex items-center gap-2">
+              <li><Link to="/" className="transition-colors hover:text-tertiary">Beranda</Link></li>
+              <li className="text-outline">/</li>
+              <li><Link to="/#layanan" className="transition-colors hover:text-tertiary">Layanan</Link></li>
+              <li className="text-outline">/</li>
+              <li className="font-semibold text-primary" aria-current="page">{location.city}</li>
             </ol>
           </nav>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-beton-900 mb-6">
-            {location.headline}
-          </h1>
+          <h1 className="mb-6 text-4xl font-bold text-primary md:text-5xl">{location.headline}</h1>
+          <p className="mb-8 text-lg leading-relaxed text-secondary">{location.intro}</p>
 
-          <p className="text-lg text-beton-700 mb-8 leading-relaxed">
-            {location.intro}
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {/* Services grid */}
+          <div className="mb-12 grid grid-cols-1 gap-4 md:grid-cols-3">
             {location.services.map((service, index) => (
               <div
                 key={index}
-                className="bg-beton-50 p-6 rounded-md border border-beton-200 hover:border-emas-300 hover:shadow-md transition-all"
+                className="rounded-lg border border-border-muted bg-surface-container-low p-5 transition-all hover:border-outline hover:shadow-sm"
               >
-                <h3 className="font-bold text-beton-900 mb-2">{service}</h3>
-                <p className="text-sm text-beton-700">
+                <h3 className="mb-2 font-bold text-primary">{service}</h3>
+                <p className="text-sm text-secondary">
                   Layanan bore pile {service.toLowerCase()} profesional untuk {location.city}.
                 </p>
               </div>
@@ -99,17 +88,17 @@ const LocationPage = () => {
         </div>
       </AnimatedSection>
 
-      <AnimatedSection className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <h2 className="text-3xl font-bold text-beton-900 mb-8 text-center">
+      {/* Area covered */}
+      <AnimatedSection className="bg-surface-container-low py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <h2 className="mb-8 text-center text-3xl font-bold text-primary">
             Area Terlayani di {location.city}
           </h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          <div className="mb-12 grid grid-cols-2 gap-3 md:grid-cols-4">
             {location.areaCovered.map((area, index) => (
               <div
                 key={index}
-                className="bg-emas-50 text-beton-800 px-4 py-3 rounded-full text-center font-medium border border-emas-200"
+                className="rounded-full border border-border-muted bg-surface px-4 py-2.5 text-center text-sm font-medium text-primary"
               >
                 {area}
               </div>
@@ -118,55 +107,53 @@ const LocationPage = () => {
         </div>
       </AnimatedSection>
 
-      <AnimatedSection className="py-12 bg-beton-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-            <h2 className="text-3xl font-bold text-beton-900 mb-6 text-center">
+      {/* CTA section */}
+      <AnimatedSection className="bg-surface-container-low py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="rounded-xl border border-border-muted bg-surface p-8 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] md:p-12">
+            <h2 className="mb-6 text-center text-3xl font-bold text-primary">
               Konsultasi Gratis untuk {location.city}
             </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
               <div>
-                <h3 className="text-xl font-semibold text-beton-900 mb-4">Mengapa Pilih Kami?</h3>
-                <ul className="space-y-3 text-beton-700">
+                <h3 className="mb-4 text-xl font-semibold text-primary">Mengapa Pilih Kami?</h3>
+                <ul className="space-y-3 text-secondary">
                   <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-emas-500 rounded-full mt-2" />
+                    <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-tertiary" />
                     <span>Berpengalaman 12+ tahun di Jakarta</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-emas-500 rounded-full mt-2" />
+                    <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-tertiary" />
                     <span>250+ proyek selesai di seluruh Jabodetabek</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-emas-500 rounded-full mt-2" />
+                    <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-tertiary" />
                     <span>Survey lokasi gratis tanpa biaya</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-emas-500 rounded-full mt-2" />
+                    <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-tertiary" />
                     <span>Garansi hasil pengeboran</span>
                   </li>
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold text-beton-900 mb-4">Hubungi Kami</h3>
+                <h3 className="mb-4 text-xl font-semibold text-primary">Hubungi Kami</h3>
                 <div className="space-y-4">
                   <a
-                                      href="tel:+6281514811120"
-                                      className="block w-full bg-beton-100 hover:bg-beton-200 text-beton-900 font-semibold py-3 px-6 rounded-md transition-colors text-center"
-                                      >
-                                      Telepon: +62 815 1481 1120
+                    href="tel:+6281514811120"
+                    className="block w-full rounded-lg bg-surface-container-low py-3 px-6 text-center font-semibold text-primary transition-colors hover:bg-surface-container"
+                  >
+                    Telepon: +62 815 1481 1120
                   </a>
                   <a
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full bg-emas-500 hover:bg-emas-600 text-white font-semibold py-3 px-6 rounded-md transition-colors text-center flex items-center justify-center gap-2"
+                    className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 px-6 text-center font-semibold text-on-primary transition-colors hover:bg-on-surface-variant"
                   >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M17.472 14.382A10.244 10.244 0 0 0 12 3C6.477 3 2 7.477 2 13c0 2.005.646 3.875 1.718 5.471l-1.318 4.475 4.575-1.236A10.236 10.236 0 0 0 17.472 14.382z" />
-                      <path d="M17.472 14.382A10.244 10.244 0 0 0 12 3C6.477 3 2 7.477 2 13c0 2.005.646 3.875 1.718 5.471l-1.318 4.475 4.575-1.236A10.236 10.236 0 0 0 17.472 14.382z" />
-                      <path d="M15.5 8.5L9 15l-2-1 7.5-7.5L18 10.5l-2.5-1z" />
                     </svg>
                     Chat WhatsApp
                   </a>
@@ -177,37 +164,38 @@ const LocationPage = () => {
         </div>
       </AnimatedSection>
 
-      <AnimatedSection className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="h-96 rounded-md overflow-hidden border border-beton-200">
+      {/* Map */}
+      <AnimatedSection className="bg-surface py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="h-96 overflow-hidden rounded-lg border border-border-muted">
             <MapErrorBoundary>
-            <MapContainer
-              center={officeCoords}
-              zoom={15}
-              scrollWheelZoom={false}
-              className="h-full w-full"
-            >
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              <Marker position={officeCoords}>
-                <Popup>
-                  <div className="p-3">
-                    <strong className="text-beton-900">Majujaya Bore Pile</strong>
-                    <p className="text-sm text-beton-700 mt-1">Jl. Ophir Dalam 2 RT.06/01 NO.61, Gunung, Kebayoran Baru, Jakarta Selatan</p>
-                    <a
-                      href={whatsappUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block mt-2 px-4 py-2 bg-emas-500 text-white text-sm font-medium rounded hover:bg-emas-600 transition-colors"
-                    >
-                      Hubungi via WhatsApp
-                    </a>
-                  </div>
-                </Popup>
-              </Marker>
-            </MapContainer>
+              <MapContainer
+                center={officeCoords}
+                zoom={15}
+                scrollWheelZoom={false}
+                className="h-full w-full"
+              >
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <Marker position={officeCoords}>
+                  <Popup>
+                    <div className="p-3">
+                      <strong className="text-primary">Majujaya Bore Pile</strong>
+                      <p className="mt-1 text-sm text-secondary">Jl. Ophir Dalam 2 RT.06/01 NO.61, Gunung, Kebayoran Baru, Jakarta Selatan</p>
+                      <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2 inline-block rounded bg-primary px-4 py-2 text-sm font-medium text-on-primary transition-colors hover:bg-on-surface-variant"
+                      >
+                        Hubungi via WhatsApp
+                      </a>
+                    </div>
+                  </Popup>
+                </Marker>
+              </MapContainer>
             </MapErrorBoundary>
           </div>
         </div>

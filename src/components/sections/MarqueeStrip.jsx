@@ -1,32 +1,30 @@
-import { motion } from "motion/react";
-
-const text = "BOREPILE • SUMUR BOR • IRIGASI • SOIL TEST • PONDASI • KONSTRUKSI • ";
-
 export default function MarqueeStrip() {
-  return (
-    <div className="relative overflow-hidden bg-gradient-to-r from-beton-950 via-tanah-950 to-beton-950 py-5">
-      {/* gold top border */}
-      <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-emas-600/60 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-emas-600/30 to-transparent" />
+  const logos = [
+    "KONTRAKTOR NASIONAL", "PROPERTI INDONESIA", "KONSULTAN STRUKTUR",
+    "PENGEMBANG PERUMAHAN", "KONTRAKTOR NASIONAL", "PROPERTI INDONESIA",
+  ];
 
-      <motion.div
-        className="flex whitespace-nowrap"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{
-          repeat: Infinity,
-          ease: "linear",
-          duration: 20,
-        }}
-      >
-        {[...Array(4)].map((_, i) => (
+  return (
+    <section className="border-y border-border-muted bg-surface py-6 overflow-hidden">
+      <div className="flex animate-marquee gap-12 whitespace-nowrap">
+        {[...logos, ...logos].map((text, i) => (
           <span
             key={i}
-            className="mx-6 text-base font-black uppercase tracking-[0.2em] text-emas-500/80 sm:text-lg"
+            className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary"
           >
             {text}
           </span>
         ))}
-      </motion.div>
-    </div>
+      </div>
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          animation: marquee 30s linear infinite;
+        }
+      `}</style>
+    </section>
   );
 }

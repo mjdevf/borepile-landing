@@ -1,9 +1,9 @@
 import { motion } from "motion/react";
 
 const variants = {
-  fill: "bg-emas-600 text-white hover:bg-emas-700",
+  fill: "bg-primary text-on-primary hover:bg-on-surface-variant",
   outline:
-    "border-2 border-tanah-800 text-tanah-800 hover:bg-tanah-800 hover:text-white",
+    "border-2 border-primary text-primary hover:bg-primary hover:text-on-primary",
 };
 
 export default function Button({
@@ -14,22 +14,16 @@ export default function Button({
   ...props
 }) {
   const base =
-    "inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-emas-500 focus-visible:ring-offset-2";
+    "inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold uppercase tracking-wider transition-all duration-200 rounded active:scale-[0.98]";
 
   const Tag = href ? "a" : "button";
   return (
-    <motion.div
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.97 }}
-      className="inline-block"
+    <Tag
+      href={href}
+      className={`${base} ${variants[variant]} ${className}`}
+      {...props}
     >
-      <Tag
-        href={href}
-        className={`${base} ${variants[variant]} ${className}`}
-        {...props}
-      >
-        {children}
-      </Tag>
-    </motion.div>
+      {children}
+    </Tag>
   );
 }

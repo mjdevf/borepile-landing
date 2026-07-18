@@ -1,80 +1,74 @@
 import { motion } from "motion/react";
-import { about, hero } from "../../data/content";
-import AnimatedSection from "../ui/AnimatedSection";
-import GradientHeading from "../ui/GradientHeading";
+import { about } from "../../data/content";
 
 export default function AboutUs() {
   return (
-    <AnimatedSection
+    <section
       id="tentang"
-      className="relative bg-white py-20 sm:py-28"
+      className="border-t border-border-muted bg-surface px-4 py-16 md:px-10 md:py-24"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <GradientHeading
-          label="About Us"
-          title={about.title}
-          desc="Mengenal lebih dekat siapa kami."
-        />
+      <div className="mx-auto max-w-4xl text-center">
+        <h2
+          className="mb-4 text-3xl font-semibold text-primary"
+          style={{ letterSpacing: "-0.01em", lineHeight: "1.3" }}
+        >
+          Integritas Struktural & Keselamatan
+        </h2>
+        <p className="mb-12 text-base leading-relaxed text-secondary">
+          {about.desc}
+        </p>
 
-        {/* Owner / Pimpinan */}
-        <div className="mx-auto mb-14 max-w-3xl text-center">
-          <img
-            src="/images/subiyanto-borepile.jpg"
-            alt="Subiyanto - Pimpinan Majujaya Bore Pile"
-            className="mx-auto mb-4 h-28 w-28 rounded-full border-4 border-emas-200 object-cover shadow-lg"
-            loading="lazy"
-          />
-          <p className="text-sm font-bold uppercase tracking-[0.15em] text-emas-700">
-            {hero.owner}
-          </p>
-          <p className="text-xs text-beton-700">
-            {hero.ownerTitle}
-          </p>
+        {/* Quality assurances */}
+        <div className="flex flex-col justify-center gap-8 md:flex-row md:gap-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col items-center"
+          >
+            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded bg-secondary-container text-tertiary-container">
+              <span className="text-xl">⚙️</span>
+            </div>
+            <span className="text-xs font-semibold uppercase tracking-[0.05em] text-secondary">Zero Accident Policy</span>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex flex-col items-center"
+          >
+            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded bg-secondary-container text-tertiary-container">
+              <span className="text-xl">🔧</span>
+            </div>
+            <span className="text-xs font-semibold uppercase tracking-[0.05em] text-secondary">Alat Berat Terawat</span>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex flex-col items-center"
+          >
+            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded bg-secondary-container text-tertiary-container">
+              <span className="text-xl">✅</span>
+            </div>
+            <span className="text-xs font-semibold uppercase tracking-[0.05em] text-secondary">Presisi Eksekusi</span>
+          </motion.div>
         </div>
 
-        {/* Visi */}
-        <div className="mx-auto mb-14 max-w-3xl text-center">
-          <p className="mt-2 text-sm leading-relaxed text-beton-800 sm:text-lg">
-            {about.desc}
-          </p>
-          <div className="mx-auto mt-6 max-w-2xl rounded-md border border-emas-200 bg-emas-50/50 p-5">
-            <p className="text-xs font-bold uppercase tracking-[0.15em] text-emas-600">
-              Visi Kami
-            </p>
-            <p className="mt-2 text-sm italic leading-relaxed text-beton-800">
+        {/* Owner */}
+        <div className="mx-auto mt-12 max-w-md">
+          <div className="rounded-lg border border-border-muted bg-surface-container-low p-5">
+            <p className="text-sm font-bold text-primary">Subiyanto</p>
+            <p className="text-xs text-secondary">Pimpinan Majujaya Bore Pile</p>
+            <p className="mt-2 text-sm italic leading-relaxed text-secondary">
               &ldquo;{about.vision}&rdquo;
             </p>
           </div>
-          <p className="mx-auto mt-6 max-w-2xl text-xs font-medium uppercase tracking-[0.1em] text-beton-700">
-            {hero.coverage}
-          </p>
-        </div>
-
-        {/* Highlights grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {about.highlights.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{
-                duration: 0.5,
-                delay: i * 0.08,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="group rounded-md border border-beton-200 bg-beton-50 p-6 text-center transition-all duration-300 hover:border-emas-600/30 hover:shadow-lg hover:shadow-emas-600/5"
-            >
-              <h3 className="text-sm font-bold uppercase tracking-wider text-tanah-900">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-beton-700">
-                {item.desc}
-              </p>
-            </motion.div>
-          ))}
         </div>
       </div>
-    </AnimatedSection>
+    </section>
   );
 }

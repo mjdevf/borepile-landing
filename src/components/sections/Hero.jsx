@@ -1,125 +1,130 @@
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
-import { hero, footer } from "../../data/content";
-import Button from "../ui/Button";
+import { motion } from "motion/react";
+import { Phone, ArrowRight } from "lucide-react";
+import { hero, trustBar, footer } from "../../data/content";
 
-// Responsive hero images with WebP optimization
-const heroImages = {
-  mobile: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=75&fm=webp",
-  tablet: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200&q=75&fm=webp",
-  desktop: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=75&fm=webp",
-  fallback: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80",
-};
+const MSG = "Halo%20Majujaya%20Bore%20Pile%2C%20saya%20ingin%20konsultasi%20tentang%20pengeboran.";
 
 export default function Hero() {
-  const sectionRef = useRef(null);
-  const { scrollY } = useScroll();
-  const bgY = useTransform(scrollY, [0, 600], [0, 200]);
-  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
-
   return (
     <section
-      ref={sectionRef}
       id="hero"
-      className="relative flex min-h-[100dvh] items-center overflow-hidden bg-beton-950"
+      className="relative flex min-h-[90vh] w-full items-center overflow-hidden bg-surface-container-low pt-[72px]"
     >
-      {/* Background Image with Parallax - Responsive & Optimized */}
-      <motion.div
-        className="pointer-events-none absolute inset-0"
-        style={{ y: bgY }}
-      >
-        <picture>
-          <source media="(max-width: 640px)" srcSet={heroImages.mobile} type="image/webp" />
-          <source media="(max-width: 1024px)" srcSet={heroImages.tablet} type="image/webp" />
-          <source media="(min-width: 1025px)" srcSet={heroImages.desktop} type="image/webp" />
-          <img
-            src={heroImages.fallback}
-            alt="Jasa Bore Pile Majujaya - Pekerjaan pengeboran tanah untuk pondasi bangunan berpengalaman 12 tahun"
-            className="h-full w-full object-cover"
-            width="1600"
-            height="900"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-          />
-        </picture>
-        {/* Dark overlay for text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-beton-950/50 via-beton-950/30 to-beton-950/10" />
-      </motion.div>
+      {/* Background image */}
+      <div className="absolute inset-0 h-full w-full">
+        <div
+          className="h-full w-full bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=75&fm=webp')",
+          }}
+        />
+        <div className="absolute inset-0 bg-surface/80 backdrop-blur-sm md:bg-surface/60" />
+      </div>
 
-      {/* Content */}
-      <motion.div
-        style={{ opacity }}
-        className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-28 pt-28 sm:px-6"
-      >
-        <div className="max-w-3xl">
-          <motion.p
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 gap-6 px-4 py-12 md:grid-cols-12 md:px-10">
+        {/* Text content */}
+        <div className="flex flex-col justify-center md:col-span-8 lg:col-span-7">
+          {/* Badge */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="mb-2 text-xs font-bold uppercase tracking-[0.25em] text-emas-500"
+            transition={{ duration: 0.5 }}
+            className="mb-4 inline-flex w-max items-center gap-1.5 rounded-full border border-border-muted bg-surface px-3 py-1 font-mono text-xs text-secondary shadow-sm"
           >
-            Majujaya Bore Pile
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            <span className="h-2 w-2 rounded-full bg-success-green" />
+            Kontraktor Pondasi Profesional
+          </motion.div>
+
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-beton-200"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-6 text-4xl font-bold leading-tight tracking-tight text-primary md:text-6xl md:leading-[1.15]"
+            style={{ letterSpacing: "-0.02em" }}
           >
-            {hero.owner} — {hero.ownerTitle}
-          </motion.p>
+            {hero.headline}
+          </motion.h1>
 
-          <h1 className="text-5xl font-black leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl">
-                      {hero.headline.split(" ").map((word, i) => (
-                        <motion.span
-                          key={i}
-                          initial={{ opacity: 0, y: 40, scale: 0.9 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          transition={{
-                            duration: 0.8,
-                            delay: 0.2 + i * 0.09,
-                            ease: [0.22, 1, 0.36, 1],
-                          }}
-                          className="inline-block mr-[0.3em]"
-                        >
-                          {word}{" "}
-                        </motion.span>
-                      ))}
-                    </h1>
-
+          {/* Subheadline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
-            className="mt-6 max-w-xl text-base leading-relaxed text-beton-200 sm:text-lg"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mb-12 max-w-2xl text-base leading-relaxed text-on-surface-variant"
           >
             {hero.subheadline}
           </motion.p>
 
+          {/* CTA buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
-            className="mt-8 flex flex-wrap gap-4"
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-col gap-3 sm:flex-row"
           >
-            <Button
-              href={`https://wa.me/${footer.wa}`}
-              variant="fill"
-              className="shadow-lg shadow-emas-600/20"
+            <a
+              href={`https://wa.me/${footer.wa}?text=${MSG}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-[52px] items-center justify-center gap-2 rounded bg-primary px-8 text-xs font-semibold uppercase tracking-[0.05em] text-on-primary transition-all hover:scale-[0.98] active:scale-[0.96]"
             >
+              <Phone className="h-4 w-4" />
               {hero.cta}
-            </Button>
-            <Button
+            </a>
+            <a
               href="#portfolio"
-              variant="outline"
-              className="border-white/20 text-white hover:bg-white hover:text-beton-900 focus-visible:ring-2 focus-visible:ring-emas-500 focus-visible:ring-offset-2 focus-visible:ring-offset-beton-950"
+              className="inline-flex h-[52px] items-center justify-center gap-2 rounded border border-border-muted bg-surface px-8 text-xs font-semibold uppercase tracking-[0.05em] text-secondary transition-all hover:bg-surface-container-low"
             >
               {hero.ctaSecondary}
-            </Button>
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </motion.div>
+
+          {/* Stats strip */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="mt-12 grid grid-cols-2 gap-4 border-t border-border-muted pt-8 sm:grid-cols-4"
+          >
+            {trustBar.items.map((item) => (
+              <div key={item.label}>
+                <div className="mb-1 font-mono text-xs uppercase text-secondary">{item.label}</div>
+                <div className="text-3xl font-bold text-primary" style={{ letterSpacing: "-0.01em" }}>
+                  {item.value}
+                  <span className="ml-0.5 text-base text-secondary">{item.suffix}</span>
+                </div>
+              </div>
+            ))}
+            <div>
+              <div className="mb-1 font-mono text-xs uppercase text-secondary">Diameter</div>
+              <div className="text-3xl font-bold text-primary" style={{ letterSpacing: "-0.01em" }}>
+                30-80<span className="ml-0.5 text-base text-secondary">cm</span>
+              </div>
+            </div>
+            <div>
+              <div className="mb-1 font-mono text-xs uppercase text-secondary">Kedalaman Maks</div>
+              <div className="text-3xl font-bold text-primary" style={{ letterSpacing: "-0.01em" }}>
+                30<span className="ml-0.5 text-base text-secondary">m</span>
+              </div>
+            </div>
           </motion.div>
         </div>
-      </motion.div>
+
+        {/* Right image (desktop only) */}
+        <div className="hidden items-center justify-end md:col-span-4 md:flex lg:col-span-5">
+          <div className="h-[500px] w-full overflow-hidden rounded-xl border border-border-muted shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] lg:h-[600px]">
+            <img
+              src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=75&fm=webp"
+              alt="Alat bor bore pile di proyek konstruksi"
+              className="h-full w-full object-cover"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

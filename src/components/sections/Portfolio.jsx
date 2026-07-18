@@ -1,145 +1,116 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "motion/react";
 import { portfolioImages } from "../../data/content";
-import AnimatedSection from "../ui/AnimatedSection";
-import GradientHeading from "../ui/GradientHeading";
 
-const bgColors = [
-  ["%23036", "%231a2a44"],
-  ["%232a1a44", "%231a2a44"],
-  ["%23362", "%231a2a44"],
-  ["%23333", "%23036"],
-  ["%231a1a2a", "%23036"],
-  ["%232a2a1a", "%231a2a44"],
-];
-function svgPlaceholder(label, idx) {
-  const [c1, c2] = bgColors[idx % bgColors.length];
-  return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cdefs%3E%3ClinearGradient id='g${idx}' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='${c1}' /%3E%3Cstop offset='100%25' stop-color='${c2}' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g${idx})' width='800' height='600' /%3E%3Crect x='0' y='0' width='800' height='600' fill='rgba(0,0,0,0.15)' /%3E%3Ctext x='400' y='290' text-anchor='middle' fill='%23f5d686' font-size='28' font-weight='bold' font-family='sans-serif'%3E${encodeURIComponent(label)}%3C/text%3E%3Ctext x='400' y='330' text-anchor='middle' fill='%23d4a843' font-size='16' font-family='sans-serif'%3EProyek%20Borepile%3C/text%3E%3C/svg%3E`;
-}
+const PROJECT_TYPES = ["Commercial", "Residential", "Infrastructure"];
+const STATUSES = ["Completed", "In-Progress"];
 
 export default function Portfolio() {
-  const [selected, setSelected] = useState(null);
-
-  useEffect(() => {
-    document.body.style.overflow = selected !== null ? "hidden" : "";
-  }, [selected]);
-
-  const prev = () => setSelected((s) => (s === 0 ? portfolioImages.length - 1 : s - 1));
-  const next = () => setSelected((s) => (s === portfolioImages.length - 1 ? 0 : s + 1));
-
-  useEffect(() => {
-    if (selected === null) return;
-    const handler = (e) => {
-      if (e.key === "Escape") setSelected(null);
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [selected]);
+  // Show first 4 images as bento grid
+  const projects = portfolioImages.slice(0, 4);
 
   return (
-    <>
-      <AnimatedSection id="portfolio" className="bg-beton-100 py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <GradientHeading
-            label="Portfolio"
-            title="Hasil Pekerjaan Kami"
-            desc="Beberapa hasil pekerjaan yang sudah kami selesaikan."
-          />
-
-          <div className="grid gap-4 grid-cols-2 md:grid-cols-3 auto-rows-[200px]">
-            {portfolioImages.map((img, i) => (
-              <motion.button
-                key={i}
-                initial={{ opacity: 1 }}
-                whileHover={{ scale: 1.02 }}
-                onClick={() => setSelected(i)}
-                className="group relative overflow-hidden bg-beton-300 text-left focus-visible:ring-2 focus-visible:ring-emas-500 focus-visible:ring-offset-2"
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  onError={(e) => {
-                    e.target.src = svgPlaceholder(img.label, i);
-                  }}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <div className="absolute inset-x-0 bottom-0 translate-y-4 p-5 transition-transform duration-500 group-hover:translate-y-0">
-                  <p className="text-sm font-bold text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                    {img.label}
-                  </p>
-                </div>
-              </motion.button>
-            ))}
+    <section
+      id="portfolio"
+      className="bg-surface px-4 py-16 md:px-10 md:py-24"
+    >
+      <div className="mx-auto w-full max-w-7xl space-y-12">
+        {/* Header */}
+        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+          <div className="space-y-3">
+            <h2
+              className="max-w-2xl text-3xl font-semibold text-primary"
+              style={{ letterSpacing: "-0.01em", lineHeight: "1.3" }}
+            >
+              Portofolio Proyek
+            </h2>
+            <p className="max-w-2xl text-base text-secondary">
+              Proyek pondasi yang telah kami selesaikan di berbagai kondisi geoteknik.
+            </p>
+          </div>
+          {/* Filter pills */}
+          <div className="flex flex-wrap gap-2">
+            <button className="rounded-full border-2 border-primary-container bg-surface px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.05em] text-primary-container transition-colors hover:bg-surface-container-low">
+              All Projects
+            </button>
+            <button className="rounded-full border border-border-muted bg-transparent px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.05em] text-secondary transition-colors hover:border-secondary">
+              Completed
+            </button>
           </div>
         </div>
-      </AnimatedSection>
 
-      <AnimatePresence>
-        {selected !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"
-            onClick={() => setSelected(null)}
-          >
-            <button
-              className="absolute right-4 top-4 z-10 text-white/70 hover:text-white focus-visible:ring-2 focus-visible:ring-white"
-              onClick={() => setSelected(null)}
-              aria-label="Tutup"
-            >
-              <X className="h-8 w-8" />
-            </button>
-
-            <button
-              className="absolute left-4 top-1/2 z-10 -translate-y-1/2 text-white/70 hover:text-white focus-visible:ring-2 focus-visible:ring-white"
-              onClick={(e) => { e.stopPropagation(); prev(); }}
-              aria-label="Sebelumnya"
-            >
-              <ChevronLeft className="h-10 w-10" />
-            </button>
-
-            <motion.div
-              key={selected}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="relative"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <img
-                src={portfolioImages[selected].src}
-                alt={portfolioImages[selected].alt}
-                onError={(e) => {
-                  e.target.src = svgPlaceholder(portfolioImages[selected].label, selected);
-                }}
-                className="max-h-[75vh] max-w-full rounded object-contain shadow-2xl"
-              />
-              <div className="absolute inset-x-0 bottom-0 rounded-b bg-gradient-to-t from-black/60 to-transparent p-4 pt-8">
-                <p className="text-sm font-bold text-white">
-                  {portfolioImages[selected].label}
-                </p>
-                <p className="text-xs text-white/60">
-                  {selected + 1} / {portfolioImages.length}
-                </p>
+        {/* Bento grid */}
+        <div className="grid h-auto grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-2 md:h-[560px]">
+          {/* Hero project — spans 2 cols, 2 rows */}
+          <div className="group relative overflow-hidden rounded-lg border border-border-muted shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] md:col-span-2 md:row-span-2">
+            <img
+              src={projects[0]?.src || "/images/portfolio/01.jpg"}
+              alt={projects[0]?.alt || "Proyek bore pile"}
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#191c1e]/90 via-[#191c1e]/40 to-transparent" />
+            <div className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full border border-surface/30 bg-surface/20 px-2.5 py-1 font-mono text-xs text-on-primary backdrop-blur-sm">
+              <span className="h-2 w-2 rounded-full bg-success-green" />
+              Completed
+            </div>
+            <div className="absolute bottom-0 left-0 flex w-full flex-col items-start gap-2 p-5 md:flex-row md:items-end md:justify-between">
+              <div>
+                <span className="mb-1 inline-block rounded border border-surface/30 bg-surface/20 px-1.5 py-0.5 font-mono text-[10px] text-on-primary backdrop-blur-sm">
+                  COMMERCIAL HIGH-RISE
+                </span>
+                <h3 className="text-2xl font-bold text-on-primary">Jakarta Business District</h3>
               </div>
-            </motion.div>
+              <div className="flex items-end gap-1.5 font-mono text-xs text-on-primary">
+                <span className="rounded border border-on-primary/20 bg-primary/50 px-2 py-1 backdrop-blur-sm">
+                  Ø 60cm
+                </span>
+                <span className="rounded border border-on-primary/20 bg-primary/50 px-2 py-1 backdrop-blur-sm">
+                  Depth 24m
+                </span>
+              </div>
+            </div>
+          </div>
 
-            <button
-              className="absolute right-4 top-1/2 z-10 -translate-y-1/2 text-white/70 hover:text-white focus-visible:ring-2 focus-visible:ring-white"
-              onClick={(e) => { e.stopPropagation(); next(); }}
-              aria-label="Selanjutnya"
-            >
-              <ChevronRight className="h-10 w-10" />
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+          {/* Project 2 */}
+          <div className="group relative h-[260px] overflow-hidden rounded-lg border border-border-muted shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] md:h-auto">
+            <img
+              src={projects[1]?.src || "/images/portfolio/02.jpg"}
+              alt={projects[1]?.alt || "Strauss pile manual"}
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#191c1e]/90 via-[#191c1e]/40 to-transparent" />
+            <div className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full border border-surface/30 bg-surface/20 px-2.5 py-1 font-mono text-xs text-on-primary backdrop-blur-sm">
+              <span className="h-2 w-2 rounded-full bg-safety-orange" />
+              In-Progress
+            </div>
+            <div className="absolute bottom-0 left-0 w-full p-4">
+              <span className="mb-1 inline-block rounded border border-surface/30 bg-surface/20 px-1.5 py-0.5 font-mono text-[10px] text-on-primary backdrop-blur-sm">
+                RESIDENTIAL
+              </span>
+              <h3 className="text-lg font-bold text-on-primary">Suburban Housing Complex</h3>
+            </div>
+          </div>
+
+          {/* Project 3 */}
+          <div className="group relative h-[260px] overflow-hidden rounded-lg border border-border-muted shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] md:h-auto">
+            <img
+              src={projects[2]?.src || "/images/portfolio/03.jpg"}
+              alt={projects[2]?.alt || "Pengecoran bore pile"}
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#191c1e]/90 via-[#191c1e]/40 to-transparent" />
+            <div className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full border border-surface/30 bg-surface/20 px-2.5 py-1 font-mono text-xs text-on-primary backdrop-blur-sm">
+              <span className="h-2 w-2 rounded-full bg-success-green" />
+              Completed
+            </div>
+            <div className="absolute bottom-0 left-0 w-full p-4">
+              <span className="mb-1 inline-block rounded border border-surface/30 bg-surface/20 px-1.5 py-0.5 font-mono text-[10px] text-on-primary backdrop-blur-sm">
+                INFRASTRUCTURE
+              </span>
+              <h3 className="text-lg font-bold text-on-primary">Bridge Abutment Support</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

@@ -12,9 +12,8 @@ import ServiceArea from "./components/sections/ServiceArea";
 import HowItWorks from "./components/sections/HowItWorks";
 import FAQ from "./components/sections/FAQ";
 import { lazy, Suspense } from "react";
-import Footer from "./components/sections/Footer";
-
 import SectionDivider from "./components/ui/SectionDivider";
+import Footer from "./components/sections/Footer";
 
 // Lazy load heavy components for better code splitting
 const MapsSection = lazy(() => import("./components/sections/MapsSection"));
@@ -25,20 +24,19 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <AboutUs />
-        <TrustBar />
         <MarqueeStrip />
         <Services />
-        <WhyUs />
         <Portfolio />
+        <AboutUs />
+        <WhyUs />
+        <TrustBar />
         <TestimonialSection />
-        <SectionDivider flip />
-        <ServiceArea />
         <HowItWorks />
         <FAQ />
-        {/* Lazy load maps with fallback - not critical for initial load */}
+        <ServiceArea />
+        {/* Lazy load maps with fallback */}
         <Suspense fallback={
-          <div className="h-64 w-full bg-gradient-to-b from-beton-50 to-beton-100 animate-pulse" aria-live="polite" aria-label="Memuat peta lokasi" />
+          <div className="h-64 w-full bg-surface-container-low animate-pulse" aria-live="polite" aria-label="Memuat peta lokasi" />
         }>
           <MapsSection />
         </Suspense>

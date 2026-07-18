@@ -1,137 +1,185 @@
 import { motion } from "motion/react";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import { hero, footer } from "../../data/content";
-import Button from "../ui/Button";
-import AnimatedSection from "../ui/AnimatedSection";
+import { footer } from "../../data/content";
+import { Phone, Mail, MapPin, Clock, ChevronRight } from "lucide-react";
+import { navLinks } from "../../data/content";
 
 export default function Footer() {
   return (
-    <AnimatedSection
-      id="kontak"
-      className="relative bg-beton-950 py-16 text-white sm:py-24"
-    >
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emas-600 to-transparent opacity-50" />
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        {/* CTA */}
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
-            Siap Mulai Proyek?
-          </h2>
-          <p className="mx-auto mt-4 max-w-lg text-lg leading-relaxed text-beton-200">
-            Hubungi kami sekarang untuk konsultasi gratis dan survey lokasi.
-          </p>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-8"
-          >
-            <Button
-              href={`https://wa.me/${footer.wa}`}
-              variant="fill"
-              className="!bg-emerald-600 shadow-lg shadow-emerald-600/20 hover:!bg-emerald-700 focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-beton-950"
-            >
-              Chat WhatsApp
-            </Button>
-          </motion.div>
-        </div>
-
-        {/* Brand area */}
-        <div className="mx-auto mb-12 max-w-lg text-center">
-          <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-emas-600 to-emas-800 text-lg font-black text-white">
-            MJ
-          </div>
-          <p className="text-sm font-bold text-white">{footer.company}</p>
-          <p className="mt-1 text-xs text-beton-200">{footer.tagline}</p>
-          <p className="mt-1 text-xs italic text-beton-300">
-            {hero.owner} — {hero.ownerTitle}
-          </p>
-        </div>
-
-        {/* Contact grid */}
-        <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { icon: Phone, label: footer.phone, sub: "Telepon", link: `tel:${footer.phone.replace(/\s+/g, "")}` },
-            { icon: Mail, label: footer.email, sub: "Email", link: `mailto:${footer.email}` },
-            { icon: Clock, label: footer.hours, sub: "Jam Kerja" },
-            { icon: MapPin, label: footer.address, sub: "Alamat" },
-          ].map((item, i) => {
-            const Icon = item.icon;
-            const Wrapper = item.link ? "a" : "div";
-            return (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+    <footer className="border-t border-border-muted bg-surface-container-low">
+      {/* Contact + CTA section */}
+      <section id="kontak" className="border-b border-border-muted bg-surface-container-high px-4 py-16 md:px-10 md:py-24">
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 lg:grid-cols-12">
+          {/* Left — Contact Info */}
+          <div className="flex flex-col gap-6 lg:col-span-5">
+            <div className="space-y-3">
+              <h2
+                className="text-3xl font-semibold text-primary"
+                style={{ letterSpacing: "-0.01em", lineHeight: "1.3" }}
               >
-                <Wrapper
-                  href={item.link}
-                  className="flex items-center gap-3 rounded-md border border-beton-800 bg-beton-900/50 p-4 transition-all duration-300 hover:border-emas-600/30 hover:bg-beton-900"
-                >
-                  <Icon className="h-5 w-5 shrink-0 text-emas-500" />
-                  <div className="min-w-0">
-                    <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-beton-300">
-                      {item.sub}
-                    </p>
-                    <p className="mt-0.5 text-sm font-semibold break-words">{item.label}</p>
+                Hubungi Kami
+              </h2>
+              <p className="text-base text-secondary">
+                Berikan spesifikasi proyek Anda. Tim geoteknik kami akan menganalisis kebutuhan dan mengusulkan strategi pondasi yang optimal.
+              </p>
+            </div>
+
+            {/* Contact info card */}
+            <div className="rounded-lg border border-border-muted bg-surface p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)]">
+              <h3 className="mb-5 text-xl font-bold text-primary">Kontak Langsung</h3>
+              <div className="space-y-4 text-sm text-secondary">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant">
+                    <MapPin className="h-4 w-4" />
                   </div>
-                </Wrapper>
-              </motion.div>
-            );
-          })}
-        </div>
+                  <div>
+                    <p className="mb-0.5 text-xs font-semibold uppercase tracking-[0.05em] text-on-surface-variant">Kantor</p>
+                    <p className="text-on-surface">{footer.address}</p>
+                  </div>
+                </div>
+                <div className="h-px bg-border-muted" />
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant">
+                    <Phone className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="mb-0.5 text-xs font-semibold uppercase tracking-[0.05em] text-on-surface-variant">WhatsApp</p>
+                    <p className="font-mono text-on-surface">+62 {footer.phone}</p>
+                  </div>
+                </div>
+                <div className="h-px bg-border-muted" />
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant">
+                    <Mail className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="mb-0.5 text-xs font-semibold uppercase tracking-[0.05em] text-on-surface-variant">Email</p>
+                    <p className="font-mono text-on-surface">{footer.email}</p>
+                  </div>
+                </div>
+                <div className="h-px bg-border-muted" />
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant">
+                    <Clock className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="mb-0.5 text-xs font-semibold uppercase tracking-[0.05em] text-on-surface-variant">Jam Kerja</p>
+                    <p className="text-on-surface">{footer.hours}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        {/* Blog section */}
-        <div className="mx-auto mt-14 max-w-lg text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.15em] text-beton-300">
-            Blog & Artikel
-          </p>
-          <div className="mt-3 flex flex-col gap-2">
-            {footer.blogLinks.map((blog) => (
-              <a
-                key={blog.href}
-                href={blog.href}
-                className="text-xs text-beton-200 transition-colors hover:text-emas-500"
-              >
-                {blog.title}
-              </a>
-            ))}
+          {/* Right — Contact Form */}
+          <div className="lg:col-span-7">
+            <form
+              action="#"
+              method="POST"
+              className="rounded-lg border border-border-muted bg-surface p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] md:p-8"
+            >
+              <div className="space-y-5">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="name" className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.05em] text-secondary">
+                      Nama / Perusahaan
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder="Nama atau Perusahaan"
+                      className="w-full rounded border border-outline-variant bg-surface-container-lowest p-2.5 text-sm text-on-surface transition-colors focus:border-tertiary-container focus:outline-none focus:ring-1 focus:ring-tertiary-container"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.05em] text-secondary">
+                      No. Telepon
+                    </label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="+62..."
+                      className="w-full rounded border border-outline-variant bg-surface-container-lowest p-2.5 text-sm text-on-surface transition-colors focus:border-tertiary-container focus:outline-none focus:ring-1 focus:ring-tertiary-container"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="service" className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.05em] text-secondary">
+                    Layanan
+                  </label>
+                  <select
+                    id="service"
+                    name="service"
+                    className="w-full appearance-none rounded border border-outline-variant bg-surface-container-lowest p-2.5 text-sm text-on-surface transition-colors focus:border-tertiary-container focus:outline-none focus:ring-1 focus:ring-tertiary-container"
+                  >
+                    <option>Jasa Bore Pile Mesin</option>
+                    <option>Strauss Pile Manual</option>
+                    <option>Sondir / Soil Testing</option>
+                    <option>General Consultation</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="details" className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.05em] text-secondary">
+                    Detail Proyek
+                  </label>
+                  <textarea
+                    id="details"
+                    name="details"
+                    rows={4}
+                    placeholder="Lokasi, estimasi jumlah titik, kondisi tanah..."
+                    className="w-full rounded border border-outline-variant bg-surface-container-lowest p-2.5 text-sm text-on-surface transition-colors focus:border-tertiary-container focus:outline-none focus:ring-1 focus:ring-tertiary-container"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="flex h-[52px] w-full items-center justify-center gap-2 rounded bg-primary text-xs font-semibold uppercase tracking-[0.05em] text-on-primary transition-all hover:scale-[0.98] active:scale-[0.96]"
+                >
+                  Kirim Permintaan
+                </button>
+              </div>
+            </form>
           </div>
         </div>
+      </section>
 
-        {/* Service Areas section */}
-        <div className="mx-auto mt-10 max-w-lg text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.15em] text-beton-300">
-            Wilayah Layanan
+      {/* Footer bottom */}
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-8 px-4 py-12 md:grid-cols-4 md:px-10">
+        {/* Brand */}
+        <div className="md:col-span-2">
+          <h4 className="mb-4 text-2xl font-bold text-primary" style={{ letterSpacing: "-0.02em" }}>
+            {footer.company}
+          </h4>
+          <p className="mb-6 max-w-sm text-sm text-on-surface-variant">
+            {footer.tagline}. Kontraktor pondasi dalam profesional yang menghadirkan solusi pengeboran mekanis dan manual yang andal di seluruh Indonesia.
           </p>
-          <div className="mt-3 flex flex-col gap-2">
-            {footer.serviceLinks.map((service) => (
-              <a
-                key={service.href}
-                href={service.href}
-                className={`text-xs transition-colors hover:text-emas-500 ${
-                  service.href.includes('/jakarta-') && service.href !== '/location/jakarta'
-                    ? 'pl-4 text-beton-300'
-                    : 'text-beton-200'
-                }`}
-              >
-                {service.title}
-              </a>
-            ))}
-          </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-14 border-t border-beton-800 pt-8 text-center">
-          <p className="text-xs text-beton-400">
-            &copy; {new Date().getFullYear()} {footer.company}. All rights reserved.
-          </p>
+        {/* Navigation */}
+        <div className="flex flex-col gap-2">
+          <h5 className="mb-2 text-xs font-semibold uppercase tracking-[0.05em] text-secondary">Navigasi</h5>
+          {navLinks.map((link) => (
+            <a key={link.href} href={link.href} className="text-sm text-on-surface-variant transition-colors hover:text-tertiary-container">
+              {link.label}
+            </a>
+          ))}
+        </div>
+
+        {/* Blog */}
+        <div className="flex flex-col gap-2">
+          <h5 className="mb-2 text-xs font-semibold uppercase tracking-[0.05em] text-secondary">Blog</h5>
+          {footer.blogLinks.slice(0, 3).map((link) => (
+            <a key={link.href} href={link.href} className="text-sm text-on-surface-variant transition-colors hover:text-tertiary-container">
+              {link.title}
+            </a>
+          ))}
         </div>
       </div>
-    </AnimatedSection>
+
+      {/* Copyright */}
+      <div className="border-t border-border-muted px-4 py-6 text-center font-mono text-xs text-secondary md:px-10">
+        &copy; 2024 {footer.company}. Engineering Integrity &amp; Structural Trust.
+      </div>
+    </footer>
   );
 }
