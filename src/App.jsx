@@ -13,6 +13,7 @@ import HowItWorks from "./components/sections/HowItWorks";
 import FAQ from "./components/sections/FAQ";
 import { lazy, Suspense } from "react";
 import SectionDivider from "./components/ui/SectionDivider";
+import ScrollToTop from "./components/ui/ScrollToTop";
 import Footer from "./components/sections/Footer";
 
 // Lazy load heavy components for better code splitting
@@ -41,6 +42,7 @@ export default function App() {
         }>
           <MapsSection />
         </Suspense>
+        <ScrollToTop />
         <Footer />
       </main>
     </>
