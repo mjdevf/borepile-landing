@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { ShieldCheck, Wrench, Target } from "lucide-react";
 import { about } from "../../data/content";
 
 export default function AboutUs() {
@@ -27,8 +28,8 @@ export default function AboutUs() {
             transition={{ duration: 0.5 }}
             className="flex flex-col items-center"
           >
-            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded bg-secondary-container text-tertiary-container">
-              <span className="text-xl">⚙️</span>
+            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-secondary-container text-tertiary-container">
+              <ShieldCheck className="h-5 w-5" />
             </div>
             <span className="text-xs font-semibold uppercase tracking-[0.05em] text-secondary">Zero Accident Policy</span>
           </motion.div>
@@ -39,8 +40,8 @@ export default function AboutUs() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex flex-col items-center"
           >
-            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded bg-secondary-container text-tertiary-container">
-              <span className="text-xl">🔧</span>
+            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-secondary-container text-tertiary-container">
+              <Wrench className="h-5 w-5" />
             </div>
             <span className="text-xs font-semibold uppercase tracking-[0.05em] text-secondary">Alat Berat Terawat</span>
           </motion.div>
@@ -51,8 +52,8 @@ export default function AboutUs() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex flex-col items-center"
           >
-            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded bg-secondary-container text-tertiary-container">
-              <span className="text-xl">✅</span>
+            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-secondary-container text-tertiary-container">
+              <Target className="h-5 w-5" />
             </div>
             <span className="text-xs font-semibold uppercase tracking-[0.05em] text-secondary">Presisi Eksekusi</span>
           </motion.div>

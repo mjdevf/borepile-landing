@@ -38,7 +38,7 @@ export default function Services() {
                 className="group flex h-full flex-col rounded-lg border border-border-muted bg-surface p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] transition-colors hover:border-outline"
               >
                 {/* Icon box */}
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded bg-secondary-container text-tertiary-container transition-transform group-hover:scale-110">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-secondary-container text-tertiary-container transition-transform group-hover:scale-110">
                   <Icon className="h-5 w-5" />
                 </div>
 

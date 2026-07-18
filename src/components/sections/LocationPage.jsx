@@ -188,7 +188,7 @@ const LocationPage = () => {
                         href={whatsappUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-2 inline-block rounded bg-primary px-4 py-2 text-sm font-medium text-on-primary transition-colors hover:bg-on-surface-variant"
+                        className="mt-2 inline-block rounded-lg bg-primary px-4 py-2 text-sm font-medium text-on-primary transition-colors hover:bg-on-surface-variant"
                       >
                         Hubungi via WhatsApp
                       </a>

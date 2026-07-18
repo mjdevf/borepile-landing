@@ -133,7 +133,7 @@ export default function Footer() {
                 </div>
                 <button
                   type="submit"
-                  className="flex h-[52px] w-full items-center justify-center gap-2 rounded bg-primary text-xs font-semibold uppercase tracking-[0.05em] text-on-primary transition-all hover:scale-[0.98] active:scale-[0.96]"
+                  className="inline-flex h-[52px] w-full items-center justify-center gap-2 rounded-lg bg-primary text-xs font-semibold uppercase tracking-[0.05em] text-on-primary transition-all hover:scale-[0.98] active:scale-[0.96]"
                 >
                   Kirim Permintaan
                 </button>

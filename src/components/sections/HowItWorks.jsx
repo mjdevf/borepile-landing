@@ -28,7 +28,7 @@ export default function HowItWorks() {
               className="flex items-start gap-5"
             >
               {/* Step number */}
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-secondary-container font-mono text-sm font-bold text-tertiary-container">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-secondary-container font-mono text-sm font-bold text-tertiary-container">
                 {step.step}
               </div>
               <div className="border-b border-border-muted pb-8 flex-1">

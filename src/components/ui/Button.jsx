@@ -14,7 +14,7 @@ export default function Button({
   ...props
 }) {
   const base =
-    "inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold uppercase tracking-wider transition-all duration-200 rounded active:scale-[0.98]";
+    "inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold uppercase tracking-wider transition-all duration-200 rounded-lg active:scale-[0.98]";
 
   const Tag = href ? "a" : "button";
   return (

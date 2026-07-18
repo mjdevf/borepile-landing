@@ -16,7 +16,7 @@ export default function Hero() {
           className="h-full w-full bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=75&fm=webp')",
+              "url('/images/portfolio/01.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-surface/80 backdrop-blur-sm md:bg-surface/60" />
@@ -68,14 +68,14 @@ export default function Hero() {
               href={`https://wa.me/${footer.wa}?text=${MSG}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-[52px] items-center justify-center gap-2 rounded bg-primary px-8 text-xs font-semibold uppercase tracking-[0.05em] text-on-primary transition-all hover:scale-[0.98] active:scale-[0.96]"
+              className="inline-flex h-[52px] items-center justify-center gap-2 rounded-lg bg-primary px-8 text-xs font-semibold uppercase tracking-[0.05em] text-on-primary transition-all hover:scale-[0.98] active:scale-[0.96]"
             >
               <Phone className="h-4 w-4" />
               {hero.cta}
             </a>
             <a
               href="#portfolio"
-              className="inline-flex h-[52px] items-center justify-center gap-2 rounded border border-border-muted bg-surface px-8 text-xs font-semibold uppercase tracking-[0.05em] text-secondary transition-all hover:bg-surface-container-low"
+              className="inline-flex h-[52px] items-center justify-center gap-2 rounded-lg border border-border-muted bg-surface px-8 text-xs font-semibold uppercase tracking-[0.05em] text-secondary transition-all hover:bg-surface-container-low"
             >
               {hero.ctaSecondary}
               <ArrowRight className="h-4 w-4" />
@@ -117,7 +117,7 @@ export default function Hero() {
         <div className="hidden items-center justify-end md:col-span-4 md:flex lg:col-span-5">
           <div className="h-[500px] w-full overflow-hidden rounded-xl border border-border-muted shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] lg:h-[600px]">
             <img
-              src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=75&fm=webp"
+              src="/images/portfolio/02.jpg"
               alt="Alat bor bore pile di proyek konstruksi"
               className="h-full w-full object-cover"
               loading="eager"

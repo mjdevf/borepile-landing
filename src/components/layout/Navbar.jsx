@@ -40,7 +40,7 @@ export default function Navbar() {
           ))}
           <a
             href="#kontak"
-            className="inline-flex h-[44px] items-center justify-center rounded bg-primary px-6 text-xs font-semibold uppercase tracking-[0.05em] text-on-primary transition-all hover:bg-on-surface-variant active:scale-[0.98]"
+            className="inline-flex h-[44px] items-center justify-center rounded-lg bg-primary px-6 text-xs font-semibold uppercase tracking-[0.05em] text-on-primary transition-all hover:bg-on-surface-variant active:scale-[0.98]"
           >
             Get a Quote
           </a>
@@ -84,7 +84,7 @@ export default function Navbar() {
               ))}
               <a
                 href="#kontak"
-                className="mt-4 inline-flex h-[44px] items-center justify-center rounded bg-primary text-xs font-semibold uppercase tracking-[0.05em] text-on-primary"
+                className="mt-4 inline-flex h-[44px] items-center justify-center rounded-lg bg-primary text-xs font-semibold uppercase tracking-[0.05em] text-on-primary"
                 onClick={() => setOpen(false)}
               >
                 Get a Quote
