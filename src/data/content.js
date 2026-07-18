@@ -359,6 +359,11 @@ export const locationPages = [
     areaCovered: ["Subang Kota", "Ciasem", "Patokbeusi", "Pagaden", "Pamanukan", "Binong", "Cibogo", "Cipeundeuy"],
     image: "/images/portfolio/01.jpg",
     metaDesc: "Jasa bore pile & strauss pile Subang sejak 2013. Survey gratis, harga bersaing. Melayani seluruh area Subang. WA 0815-1481-1120.",
+    soilInfo: "Wilayah Subang bagian utara (Pamanukan, Patokbeusi, Ciasem) merupakan area pesisir dan persawahan dengan tanah lunak serta muka air tanah tinggi. Bagian selatan (Subang Kota, Cibogo) memiliki kontur lebih stabil karena berada di kaki Gunung Tangkuban Perahu. Perbedaan karakteristik tanah ini memerlukan pendekatan perencanaan pondasi yang berbeda per lokasi.",
+    faq: [
+      { q: "Apakah bore pile diperlukan untuk bangunan di Subang yang sebagian besar area persawahan?", a: "Sangat diperlukan. Tanah bekas sawah di Subang utara memiliki daya dukung rendah dan rawan ambles. Pondasi bore pile menyalurkan beban bangunan ke lapisan tanah keras di kedalaman 8-15 meter. Banyak bangunan baru di Subang mewajibkan bore pile sebagai standar konstruksi." },
+      { q: "Apakah tim Majujaya bisa menjangkau proyek di Subang yang jaraknya cukup jauh?", a: "Tentu, tim kami sudah melayani Subang dan sekitarnya. Mobilisasi alat tidak masalah karena kami memiliki armada sendiri. Biaya mobilisasi sudah termasuk dalam RAB yang kami berikan. Kami bisa mulai survey lokasi dalam 1-2 hari kerja setelah konfirmasi." },
+    ],
   },
   {
     slug: "cianjur",
@@ -371,6 +376,11 @@ export const locationPages = [
     areaCovered: ["Cianjur Kota", "Cipanas", "Pacet", "Sukaresmi", "Cilaku", "Cibeber", "Bojongpicung", "Karangtengah"],
     image: "/images/portfolio/02.jpg",
     metaDesc: "Jasa bore pile & strauss pile Cianjur sejak 2013. Survey gratis, harga bersaing. Melayani seluruh area Cianjur & sekitarnya. WA 0815-1481-1120.",
+    soilInfo: "Wilayah Cianjur sebagian besar berada di zona Patahan Lembang dengan karakteristik tanah vulkanik dan alluvial. Tanah keras umumnya ditemukan di kedalaman bervariasi -- di area Cipanas dan Pacet relatif dangkal (4-8 meter), sementara di Cianjur Kota dan Bojongpicung bisa mencapai 10-15 meter. Gempa mikro sering terjadi di Cianjur sehingga kualitas pondasi menjadi prioritas utama.",
+    faq: [
+      { q: "Apakah kondisi gempa di Cianjur mempengaruhi desain bore pile?", a: "Iya, Cianjur berada di zona rawan gempa. Desain bore pile harus mempertimbangkan beban lateral dan momen gempa sesuai standar SNI 1726. Tim Majujaya menyesuaikan spesifikasi pondasi dengan kondisi seismik daerah setempat. Untuk bangunan di Cianjur, kami biasanya merekomendasikan tulangan tambahan pada bore pile." },
+      { q: "Berapa lama proses bore pile untuk rumah di Cipanas atau Pacet?", a: "Untuk rumah di area Cipanas dan Pacet, rata-rata pengerjaan 3-5 hari untuk 8-12 titik bore pile dengan kedalaman 6-12 meter. Akses lokasi di area perbukitan perlu dipertimbangkan dalam jadwal. Tim kami akan survey dulu dan kasih estimasi waktu yang realistis." },
+    ],
   },
   {
     slug: "cikarang",
@@ -383,6 +393,11 @@ export const locationPages = [
     areaCovered: ["Cikarang Selatan", "Cikarang Pusat", "Cikarang Barat", "Cikarang Timur", "Cikarang Utara", "Lemahabang", "Cibitung", "Tambun"],
     image: "/images/portfolio/03.jpg",
     metaDesc: "Jasa bore pile & strauss pile Cikarang sejak 2013. Survey gratis, harga bersaing. Melayani kawasan industri Cikarang & sekitarnya. WA 0815-1481-1120.",
+    soilInfo: "Cikarang berada di area dataran rendah dengan tanah alluvial yang relatif stabil. Lapisan tanah keras biasanya ditemukan di kedalaman 6-12 meter. Sebagai pusat kawasan industri terbesar di Indonesia (Jababeka, MM2100, EJIP, Delta Silicon), hampir semua proyek di Cikarang memerlukan bore pile dengan spesifikasi teknis yang ketat sesuai standar pabrik.",
+    faq: [
+      { q: "Apa standar bore pile yang biasa diminta oleh kawasan industri di Cikarang?", a: "Kawasan industri di Cikarang seperti Jababeka, MM2100, EJIP, dan Delta Silicon umumnya mensyaratkan bore pile dengan diameter minimal 40-60cm untuk bangunan pabrik dan gudang. Kami juga harus memenuhi spesifikasi beban rencana yang ditentukan oleh manajemen kawasan dan konsultan struktur proyek." },
+      { q: "Apakah Anda bisa mengerjakan proyek bore pile di Cikarang dalam waktu singkat?", a: "Bisa. Untuk proyek di Cikarang, tim kami sangat terbiasa dengan jadwal ketat proyek industri. Pertama kami survey lokasi gratis, setelah deal tim bisa mobilisasi dan mulai pengerjaan dalam 1-2 hari. Proyek standar untuk gudang biasanya selesai 5-10 hari tergantung jumlah titik." },
+    ],
   },
   {
     slug: "purwakarta",
@@ -395,6 +410,11 @@ export const locationPages = [
     areaCovered: ["Purwakarta Kota", "Cibatu", "Plered", "Sukatani", "Campaka", "Darangdan", "Bojong", "Pasawahan"],
     image: "/images/portfolio/04.jpg",
     metaDesc: "Jasa bore pile & strauss pile Purwakarta sejak 2013. Survey gratis, harga bersaing. Melayani seluruh area Purwakarta. WA 0815-1481-1120.",
+    soilInfo: "Purwakarta memiliki kontur tanah perbukitan yang bervariasi. Area utara dan tengah (Purwakarta Kota, Cibatu, Plered) cenderung berbukit dengan tanah keras dangkal 4-8 meter. Area selatan (Sukatani, Campaka, Pasawahan) memiliki tanah yang lebih dalam untuk mencapai lapisan keras. Purwakarta juga dilewati Sesar Cimandiri yang memerlukan perhatian ekstra pada struktur pondasi.",
+    faq: [
+      { q: "Apakah tanah berbukit di Purwakarta memerlukan penanganan khusus untuk bore pile?", a: "Ya, tanah berbukit sering memiliki kemiringan lapisan tanah keras yang tidak rata. Tim kami melakukan survey topografi dan soil test sederhana untuk menentukan titik pengeboran yang tepat agar pondasi mencapai tanah keras secara merata. Untuk tanah miring, panjang bore pile per titik bisa berbeda." },
+      { q: "Apakah Majujaya melayani proyek di kawasan industri Purwakarta?", a: "Tentu. Purwakarta memiliki beberapa kawasan industri seperti Industri Purwakarta dan sekitarnya. Tim kami sudah menangani proyek bore pile untuk pabrik dan gudang di area tersebut. Kami paham persyaratan teknis yang dibutuhkan kawasan industri dan bisa menyesuaikan spesifikasi." },
+    ],
   },
   {
     slug: "serang",
@@ -407,6 +427,11 @@ export const locationPages = [
     areaCovered: ["Serang Kota", "Cipocok Jaya", "Curug", "Taktakan", "Kasemen", "Walantaka", "Ciruas", "Carenang"],
     image: "/images/portfolio/05.jpg",
     metaDesc: "Jasa bore pile & strauss pile Serang sejak 2013. Survey gratis, harga bersaing. Melayani seluruh area Serang & sekitarnya. WA 0815-1481-1120.",
+    soilInfo: "Wilayah Serang bagian utara (Kasemen, Walantaka, Ciruas) dekat pesisir Teluk Banten dengan tanah lunak alluvial dan muka air tanah tinggi. Bagian selatan dan barat (Serang Kota, Cipocok Jaya, Curug) memiliki tanah yang lebih stabil. Kedalaman tanah keras di Serang bervariasi antara 8-18 meter tergantung jarak dari pantai.",
+    faq: [
+      { q: "Tanah di Serang dekat pantai -- apa itu masalah untuk pondasi?", a: "Tanah di area pesisir Serang memang memiliki tantangan tersendiri karena sifat tanah lunak dan potensi air asin yang korosif. Tim Majujaya menggunakan campuran beton dengan ketahanan korosi tinggi untuk proyek di area dekat pantai. Pondasi bore pile tetap menjadi solusi terbaik untuk mencapai tanah keras di bawah lapisan tanah lunak." },
+      { q: "Apakah Anda melayani proyek di kawasan Mandalika atau Anyer?", a: "Ya, kami melayani seluruh area Serang termasuk Anyer dan Carita yang merupakan area wisata. Banyak proyek vila dan hotel di Anyer yang menggunakan bore pile. Kami berpengalaman dengan kondisi tanah pesisir dan akses yang kadang menyempit di area wisata." },
+    ],
   },
   {
     slug: "cilegon",
@@ -419,6 +444,11 @@ export const locationPages = [
     areaCovered: ["Cilegon Kota", "Ciwandan", "Merak", "Gerogol", "Pulomerak", "Jombang", "Citangkil", "Cibeber"],
     image: "/images/portfolio/06.jpg",
     metaDesc: "Jasa bore pile & strauss pile Cilegon sejak 2013. Survey gratis, harga bersaing. Melayani kawasan industri Cilegon, Merak & sekitarnya. WA 0815-1481-1120.",
+    soilInfo: "Cilegon merupakan area industri berat dengan tanah yang bervariasi -- dari tanah alluvial lunak di area pesisir Merak hingga tanah laterit yang lebih stabil di Cilegon bagian timur. Sebagai pusat industri baja dan petrokimia, Cilegon banyak memiliki proyek pondasi dengan spesifikasi teknis tinggi dan beban sangat besar. Kedalaman tanah keras bervariasi 8-20 meter.",
+    faq: [
+      { q: "Apakah Anda bisa menangani proyek bore pile untuk pabrik baja atau petrokimia di Cilegon?", a: "Ya, tim Majujaya sudah menangani proyek pondasi untuk industri berat di Cilegon dan Merak. Proyek industri memerlukan bore pile berdiameter besar (60-100cm) dengan toleransi vertikalitas yang ketat. Kami memiliki peralatan dan pengalaman untuk memenuhi standar teknis yang dipersyaratkan oleh perusahaan industri di Cilegon." },
+      { q: "Bagaimana akses tanah di Cilegon dan sekitarnya?", a: "Akses di Cilegon umumnya baik karena merupakan kawasan industri utama. Jalan-jalan utama sudah beraspal dan lebar sehingga mobilisasi alat tidak masalah. Untuk proyek di area Merak dan Anyer, tim kami biasa mengatur jadwal pengerjaan yang efisien dari base kami di Jakarta Selatan. Survey lokasi gratis bisa dilakukan dalam 1-2 hari kerja." },
+    ],
   },
 ];
 
