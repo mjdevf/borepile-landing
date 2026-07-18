@@ -188,7 +188,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="border-t border-border-muted px-4 py-6 text-center font-mono text-xs text-secondary md:px-10">
-        &copy; 2024 {footer.company}. Engineering Integrity &amp; Structural Trust.
+        &copy; 2026 {footer.company}. Engineering Integrity &amp; Structural Trust.
       </div>
     </footer>
   );
