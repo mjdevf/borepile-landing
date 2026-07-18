@@ -16,7 +16,7 @@ export default function Hero() {
           className="h-full w-full bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('/images/portfolio/04.jpg')",
+              "url('/images/portfolio/hero-bg.png')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-surface/85 via-surface/70 to-primary/20 backdrop-blur-[2px]" />
@@ -113,17 +113,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right image (desktop only) */}
-        <div className="hidden items-center justify-end md:col-span-4 md:flex lg:col-span-5">
-          <div className="h-[500px] w-full overflow-hidden rounded-xl border border-border-muted shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] lg:h-[600px]">
-            <img
-              src="/images/portfolio/02.jpg"
-              alt="Jasa Bore Pile Majujaya - Pekerjaan pengeboran tanah untuk pondasi bangunan berpengalaman 12 tahun"
-              className="h-full w-full object-cover"
-              loading="eager"
-            />
-          </div>
-        </div>
       </div>
     </section>
   );
