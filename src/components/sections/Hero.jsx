@@ -16,7 +16,7 @@ export default function Hero() {
           className="h-full w-full bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('/images/portfolio/hero-bg.png')",
+              "url('/images/portfolio/hero-bg.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-surface/85 via-surface/70 to-primary/20 backdrop-blur-[2px]" />
