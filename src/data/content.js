@@ -461,6 +461,10 @@ export const faq = [
     q: "Apa perbedaan bore pile mesin dan strauss pile manual?",
     a: "Bore pile mesin menggunakan alat berat untuk pengeboran dalam (30-100cm diameter) dengan kedalaman hingga 20 meter. Strauss pile manual menggunakan tenaga manusia dengan diameter lebih kecil. Kami menyediakan keduanya sesuai kebutuhan proyek Anda."
   },
+  {
+    q: "Bagaimana dengan kualitas dan standar pekerjaan?",
+    a: "Setiap pekerjaan dilakukan sesuai standar teknis yang berlaku oleh tim berpengalaman 12+ tahun. Hasil pengeboran diverifikasi berdasarkan spesifikasi yang telah disepakati sebelumnya bersama klien."
+  },
 ];
 
 export const footer = {
@@ -481,11 +485,11 @@ export const footer = {
   ],
   serviceLinks: [
     { title: "Jasa Bore Pile Jakarta", href: "/location/jakarta" },
-    { title: "  Jakarta Pusat", href: "/location/jakarta-pusat" },
-    { title: "  Jakarta Selatan", href: "/location/jakarta-selatan" },
-    { title: "  Jakarta Barat", href: "/location/jakarta-barat" },
-    { title: "  Jakarta Timur", href: "/location/jakarta-timur" },
-    { title: "  Jakarta Utara", href: "/location/jakarta-utara" },
+    { title: "Jakarta Pusat", href: "/location/jakarta-pusat" },
+    { title: "Jakarta Selatan", href: "/location/jakarta-selatan" },
+    { title: "Jakarta Barat", href: "/location/jakarta-barat" },
+    { title: "Jakarta Timur", href: "/location/jakarta-timur" },
+    { title: "Jakarta Utara", href: "/location/jakarta-utara" },
     { title: "Jasa Bore Pile Bogor", href: "/location/bogor" },
     { title: "Jasa Bore Pile Tangerang", href: "/location/tangerang" },
     { title: "Jasa Bore Pile Bekasi", href: "/location/bekasi" },

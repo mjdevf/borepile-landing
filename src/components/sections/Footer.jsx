@@ -43,7 +43,7 @@ export default function Footer() {
                   </div>
                   <div>
                     <p className="mb-0.5 text-xs font-semibold uppercase tracking-[0.05em] text-on-surface-variant">WhatsApp</p>
-                    <p className="font-mono text-on-surface">+62 {footer.phone}</p>
+                    <p className="font-mono text-on-surface">+62 815 1481 1120</p>
                   </div>
                 </div>
                 <div className="h-px bg-border-muted" />
