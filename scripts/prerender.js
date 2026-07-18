@@ -49,7 +49,7 @@ async function generateLocationPages() {
       const dom = new JSDOM(homepageHtml);
       const document = dom.window.document;
 
-    const canonicalUrl = `https://borepilemajujaya.com/${loc.slug}/`;
+    const canonicalUrl = `https://borepilemajujaya.com/location/${loc.slug}/`;
     const title = `Jasa Bore Pile & Strauss Pile di ${loc.name} | Majujaya`;
     const description = `Jasa bore pile & strauss pile profesional di ${loc.name} sejak 2013. Survey gratis, harga bersaing, 250+ proyek. Melayani perumahan, gedung, infrastruktur di ${loc.name}.`;
 
@@ -137,8 +137,8 @@ async function generateLocationPages() {
     breadcrumbScript.textContent = JSON.stringify(breadcrumbSchema, null, 2);
     document.head.appendChild(breadcrumbScript);
 
-    // Write location file
-    const locDir = path.join(DIST_DIR, loc.slug);
+    // Write location file at /location/{slug}/index.html
+    const locDir = path.join(DIST_DIR, 'location', loc.slug);
     fs.mkdirSync(locDir, { recursive: true });
     fs.writeFileSync(path.join(locDir, 'index.html'), dom.serialize());
     

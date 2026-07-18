@@ -73,7 +73,7 @@ export default function Footer() {
           {/* Right — Contact Form */}
           <div className="lg:col-span-7">
             <form
-              action="#"
+              action="https://formspree.io/f/mjljzowz"
               method="POST"
               className="rounded-lg border border-border-muted bg-surface p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] md:p-8"
             >
@@ -87,6 +87,7 @@ export default function Footer() {
                       id="name"
                       name="name"
                       type="text"
+                      required
                       placeholder="Nama atau Perusahaan"
                       className="w-full rounded border border-outline-variant bg-surface-container-lowest p-2.5 text-sm text-on-surface transition-colors focus:border-tertiary-container focus:outline-none focus:ring-1 focus:ring-tertiary-container"
                     />
@@ -99,6 +100,7 @@ export default function Footer() {
                       id="phone"
                       name="phone"
                       type="tel"
+                      required
                       placeholder="+62..."
                       className="w-full rounded border border-outline-variant bg-surface-container-lowest p-2.5 text-sm text-on-surface transition-colors focus:border-tertiary-container focus:outline-none focus:ring-1 focus:ring-tertiary-container"
                     />
@@ -127,6 +129,7 @@ export default function Footer() {
                     id="details"
                     name="details"
                     rows={4}
+                    required
                     placeholder="Lokasi, estimasi jumlah titik, kondisi tanah..."
                     className="w-full rounded border border-outline-variant bg-surface-container-lowest p-2.5 text-sm text-on-surface transition-colors focus:border-tertiary-container focus:outline-none focus:ring-1 focus:ring-tertiary-container"
                   />
