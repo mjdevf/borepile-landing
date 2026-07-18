@@ -77,6 +77,11 @@ export default function Footer() {
               method="POST"
               className="rounded-lg border border-border-muted bg-surface p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] md:p-8"
             >
+              {/* Honeypot — invisible to users, traps bots */}
+              <div className="absolute -left-[9999px]" aria-hidden="true">
+                <label htmlFor="_hp">Do not fill</label>
+                <input id="_hp" name="_gotcha" type="text" tabIndex={-1} autoComplete="off" />
+              </div>
               <div className="space-y-5">
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <div>

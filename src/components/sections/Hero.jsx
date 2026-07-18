@@ -16,10 +16,10 @@ export default function Hero() {
           className="h-full w-full bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('/images/portfolio/01.jpg')",
+              "url('/images/portfolio/04.jpg')",
           }}
         />
-        <div className="absolute inset-0 bg-surface/80 backdrop-blur-sm md:bg-surface/60" />
+        <div className="absolute inset-0 bg-gradient-to-br from-surface/85 via-surface/70 to-primary/20 backdrop-blur-[2px]" />
       </div>
 
       <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 gap-6 px-4 py-12 md:grid-cols-12 md:px-10">
