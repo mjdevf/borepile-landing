@@ -31,9 +31,10 @@ export default function App() {
         <WhyUs />
         <TrustBar />
         <TestimonialSection />
+        <SectionDivider />
+        <ServiceArea />
         <HowItWorks />
         <FAQ />
-        <ServiceArea />
         {/* Lazy load maps with fallback */}
         <Suspense fallback={
           <div className="h-64 w-full bg-surface-container-low animate-pulse" aria-live="polite" aria-label="Memuat peta lokasi" />
