@@ -209,6 +209,11 @@ export const locationPages = [
     areaCovered: ["Menteng", "Tanah Abang", "Gambir", "Senayan", "Cempaka Putih", "Senen", "Johar Baru", "Sawah Besar", "Kemayoran"],
     image: "/images/portfolio/01.jpg",
     metaDesc: "Jasa bore pile & strauss pile Jakarta Pusat sejak 2013. Survey gratis, harga bersaing. Melayani Menteng, Tanah Abang, Gambir, Senayan & area Jakpus lainnya. WA 0815-1481-1120.",
+    soilInfo: "Wilayah Jakarta umumnya memiliki karakteristik tanah lunak hingga sedang dengan lapisan tanah keras pada kedalaman 8-20 meter. Di Jakarta Utara dan Barat, tanah cenderung lebih lunak karena merupakan area bekas rawa, sementara Jakarta Selatan dan Timur memiliki kondisi tanah yang lebih stabil.",
+    faq: [
+      { q: "Apakah bore pile cocok untuk rumah di Jakarta dengan tanah yang tidak stabil?", a: "Sangat cocok. Bore pile dirancang khusus untuk menembus lapisan tanah lunak hingga mencapai tanah keras di kedalaman tertentu. Untuk proyek rumah di Jakarta, tim Majujaya akan melakukan survey lokasi gratis untuk menentukan kedalaman dan diameter bore pile yang tepat sesuai kondisi tanah di area Anda." },
+      { q: "Berapa lama proses bore pile untuk proyek rumah di Jakarta?", a: "Untuk proyek rumah standar di Jakarta, rata-rata pengerjaan 3-7 hari tergantung jumlah titik dan akses lokasi. Tim kami bisa mulai dalam 1x24 jam setelah deal. Jadwal pasti akan kami informasikan setelah survey lokasi gratis." },
+    ],
   },
   {
     slug: "jakarta-selatan",
@@ -269,6 +274,11 @@ export const locationPages = [
     areaCovered: ["Bogor Selatan", "Bogor Utara", "Bogor Timur", "Bogor Barat", "Tanah Sereal", "Bogor Tengah", "Cibinong", "Citeureup"],
     image: "/images/portfolio/06.jpg",
     metaDesc: "Jasa bore pile & strauss pile Bogor sejak 2013. Survey gratis, harga bersaing. Melayani seluruh area Bogor & sekitarnya. WA 0815-1481-1120.",
+    soilInfo: "Wilayah Bogor memiliki kontur tanah yang bervariasi -- dari tanah vulkanik di area Bogor Selatan hingga tanah aluvial di Bogor Utara dan Cibinong. Curah hujan tinggi di Bogor juga memerlukan perencanaan pondasi yang matang agar daya dukung optimal.",
+    faq: [
+      { q: "Apakah cuaca Bogor yang sering hujan mempengaruhi proses bore pile?", a: "Kami tetap bisa melakukan pengeboran saat hujan ringan, namun untuk intensitas tinggi akan dijadwalkan ulang demi keamanan dan kualitas pekerjaan. Kami selalu monitor prakiraan cuaca dan atur jadwal pengerjaan agar efisien. Survey lokasi gratis bisa dijadwalkan kapan saja -- termasuk di musim hujan." },
+      { q: "Berapa kedalaman bore pile yang ideal untuk rumah di Bogor?", a: "Rata-rata kedalaman bore pile untuk rumah di Bogor berkisar 6-15 meter tergantung kondisi tanah di lokasi spesifik. Area Bogor Selatan dengan tanah vulkanik cenderung lebih dangkal, sementara area Bogor Utara dan Cibinong butuh kedalaman lebih. Tim kami akan tentukan setelah survey lokasi gratis." },
+    ],
   },
   {
     slug: "depok",
@@ -281,6 +291,11 @@ export const locationPages = [
     areaCovered: ["Beji", "Pancoran Mas", "Cimanggis", "Sukmajaya", "Sawangan", "Cinere", "Limo", "Tapos"],
     image: "/images/portfolio/07.jpg",
     metaDesc: "Jasa bore pile & strauss pile Depok sejak 2013. Survey gratis, harga bersaing. Melayani seluruh area Depok & sekitarnya. WA 0815-1481-1120.",
+    soilInfo: "Kondisi tanah di Depok cukup bervariasi. Wilayah Depok bagian utara (Beji, Margonda) memiliki tanah lunak hingga sedang dengan kedalaman tanah keras 8-14 meter. Bagian selatan (Sawangan, Tapos) cenderung lebih stabil. Cimanggis dan Sukmajaya berada di area transisi. Survey lokasi diperlukan untuk menentukan spesifikasi tepat.",
+    faq: [
+      { q: "Apakah tanah di daerah Sawangan/Cinere memerlukan bore pile yang lebih dalam?", a: "Sawangan dan Cinere yang berada di perbatasan Depok-Bogor memiliki kontur tanah perbukitan dengan lapisan tanah keras yang bervariasi. Di beberapa titik, tanah keras sudah ditemukan di kedalaman 4-6 meter, sementara di lokasi lain bisa mencapai 12-15 meter. Kami sarankan survey gratis untuk memastikan tanpa tebak-tebakan." },
+      { q: "Berapa lama proses bore pile untuk ruko di Margonda Depok?", a: "Untuk ruko di kawasan Margonda, rata-rata pengerjaan 2-4 hari untuk 6-10 titik bore pile. Akses jalan yang padat di Margonda mungkin mempengaruhi jadwal mobilisasi alat, namun tim kami biasa mengatur waktu pengerjaan di luar jam sibuk untuk meminimalkan gangguan." },
+    ],
   },
   {
     slug: "tangerang",
@@ -293,6 +308,11 @@ export const locationPages = [
     areaCovered: ["Tangerang Kota", "Tangerang Selatan", "Cipondoh", "Ciledug", "Karawaci", "BSD City", "Gading Serpong", "Legok", "Pagedangan"],
     image: "/images/portfolio/08.jpg",
     metaDesc: "Jasa bore pile & strauss pile Tangerang sejak 2013. Survey gratis, harga bersaing. Melayani BSD, Gading Serpong, Karawaci & seluruh Tangerang. WA 0815-1481-1120.",
+    soilInfo: "Wilayah Tangerang memiliki karakteristik tanah bekas rawa terutama di Serpong, BSD, dan Gading Serpong bagian utara. Tanah lunak ini memerlukan kedalaman bore pile yang lebih dalam untuk mencapai tanah keras. Tim kami berpengalaman menangani kondisi ini dengan metode bore pile mesin maupun strauss pile manual.",
+    faq: [
+      { q: "Mengapa bore pile penting untuk bangunan di BSD dan Gading Serpong?", a: "BSD, Gading Serpong, dan sebagian besar area Tangerang dibangun di atas tanah bekas perkebunan dan rawa yang memiliki daya dukung rendah. Tanpa pondasi bore pile yang memadai, bangunan berisiko ambles atau retak dalam 3-5 tahun. Banyak pengembang di BSD dan Gading Serpong mewajibkan bore pile untuk semua bangunan baru sebagai standar konstruksi." },
+      { q: "Berapa estimasi biaya bore pile untuk rumah di Tangerang?", a: "Harga mulai dari Rp750.000 per titik tergantung diameter, kedalaman, dan kondisi tanah. Untuk rumah standar di BSD atau Gading Serpong dengan 8-12 titik bore pile, estimasi biaya Rp8-18 juta termasuk mobilisasi dan material. Kami berikan RAB detail gratis setelah survey lokasi." },
+    ],
   },
   {
     slug: "bekasi",
@@ -305,6 +325,11 @@ export const locationPages = [
     areaCovered: ["Bekasi Kota", "Bekasi Barat", "Bekasi Timur", "Bekasi Utara", "Bekasi Selatan", "Tambun", "Cikarang", "Karawang"],
     image: "/images/portfolio/09.jpg",
     metaDesc: "Jasa bore pile & strauss pile Bekasi sejak 2013. Survey gratis, harga bersaing. Melayani Cikarang, Tambun & seluruh area Bekasi. WA 0815-1481-1120.",
+    soilInfo: "Bekasi dan Cikarang memiliki tanah yang relatif lebih stabil dibanding area Jakarta dan Tangerang. Lapisan tanah keras biasanya ditemukan di kedalaman 6-12 meter. Namun, proyek industrial di Cikarang sering memerlukan kapasitas beban lebih besar, sehingga diameter bore pile dan kedalaman perlu disesuaikan.",
+    faq: [
+      { q: "Apa perbedaan penanganan bore pile untuk kawasan industri Cikarang vs perumahan?", a: "Proyek industri di Cikarang umumnya membutuhkan bore pile dengan diameter lebih besar (60-100cm) dan kedalaman lebih dalam untuk menopang beban pabrik dan mesin berat. Untuk perumahan di Bekasi, diameter 30-40cm dengan kedalaman 6-12 meter biasanya mencukupi. Kami menyesuaikan spesifikasi berdasarkan kebutuhan spesifik proyek Anda." },
+      { q: "Apakah Anda melayani proyek bore pile skala besar di Cikarang?", a: "Ya, kami melayani proyek skala besar di kawasan industri Cikarang, EJIP, MM2100, dan Jababeka. Dengan peralatan bore pile mesin dan tim berpengalaman, kami mampu menangani ratusan titik pengeboran untuk pabrik, gudang, dan infrastruktur. Hubungi kami untuk diskusi kebutuhan proyek Anda." },
+    ],
   },
   {
     slug: "karawang",
@@ -317,6 +342,11 @@ export const locationPages = [
     areaCovered: ["Karawang Kota", "Klari", "Cikampek", "Purwasari", "Teluk Jambe", "Ciampel", "Rengasdengklok", "Batujaya"],
     image: "/images/portfolio/10.jpg",
     metaDesc: "Jasa bore pile & strauss pile Karawang sejak 2013. Survey gratis, harga bersaing. Melayani Cikampek, Klari & seluruh area Karawang. WA 0815-1481-1120.",
+    soilInfo: "Wilayah Karawang bagian utara (Rengasdengklok, Batujaya) memiliki tanah lunak karena dekat pesisir pantai, sementara Karawang selatan (Klari, Cikampek) memiliki tanah yang lebih stabil. Kawasan industri di Karawang umumnya membutuhkan bore pile dengan spesifikasi khusus sesuai beban bangunan.",
+    faq: [
+      { q: "Apakah Anda melayani proyek bore pile untuk pabrik di kawasan industri KIIC Karawang?", a: "Ya, kami melayani proyek pondasi untuk pabrik di kawasan industri KIIC, Surya Cipta, Mitra Karawang, dan Bukit Indah City. Proyek industri memerlukan bore pile dengan kapasitas beban tinggi. Tim kami berpengalaman menangani spesifikasi teknis yang dipersyaratkan oleh manajemen kawasan industri." },
+      { q: "Bagaimana dengan biaya mobilisasi ke Karawang dari Jakarta?", a: "Biaya mobilisasi alat ke Karawang sudah termasuk dalam RAB yang kami berikan. Untuk proyek di Karawang, tim kami biasanya mobilisasi pagi hari dan siap bekerja di lokasi. Kami juga telah menangani banyak proyek di Karawang sehingga akses dan logistik sudah terbukti." },
+    ],
   },
   {
     slug: "subang",

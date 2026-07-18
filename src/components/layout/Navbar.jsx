@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "../../data/content";
@@ -23,6 +23,17 @@ export default function Navbar() {
     }
     return () => { document.body.style.overflow = ""; };
   }, [open]);
+
+  /* Close on Escape key */
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === "Escape") setOpen(false);
+  }, []);
+  useEffect(() => {
+    if (open) {
+      document.addEventListener("keydown", handleKeyDown);
+      return () => document.removeEventListener("keydown", handleKeyDown);
+    }
+  }, [open, handleKeyDown]);
 
   const showScrolled = scrolled || open;
 
@@ -56,7 +67,9 @@ export default function Navbar() {
         <button
           className="relative z-50 flex h-12 w-12 items-center justify-center text-primary md:hidden"
           onClick={() => setOpen(!open)}
-          aria-label="Menu"
+          aria-label={open ? "Tutup menu" : "Buka menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu-panel"
         >
           <motion.div animate={{ rotate: open ? 90 : 0 }} transition={{ duration: 0.2 }}>
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -68,6 +81,10 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
+            id="mobile-menu-panel"
+            role="dialog"
+            aria-modal={open}
+            aria-label="Navigasi menu"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}

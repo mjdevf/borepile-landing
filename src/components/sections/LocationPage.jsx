@@ -5,6 +5,7 @@ import AnimatedSection from "../ui/AnimatedSection";
 import { locationPages } from "../../data/content";
 import WhatsAppFloatingButton from "../ui/WhatsAppFloatingButton";
 import Navbar from "../layout/Navbar";
+import { ChevronDown } from "lucide-react";
 
 class MapErrorBoundary extends React.Component {
   state = { err: false };
@@ -104,6 +105,42 @@ const LocationPage = () => {
               </div>
             ))}
           </div>
+
+          {location.soilInfo && (
+            <>
+              <h2 className="mb-6 text-center text-3xl font-bold text-primary">
+                Kondisi Tanah di {location.city}
+              </h2>
+              <div className="mx-auto mb-12 max-w-3xl rounded-lg border border-border-muted bg-surface p-6 text-sm leading-relaxed text-secondary">
+                <p>{location.soilInfo}</p>
+                <p className="mt-4">Setiap proyek memerlukan analisis tanah yang akurat. Kami melakukan survey lokasi gratis untuk menentukan spesifikasi bore pile yang tepat -- tidak ada tebak-tebakan, semua berdasarkan data lapangan.</p>
+              </div>
+            </>
+          )}
+
+          {location.faq && location.faq.length > 0 && (
+            <>
+              <h2 className="mb-6 text-center text-3xl font-bold text-primary">
+                Pertanyaan Umum
+              </h2>
+              <div className="mx-auto mb-12 max-w-3xl space-y-4">
+                {location.faq.map((item, index) => (
+                  <details
+                    key={index}
+                    className="group rounded-lg border border-border-muted bg-surface"
+                  >
+                    <summary className="flex cursor-pointer items-center justify-between p-4 text-sm font-semibold text-primary">
+                      {item.q}
+                      <ChevronDown className="h-4 w-4 shrink-0 transition-transform group-open:rotate-180" />
+                    </summary>
+                    <div className="border-t border-border-muted p-4 text-sm text-secondary">
+                      {item.a}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </AnimatedSection>
 
