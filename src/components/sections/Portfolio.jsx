@@ -50,12 +50,16 @@ export default function Portfolio() {
                 onClick={() => setSelected(i)}
                 className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-border-muted bg-surface-container-low text-left shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] focus-visible:ring-2 focus-visible:ring-tertiary focus-visible:ring-offset-2"
               >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+                <picture>
+                  <source srcSet={img.src.replace(/\.(jpg|png)$/, '.webp')} type="image/webp" />
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#191c1e]/80 via-[#191c1e]/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="absolute inset-x-0 bottom-0 translate-y-4 p-3 transition-transform duration-500 group-hover:translate-y-0">
                   <p className="text-xs font-semibold text-on-primary opacity-0 transition-opacity duration-500 group-hover:opacity-100">
@@ -102,11 +106,14 @@ export default function Portfolio() {
               className="relative"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={portfolioImages[selected].src}
-                alt={portfolioImages[selected].alt}
-                className="max-h-[75vh] max-w-full rounded-lg object-contain shadow-2xl"
-              />
+              <picture>
+                <source srcSet={portfolioImages[selected].src.replace(/\.(jpg|png)$/, '.webp')} type="image/webp" />
+                <img
+                  src={portfolioImages[selected].src}
+                  alt={portfolioImages[selected].alt}
+                  className="max-h-[75vh] max-w-full rounded-lg object-contain shadow-2xl"
+                />
+              </picture>
               <div className="absolute inset-x-0 bottom-0 rounded-b bg-gradient-to-t from-black/60 to-transparent p-4 pt-8">
                 <p className="text-sm font-bold text-white">
                   {portfolioImages[selected].label}

@@ -12,15 +12,15 @@ export default function Hero() {
     >
       {/* Background image */}
       <div className="absolute inset-0 h-full w-full">
-        <div
-          className="h-full w-full bg-cover bg-center"
-          role="img"
-          aria-label="Kontraktor bore pile profesional Majujaya sedang melakukan pengeboran pondasi di lokasi proyek"
-          style={{
-            backgroundImage:
-              "url('/images/portfolio/hero-bg.jpg')",
-          }}
-        />
+        <picture>
+          <source srcSet="/images/portfolio/hero-bg.webp" type="image/webp" />
+          <img
+            src="/images/portfolio/hero-bg.jpg"
+            alt="Kontraktor bore pile profesional Majujaya sedang melakukan pengeboran pondasi di lokasi proyek"
+            fetchpriority="high"
+            className="h-full w-full object-cover"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-br from-surface/85 via-surface/70 to-primary/20 backdrop-blur-[2px]" />
       </div>
 
