@@ -7,3 +7,6 @@ __vite_retry__/
 *.md
 preview.log
 .vercel
+
+# Root images/ folder — duplikat basi dari public/images/, jangan pernah commit
+/images/
