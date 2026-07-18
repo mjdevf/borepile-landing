@@ -1,10 +1,10 @@
 export const navLinks = [
-  { label: "Beranda", href: "/", id: "nav-home" },
-  { label: "Tentang Kami", href: "/#tentang", id: "nav-about" },
-  { label: "Layanan", href: "/#layanan", id: "nav-services" },
-  { label: "Portfolio", href: "/#portfolio", id: "nav-portfolio" },
-  { label: "Lokasi & Layanan", href: "/location/jakarta-pusat", id: "nav-maps" },
-  { label: "Kontak", href: "/#kontak", id: "nav-contact" },
+  { label: "Beranda", href: "#hero", id: "nav-home" },
+  { label: "Tentang Kami", href: "#tentang", id: "nav-about" },
+  { label: "Layanan", href: "#layanan", id: "nav-services" },
+  { label: "Portfolio", href: "#portfolio", id: "nav-portfolio" },
+  { label: "Lokasi & Layanan", href: "#maps", id: "nav-maps" },
+  { label: "Kontak", href: "#kontak", id: "nav-contact" },
 ];
 
 export const hero = {
@@ -175,27 +175,6 @@ export const portfolioImages = [
     src: "/images/portfolio/10.jpg",
     alt: "Dokumentasi proyek",
     label: "Dokumentasi Proyek",
-  },
-];
-
-export const testimonials = [
-  {
-    name: "Hendra Gunawan",
-    role: "Pengembang Perumahan",
-    quote:
-      "Pengerjaan borepile buat proyek perumahan saya tepat waktu dan sesuai spek. Timnya profesional, alat lengkap. Recommended.",
-  },
-  {
-    name: "Siti Rahmawati",
-    role: "Pemilik Rumah",
-    quote:
-      "Sumur bor air bersih buat rumah. Hasilnya lancar jaya, airnya bersih. Harga juga masuk akal. Makasih Majujaya.",
-  },
-  {
-    name: "Agus Priyanto",
-    role: "Manajer Proyek",
-    quote:
-      "Udah pake jasa mereka buat 3 proyek. Konsisten kualitasnya. Survey lokasi cepet, tim responsif. Highly recommended.",
   },
 ];
 
@@ -492,7 +471,7 @@ export const footer = {
     { title: "7 Tips Memilih Kontraktor Bore Pile Jakarta", href: "/blog/tips-memilih-kontraktor-bore-pile-jakarta.html" },
   ],
   serviceLinks: [
-    { title: "Jasa Bore Pile Jakarta", href: "/location/jakarta" },
+    { title: "Jasa Bore Pile Jakarta", href: "/location/jakarta-pusat" },
     { title: "Jakarta Pusat", href: "/location/jakarta-pusat" },
     { title: "Jakarta Selatan", href: "/location/jakarta-selatan" },
     { title: "Jakarta Barat", href: "/location/jakarta-barat" },

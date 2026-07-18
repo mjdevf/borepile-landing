@@ -41,7 +41,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-6 text-4xl font-bold leading-tight tracking-tight text-primary md:text-6xl md:leading-[1.15]"
+            className="mb-6 text-3xl font-bold leading-tight tracking-tight text-primary md:text-6xl md:leading-[1.15]"
             style={{ letterSpacing: "-0.02em" }}
           >
             {hero.headline}

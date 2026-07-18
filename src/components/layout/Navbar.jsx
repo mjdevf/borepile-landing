@@ -14,11 +14,23 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  /* Prevent body scroll when mobile menu is open */
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
+  const showScrolled = scrolled || open;
+
   return (
     <nav
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 border-b ${
-        scrolled
-          ? "bg-surface/95 backdrop-blur-md border-border-muted shadow-sm"
+        showScrolled
+          ? "bg-surface border-border-muted shadow-sm"
           : "bg-surface border-transparent"
       }`}
     >
@@ -58,15 +70,15 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile slide-in */}
+      {/* Mobile slide-in panel */}
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ x: "100%", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: "100%", opacity: 0 }}
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 250 }}
-            className="fixed inset-y-0 right-0 z-40 w-72 bg-surface/98 backdrop-blur-xl border-l border-border-muted md:hidden"
+            className="fixed inset-0 top-0 z-40 bg-surface md:hidden"
           >
             <div className="flex flex-col gap-1 px-8 pt-28">
               {navLinks.map(({ label, href }, i) => (
@@ -102,7 +114,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-30 bg-black/30 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 top-[72px] z-30 bg-black/40 md:hidden"
             onClick={() => setOpen(false)}
           />
         )}

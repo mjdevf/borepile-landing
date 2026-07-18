@@ -50,11 +50,11 @@ export default function Services() {
 
                 {/* Tech tags */}
                 {svc.keywords && (
-                  <div className="mt-auto flex flex-wrap gap-1.5">
+                  <div className="mt-auto flex flex-wrap gap-1.5 overflow-hidden">
                     {svc.keywords.slice(0, 2).map((kw) => (
                       <span
                         key={kw}
-                        className="rounded border border-border-muted px-2 py-0.5 font-mono text-xs text-secondary"
+                        className="truncate rounded border border-border-muted px-2 py-0.5 font-mono text-xs text-secondary"
                       >
                         {kw}
                       </span>
