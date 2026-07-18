@@ -14,6 +14,8 @@ export default function Hero() {
       <div className="absolute inset-0 h-full w-full">
         <div
           className="h-full w-full bg-cover bg-center"
+          role="img"
+          aria-label="Kontraktor bore pile profesional Majujaya sedang melakukan pengeboran pondasi di lokasi proyek"
           style={{
             backgroundImage:
               "url('/images/portfolio/hero-bg.jpg')",

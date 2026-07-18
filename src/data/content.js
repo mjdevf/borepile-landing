@@ -128,52 +128,52 @@ export const whyUs = [
 export const portfolioImages = [
   {
     src: "/images/portfolio/01.jpg",
-    alt: "Proyek bore pile perumahan",
+    alt: "Proyek bore pile perumahan di Jabodetabek — tim Majujaya melakukan pengecoran pondasi bore pile untuk perumahan skala menengah",
     label: "Proyek Perumahan",
   },
   {
     src: "/images/portfolio/02.jpg",
-    alt: "Proyek bore pile gedung",
+    alt: "Proyek pondasi bore pile gedung bertingkat — proses pengeboran mesin untuk pondasi bangunan bertingkat di Jakarta",
     label: "Proyek Gedung",
   },
   {
     src: "/images/portfolio/03.jpg",
-    alt: "Pengeboran lapangan",
+    alt: "Pengeboran lapangan open area menggunakan rig bor mesin Majujaya untuk proyek infrastruktur",
     label: "Pengeboran Lapangan",
   },
   {
     src: "/images/portfolio/04.jpg",
-    alt: "Proyek pondasi bore pile",
+    alt: "Alat bor mesin bore pile milik Majujaya siap mobilisasi ke lokasi proyek pondasi klien",
     label: "Pondasi Bore Pile",
   },
   {
     src: "/images/portfolio/05.jpg",
-    alt: "Pengecoran bore pile",
+    alt: "Proses pengecoran bore pile di lokasi proyek — tim Majujaya memastikan kualitas campuran beton sesuai standar",
     label: "Pengecoran Bore Pile",
   },
   {
     src: "/images/portfolio/06.jpg",
-    alt: "Proyek strauss pile",
+    alt: "Strauss pile manual — metode pondasi manual cocok untuk akses sempit di proyek rumah tinggal Jakarta",
     label: "Strauss Pile",
   },
   {
     src: "/images/portfolio/07.jpg",
-    alt: "Alat bor mesin",
+    alt: "Rig bor mesin bore pile Majujaya — alat pengeboran hidrolik untuk proyek pondasi skala besar",
     label: "Alat Bor Mesin",
   },
   {
     src: "/images/portfolio/08.jpg",
-    alt: "Proyek bore pile skala besar",
+    alt: "Dokumentasi proyek bore pile skala besar — pengerjaan puluhan titik bore pile untuk gedung komersial di Jakarta",
     label: "Proyek Skala Besar",
   },
   {
     src: "/images/portfolio/09.jpg",
-    alt: "Hasil pengeboran",
+    alt: "Hasil pengeboran bore pile mencapai tanah keras — dokumentasi QC tim Majujaya untuk memastikan kedalaman sesuai spek",
     label: "Hasil Pengeboran",
   },
   {
     src: "/images/portfolio/10.jpg",
-    alt: "Dokumentasi proyek",
+    alt: "Dokumentasi proyek bore pile Majujaya — kontraktor pondasi profesional berpengalaman sejak 2013",
     label: "Dokumentasi Proyek",
   },
 ];
