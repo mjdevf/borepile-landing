@@ -21,6 +21,10 @@ const LOCATIONS = [
   { slug: 'karawang', name: 'Karawang', keywords: 'jasa bore pile karawang, kontraktor pondasi karawang, bore pile cikampek, strauss pile karawang' },
   { slug: 'subang', name: 'Subang', keywords: 'jasa bore pile subang, kontraktor pondasi subang, bore pile subang, strauss pile subang' },
   { slug: 'cianjur', name: 'Cianjur', keywords: 'jasa bore pile cianjur, kontraktor pondasi cianjur, bore pile cianjur, strauss pile cianjur' },
+  { slug: 'cikarang', name: 'Cikarang', keywords: 'jasa bore pile cikarang, kontraktor pondasi cikarang, bore pile cikarang, strauss pile cikarang' },
+  { slug: 'purwakarta', name: 'Purwakarta', keywords: 'jasa bore pile purwakarta, kontraktor pondasi purwakarta, bore pile purwakarta, strauss pile purwakarta' },
+  { slug: 'serang', name: 'Serang', keywords: 'jasa bore pile serang, kontraktor pondasi serang, bore pile serang, strauss pile serang' },
+  { slug: 'cilegon', name: 'Cilegon', keywords: 'jasa bore pile cilegon, kontraktor pondasi cilegon, bore pile cilegon, strauss pile cilegon' },
 ];
 
 async function generateLocationPages() {
