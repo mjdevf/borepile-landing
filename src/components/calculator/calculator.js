@@ -52,7 +52,7 @@ export function calculateEstimation(input) {
 
   // 3. Mobilization
   const mobMapStrauss = { jabodetabek: 1500000, 'jawa-barat': 2500000, 'jawa-tengah-timur': 4500000, 'luar-jawa': 15000000 };
-  const mobMapMachine = { jabodetabek: 7500000, 'jawa-barat': 11000000, 'jawa-tengah-timur': 18000000, 'luar-jawa': 45000000 };
+  const mobMapMachine = { jabodetabek: 5000000, 'jawa-barat': 11000000, 'jawa-tengah-timur': 15000000, 'luar-jawa': 35000000 };
   const mobilizationCost = pileType === 'strauss-pile-manual'
     ? (mobMapStrauss[region] || 0)
     : (mobMapMachine[region] || 0);
@@ -71,8 +71,8 @@ export function calculateEstimation(input) {
   else                     rebarPerM = 30.5;
 
   const rebarWeightKg = Math.round(rebarPerM * totalMeters);
-  const steelCost  = rebarWeightKg * 15500;
-  const cementCost = concreteVolumeM3 * 1250000;
+  const steelCost  = rebarWeightKg * 13000;
+  const cementCost = concreteVolumeM3 * 1100000;
   const totalMaterialCost = includeMaterial ? Math.round(steelCost + cementCost) : 0;
   const materialCostMin = Math.round(totalMaterialCost * 0.95);
   const materialCostMax = Math.round(totalMaterialCost * 1.05);
