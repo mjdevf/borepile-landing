@@ -96,6 +96,16 @@ export default function CalculatorSection() {
           <p className="text-slate-400 text-sm max-w-2xl">
             Isi parameter proyek di bawah untuk simulasi kasar biaya. Hasil akan otomatis terupdate.
           </p>
+
+          {/* PERINGATAN KERAS — DISCLAIMER TOP */}
+          <div className="w-full max-w-2xl mx-auto mt-4 p-4 bg-red-950/40 border-2 border-red-500/40 rounded-xl">
+            <div className="flex items-start gap-3">
+              <span className="text-red-400 font-bold text-lg leading-none mt-0.5">!</span>
+              <div className="text-xs text-red-300 leading-relaxed">
+                <strong className="text-red-400 uppercase tracking-wider">PERINGATAN:</strong> Kalkulator ini hanya alat bantu simulasi kasar. Angka yang muncul <strong className="text-red-200">BUKAN harga resmi, BUKAN quotation, dan BUKAN harga jadi</strong>. Biaya aktual bisa berbeda signifikan tergantung hasil survei lapangan, kondisi tanah aktual, akses lokasi, dan negosiasi. <strong className="text-red-200">Jangan gunakan angka ini sebagai dasar kontrak atau klaim hukum.</strong> Hubungi kami untuk penawaran resmi dan survei gratis.
+              </div>
+            </div>
+          </div>
         </div>
 
         {visible ? (
@@ -217,10 +227,10 @@ export default function CalculatorSection() {
                   </div>
                   <div className="text-[10px] text-slate-500 mt-1">*belum termasuk PPN 11%</div>
 
-                  {/* DISCLAIMER — prominent, nempel di hasil */}
-                  <div className="mt-4 p-3 bg-amber-500/5 border border-amber-500/20 rounded-xl">
-                    <p className="text-[11px] text-slate-300 leading-relaxed">
-                      <strong className="text-amber-400">Estimasi ini hanya simulasi kasar.</strong> Harga pasti hanya berlaku setelah survei lokasi. Chat kami untuk penawaran resmi.
+                  {/* DISCLAIMER KERAS — prominent, nempel di hasil */}
+                  <div className="mt-4 p-4 bg-red-950/30 border border-red-500/30 rounded-xl">
+                    <p className="text-[11px] text-red-300 leading-relaxed">
+                      <strong className="text-red-400 uppercase">PERINGATAN:</strong> Ini <strong className="text-red-200">BUKAN harga resmi</strong>. Hanya simulasi kasar. Biaya aktual bisa berbeda. Harga pasti berlaku setelah survei lokasi dan penawaran resmi.
                     </p>
                     <a
                       href={generateWhatsAppLink(input, result)}
