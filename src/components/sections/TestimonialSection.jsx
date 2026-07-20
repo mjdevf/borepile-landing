@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
 const testimonials = [
@@ -7,31 +7,26 @@ const testimonials = [
     quote: "Pengerjaan borepile buat proyek perumahan saya tepat waktu dan sesuai spek. Timnya profesional, alat lengkap.",
     name: "H. Gunawan",
     role: "Pengembang Perumahan, Jakarta Selatan",
-    verified: true,
   },
   {
     quote: "Kalibrasi alat dan laporan uji tanahnya rapi, memudahkan proses approval konsultan struktur kami.",
     name: "R. Wijayanti",
     role: "Site Engineer, Cikarang",
-    verified: true,
   },
   {
     quote: "Koordinasi jadwal fleksibel meski lahan kami sempit dan akses terbatas.",
     name: "B. Setiawan",
     role: "Project Manager, Bekasi",
-    verified: true,
   },
   {
     quote: "Hasil pengeboran tembus lapisan keras tanpa perlu pindah titik, hemat biaya dan waktu proyek.",
     name: "A. Pratama",
     role: "Owner, Karawang",
-    verified: true,
   },
   {
     quote: "Survey gratis & detail, laporan uji tanah dikirim cepat. Tim teknis responsif saat ada perubahan di lapangan.",
     name: "S. Rahmawati",
     role: "Project Coordinator, Jakarta Selatan",
-    verified: true,
   },
 ];
 
@@ -82,8 +77,8 @@ export default function TestimonialSection() {
             transition={{ duration: 0.4 }}
             className="rounded-lg border border-border-muted bg-surface p-8 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)]"
           >
-            {/* Verified badge */}
-            {t.verified && (
+            {/* Verified badge — DINONAKTIFKAN: data dari klien langsung, tanpa verifikasi formal */}
+            {false && t.verified && (
               <div className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-border-muted bg-surface-container-low px-3 py-1 font-mono text-[11px] text-secondary">
                 <CheckCircle2 className="h-3.5 w-3.5 text-success-green" />
                 Laporan Proyek Terverifikasi

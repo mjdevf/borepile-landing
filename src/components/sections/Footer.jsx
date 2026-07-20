@@ -194,9 +194,16 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Copyright */}
-      <div className="border-t border-border-muted px-4 py-6 text-center font-mono text-xs text-secondary md:px-10">
-        &copy; 2026 {footer.company}. Engineering Integrity &amp; Structural Trust.
+      {/* Copyright & Privacy */}
+      <div className="border-t border-border-muted px-4 py-6 md:px-10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 md:flex-row">
+          <p className="font-mono text-xs text-secondary">
+            &copy; 2026 {footer.company}. Engineering Integrity &amp; Structural Trust.
+          </p>
+          <p className="font-mono text-[10px] text-on-surface-variant/60 max-w-md text-center md:text-right">
+            {footer.privacy}
+          </p>
+        </div>
       </div>
     </footer>
   );

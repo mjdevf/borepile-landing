@@ -90,7 +90,7 @@ export const about = {
     },
     {
       title: "Harga Kompetitif",
-      desc: "Harga bersaing dengan kualitas terbaik untuk setiap proyek pengeboran.",
+      desc: "Harga bersaing dengan tetap mengutamakan kualitas hasil pekerjaan.",
     },
     {
       title: "Cepat & Efisien",
@@ -483,7 +483,7 @@ export const faq = [
   },
   {
     q: "Berapa biaya jasa bore pile per titik?",
-    a: "Harga bore pile per titik mulai dari Rp750.000 hingga Rp2.000.000 tergantung diameter (30cm, 40cm, 60cm, 80cm, 100cm), kedalaman, dan kondisi tanah. Hubungi kami untuk konsultasi dan penawaran harga spesifik proyek Anda."
+    a: "Harga bore pile per titik mulai dari Rp750.000 hingga Rp2.000.000 tergantung diameter (30cm, 40cm, 60cm, 80cm, 100cm), kedalaman, dan kondisi tanah. <strong class=\"text-amber-500\">Hubungi kami untuk penawaran harga resmi — harga ini dapat berubah tanpa pemberitahuan dan bukan merupakan harga jadi.</strong>"
   },
   {
     q: "Berapa lama proses pengeboran?",
@@ -550,4 +550,5 @@ export const footer = {
     { title: "Jasa Bore Pile Subang", href: "/location/subang" },
     { title: "Jasa Bore Pile Cianjur", href: "/location/cianjur" },
   ],
+  privacy: "Data Anda hanya digunakan untuk menanggapi pertanyaan dan tidak dibagikan ke pihak ketiga.",
 };
