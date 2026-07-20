@@ -19,6 +19,7 @@ import Footer from "./components/sections/Footer";
 
 // Lazy load heavy components for better code splitting
 const MapsSection = lazy(() => import("./components/sections/MapsSection"));
+const CalculatorSection = lazy(() => import("./components/calculator/CalculatorSection"));
 
 export default function App() {
   return (
@@ -31,6 +32,12 @@ export default function App() {
         <Portfolio />
         <AboutUs />
         <WhyUs />
+        {/* Lazy load calculator with fallback */}
+        <Suspense fallback={
+          <div className="h-96 w-full bg-surface-container-low animate-pulse" aria-label="Memuat kalkulator estimasi" />
+        }>
+          <CalculatorSection />
+        </Suspense>
         <TrustBar />
         <TestimonialSection />
         <SectionDivider />

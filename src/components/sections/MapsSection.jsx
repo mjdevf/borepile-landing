@@ -29,8 +29,8 @@ class ErrorBoundary extends React.Component {
 function MapsSection() {
   const sectionRef = useRef(null);
   const mapRef = useRef(null);
-  const [inView, setInView] = useState(true);
-  const [sectionVisible, setSectionVisible] = useState(true);
+  const [inView, setInView] = useState(false);
+  const [sectionVisible, setSectionVisible] = useState(false);
   const [MapContainer, setMapContainer] = useState(null);
   const [LeafletComponents, setLeafletComponents] = useState(null);
 

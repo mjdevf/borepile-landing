@@ -2,6 +2,7 @@ export const navLinks = [
   { label: "Beranda", href: "#hero", id: "nav-home" },
   { label: "Tentang Kami", href: "#tentang", id: "nav-about" },
   { label: "Layanan", href: "#layanan", id: "nav-services" },
+  { label: "Kalkulator", href: "#kalkulator", id: "nav-calculator" },
   { label: "Portfolio", href: "#portfolio", id: "nav-portfolio" },
   { label: "Lokasi & Layanan", href: "#maps", id: "nav-maps" },
   { label: "Kontak", href: "#kontak", id: "nav-contact" },
