@@ -1,17 +1,15 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Calculator, HardHat, Phone, BookmarkPlus, MapPin, Drill, Wrench, ChevronDown, ChevronUp } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Calculator, Phone, BookmarkPlus, MapPin, Drill, Wrench } from 'lucide-react';
 import { calculateEstimation, formatRangeCost, generateWhatsAppLink } from './calculator';
 import DrillVisualizer from './DrillVisualizer';
 import SavedEstimates from './SavedEstimates';
 
 const SOIL_LABELS = { soft: 'Tanah Lunak', medium: 'Tanah Sedang', hard: 'Tanah Keras' };
-const REGION_LABELS = { jabodetabek: 'JABODETABEK', 'jawa-barat': 'Jawa Barat', 'jawa-tengah-timur': 'Jawa Tengah / Timur', 'luar-jawa': 'Luar Jawa' };
 
 export default function CalculatorSection() {
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
 
-  // Lazy-load trigger
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
@@ -23,7 +21,6 @@ export default function CalculatorSection() {
     return () => obs.disconnect();
   }, []);
 
-  // Form state
   const [input, setInput] = useState({
     pileType: 'bored-pile-machine',
     diameter: 40,
@@ -47,9 +44,7 @@ export default function CalculatorSection() {
 
   const update = (key, value) => setInput((prev) => ({ ...prev, [key]: value }));
 
-  // Saved estimates
   const [saved, setSaved] = useState([]);
-
   useEffect(() => {
     try {
       const d = localStorage.getItem('bmj_saved_estimates');
@@ -77,54 +72,56 @@ export default function CalculatorSection() {
     sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Diameter options based on pile type
   const diaOptions = input.pileType === 'bored-pile-machine' ? [30, 40, 50, 60] : [20, 25, 30];
   const depthMin = input.pileType === 'bored-pile-machine' ? 10 : 3;
   const depthMax = input.pileType === 'bored-pile-machine' ? 30 : 8;
 
+  const activeBtn = 'bg-primary text-on-primary shadow-sm';
+  const inactiveBtn = 'bg-surface-container-low hover:bg-surface-container text-secondary border border-border-muted';
+  const labelClass = 'text-[11px] font-semibold uppercase tracking-[0.08em] text-secondary mb-2 block';
+
   return (
-    <section id="kalkulator" ref={sectionRef} className="py-24 bg-slate-950 border-b border-slate-900 relative">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/5 via-slate-950 to-slate-950 pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-12 flex flex-col items-center gap-3">
-          <span className="text-xs font-bold text-amber-400 uppercase tracking-widest bg-amber-500/10 border border-amber-500/30 px-3.5 py-1.5 rounded-full">
-            <Calculator className="h-3.5 w-3.5 inline -mt-0.5 mr-1" /> Kalkulator Biaya Mandiri
+    <section id="kalkulator" ref={sectionRef} className="bg-surface px-4 py-16 md:px-10 md:py-24 border-t border-border-muted">
+      <div className="mx-auto w-full max-w-7xl">
+        {/* Header */}
+        <div className="mb-12 flex flex-col items-center gap-3 text-center">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border-muted bg-surface-container-low px-3 py-1 font-mono text-[11px] text-secondary">
+            <Calculator className="h-3.5 w-3.5 text-tertiary" />
+            Kalkulator Biaya Mandiri
           </span>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl tracking-tight text-white">
+          <h2 className="max-w-2xl text-3xl font-semibold text-primary" style={{ letterSpacing: '-0.01em', lineHeight: '1.3' }}>
             Estimasi Biaya Fondasi Proyek Anda
           </h2>
-          <p className="text-slate-400 text-sm max-w-2xl">
+          <p className="max-w-xl text-base text-secondary">
             Isi parameter proyek di bawah untuk simulasi kasar biaya. Hasil akan otomatis terupdate.
           </p>
 
-          {/* PERINGATAN KERAS — DISCLAIMER TOP */}
-          <div className="w-full max-w-2xl mx-auto mt-4 p-4 bg-red-950/40 border-2 border-red-500/40 rounded-xl">
+          {/* PERINGATAN KERAS */}
+          <div className="mt-4 w-full max-w-2xl rounded-lg border border-alert-red/30 bg-alert-red/5 p-4 text-left">
             <div className="flex items-start gap-3">
-              <span className="text-red-400 font-bold text-lg leading-none mt-0.5">!</span>
-              <div className="text-xs text-red-300 leading-relaxed">
-                <strong className="text-red-400 uppercase tracking-wider">PERINGATAN:</strong> Kalkulator ini hanya alat bantu simulasi kasar. Angka yang muncul <strong className="text-red-200">BUKAN harga resmi, BUKAN quotation, dan BUKAN harga jadi</strong>. Biaya aktual bisa berbeda signifikan tergantung hasil survei lapangan, kondisi tanah aktual, akses lokasi, dan negosiasi. <strong className="text-red-200">Jangan gunakan angka ini sebagai dasar kontrak atau klaim hukum.</strong> Hubungi kami untuk penawaran resmi dan survei gratis.
+              <span className="mt-0.5 text-lg font-bold leading-none text-alert-red">!</span>
+              <div className="text-xs leading-relaxed text-secondary">
+                <strong className="uppercase tracking-wider text-alert-red">PERINGATAN:</strong> Kalkulator ini hanya alat bantu simulasi kasar. Angka yang muncul <strong className="text-primary">BUKAN harga resmi, BUKAN quotation, dan BUKAN harga jadi</strong>. Biaya aktual bisa berbeda signifikan tergantung hasil survei lapangan, kondisi tanah aktual, akses lokasi, dan negosiasi. <strong className="text-primary">Jangan gunakan angka ini sebagai dasar kontrak atau klaim hukum.</strong> Hubungi kami untuk penawaran resmi dan survei gratis.
               </div>
             </div>
           </div>
         </div>
 
         {visible ? (
-          <div className="grid lg:grid-cols-12 gap-8 items-start">
-            {/* Left: Form */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
+          <div className="grid gap-8 lg:grid-cols-12 lg:gap-10 items-start">
+            {/* LEFT: Form */}
+            <div className="lg:col-span-5 space-y-5">
+              <div className="rounded-lg border border-border-muted bg-surface p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] space-y-5">
                 {/* Pile Type */}
                 <div>
-                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-2">Metode Pekerjaan</label>
+                  <label className={labelClass}>Metode Pekerjaan</label>
                   <div className="grid grid-cols-2 gap-2">
-                    <button onClick={() => handlePileType('bored-pile-machine')} className={`flex items-center gap-2 px-4 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                      input.pileType === 'bored-pile-machine' ? 'bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/20' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
-                    }`}>
+                    <button onClick={() => handlePileType('bored-pile-machine')}
+                      className={`flex items-center justify-center gap-2 rounded-lg px-4 py-3 text-xs font-semibold transition-all cursor-pointer ${input.pileType === 'bored-pile-machine' ? activeBtn : inactiveBtn}`}>
                       <Drill className="h-4 w-4" /> Bored Pile Mesin
                     </button>
-                    <button onClick={() => handlePileType('strauss-pile-manual')} className={`flex items-center gap-2 px-4 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                      input.pileType === 'strauss-pile-manual' ? 'bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/20' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
-                    }`}>
+                    <button onClick={() => handlePileType('strauss-pile-manual')}
+                      className={`flex items-center justify-center gap-2 rounded-lg px-4 py-3 text-xs font-semibold transition-all cursor-pointer ${input.pileType === 'strauss-pile-manual' ? activeBtn : inactiveBtn}`}>
                       <Wrench className="h-4 w-4" /> Strauss Manual
                     </button>
                   </div>
@@ -132,12 +129,11 @@ export default function CalculatorSection() {
 
                 {/* Diameter */}
                 <div>
-                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-2">Diameter Tiang</label>
+                  <label className={labelClass}>Diameter Tiang</label>
                   <div className="grid grid-cols-4 gap-2">
                     {diaOptions.map((d) => (
-                      <button key={d} onClick={() => update('diameter', d)} className={`px-3 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                        input.diameter === d ? 'bg-amber-500 text-slate-950' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
-                      }`}>
+                      <button key={d} onClick={() => update('diameter', d)}
+                        className={`rounded-lg px-3 py-2.5 text-xs font-bold transition-all cursor-pointer ${input.diameter === d ? activeBtn : inactiveBtn}`}>
                         {d} cm
                       </button>
                     ))}
@@ -147,25 +143,24 @@ export default function CalculatorSection() {
                 {/* Depth & Points */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-2">Kedalaman (m)</label>
-                    <input type="range" min={depthMin} max={depthMax} step="1" value={input.depth} onChange={(e) => update('depth', Number(e.target.value))} className="w-full accent-amber-500" />
-                    <div className="text-center text-sm font-mono font-bold text-amber-400 mt-1">{input.depth} m</div>
+                    <label className={labelClass}>Kedalaman (m)</label>
+                    <input type="range" min={depthMin} max={depthMax} step="1" value={input.depth} onChange={(e) => update('depth', Number(e.target.value))} className="w-full accent-tertiary" />
+                    <div className="mt-1 text-center font-mono text-sm font-bold text-tertiary">{input.depth} m</div>
                   </div>
                   <div>
-                    <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-2">Jumlah Titik</label>
-                    <input type="range" min="1" max="150" step="1" value={input.points} onChange={(e) => update('points', Number(e.target.value))} className="w-full accent-amber-500" />
-                    <div className="text-center text-sm font-mono font-bold text-amber-400 mt-1">{input.points} titik</div>
+                    <label className={labelClass}>Jumlah Titik</label>
+                    <input type="range" min="1" max="150" step="1" value={input.points} onChange={(e) => update('points', Number(e.target.value))} className="w-full accent-tertiary" />
+                    <div className="mt-1 text-center font-mono text-sm font-bold text-tertiary">{input.points} titik</div>
                   </div>
                 </div>
 
                 {/* Soil Type */}
                 <div>
-                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-2">Kondisi Tanah</label>
+                  <label className={labelClass}>Kondisi Tanah</label>
                   <div className="grid grid-cols-3 gap-2">
                     {['soft', 'medium', 'hard'].map((s) => (
-                      <button key={s} onClick={() => update('soilType', s)} className={`px-3 py-2.5 rounded-xl text-[10px] font-bold transition-all cursor-pointer ${
-                        input.soilType === s ? 'bg-amber-500 text-slate-950' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
-                      }`}>
+                      <button key={s} onClick={() => update('soilType', s)}
+                        className={`rounded-lg px-3 py-2.5 text-[11px] font-bold transition-all cursor-pointer ${input.soilType === s ? activeBtn : inactiveBtn}`}>
                         {SOIL_LABELS[s]}
                       </button>
                     ))}
@@ -174,8 +169,9 @@ export default function CalculatorSection() {
 
                 {/* Region */}
                 <div>
-                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-2"><MapPin className="h-3 w-3 inline -mt-0.5" /> Wilayah Proyek</label>
-                  <select value={input.region} onChange={(e) => update('region', e.target.value)} className="w-full bg-slate-800 text-white border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amber-500 cursor-pointer">
+                  <label className={labelClass}><MapPin className="mr-0.5 inline h-3 w-3 -mt-0.5" /> Wilayah Proyek</label>
+                  <select value={input.region} onChange={(e) => update('region', e.target.value)}
+                    className="w-full rounded-lg border border-outline-variant bg-surface-container-lowest px-3.5 py-2.5 text-sm text-on-surface transition-colors focus:border-tertiary focus:outline-none focus:ring-1 focus:ring-tertiary cursor-pointer">
                     <option value="jabodetabek">JABODETABEK</option>
                     <option value="jawa-barat">Jawa Barat</option>
                     <option value="jawa-tengah-timur">Jawa Tengah / Jawa Timur</option>
@@ -184,97 +180,90 @@ export default function CalculatorSection() {
                 </div>
 
                 {/* Include Material */}
-                <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-xl border border-slate-700">
+                <div className="flex items-center justify-between rounded-lg border border-border-muted bg-surface-container-low p-3.5">
                   <div>
-                    <div className="text-xs font-bold text-white">Sistem All-In Material</div>
-                    <div className="text-[10px] text-slate-400">Besi SNI + ReadyMix K-300</div>
+                    <div className="text-sm font-semibold text-primary">Sistem All-In Material</div>
+                    <div className="text-xs text-secondary">Besi SNI + ReadyMix K-300</div>
                   </div>
-                  <button onClick={() => update('includeMaterial', !input.includeMaterial)} className={`relative w-12 h-6 rounded-full transition-colors cursor-pointer ${
-                    input.includeMaterial ? 'bg-amber-500' : 'bg-slate-700'
-                  }`}>
-                    <span className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform ${
-                      input.includeMaterial ? 'translate-x-6' : ''
-                    }`} />
+                  <button onClick={() => update('includeMaterial', !input.includeMaterial)}
+                    className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors ${input.includeMaterial ? 'bg-tertiary' : 'bg-outline-variant'}`}>
+                    <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform ${input.includeMaterial ? 'translate-x-5' : 'translate-x-0'}`} />
                   </button>
                 </div>
               </div>
 
               {/* Save button */}
               {saved.length < 5 && (
-                <button onClick={saveEstimate} className="w-full bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition-all cursor-pointer">
+                <button onClick={saveEstimate}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-border-muted bg-surface px-4 py-3 text-xs font-semibold text-secondary transition-all hover:bg-surface-container-low cursor-pointer">
                   <BookmarkPlus className="h-4 w-4" /> Simpan Konfigurasi Ini
                 </button>
               )}
             </div>
 
-            {/* Right: Results + Visualizer */}
+            {/* RIGHT: Results */}
             <div className="lg:col-span-7 space-y-6">
-              {/* Drill Visualizer */}
+              {/* Visualizer */}
               <DrillVisualizer pileType={input.pileType} diameter={input.diameter} depth={input.depth} soilType={input.soilType} includeMaterial={input.includeMaterial} />
 
               {/* Result Card */}
-              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-display font-bold text-sm uppercase tracking-wider text-white">Ringkasan Estimasi</h3>
-                  <span className="text-[10px] text-slate-500 font-mono">{result.totalMeters} m¹ total</span>
+              <div className="rounded-lg border border-border-muted bg-surface p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)]">
+                <div className="mb-4 flex items-center justify-between">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">Ringkasan Estimasi</h3>
+                  <span className="font-mono text-[11px] text-secondary">{result.totalMeters} m¹ total</span>
                 </div>
 
-                {/* RANGE PRICING — bulat/range, BUKAN presisi */}
-                <div className="bg-slate-950 rounded-xl p-5 border border-slate-800 mb-4 text-center">
-                  <div className="text-[10px] text-slate-400 uppercase tracking-wider mb-1">Estimasi Biaya Proyek</div>
-                  <div className="text-2xl sm:text-3xl font-display font-extrabold text-amber-400">
+                {/* RANGE PRICING */}
+                <div className="mb-5 rounded-lg border border-border-muted bg-surface-container-low p-5 text-center">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.08em] text-secondary">Estimasi Biaya Proyek</div>
+                  <div className="mt-1 font-display text-2xl font-extrabold text-tertiary sm:text-3xl" style={{ letterSpacing: '-0.01em' }}>
                     {formatRangeCost(result.costMin, result.costMax)}
                   </div>
-                  <div className="text-[10px] text-slate-500 mt-1">*belum termasuk PPN 11%</div>
+                  <div className="mt-1 text-[11px] text-secondary">*belum termasuk PPN 11%</div>
 
-                  {/* DISCLAIMER KERAS — prominent, nempel di hasil */}
-                  <div className="mt-4 p-4 bg-red-950/30 border border-red-500/30 rounded-xl">
-                    <p className="text-[11px] text-red-300 leading-relaxed">
-                      <strong className="text-red-400 uppercase">PERINGATAN:</strong> Ini <strong className="text-red-200">BUKAN harga resmi</strong>. Hanya simulasi kasar. Biaya aktual bisa berbeda. Harga pasti berlaku setelah survei lokasi dan penawaran resmi.
+                  {/* DISCLAIMER KERAS */}
+                  <div className="mt-4 rounded-lg border border-alert-red/30 bg-alert-red/5 p-3">
+                    <p className="text-xs leading-relaxed text-secondary">
+                      <strong className="uppercase text-alert-red">PERINGATAN:</strong> Ini <strong className="text-primary">BUKAN harga resmi</strong>. Hanya simulasi kasar. Biaya aktual bisa berbeda. Harga pasti berlaku setelah survei lokasi dan penawaran resmi.
                     </p>
-                    <a
-                      href={generateWhatsAppLink(input, result)}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-3 inline-flex w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl text-xs items-center justify-center gap-2 transition-all shadow-lg cursor-pointer"
-                    >
-                      <Phone className="h-4 w-4" />
-                      Kirim ke WhatsApp Admin
+                    <a href={generateWhatsAppLink(input, result)} target="_blank" rel="noreferrer"
+                      className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-xs font-semibold text-on-primary transition-all hover:scale-[0.98] active:scale-[0.96] cursor-pointer">
+                      <Phone className="h-4 w-4" /> Kirim ke WhatsApp Admin
                     </a>
                   </div>
                 </div>
 
                 {/* Itemized */}
-                <div className="space-y-3">
-                  <div className="flex justify-between text-xs">
-                    <span className="text-slate-400">Jasa Pengeboran</span>
-                    <span className="text-white font-mono font-bold">{formatRangeCost(result.itemizedCosts.drilling.min, result.itemizedCosts.drilling.max)}</span>
+                <div className="space-y-3 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-secondary">Jasa Pengeboran</span>
+                    <span className="font-mono font-bold text-primary">{formatRangeCost(result.itemizedCosts.drilling.min, result.itemizedCosts.drilling.max)}</span>
                   </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-slate-400">Material (Besi + Beton)</span>
-                    <span className="text-white font-mono font-bold">{input.includeMaterial ? formatRangeCost(result.itemizedCosts.material.min, result.itemizedCosts.material.max) : 'Tidak termasuk'}</span>
+                  <div className="flex justify-between">
+                    <span className="text-secondary">Material (Besi + Beton)</span>
+                    <span className="font-mono font-bold text-primary">{input.includeMaterial ? formatRangeCost(result.itemizedCosts.material.min, result.itemizedCosts.material.max) : 'Tidak termasuk'}</span>
                   </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-slate-400">Mobilisasi Alat</span>
-                    <span className="text-white font-mono font-bold">Rp {(result.itemizedCosts.mobilization / 1000000).toFixed(1)} Juta</span>
+                  <div className="flex justify-between">
+                    <span className="text-secondary">Mobilisasi Alat</span>
+                    <span className="font-mono font-bold text-primary">Rp {(result.itemizedCosts.mobilization / 1000000).toFixed(1)} Juta</span>
                   </div>
                   {result.itemizedCosts.mudHandling && (
-                    <div className="flex justify-between text-xs">
-                      <span className="text-slate-400">Penanganan Lumpur</span>
-                      <span className="text-white font-mono font-bold">Rp {(result.itemizedCosts.mudHandling / 1000000).toFixed(1)} Juta</span>
+                    <div className="flex justify-between">
+                      <span className="text-secondary">Penanganan Lumpur</span>
+                      <span className="font-mono font-bold text-primary">Rp {(result.itemizedCosts.mudHandling / 1000000).toFixed(1)} Juta</span>
                     </div>
                   )}
-                  <div className="flex justify-between text-xs pt-3 border-t border-slate-800">
-                    <span className="text-slate-400">Estimasi Durasi</span>
-                    <span className="text-white font-mono font-bold">{result.durationDaysMin} - {result.durationDaysMax} hari kerja</span>
+                  <div className="flex justify-between border-t border-border-muted pt-3">
+                    <span className="text-secondary">Estimasi Durasi</span>
+                    <span className="font-mono font-bold text-primary">{result.durationDaysMin} - {result.durationDaysMax} hari kerja</span>
                   </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-slate-400">Volume Beton ReadyMix</span>
-                    <span className="text-white font-mono font-bold">{result.concreteVolumeM3} m³</span>
+                  <div className="flex justify-between">
+                    <span className="text-secondary">Volume Beton ReadyMix</span>
+                    <span className="font-mono font-bold text-primary">{result.concreteVolumeM3} m³</span>
                   </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-slate-400">Berat Besi Tulangan</span>
-                    <span className="text-white font-mono font-bold">{input.includeMaterial ? `${result.rebarWeightKg} Kg (${(result.rebarWeightKg / 1000).toFixed(2)} Ton)` : 'Disiapkan Owner'}</span>
+                  <div className="flex justify-between">
+                    <span className="text-secondary">Berat Besi Tulangan</span>
+                    <span className="font-mono font-bold text-primary">{input.includeMaterial ? `${result.rebarWeightKg} Kg (${(result.rebarWeightKg / 1000).toFixed(2)} Ton)` : 'Disiapkan Owner'}</span>
                   </div>
                 </div>
               </div>
@@ -284,14 +273,13 @@ export default function CalculatorSection() {
             </div>
           </div>
         ) : (
-          /* Skeleton placeholder */
-          <div className="grid lg:grid-cols-12 gap-8">
+          <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
             <div className="lg:col-span-5">
-              <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 h-96 animate-pulse" />
+              <div className="h-96 animate-pulse rounded-lg border border-border-muted bg-surface-container-low" />
             </div>
             <div className="lg:col-span-7 space-y-6">
-              <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 h-64 animate-pulse" />
-              <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 h-48 animate-pulse" />
+              <div className="h-64 animate-pulse rounded-lg border border-border-muted bg-surface-container-low" />
+              <div className="h-48 animate-pulse rounded-lg border border-border-muted bg-surface-container-low" />
             </div>
           </div>
         )}

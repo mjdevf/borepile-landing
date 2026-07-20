@@ -25,11 +25,11 @@ export default function DrillVisualizer({
   const soil = soilStyles[soilType] || soilStyles.soft;
 
   return (
-    <div className="w-full bg-slate-950 rounded-xl p-5 border border-slate-800 relative overflow-hidden flex flex-col items-center">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
+    <div className="w-full border border-border-muted bg-surface-container-lowest rounded-lg p-5 relative overflow-hidden flex flex-col items-center">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-tertiary/5 rounded-full blur-2xl pointer-events-none" />
       <div className="w-full flex justify-between items-center mb-4 z-10">
-        <span className="text-[10px] font-bold tracking-widest text-amber-500 uppercase">Visualisasi Struktur Tiang</span>
-        <span className="text-[10px] font-mono text-slate-400 bg-slate-900 px-2 py-1 rounded border border-slate-800">Skala Adaptif</span>
+        <span className="text-[10px] font-bold tracking-widest text-tertiary uppercase">Visualisasi Struktur Tiang</span>
+        <span className="text-[10px] font-mono text-secondary bg-surface-container-low px-2 py-1 rounded border border-border-muted">Skala Adaptif</span>
       </div>
       <svg viewBox="0 0 320 400" className="w-full max-w-[280px] h-auto drop-shadow-lg overflow-visible" aria-label="Drill visual diagram">
         <defs>
@@ -145,8 +145,8 @@ export default function DrillVisualizer({
           <text x="35" y="1" textAnchor="middle" className="fill-slate-300 font-sans font-semibold text-[8px]">{soil.label}</text>
         </g>
       </svg>
-      <div className="w-full text-center mt-3 pt-3 border-t border-slate-900 z-10">
-        <p className="text-[11px] text-slate-400 font-medium">
+      <div className="w-full text-center mt-3 pt-3 border-t border-border-muted z-10">
+        <p className="text-[11px] text-secondary font-medium">
           {includeMaterial ? (
             <span>Status: <strong className="text-emerald-400 font-semibold">Cor Beton ReadyMix K-300</strong> & <strong className="text-emerald-400 font-semibold">Besi Spiral Terinstalasi</strong></span>
           ) : (
