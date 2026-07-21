@@ -8,11 +8,9 @@ import Services from "./components/sections/Services";
 import WhyUs from "./components/sections/WhyUs";
 import Portfolio from "./components/sections/Portfolio";
 import TestimonialSection from "./components/sections/TestimonialSection";
-import ServiceArea from "./components/sections/ServiceArea";
 import HowItWorks from "./components/sections/HowItWorks";
 import FAQ from "./components/sections/FAQ";
 import { lazy, Suspense } from "react";
-import SectionDivider from "./components/ui/SectionDivider";
 import ScrollToTop from "./components/ui/ScrollToTop";
 import CTA from "./components/sections/CTA";
 import Footer from "./components/sections/Footer";
@@ -42,8 +40,6 @@ export default function App() {
         <TrustBar />
         <LazyServiceAreaMap />
         <TestimonialSection />
-        <SectionDivider />
-        <ServiceArea />
         <HowItWorks />
         <FAQ />
         {/* Lazy load maps with fallback */}

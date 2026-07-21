@@ -80,7 +80,6 @@ export default function TestimonialSection() {
             {/* Verified badge — DINONAKTIFKAN: data dari klien langsung, tanpa verifikasi formal */}
             {false && t.verified && (
               <div className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-border-muted bg-surface-container-low px-3 py-1 font-mono text-[11px] text-secondary">
-                <CheckCircle2 className="h-3.5 w-3.5 text-success-green" />
                 Laporan Proyek Terverifikasi
               </div>
             )}

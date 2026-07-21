@@ -4,7 +4,6 @@ import { ChevronDown } from "lucide-react";
 import { faq } from "../../data/content";
 
 function AccordionItem({ item, isOpen, onClick, idx }) {
-  const contentRef = useRef(null);
 
   return (
     <div
