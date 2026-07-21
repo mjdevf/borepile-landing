@@ -16,6 +16,7 @@ import SectionDivider from "./components/ui/SectionDivider";
 import ScrollToTop from "./components/ui/ScrollToTop";
 import CTA from "./components/sections/CTA";
 import Footer from "./components/sections/Footer";
+import LazyServiceAreaMap from "./components/sections/LazyServiceAreaMap";
 
 // Lazy load heavy components for better code splitting
 const MapsSection = lazy(() => import("./components/sections/MapsSection"));
@@ -39,6 +40,7 @@ export default function App() {
           <CalculatorSection />
         </Suspense>
         <TrustBar />
+        <LazyServiceAreaMap />
         <TestimonialSection />
         <SectionDivider />
         <ServiceArea />
