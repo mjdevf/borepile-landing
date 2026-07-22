@@ -1,5 +1,22 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+class ErrorBoundary extends React.Component {
+  state = { err: false };
+  static getDerivedStateFromError() { return { err: true }; }
+  render() {
+    if (this.state.err)
+      return (
+        <div className="flex h-[400px] items-center justify-center rounded-md border border-border-muted bg-surface-container-low">
+          <div className="text-center">
+            <p className="mb-2 text-sm text-secondary">Peta gagal dimuat.</p>
+            <button onClick={() => this.setState({ err: false })} className="text-sm text-tertiary underline">Coba lagi</button>
+          </div>
+        </div>
+      );
+    return this.props.children;
+  }
+}
 
 /* ── KOTA data with real lat/lng ── */
 const CITIES = [
@@ -39,6 +56,7 @@ export default function ServiceAreaMap() {
 
       const el = mapRef.current;
       if (!el) return;
+      if (el._leaflet_id) return; // already initialized (StrictMode double-invoke guard)
 
       const map = L.default.map(el, {
         center: [-6.35, 106.85],
@@ -110,21 +128,23 @@ export default function ServiceAreaMap() {
         </div>
 
         {/* Map card */}
-        <div className="relative overflow-hidden rounded-xl border border-border-muted shadow-[0_1px_2px_rgba(15,30,61,0.04),0_12px_32px_-16px_rgba(15,30,61,0.12)]">
-          {!ready && (
-            <div className="h-[400px] w-full animate-pulse bg-surface-container-low" />
-          )}
-          <div
-            ref={mapRef}
-            className="w-full"
-            style={{ height: "400px", minHeight: "400px" }}
-          />
+        <ErrorBoundary>
+          <div className="relative overflow-hidden rounded-xl border border-border-muted shadow-[0_1px_2px_rgba(15,30,61,0.04),0_12px_32px_-16px_rgba(15,30,61,0.12)]">
+            {!ready && (
+              <div className="h-[400px] w-full animate-pulse bg-surface-container-low" />
+            )}
+            <div
+              ref={mapRef}
+              className="w-full"
+              style={{ height: "400px", minHeight: "400px" }}
+            />
 
-          {/* Attribution overlay */}
-          <div className="pointer-events-none absolute bottom-0 right-0 z-[1000] p-1 text-[10px] text-gray-500">
-            &copy; OpenStreetMap contributors
+            {/* Attribution overlay */}
+            <div className="pointer-events-none absolute bottom-0 right-0 z-[1000] p-1 text-[10px] text-gray-500">
+              &copy; OpenStreetMap contributors
+            </div>
           </div>
-        </div>
+        </ErrorBoundary>
 
         {/* Footer stats */}
         <div className="mt-4 flex items-center justify-between text-xs text-outline">
