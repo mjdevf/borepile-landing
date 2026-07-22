@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import FadeInWrap from "../ui/FadeInWrap";
 import { about } from "../../data/content";
 
 export default function WhyUs() {
@@ -17,17 +17,11 @@ export default function WhyUs() {
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {about.highlights.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="rounded-lg border border-border-muted bg-surface p-5 text-center shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] transition-all hover:border-outline"
+            <FadeInWrap key={item.title} delay={i * 0.08} className="rounded-lg border border-border-muted bg-surface p-5 text-center shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] transition-all hover:border-outline"
             >
               <h3 className="mb-2 text-sm font-bold text-primary">{item.title}</h3>
               <p className="text-sm leading-relaxed text-secondary">{item.desc}</p>
-            </motion.div>
+            </FadeInWrap>
           ))}
         </div>
       </div>

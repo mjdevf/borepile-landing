@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import FadeInWrap from "../ui/FadeInWrap";
 import { Building2, Droplets, Ruler, Sprout, Search, Drill } from "lucide-react";
 import { services } from "../../data/content";
 
@@ -29,12 +29,9 @@ export default function Services() {
           {services.map((svc, i) => {
             const Icon = icons[svc.icon] || Drill;
             return (
-              <motion.div
+              <FadeInWrap
                 key={svc.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                delay={i * 0.08}
                 className="group flex h-full flex-col rounded-lg border border-border-muted bg-surface p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] transition-colors hover:border-outline"
               >
                 {/* Icon box */}
@@ -61,7 +58,7 @@ export default function Services() {
                     ))}
                   </div>
                 )}
-              </motion.div>
+              </FadeInWrap>
             );
           })}
         </div>

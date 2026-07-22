@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import FadeInWrap from "../ui/FadeInWrap";
 import { howItWorks } from "../../data/content";
 
 export default function HowItWorks() {
@@ -19,12 +19,9 @@ export default function HowItWorks() {
 
         <div className="space-y-8">
           {howItWorks.map((step, i) => (
-            <motion.div
+            <FadeInWrap
               key={step.step}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              delay={i * 0.1}
               className="flex items-start gap-5"
             >
               {/* Step number */}
@@ -35,7 +32,7 @@ export default function HowItWorks() {
                 <h3 className="text-lg font-bold text-primary">{step.title}</h3>
                 <p className="mt-1 text-sm leading-relaxed text-secondary">{step.desc}</p>
               </div>
-            </motion.div>
+            </FadeInWrap>
           ))}
         </div>
       </div>

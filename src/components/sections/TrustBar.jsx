@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import FadeInWrap from "../ui/FadeInWrap";
 import { Drill, Calendar } from "lucide-react";
 import { trustBar } from "../../data/content";
 
@@ -12,13 +12,7 @@ export default function TrustBar() {
           {trustBar.items.map((item, i) => {
             const Icon = icons[item.icon] || Drill;
             return (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
-                className="flex flex-col items-center text-center"
+              <FadeInWrap key={item.label} delay={i * 0.15} className="flex flex-col items-center text-center"
               >
                 <Icon className="mb-3 h-8 w-8 text-primary" />
                 <span className="text-5xl font-bold tracking-tight text-primary">
@@ -27,7 +21,7 @@ export default function TrustBar() {
                 <p className="mt-2 text-xs font-semibold uppercase tracking-[0.15em] text-secondary">
                   {item.label}
                 </p>
-              </motion.div>
+              </FadeInWrap>
             );
           })}
         </div>

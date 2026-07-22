@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { footer } from "../../data/content";
 import { Phone, Mail, MapPin, Clock, ChevronRight } from "lucide-react";
 import { navLinks } from "../../data/content";

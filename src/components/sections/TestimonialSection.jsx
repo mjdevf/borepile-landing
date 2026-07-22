@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import FadeInWrap from "../ui/FadeInWrap";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
@@ -70,19 +70,7 @@ export default function TestimonialSection() {
           </button>
 
           {/* Card */}
-          <motion.div
-            key={active}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="rounded-lg border border-border-muted bg-surface p-8 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)]"
-          >
-            {/* Verified badge — DINONAKTIFKAN: data dari klien langsung, tanpa verifikasi formal */}
-            {false && t.verified && (
-              <div className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-border-muted bg-surface-container-low px-3 py-1 font-mono text-[11px] text-secondary">
-                Laporan Proyek Terverifikasi
-              </div>
-            )}
+          <FadeInWrap key={active} className="rounded-lg border border-border-muted bg-surface p-8 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)]">
             <p className="mb-6 text-lg italic leading-relaxed text-on-surface">
               &ldquo;{t.quote}&rdquo;
             </p>
@@ -90,7 +78,7 @@ export default function TestimonialSection() {
               <p className="text-sm font-bold text-primary">{t.name}</p>
               <p className="text-xs text-secondary">{t.role}</p>
             </div>
-          </motion.div>
+          </FadeInWrap>
         </div>
 
         {/* Dots */}

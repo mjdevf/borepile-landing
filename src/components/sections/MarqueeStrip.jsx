@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { Shield, Building2, HardHat, CheckCircle, Award, Users } from "lucide-react";
 
 const items = [
