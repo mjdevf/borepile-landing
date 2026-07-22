@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { Phone, ArrowRight } from "lucide-react";
 import { hero, trustBar, footer } from "../../data/content";
 
@@ -37,43 +36,30 @@ export default function Hero() {
         {/* Text content */}
         <div className="flex flex-col justify-center md:col-span-8 lg:col-span-7">
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-4 inline-flex w-max items-center gap-1.5 rounded-full border border-border-muted bg-surface px-3 py-1 font-mono text-xs text-secondary shadow-sm"
+          <div className="ani-hero mb-4 inline-flex w-max items-center gap-1.5 rounded-full border border-border-muted bg-surface px-3 py-1 font-mono text-xs text-secondary shadow-sm"
+            style={{ animationDelay: "0s" }}
           >
             <span className="h-2 w-2 rounded-full bg-success-green" />
             Kontraktor Pondasi Profesional
-          </motion.div>
+          </div>
 
           {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-6 text-3xl font-bold leading-tight tracking-tight text-primary md:text-6xl md:leading-[1.15]"
-            style={{ letterSpacing: "-0.02em" }}
+          <h1 className="ani-hero mb-6 text-3xl font-bold leading-tight tracking-tight text-primary md:text-6xl md:leading-[1.15]"
+            style={{ animationDelay: "0.12s" }}
           >
             {hero.headline}
-          </motion.h1>
+          </h1>
 
           {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mb-12 max-w-2xl text-base leading-relaxed text-on-surface-variant"
+          <p className="ani-hero mb-12 max-w-2xl text-base leading-relaxed text-on-surface-variant"
+            style={{ animationDelay: "0.24s" }}
           >
             {hero.subheadline}
-          </motion.p>
+          </p>
 
           {/* CTA buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col gap-3 sm:flex-row"
+          <div className="ani-hero flex flex-col gap-3 sm:flex-row"
+            style={{ animationDelay: "0.36s" }}
           >
             <a
               href={`https://wa.me/${footer.wa}?text=${MSG}`}
@@ -91,14 +77,11 @@ export default function Hero() {
               {hero.ctaSecondary}
               <ArrowRight className="h-4 w-4" />
             </a>
-          </motion.div>
+          </div>
 
           {/* Stats strip */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="mt-12 grid grid-cols-2 gap-4 border-t border-border-muted pt-8 sm:grid-cols-4"
+          <div className="ani-hero mt-12 grid grid-cols-2 gap-4 border-t border-border-muted pt-8 sm:grid-cols-4"
+            style={{ animationDelay: "0.5s" }}
           >
             {trustBar.items.map((item) => (
               <div key={item.label}>
@@ -121,7 +104,7 @@ export default function Hero() {
                 30<span className="ml-0.5 text-base text-secondary">m</span>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
       </div>

@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "../../data/content";
 
@@ -71,58 +70,46 @@ export default function Navbar() {
           aria-expanded={open}
           aria-controls="mobile-menu-panel"
         >
-          <motion.div animate={{ rotate: open ? 90 : 0 }} transition={{ duration: 0.2 }}>
+          <div className={`transition-transform duration-200 ${open ? "rotate-90" : ""}`}>
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </motion.div>
+          </div>
         </button>
       </div>
 
       {/* Mobile slide-in panel */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            id="mobile-menu-panel"
-            role="dialog"
-            aria-modal={open}
-            aria-label="Navigasi menu"
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 250 }}
-            className="fixed inset-0 top-0 z-40 bg-surface md:hidden"
-          >
-            <div className="flex flex-col gap-1 px-8 pt-28">
-              {navLinks.map(({ label, href }, i) => (
-                <motion.a
-                  key={href}
-                  href={href}
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.08 + i * 0.05, duration: 0.3 }}
-                  className="border-b border-border-muted py-4 text-sm font-medium text-primary transition-colors hover:text-tertiary"
-                  onClick={() => setOpen(false)}
-                >
-                  {label}
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div
+        id="mobile-menu-panel"
+        role="dialog"
+        aria-modal={open}
+        aria-label="Navigasi menu"
+        className={`fixed inset-0 top-0 z-40 bg-surface transition-transform duration-300 md:hidden ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col gap-1 px-8 pt-28">
+          {navLinks.map(({ label, href }, i) => (
+            <a
+              key={href}
+              href={href}
+              style={{ animationDelay: `${0.08 + i * 0.05}s` }}
+              className={`border-b border-border-muted py-4 text-sm font-medium text-primary transition-all duration-300 hover:text-tertiary ${
+                open ? "ani-nav-link" : "opacity-0"
+              }`}
+              onClick={() => setOpen(false)}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+      </div>
 
       {/* Overlay */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-[72px] z-30 bg-black/40 md:hidden"
-            onClick={() => setOpen(false)}
-          />
-        )}
-      </AnimatePresence>
+      <div
+        className={`fixed inset-0 top-[72px] z-30 bg-black/40 transition-opacity duration-200 md:hidden ${
+          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setOpen(false)}
+      />
     </nav>
   );
 }

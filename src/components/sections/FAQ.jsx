@@ -1,11 +1,8 @@
-import { useState, useRef } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { faq } from "../../data/content";
 
 function AccordionItem({ item, isOpen, onClick, idx }) {
-  const contentRef = useRef(null);
-
   return (
     <div
       className={`overflow-hidden rounded-lg border border-border-muted transition-all ${
@@ -20,29 +17,23 @@ function AccordionItem({ item, isOpen, onClick, idx }) {
         aria-expanded={isOpen}
       >
         <span>{item.q}</span>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="ml-4 shrink-0"
+        <div
+          className={`ml-4 shrink-0 transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
         >
           <ChevronDown className="h-4 w-4 text-secondary" />
-        </motion.div>
+        </div>
       </button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            ref={contentRef}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            <div className="border-t border-border-muted px-5 py-4 text-sm leading-relaxed text-secondary">
-              {item.a}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div
+        className={`transition-all duration-300 ease-in-out ${
+          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="border-t border-border-muted px-5 py-4 text-sm leading-relaxed text-secondary">
+          {item.a}
+        </div>
+      </div>
     </div>
   );
 }

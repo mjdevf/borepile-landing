@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { portfolioImages } from "../../data/content";
 
@@ -46,12 +45,10 @@ export default function Portfolio() {
 
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
             {portfolioImages.map((img, i) => (
-              <motion.button
+              <button
                 key={i}
-                initial={{ opacity: 1 }}
-                whileHover={{ scale: 1.02 }}
                 onClick={() => setSelected(i)}
-                className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-border-muted bg-surface-container-low text-left shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] focus-visible:ring-2 focus-visible:ring-tertiary focus-visible:ring-offset-2"
+                className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-border-muted bg-surface-container-low text-left shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] transition-transform duration-200 hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-tertiary focus-visible:ring-offset-2"
               >
                 <picture>
                   <source
@@ -78,22 +75,21 @@ export default function Portfolio() {
                     {img.label}
                   </p>
                 </div>
-              </motion.button>
+              </button>
             ))}
           </div>
         </div>
       </section>
 
       {/* Lightbox */}
-      <AnimatePresence>
+      <div
+        className={`fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 transition-opacity duration-200 ${
+          selected !== null ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setSelected(null)}
+      >
         {selected !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"
-            onClick={() => setSelected(null)}
-          >
+          <>
             <button
               className="absolute right-4 top-4 z-10 text-white/70 hover:text-white focus-visible:ring-2 focus-visible:ring-white"
               onClick={() => setSelected(null)}
@@ -110,14 +106,7 @@ export default function Portfolio() {
               <ChevronLeft className="h-10 w-10" />
             </button>
 
-            <motion.div
-              key={selected}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="relative"
-              onClick={(e) => e.stopPropagation()}
-            >
+            <div key={selected} onClick={(e) => e.stopPropagation()}>
               <picture>
                 <source srcSet={toWebp(portfolioImages[selected].src)} type="image/webp" />
                 <img
@@ -134,7 +123,7 @@ export default function Portfolio() {
                   {selected + 1} / {portfolioImages.length}
                 </p>
               </div>
-            </motion.div>
+            </div>
 
             <button
               className="absolute right-4 top-1/2 z-10 -translate-y-1/2 text-white/70 hover:text-white focus-visible:ring-2 focus-visible:ring-white"
@@ -143,9 +132,9 @@ export default function Portfolio() {
             >
               <ChevronRight className="h-10 w-10" />
             </button>
-          </motion.div>
+          </>
         )}
-      </AnimatePresence>
+      </div>
     </>
   );
 }
