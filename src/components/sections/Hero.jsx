@@ -13,7 +13,16 @@ export default function Hero() {
       {/* Background image */}
       <div className="absolute inset-0 h-full w-full">
         <picture>
-          <source srcSet="/images/portfolio/hero-bg.webp" type="image/webp" />
+          <source
+            srcSet="/images/portfolio/hero-bg-640.webp 640w, /images/portfolio/hero-bg-320.webp 320w"
+            sizes="100vw"
+            type="image/webp"
+          />
+          <source
+            srcSet="/images/portfolio/hero-bg-640.jpg 640w, /images/portfolio/hero-bg-320.jpg 320w"
+            sizes="100vw"
+            type="image/jpeg"
+          />
           <img
             src="/images/portfolio/hero-bg.jpg"
             alt="Kontraktor bore pile profesional Majujaya sedang melakukan pengeboran pondasi di lokasi proyek"

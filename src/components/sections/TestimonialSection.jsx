@@ -88,13 +88,13 @@ export default function TestimonialSection() {
               key={i}
               onClick={() => setActive(i)}
               aria-label={`Testimonial ${i + 1}`}
-              className={`flex items-center justify-center rounded-full transition-all duration-300 ${
+              className={`flex items-center justify-center rounded-full transition-all duration-300 min-w-6 min-h-6 ${
                 i === active
                   ? "w-7 bg-primary"
-                  : "w-2 bg-border-muted hover:bg-secondary"
+                  : "w-6 bg-border-muted hover:bg-secondary"
               }`}
             >
-              <span className="h-4 w-4" />
+              <span className="sr-only">Testimonial {i + 1}</span>
             </button>
           ))}
         </div>

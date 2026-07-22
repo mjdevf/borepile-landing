@@ -24,6 +24,9 @@ export default function Portfolio() {
     return () => window.removeEventListener("keydown", handler);
   }, [selected]);
 
+  const toWebp = (src) => src.replace(/\.(jpg|png)$/, ".webp");
+  const toResized = (src, size) => src.replace(/\.(webp|jpg)$/, `-${size}.$1`);
+
   return (
     <>
       <section id="portfolio" className="bg-surface px-4 py-16 md:px-10 md:py-24">
@@ -51,7 +54,16 @@ export default function Portfolio() {
                 className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-border-muted bg-surface-container-low text-left shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] focus-visible:ring-2 focus-visible:ring-tertiary focus-visible:ring-offset-2"
               >
                 <picture>
-                  <source srcSet={img.src.replace(/\.(jpg|png)$/, '.webp')} type="image/webp" />
+                  <source
+                    srcSet={`${toResized(toWebp(img.src), 640)} 640w, ${toResized(toWebp(img.src), 320)} 320w`}
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    type="image/webp"
+                  />
+                  <source
+                    srcSet={`${toResized(img.src, 640)} 640w, ${toResized(img.src, 320)} 320w`}
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    type="image/jpeg"
+                  />
                   <img
                     src={img.src}
                     alt={img.alt}
@@ -107,7 +119,7 @@ export default function Portfolio() {
               onClick={(e) => e.stopPropagation()}
             >
               <picture>
-                <source srcSet={portfolioImages[selected].src.replace(/\.(jpg|png)$/, '.webp')} type="image/webp" />
+                <source srcSet={toWebp(portfolioImages[selected].src)} type="image/webp" />
                 <img
                   src={portfolioImages[selected].src}
                   alt={portfolioImages[selected].alt}

@@ -116,7 +116,7 @@ export default function ServiceAreaMap() {
       <div className="mx-auto max-w-[760px]">
         {/* Header */}
         <div className="mb-6">
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-outline">
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
             Wilayah Layanan
           </p>
           <h2 className="mt-1 text-[clamp(24px,4vw,34px)] font-bold leading-tight tracking-tight text-primary">
