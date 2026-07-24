@@ -1,12 +1,13 @@
-import fs from 'fs';
-import path from 'path';
+import { chromium } from 'playwright';
+import { createServer } from 'http';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
+import { resolve, join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { JSDOM } from 'jsdom';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const DIST_DIR = path.join(__dirname, '..', 'dist');
+const __dirname = resolve(__filename, '..');
+const DIST = resolve(__dirname, '../dist');
+const PORT = 4199;
 
 const LOCATIONS = [
   { slug: 'jakarta-pusat', name: 'Jakarta Pusat', keywords: 'jasa bore pile jakarta pusat, kontraktor bore pile menteng, pondasi bore pile senayan, strauss pile jakpus' },
@@ -27,133 +28,160 @@ const LOCATIONS = [
   { slug: 'cilegon', name: 'Cilegon', keywords: 'jasa bore pile cilegon, kontraktor pondasi cilegon, bore pile cilegon, strauss pile cilegon' },
 ];
 
-async function generateLocationPages() {
-  const homepagePath = path.join(DIST_DIR, 'index.html');
+// Simple static file server
+const server = createServer((req, res) => {
+  let filePath = join(DIST, req.url === '/' ? 'index.html' : req.url);
+  try {
+    const content = readFileSync(filePath);
+    const ext = filePath.split('.').pop();
+    const mime = {
+      html: 'text/html', css: 'text/css', js: 'application/javascript',
+      json: 'application/json', png: 'image/png', jpg: 'image/jpeg',
+      jpeg: 'image/jpeg', webp: 'image/webp', svg: 'image/svg+xml',
+      xml: 'application/xml', ico: 'image/x-icon'
+    };
+    res.writeHead(200, { 'Content-Type': mime[ext] || 'text/plain' });
+    res.end(content);
+  } catch {
+    res.writeHead(404);
+    res.end();
+  }
+});
+
+async function generatePages() {
+  console.log('Starting Playwright prerender...');
   
-  console.log(`📂 Checking dist directory: ${DIST_DIR}`);
-  if (!fs.existsSync(homepagePath)) {
-    console.error('❌ Homepage not found at:', homepagePath);
-    console.error('Available files:', fs.readdirSync(DIST_DIR || '.').slice(0, 10));
+  // Check dist exists
+  if (!existsSync(join(DIST, 'index.html'))) {
+    console.error('❌ dist/index.html not found — run build first');
     process.exit(1);
   }
 
-  const homepageHtml = fs.readFileSync(homepagePath, 'utf8');
-  console.log(`✓ Homepage loaded (${homepageHtml.length} bytes)`);
+  const browser = await chromium.launch({ headless: true });
+  const context = await browser.newContext({
+    viewport: { width: 1280, height: 900 },
+    deviceScaleFactor: 1,
+    userAgent: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+  });
 
-  console.log(`🚀 Generating ${LOCATIONS.length} location pages...`);
+  server.listen(PORT);
 
-  for (const loc of LOCATIONS) {
-    try {
-      console.log(`  🔧 Processing: /${loc.slug}/`);
+  try {
+    // 1. Render homepage
+    console.log('\n📄 Rendering homepage...');
+    const homePage = await context.newPage();
+    await homePage.goto(`http://localhost:${PORT}/`, { waitUntil: 'networkidle', timeout: 30000 });
+    await homePage.waitForTimeout(1000);
+    // Wait for React to hydrate
+    await homePage.waitForSelector('#root > *', { timeout: 10000 }).catch(() => {});
+    await homePage.waitForTimeout(500);
+
+    const homeHtml = await homePage.content();
+    writeFileSync(join(DIST, 'index.html'), homeHtml);
+    const homeKb = Buffer.byteLength(homeHtml) / 1024;
+    console.log(`✅ Homepage rendered (${homeKb.toFixed(1)} KB)`);
+    
+    // Verify content rendered
+    const hasContent = homeHtml.includes('Borepile') || homeHtml.includes('hero');
+    const rootEmpty = homeHtml.includes('<div id="root"></div>');
+    console.log(`   Content: ${hasContent ? '✅' : '❌'} | Root empty: ${rootEmpty ? '❌ YES - PROBLEM' : '✅ NO - good'}\n`);
+
+    // 2. Generate location pages from rendered HTML
+    console.log(`🚀 Generating ${LOCATIONS.length} location pages...`);
+    
+    for (const loc of LOCATIONS) {
+      const canonicalUrl = `https://borepilemajujaya.com/location/${loc.slug}/`;
+      const title = `Jasa Bore Pile & Strauss Pile di ${loc.name} | Majujaya`;
+      const description = `Jasa bore pile & strauss pile profesional di ${loc.name} sejak 2013. Survey gratis, harga bersaing, 250+ proyek. Melayani perumahan, gedung, infrastruktur di ${loc.name}.`;
+
+      // Replace title
+      let html = homeHtml.replace(
+        /<title>.*?<\/title>/,
+        `<title>${title}</title>`
+      );
       
-      const dom = new JSDOM(homepageHtml);
-      const document = dom.window.document;
+      // Replace meta description
+      html = html.replace(
+        /<meta name="description" content="[^"]*"/,
+        `<meta name="description" content="${description}"`
+      );
+      
+      // Replace keywords
+      html = html.replace(
+        /<meta name="keywords" content="[^"]*"/,
+        `<meta name="keywords" content="${loc.keywords}"`
+      );
 
-    const canonicalUrl = `https://borepilemajujaya.com/location/${loc.slug}/`;
-    const title = `Jasa Bore Pile & Strauss Pile di ${loc.name} | Majujaya`;
-    const description = `Jasa bore pile & strauss pile profesional di ${loc.name} sejak 2013. Survey gratis, harga bersaing, 250+ proyek. Melayani perumahan, gedung, infrastruktur di ${loc.name}.`;
+      // Replace geo.placename
+      html = html.replace(
+        /<meta name="geo\.placename" content="[^"]*"/,
+        `<meta name="geo.placename" content="${loc.name}"`
+      );
 
-    // Update Title
-    const titleEl = document.querySelector('title');
-    if (titleEl) titleEl.textContent = title;
+      // Replace canonical
+      html = html.replace(
+        /<link rel="canonical" href="[^"]*"/,
+        `<link rel="canonical" href="${canonicalUrl}"`
+      );
 
-    // Update Meta Description
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', description);
+      // Replace OG url
+      html = html.replace(
+        /<meta property="og:url" content="[^"]*"/,
+        `<meta property="og:url" content="${canonicalUrl}"`
+      );
 
-    // Update Keywords
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) metaKeywords.setAttribute('content', loc.keywords);
+      // Replace OG title
+      html = html.replace(
+        /<meta property="og:title" content="[^"]*"/,
+        `<meta property="og:title" content="${title}"`
+      );
 
-    // Update geo.placename
-    const geoPlacename = document.querySelector('meta[name="geo.placename"]');
-    if (geoPlacename) geoPlacename.setAttribute('content', loc.name);
+      // Replace OG description
+      html = html.replace(
+        /<meta property="og:description" content="[^"]*"/,
+        `<meta property="og:description" content="${description}"`
+      );
 
-    // Update Canonical
-    const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute('href', canonicalUrl);
+      // Replace hreflang
+      html = html.replace(
+        /<link rel="alternate" hreflang="id" href="[^"]*"/,
+        `<link rel="alternate" hreflang="id" href="${canonicalUrl}"`
+      );
+      html = html.replace(
+        /<link rel="alternate" hreflang="x-default" href="[^"]*"/,
+        `<link rel="alternate" hreflang="x-default" href="${canonicalUrl}"`
+      );
 
-    // Update OG Tags
-    const ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
-    
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', title);
-    
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute('content', description);
+      // Replace Twitter title
+      html = html.replace(
+        /<meta property="twitter:title" content="[^"]*"/,
+        `<meta property="twitter:title" content="${title}"`
+      );
 
-    // Update Hreflang
-    const hreflangId = document.querySelector('link[hreflang="id"]');
-    if (hreflangId) hreflangId.setAttribute('href', canonicalUrl);
+      // Replace Twitter description
+      html = html.replace(
+        /<meta property="twitter:description" content="[^"]*"/,
+        `<meta property="twitter:description" content="${description}"`
+      );
 
-    // Update Schema LD - LocalBusiness URL
-    const scriptLd = document.querySelector('script[type="application/ld+json"]');
-    if (scriptLd) {
-      try {
-        const jsonData = JSON.parse(scriptLd.textContent);
-        if (jsonData['@type'] === 'LocalBusiness') {
-          jsonData.url = canonicalUrl;
-          jsonData.address = {
-            "@type": "PostalAddress",
-            "addressRegion": loc.name,
-            "addressCountry": "ID"
-          };
-          jsonData.servesArea = loc.name;
-          scriptLd.textContent = JSON.stringify(jsonData, null, 2);
-        }
-      } catch (e) {
-        console.warn(`    ⚠️ Schema parse error for ${loc.slug}:`, e.message);
-      }
+      // Update LocalBusiness @id and url
+      const locDir = join(DIST, 'location', loc.slug);
+      mkdirSync(locDir, { recursive: true });
+      writeFileSync(join(locDir, 'index.html'), html);
+      console.log(`✅ ${loc.slug}/`);
     }
 
-    // Add Breadcrumb Schema for location page
-    const breadcrumbScript = document.createElement('script');
-    breadcrumbScript.type = 'application/ld+json';
-    const breadcrumbSchema = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://borepilemajujaya.com"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Layanan Lokasi",
-          "item": "https://borepilemajujaya.com/location"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": loc.name,
-          "item": canonicalUrl
-        }
-      ]
-    };
-    breadcrumbScript.textContent = JSON.stringify(breadcrumbSchema, null, 2);
-    document.head.appendChild(breadcrumbScript);
-
-    // Write location file at /location/{slug}/index.html
-    const locDir = path.join(DIST_DIR, 'location', loc.slug);
-    fs.mkdirSync(locDir, { recursive: true });
-    fs.writeFileSync(path.join(locDir, 'index.html'), dom.serialize());
-    
-    console.log(`    ✅ Generated: ${loc.slug}/`);
-    } catch (error) {
-      console.error(`    ❌ Failed to generate ${loc.slug}:`, error.message);
-      throw error;
-    }
+    console.log('\n🎉 All pages prerendered successfully!');
+  } catch (err) {
+    console.error('❌ Prerender failed:', err.message);
+    throw err;
+  } finally {
+    await browser.close();
+    server.close();
   }
-
-  console.log('🎉 All location pages generated!');
 }
 
-generateLocationPages().catch(e => {
-  console.error('🚨 Prerender failed:', e.message);
-  console.error(e.stack);
+generatePages().catch(e => {
+  console.error(e);
   process.exit(1);
 });
