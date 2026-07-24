@@ -1,13 +1,12 @@
-import { chromium } from 'playwright';
-import { createServer } from 'http';
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
-import { resolve, join, dirname } from 'path';
+import fs from 'fs';
+import path from 'path';
 import { fileURLToPath } from 'url';
+import { JSDOM } from 'jsdom';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = resolve(__filename, '..');
-const DIST = resolve(__dirname, '../dist');
-const PORT = 4199;
+const __dirname = path.dirname(__filename);
+
+const DIST_DIR = path.join(__dirname, '..', 'dist');
 
 const LOCATIONS = [
   { slug: 'jakarta-pusat', name: 'Jakarta Pusat', keywords: 'jasa bore pile jakarta pusat, kontraktor bore pile menteng, pondasi bore pile senayan, strauss pile jakpus' },
@@ -28,160 +27,91 @@ const LOCATIONS = [
   { slug: 'cilegon', name: 'Cilegon', keywords: 'jasa bore pile cilegon, kontraktor pondasi cilegon, bore pile cilegon, strauss pile cilegon' },
 ];
 
-// Simple static file server
-const server = createServer((req, res) => {
-  let filePath = join(DIST, req.url === '/' ? 'index.html' : req.url);
-  try {
-    const content = readFileSync(filePath);
-    const ext = filePath.split('.').pop();
-    const mime = {
-      html: 'text/html', css: 'text/css', js: 'application/javascript',
-      json: 'application/json', png: 'image/png', jpg: 'image/jpeg',
-      jpeg: 'image/jpeg', webp: 'image/webp', svg: 'image/svg+xml',
-      xml: 'application/xml', ico: 'image/x-icon'
-    };
-    res.writeHead(200, { 'Content-Type': mime[ext] || 'text/plain' });
-    res.end(content);
-  } catch {
-    res.writeHead(404);
-    res.end();
-  }
-});
-
-async function generatePages() {
-  console.log('Starting Playwright prerender...');
+function generateLocationPages() {
+  const homepagePath = path.join(DIST_DIR, 'index.html');
   
-  // Check dist exists
-  if (!existsSync(join(DIST, 'index.html'))) {
-    console.error('❌ dist/index.html not found — run build first');
+  console.log(`📂 Checking dist directory: ${DIST_DIR}`);
+  if (!fs.existsSync(homepagePath)) {
+    console.error('❌ Homepage not found at:', homepagePath);
+    console.error('Available files:', fs.readdirSync(DIST_DIR || '.').slice(0, 10));
     process.exit(1);
   }
 
-  const browser = await chromium.launch({ headless: true });
-  const context = await browser.newContext({
-    viewport: { width: 1280, height: 900 },
-    deviceScaleFactor: 1,
-    userAgent: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
-  });
+  const homepageHtml = fs.readFileSync(homepagePath, 'utf8');
+  console.log(`✓ Homepage loaded (${homepageHtml.length} bytes)`);
 
-  server.listen(PORT);
+  console.log(`🚀 Generating ${LOCATIONS.length} location pages...`);
 
-  try {
-    // 1. Render homepage
-    console.log('\n📄 Rendering homepage...');
-    const homePage = await context.newPage();
-    await homePage.goto(`http://localhost:${PORT}/`, { waitUntil: 'networkidle', timeout: 30000 });
-    await homePage.waitForTimeout(1000);
-    // Wait for React to hydrate
-    await homePage.waitForSelector('#root > *', { timeout: 10000 }).catch(() => {});
-    await homePage.waitForTimeout(500);
+  for (const loc of LOCATIONS) {
+    try {
+      console.log(`  🔧 Processing: /${loc.slug}/`);
+      
+      const dom = new JSDOM(homepageHtml);
+      const document = dom.window.document;
 
-    const homeHtml = await homePage.content();
-    writeFileSync(join(DIST, 'index.html'), homeHtml);
-    const homeKb = Buffer.byteLength(homeHtml) / 1024;
-    console.log(`✅ Homepage rendered (${homeKb.toFixed(1)} KB)`);
-    
-    // Verify content rendered
-    const hasContent = homeHtml.includes('Borepile') || homeHtml.includes('hero');
-    const rootEmpty = homeHtml.includes('<div id="root"></div>');
-    console.log(`   Content: ${hasContent ? '✅' : '❌'} | Root empty: ${rootEmpty ? '❌ YES - PROBLEM' : '✅ NO - good'}\n`);
-
-    // 2. Generate location pages from rendered HTML
-    console.log(`🚀 Generating ${LOCATIONS.length} location pages...`);
-    
-    for (const loc of LOCATIONS) {
       const canonicalUrl = `https://borepilemajujaya.com/location/${loc.slug}/`;
       const title = `Jasa Bore Pile & Strauss Pile di ${loc.name} | Majujaya`;
       const description = `Jasa bore pile & strauss pile profesional di ${loc.name} sejak 2013. Survey gratis, harga bersaing, 250+ proyek. Melayani perumahan, gedung, infrastruktur di ${loc.name}.`;
 
-      // Replace title
-      let html = homeHtml.replace(
-        /<title>.*?<\/title>/,
-        `<title>${title}</title>`
-      );
+      // Update Title
+      const titleEl = document.querySelector('title');
+      if (titleEl) titleEl.textContent = title;
+
+      // Update Meta Description
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', description);
+
+      // Update Keywords
+      const metaKeywords = document.querySelector('meta[name="keywords"]');
+      if (metaKeywords) metaKeywords.setAttribute('content', loc.keywords);
+
+      // Update geo.placename
+      const geoPlacename = document.querySelector('meta[name="geo.placename"]');
+      if (geoPlacename) geoPlacename.setAttribute('content', loc.name);
+
+      // Update Canonical
+      const canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) canonical.setAttribute('href', canonicalUrl);
+
+      // Update OG Tags
+      const ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
       
-      // Replace meta description
-      html = html.replace(
-        /<meta name="description" content="[^"]*"/,
-        `<meta name="description" content="${description}"`
-      );
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute('content', title);
       
-      // Replace keywords
-      html = html.replace(
-        /<meta name="keywords" content="[^"]*"/,
-        `<meta name="keywords" content="${loc.keywords}"`
-      );
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.setAttribute('content', description);
 
-      // Replace geo.placename
-      html = html.replace(
-        /<meta name="geo\.placename" content="[^"]*"/,
-        `<meta name="geo.placename" content="${loc.name}"`
-      );
+      // Update Twitter
+      const twTitle = document.querySelector('meta[property="twitter:title"]');
+      if (twTitle) twTitle.setAttribute('content', title);
+      const twDesc = document.querySelector('meta[property="twitter:description"]');
+      if (twDesc) twDesc.setAttribute('content', description);
 
-      // Replace canonical
-      html = html.replace(
-        /<link rel="canonical" href="[^"]*"/,
-        `<link rel="canonical" href="${canonicalUrl}"`
-      );
+      // Update Hreflang
+      const hreflangId = document.querySelector('link[hreflang="id"]');
+      if (hreflangId) hreflangId.setAttribute('href', canonicalUrl);
+      const hreflangXd = document.querySelector('link[hreflang="x-default"]');
+      if (hreflangXd) hreflangXd.setAttribute('href', canonicalUrl);
 
-      // Replace OG url
-      html = html.replace(
-        /<meta property="og:url" content="[^"]*"/,
-        `<meta property="og:url" content="${canonicalUrl}"`
-      );
-
-      // Replace OG title
-      html = html.replace(
-        /<meta property="og:title" content="[^"]*"/,
-        `<meta property="og:title" content="${title}"`
-      );
-
-      // Replace OG description
-      html = html.replace(
-        /<meta property="og:description" content="[^"]*"/,
-        `<meta property="og:description" content="${description}"`
-      );
-
-      // Replace hreflang
-      html = html.replace(
-        /<link rel="alternate" hreflang="id" href="[^"]*"/,
-        `<link rel="alternate" hreflang="id" href="${canonicalUrl}"`
-      );
-      html = html.replace(
-        /<link rel="alternate" hreflang="x-default" href="[^"]*"/,
-        `<link rel="alternate" hreflang="x-default" href="${canonicalUrl}"`
-      );
-
-      // Replace Twitter title
-      html = html.replace(
-        /<meta property="twitter:title" content="[^"]*"/,
-        `<meta property="twitter:title" content="${title}"`
-      );
-
-      // Replace Twitter description
-      html = html.replace(
-        /<meta property="twitter:description" content="[^"]*"/,
-        `<meta property="twitter:description" content="${description}"`
-      );
-
-      // Update LocalBusiness @id and url
-      const locDir = join(DIST, 'location', loc.slug);
-      mkdirSync(locDir, { recursive: true });
-      writeFileSync(join(locDir, 'index.html'), html);
-      console.log(`✅ ${loc.slug}/`);
+      // Write location file at /location/{slug}/index.html
+      const locDir = path.join(DIST_DIR, 'location', loc.slug);
+      fs.mkdirSync(locDir, { recursive: true });
+      fs.writeFileSync(path.join(locDir, 'index.html'), dom.serialize());
+      
+      console.log(`    ✅ Generated: ${loc.slug}/`);
+    } catch (error) {
+      console.error(`    ❌ Failed to generate ${loc.slug}:`, error.message);
+      throw error;
     }
-
-    console.log('\n🎉 All pages prerendered successfully!');
-  } catch (err) {
-    console.error('❌ Prerender failed:', err.message);
-    throw err;
-  } finally {
-    await browser.close();
-    server.close();
   }
+
+  console.log('🎉 All location pages generated!');
 }
 
-generatePages().catch(e => {
-  console.error(e);
+generateLocationPages().catch(e => {
+  console.error('🚨 Prerender failed:', e.message);
+  console.error(e.stack);
   process.exit(1);
 });
