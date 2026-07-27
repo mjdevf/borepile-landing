@@ -16,6 +16,16 @@
       "source": "/wp-content(.*)",
       "destination": "/404",
       "statusCode": 404
+    },
+    {
+      "source": "/xmlrpc.php",
+      "destination": "/404",
+      "statusCode": 404
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "/404",
+      "statusCode": 404
     }
   ],
   "rewrites": [
