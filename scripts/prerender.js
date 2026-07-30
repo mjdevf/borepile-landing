@@ -111,8 +111,10 @@ function generateLocationPages() {
   console.log('🎉 All location pages generated!');
 }
 
-generateLocationPages().catch(e => {
+try {
+  generateLocationPages();
+} catch (e) {
   console.error('🚨 Prerender failed:', e.message);
   console.error(e.stack);
   process.exit(1);
-});
+}
