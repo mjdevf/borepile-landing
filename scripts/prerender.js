@@ -98,7 +98,8 @@ function generateLocationPages() {
       // Write location file at /location/{slug}/index.html
       const locDir = path.join(DIST_DIR, 'location', loc.slug);
       fs.mkdirSync(locDir, { recursive: true });
-      fs.writeFileSync(path.join(locDir, 'index.html'), dom.serialize());
+      let html = dom.serialize().replace(/&amp;/g, '&');
+      fs.writeFileSync(path.join(locDir, 'index.html'), html);
       
       console.log(`    ✅ Generated: ${loc.slug}/`);
     } catch (error) {
