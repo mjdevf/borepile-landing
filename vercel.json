@@ -3,6 +3,11 @@
   "outputDirectory": "dist",
   "redirects": [
     {
+      "source": "/location/:slug",
+      "destination": "/location/:slug/",
+      "permanent": true
+    },
+    {
       "source": "/wp-admin(.*)",
       "destination": "https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?w=800",
       "permanent": false

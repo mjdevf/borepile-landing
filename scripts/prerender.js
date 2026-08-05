@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { JSDOM } from 'jsdom';
+import { locationPages } from '../src/data/content.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,6 +27,50 @@ const LOCATIONS = [
   { slug: 'serang', name: 'Serang', keywords: 'jasa bore pile serang, kontraktor pondasi serang, bore pile serang, strauss pile serang' },
   { slug: 'cilegon', name: 'Cilegon', keywords: 'jasa bore pile cilegon, kontraktor pondasi cilegon, bore pile cilegon, strauss pile cilegon' },
 ];
+
+function locMeta(loc) {
+  const page = locationPages.find((p) => p.slug === loc.slug);
+  return page || { slug: loc.slug, city: loc.name, intro: '', services: [], areaCovered: [], soilInfo: '', faq: [], headline: '' };
+}
+
+function esc(s) {
+  return String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function renderLocationBody(loc) {
+  const page = locMeta(loc);
+  const city = page.city || loc.name;
+  const wa = '6281514811120';
+  const waUrl = `https://wa.me/${wa}?text=${encodeURIComponent(`Halo Majujaya, saya mau konsultasi bore pile di ${city}. Tolong info harga & survey lokasi gratis.`)}`;
+
+  const services = (page.services || []).map(
+    (s) => `<li style="background:#f5f7fa;border:1px solid #e5e7eb;border-radius:8px;padding:10px 14px;">${esc(s)}</li>`
+  ).join('');
+
+  const area = (page.areaCovered || []).map(
+    (a) => `<span style="display:inline-block;background:#eef2ff;border:1px solid #c7d2fe;color:#3730a3;border-radius:999px;padding:6px 14px;font-size:14px;margin:4px;">${esc(a)}</span>`
+  ).join('');
+
+  const soil = page.soilInfo
+    ? `<section style="margin-top:32px;"><h2 style="font-size:22px;margin-bottom:10px;">Karakteristik Tanah & Informasi Bore Pile ${esc(city)}</h2><p style="line-height:1.7;">${esc(page.soilInfo)}</p></section>`
+    : '';
+
+  const faqs = (page.faq || []).map(
+    (f) => `<details style="border:1px solid #e5e7eb;border-radius:8px;padding:14px 18px;margin-bottom:10px;"><summary style="font-weight:600;cursor:pointer;">${esc(f.q)}</summary><p style="line-height:1.7;margin-top:10px;color:#374151;">${esc(f.a)}</p></details>`
+  ).join('');
+
+  const h1 = page.headline || `Jasa Bore Pile & Strauss Pile di ${city} | Majujaya`;
+
+  return `<div style="padding:40px 20px;font-family:sans-serif;max-width:960px;margin:0 auto;">
+    <h1 style="font-size:32px;margin-bottom:16px;">${esc(h1)}</h1>
+    <p style="line-height:1.7;font-size:17px;">${esc(page.intro)}</p>
+    <section style="margin-top:32px;"><h2 style="font-size:22px;margin-bottom:12px;">Layanan Bore Pile & Strauss Pile di ${esc(city)}</h2><ul style="list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;">${services}</ul></section>
+    <section style="margin-top:32px;"><h2 style="font-size:22px;margin-bottom:12px;">Area Layanan ${esc(city)}</h2><div>${area}</div></section>
+    ${soil}
+    <section style="margin-top:32px;"><h2 style="font-size:22px;margin-bottom:12px;">FAQ ${esc(city)}</h2>${faqs || '<p>Tidak ada FAQ.</p>'}</section>
+    <section style="margin-top:32px;background:#1e3a8a;color:#fff;border-radius:12px;padding:28px;text-align:center;"><h2 style="font-size:24px;margin:0 0 10px;">Butuh Jasa Bore Pile di ${esc(city)}?</h2><p style="margin:0 0 18px;">Survey lokasi GRATIS & RAB detail tanpa biaya. Hubungi tim Majujaya sekarang.</p><a href="${waUrl}" style="background:#25d366;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;display:inline-block;">Chat via WhatsApp 0815-1481-1120</a></section>
+  </div>`;
+}
 
 function generateLocationPages() {
   const homepagePath = path.join(DIST_DIR, 'index.html');
@@ -99,6 +144,16 @@ function generateLocationPages() {
       const locDir = path.join(DIST_DIR, 'location', loc.slug);
       fs.mkdirSync(locDir, { recursive: true });
       let html = dom.serialize().replace(/&amp;/g, '&');
+      // Replace the LAST <noscript>...</noscript> block (body SEO fallback) with full location content.
+      // JSDOM escapes noscript innerHTML as text, so do raw string surgery instead.
+      const bodyContent = renderLocationBody(loc);
+      const lastOpen = html.lastIndexOf('<noscript>');
+      const lastClose = html.lastIndexOf('</noscript>');
+      if (lastOpen !== -1 && lastClose > lastOpen) {
+        html = html.slice(0, lastOpen) + '<noscript>\n' + bodyContent + '\n  </noscript>' + html.slice(lastClose + '</noscript>'.length);
+      } else {
+        throw new Error('noscript fallback block not found');
+      }
       fs.writeFileSync(path.join(locDir, 'index.html'), html);
       
       console.log(`    ✅ Generated: ${loc.slug}/`);

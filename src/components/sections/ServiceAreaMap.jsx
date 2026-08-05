@@ -94,7 +94,7 @@ export default function ServiceAreaMap() {
         });
 
         marker.on("click", () => {
-          navigate(`/location/${c.slug}`);
+          navigate(`/location/${c.slug}/`);
         });
       });
 
