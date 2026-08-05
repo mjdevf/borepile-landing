@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { JSDOM } from 'jsdom';
-import { locationPages } from '../src/data/content.js';
+import { locationPages, getLocationDetail, footer as footerData, navLinks } from '../src/data/content.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -61,14 +61,30 @@ function renderLocationBody(loc) {
 
   const h1 = page.headline || `Jasa Bore Pile & Strauss Pile di ${city} | Majujaya`;
 
+  const detail = getLocationDetail(page);
+  const paras = detail.paragraph.split('\n\n').map((p) => `<p style="line-height:1.7;font-size:17px;margin-bottom:14px;">${esc(p)}</p>`).join('');
+
+  const related = detail.others.map(
+    (l) => `<a href="${l.href}" style="display:inline-block;background:#f5f7fa;border:1px solid #e5e7eb;border-radius:999px;padding:6px 14px;font-size:14px;margin:4px;color:#0f172a;text-decoration:none;">${esc(l.title)}</a>`
+  ).join('');
+
+  const footLinks = [
+    ...navLinks.map((l) => `<a href="${l.href}">${esc(l.label)}</a>`),
+    ...footerData.blogLinks.map((l) => `<a href="${l.href}">${esc(l.title)}</a>`),
+    ...footerData.serviceLinks.map((l) => `<a href="${l.href}">${esc(l.title.trim())}</a>`),
+  ].join(' · ');
+
   return `<div style="padding:40px 20px;font-family:sans-serif;max-width:960px;margin:0 auto;">
     <h1 style="font-size:32px;margin-bottom:16px;">${esc(h1)}</h1>
     <p style="line-height:1.7;font-size:17px;">${esc(page.intro)}</p>
+    ${paras}
+    <section style="margin-top:32px;"><h2 style="font-size:22px;margin-bottom:12px;">Layanan Bore Pile Lainnya</h2><div>${related}</div></section>
     <section style="margin-top:32px;"><h2 style="font-size:22px;margin-bottom:12px;">Layanan Bore Pile & Strauss Pile di ${esc(city)}</h2><ul style="list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;">${services}</ul></section>
     <section style="margin-top:32px;"><h2 style="font-size:22px;margin-bottom:12px;">Area Layanan ${esc(city)}</h2><div>${area}</div></section>
     ${soil}
     <section style="margin-top:32px;"><h2 style="font-size:22px;margin-bottom:12px;">FAQ ${esc(city)}</h2>${faqs || '<p>Tidak ada FAQ.</p>'}</section>
     <section style="margin-top:32px;background:#1e3a8a;color:#fff;border-radius:12px;padding:28px;text-align:center;"><h2 style="font-size:24px;margin:0 0 10px;">Butuh Jasa Bore Pile di ${esc(city)}?</h2><p style="margin:0 0 18px;">Survey lokasi GRATIS & RAB detail tanpa biaya. Hubungi tim Majujaya sekarang.</p><a href="${waUrl}" style="background:#25d366;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;display:inline-block;">Chat via WhatsApp 0815-1481-1120</a></section>
+    <footer style="margin-top:32px;border-top:1px solid #e5e7eb;padding-top:16px;font-size:13px;color:#6b7280;">${footLinks}</footer>
   </div>`;
 }
 

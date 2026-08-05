@@ -45,7 +45,7 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 md:px-10">
-        <a href="#hero" className="text-2xl font-bold tracking-tight text-primary">
+        <a href="/" className="text-2xl font-bold tracking-tight text-primary">
           Borepile Maju Jaya
         </a>
 

@@ -1,15 +1,15 @@
 export const navLinks = [
-  { label: "Beranda", href: "#hero", id: "nav-home" },
-  { label: "Tentang Kami", href: "#tentang", id: "nav-about" },
-  { label: "Layanan", href: "#layanan", id: "nav-services" },
-  { label: "Kalkulator", href: "#kalkulator", id: "nav-calculator" },
-  { label: "Portfolio", href: "#portfolio", id: "nav-portfolio" },
-  { label: "Lokasi & Layanan", href: "#maps", id: "nav-maps" },
-  { label: "Kontak", href: "#kontak", id: "nav-contact" },
+  { label: "Beranda", href: "/#hero", id: "nav-home" },
+  { label: "Tentang Kami", href: "/#tentang", id: "nav-about" },
+  { label: "Layanan", href: "/#layanan", id: "nav-services" },
+  { label: "Kalkulator", href: "/#kalkulator", id: "nav-calculator" },
+  { label: "Portfolio", href: "/#portfolio", id: "nav-portfolio" },
+  { label: "Lokasi & Layanan", href: "/#maps", id: "nav-maps" },
+  { label: "Kontak", href: "/#kontak", id: "nav-contact" },
 ];
 
 export const hero = {
-  headline: "Borepile & Jasa Pengeboran Profesional",
+  headline: "Jasa Bore Pile & Strauss Pile Terpercaya dan Profesional",
   subheadline:
     "Pengerjaan borepile untuk pondasi bangunan, irigasi, dan kebutuhan industri. Berpengalaman 12+ tahun, 250+ proyek selesai. Melayani Jakarta, Bogor, Depok, Tangerang, Bekasi, Karawang, Cikarang, dan seluruh Indonesia.",
   owner: "Subiyanto",
@@ -227,6 +227,11 @@ export const locationPages = [
     areaCovered: ["Kebayoran Baru", "Kebayoran Lama", "Pancoran", "Tebet", "Pasar Minggu", "Jagakarsa", "Mampang Prapatan", "Setiabudi", "Pasar Rebo"],
     image: "/images/portfolio/02.jpg",
     metaDesc: "Jasa bore pile & strauss pile Jakarta Selatan sejak 2013. Survey gratis, harga bersaing. Melayani Kebayoran Baru, Tebet, Pancoran & area Jaksel lainnya. WA 0815-1481-1120.",
+    soilInfo: "Wilayah Jakarta Selatan memiliki karakteristik tanah lunak hingga sedang dengan lapisan tanah keras umumnya ditemukan di kedalaman 8-20 meter. Area Kebayoran Baru, Tebet, dan Pancoran memiliki lapisan tanah keras yang cukup stabil, namun tetap memerlukan analisis daya dukung tanah sebelum menentukan spesifikasi pondasi bore pile.",
+    faq: [
+      { q: "Apakah bore pile cocok untuk gedung bertingkat di kawasan Senayan atau Menteng?", a: "Sangat cocok. Bore pile dirancang menembus lapisan tanah lunak hingga mencapai tanah keras. Untuk gedung bertingkat di Jakarta Selatan, tim Majujaya akan melakukan survey lokasi gratis untuk menentukan kedalaman, diameter, dan jumlah titik bore pile yang tepat sesuai beban struktur dan kondisi tanah setempat." },
+      { q: "Berapa lama proses bore pile untuk proyek di Jakarta Selatan?", a: "Rata-rata pengerjaan 3-7 hari untuk proyek rumah atau ruko standar, tergantung jumlah titik dan akses lokasi. Untuk proyek gedung bertingkat, durasi disesuaikan volume titik. Tim bisa mulai dalam 1x24 jam setelah deal disepakati." },
+    ],
   },
   {
     slug: "jakarta-barat",
@@ -239,6 +244,11 @@ export const locationPages = [
     areaCovered: ["Grogol Petamburan", "Kalideres", "Cengkareng", "Kembangan", "Palmerah", "Taman Sari", "Tambora", "Keagungan"],
     image: "/images/portfolio/03.jpg",
     metaDesc: "Jasa bore pile & strauss pile Jakarta Barat sejak 2013. Survey gratis, harga bersaing. Melayani Grogol, Cengkareng, Kalideres & area Jakbar lainnya. WA 0815-1481-1120.",
+    soilInfo: "Wilayah Jakarta Barat memiliki karakteristik tanah lunak hingga sedang, sebagian area bekas rawa seperti Cengkareng dan Kalideres, dengan lapisan tanah keras umumnya ditemukan di kedalaman 10-20 meter. Area Grogol dan Palmerah relatif lebih stabil, namun tetap memerlukan analisis daya dukung tanah sebelum menentukan spesifikasi pondasi bore pile.",
+    faq: [
+      { q: "Apakah bore pile cocok untuk bangunan di area Cengkareng atau Kalideres yang tanahnya lunak?", a: "Sangat cocok. Tanah bekas rawa di Cengkareng dan Kalideres memiliki daya dukung rendah, sehingga pondasi bore pile wajib menembus hingga lapisan tanah keras di kedalaman yang lebih dalam. Tim Majujaya akan melakukan survey lokasi gratis untuk menentukan spesifikasi yang tepat." },
+      { q: "Berapa lama proses bore pile untuk proyek di Jakarta Barat?", a: "Rata-rata pengerjaan 3-7 hari untuk proyek rumah atau ruko standar, tergantung jumlah titik dan akses lokasi. Tim kami bisa mulai dalam 1x24 jam setelah deal disepakati." },
+    ],
   },
   {
     slug: "jakarta-timur",
@@ -251,6 +261,11 @@ export const locationPages = [
     areaCovered: ["Matraman", "Jatinegara", "Cakung", "Pulo Gadung", "Duren Sawit", "Kramat Jati", "Makasar", "Cipayung", "Ciracas"],
     image: "/images/portfolio/04.jpg",
     metaDesc: "Jasa bore pile & strauss pile Jakarta Timur sejak 2013. Survey gratis, harga bersaing. Melayani Matraman, Jatinegara, Cakung & area Jaktim lainnya. WA 0815-1481-1120.",
+    soilInfo: "Wilayah Jakarta Timur memiliki karakteristik tanah lunak hingga sedang dengan lapisan tanah keras umumnya ditemukan di kedalaman 8-18 meter. Area Cakung dan Pulo Gadung yang merupakan zona industri memiliki kondisi tanah yang bervariasi, sementara Matraman dan Jatinegara relatif lebih stabil.",
+    faq: [
+      { q: "Apakah bore pile cocok untuk kawasan industri Cakung atau Pulo Gadung?", a: "Sangat cocok. Kawasan industri Cakung dan Pulo Gadung umumnya membutuhkan pondasi dengan kapasitas beban tinggi. Tim Majujaya berpengalaman menangani bore pile untuk pabrik, gudang, dan pergudangan di kawasan industri Jakarta Timur dengan spesifikasi yang disesuaikan beban bangunan." },
+      { q: "Berapa lama proses bore pile untuk proyek di Jakarta Timur?", a: "Rata-rata pengerjaan 3-7 hari untuk proyek rumah atau ruko standar, tergantung jumlah titik dan akses lokasi. Tim kami bisa mulai dalam 1x24 jam setelah deal disepakati." },
+    ],
   },
   {
     slug: "jakarta-utara",
@@ -263,6 +278,11 @@ export const locationPages = [
     areaCovered: ["Kelapa Gading", "Tanjung Priok", "Koja", "Cilincing", "Pademangan", "Penjaringan", "Kemayoran"],
     image: "/images/portfolio/05.jpg",
     metaDesc: "Jasa bore pile & strauss pile Jakarta Utara sejak 2013. Survey gratis, harga bersaing. Melayani Kelapa Gading, Tanjung Priok, Koja & area Jakut lainnya. WA 0815-1481-1120.",
+    soilInfo: "Wilayah Jakarta Utara memiliki karakteristik tanah lunak karena merupakan area bekas rawa dan dekat pesisir, dengan lapisan tanah keras umumnya ditemukan di kedalaman 12-25 meter. Area Kelapa Gading dan Penjaringan memerlukan kedalaman bore pile lebih dalam untuk mencapai lapisan tanah keras yang stabil.",
+    faq: [
+      { q: "Apakah tanah lunak di Jakarta Utara membutuhkan bore pile yang lebih dalam?", a: "Ya. Jakarta Utara merupakan area bekas rawa dan pesisir dengan daya dukung tanah rendah, sehingga bore pile umumnya membutuhkan kedalaman 12-25 meter untuk mencapai lapisan tanah keras. Tim Majujaya berpengalaman menangani kondisi ini di Kelapa Gading, Pluit, dan kawasan pesisir lainnya." },
+      { q: "Berapa lama proses bore pile untuk proyek di Jakarta Utara?", a: "Rata-rata pengerjaan 3-10 hari tergantung kedalaman pengeboran, jumlah titik, dan akses lokasi. Tim kami bisa mulai dalam 1x24 jam setelah deal disepakati." },
+    ],
   },
   {
     slug: "bogor",
@@ -452,6 +472,22 @@ export const locationPages = [
     ],
   },
 ];
+
+/* ── Shared per-location SEO content: cross-links + expanded paragraph ── */
+export function getLocationDetail(location) {
+  const others = locationPages
+    .filter((l) => l.slug !== location.slug)
+    .slice(0, 4)
+    .map((l) => ({ title: `Jasa Bore Pile ${l.city}`, href: `/location/${l.slug}/` }));
+
+  const city = location.city;
+  const paragraph =
+    `Majujaya adalah kontraktor jasa bore pile dan strauss pile berpengalaman yang melayani kebutuhan pondasi di ${city} dan sekitarnya. Tim geoteknik kami menangani proyek mulai dari rumah tinggal, ruko, gedung bertingkat, hingga kawasan industri dan infrastruktur di ${city}. Setiap titik pengeboran di ${city} dikerjakan dengan metode standar, diawasi langsung, dan didokumentasikan untuk memastikan hasil yang sesuai rencana di atas tanah yang terkadang memiliki daya dukung bervariasi. Dengan pengalaman lebih dari 12 tahun dan 250+ proyek selesai, kami telah membantu banyak pemilik bangunan di ${city} mendapatkan pondasi yang aman, presisi, dan sesuai jadwal.
+
+Kami memahami kondisi tanah khas di ${city}. Sebelum pekerjaan dimulai, survey lokasi gratis dilakukan oleh tim kami untuk menentukan kedalaman, diameter, dan jenis bore pile yang paling efisien — bore pile mesin untuk proyek besar maupun strauss pile manual untuk area akses terbatas. Estimasi rinci biaya (RAB) diberikan tanpa biaya, termasuk mulai harga per titik dan biaya mobilisasi alat ke ${city}. Tidak ada biaya tersembunyi; pelanggan di ${city} dan sekitarnya mendapatkan hasil pekerjaan sesuai spesifikasi, harga borong yang jelas, dan dokumentasi pengeboran per titik sebagai bentuk transparansi. Hubungi kami melalui WhatsApp untuk konsultasi dan penjadwalan survey di ${city} — tim kami siap mobilisasi dalam 1x24 jam setelah deal disepakati.`;
+
+  return { others, paragraph: paragraph };
+}
 
 export const howItWorks = [
   {

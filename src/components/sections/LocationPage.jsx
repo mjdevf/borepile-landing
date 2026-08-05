@@ -2,9 +2,10 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import AnimatedSection from "../ui/AnimatedSection";
-import { locationPages } from "../../data/content";
+import { locationPages, getLocationDetail } from "../../data/content";
 import WhatsAppFloatingButton from "../ui/WhatsAppFloatingButton";
 import Navbar from "../layout/Navbar";
+import Footer from "./Footer";
 import { ChevronDown } from "lucide-react";
 
 class MapErrorBoundary extends React.Component {
@@ -71,6 +72,29 @@ const LocationPage = () => {
 
           <h1 className="mb-6 text-4xl font-bold text-primary md:text-5xl">{location.headline}</h1>
           <p className="mb-8 text-lg leading-relaxed text-secondary">{location.intro}</p>
+
+          {/* Expanded SEO content */}
+          <div className="mb-12 space-y-4 text-base leading-relaxed text-secondary">
+            {getLocationDetail(location).paragraph.split("\n\n").map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </div>
+
+          {/* Related locations / internal linking */}
+          <div className="mb-12 rounded-lg border border-border-muted bg-surface-container-low p-6">
+            <h2 className="mb-4 text-xl font-bold text-primary">Layanan Bore Pile di Kota Lainnya</h2>
+            <div className="flex flex-wrap gap-2">
+              {getLocationDetail(location).others.map((l) => (
+                <Link
+                  key={l.href}
+                  to={l.href}
+                  className="rounded-full border border-border-muted bg-surface px-4 py-2 text-sm font-medium text-primary transition-colors hover:border-outline hover:text-tertiary"
+                >
+                  {l.title}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           {/* Services grid */}
           <div className="mb-12 grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -238,6 +262,7 @@ const LocationPage = () => {
         </div>
       </AnimatedSection>
 
+      <Footer />
       <WhatsAppFloatingButton />
     </main>
   );
