@@ -2,6 +2,14 @@ import { footer } from "../../data/content";
 import { Phone, Mail, MapPin, Clock, ChevronRight } from "lucide-react";
 import { navLinks } from "../../data/content";
 
+function handleSubmit(e) {
+  e.preventDefault();
+  const fd = new FormData(e.currentTarget);
+  if (fd.get("_gotcha")) return;
+  const text = `Halo Majujaya Bore Pile, saya ${fd.get("name")} (${fd.get("phone")}). Ingin konsultasi ${fd.get("service")}. ${fd.get("details")}`;
+  window.location.href = `https://wa.me/${footer.wa}?text=${encodeURIComponent(text)}`;
+}
+
 export default function Footer() {
   return (
     <footer className="border-t border-border-muted bg-surface-container-low">
@@ -72,8 +80,7 @@ export default function Footer() {
           {/* Right — Contact Form */}
           <div className="lg:col-span-7">
             <form
-              action="https://formspree.io/f/mjljzowz"
-              method="POST"
+              onSubmit={handleSubmit}
               className="rounded-lg border border-border-muted bg-surface p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] md:p-8"
             >
               {/* Honeypot — invisible to users, traps bots */}

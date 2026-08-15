@@ -559,8 +559,7 @@ export const footer = {
   phone: "081514811120",
   wa: "6281514811120",
   wa2: "6281284499082",
-  email: "info@majujayaborepile.com",
-  email2: "subiyanto@jasa-borepile.com",
+  email: "info@borepilemajujaya.com",
   hours: "Senin - Jum'at: 08.00 - 17.00",
   blogLinks: [
     { title: "Blog Bore Pile", href: "/blog/" },
