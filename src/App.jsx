@@ -10,10 +10,11 @@ import Portfolio from "./components/sections/Portfolio";
 import TestimonialSection from "./components/sections/TestimonialSection";
 import HowItWorks from "./components/sections/HowItWorks";
 import FAQ from "./components/sections/FAQ";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import ScrollToTop from "./components/ui/ScrollToTop";
 import CTA from "./components/sections/CTA";
 import Footer from "./components/sections/Footer";
+import WhatsAppFloatingButton from "./components/ui/WhatsAppFloatingButton";
 import LazyServiceAreaMap from "./components/sections/LazyServiceAreaMap";
 
 // Lazy load heavy components for better code splitting
@@ -21,6 +22,20 @@ const MapsSection = lazy(() => import("./components/sections/MapsSection"));
 const CalculatorSection = lazy(() => import("./components/calculator/CalculatorSection"));
 
 export default function App() {
+  /* Track WhatsApp clicks as GA4 conversion events (delegated, covers every WA link) */
+  useEffect(() => {
+    const trackWaClick = (e) => {
+      const link = e.target.closest?.('a[href*="wa.me"]');
+      if (!link || typeof window.gtag !== "function") return;
+      window.gtag("event", "whatsapp_click", {
+        page_path: window.location.pathname,
+        link_location: link.className.includes("fixed") ? "floating_button" : "inline_cta",
+      });
+    };
+    document.addEventListener("click", trackWaClick);
+    return () => document.removeEventListener("click", trackWaClick);
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -50,6 +65,7 @@ export default function App() {
         </Suspense>
         <ScrollToTop />
         <CTA />
+        <WhatsAppFloatingButton />
         <Footer />
       </main>
     </>

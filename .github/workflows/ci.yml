@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build (vite + prerender)
+        run: npm run build
+
+      - name: Check prerendered output
+        run: |
+          test -f dist/index.html || { echo "missing dist/index.html"; exit 1; }
+          test -f dist/location/jakarta-selatan/index.html || { echo "missing location page"; exit 1; }
+          test -f dist/sitemap.xml || { echo "missing sitemap"; exit 1; }
+          test -f dist/404.html || { echo "missing 404 page"; exit 1; }
+          grep -q "$(date +%F)" dist/sitemap.xml || { echo "sitemap lastmod not refreshed"; exit 1; }
+          echo "output OK"

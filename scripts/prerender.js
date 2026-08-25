@@ -159,9 +159,10 @@ function generateLocationPages() {
       // Write location file at /location/{slug}/index.html
       const locDir = path.join(DIST_DIR, 'location', loc.slug);
       fs.mkdirSync(locDir, { recursive: true });
-      let html = dom.serialize().replace(/&amp;/g, '&');
+      let html = dom.serialize();
       // Replace the LAST <noscript>...</noscript> block (body SEO fallback) with full location content.
       // JSDOM escapes noscript innerHTML as text, so do raw string surgery instead.
+      // NOTE: no global &amp; unescape here — it corrupted legitimate entities elsewhere in the document.
       const bodyContent = renderLocationBody(loc);
       const lastOpen = html.lastIndexOf('<noscript>');
       const lastClose = html.lastIndexOf('</noscript>');
@@ -182,8 +183,23 @@ function generateLocationPages() {
   console.log('🎉 All location pages generated!');
 }
 
+function refreshSitemapLastmod() {
+  const sitemapPath = path.join(DIST_DIR, 'sitemap.xml');
+  if (!fs.existsSync(sitemapPath)) {
+    console.warn('⚠️  sitemap.xml not found in dist — skipping lastmod refresh');
+    return;
+  }
+  const today = new Date().toISOString().slice(0, 10);
+  let xml = fs.readFileSync(sitemapPath, 'utf8');
+  const before = xml.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1];
+  xml = xml.replace(/<lastmod>[^<]+<\/lastmod>/g, `<lastmod>${today}</lastmod>`);
+  fs.writeFileSync(sitemapPath, xml);
+  console.log(`🗓️  sitemap.xml lastmod refreshed: ${before} -> ${today}`);
+}
+
 try {
   generateLocationPages();
+  refreshSitemapLastmod();
 } catch (e) {
   console.error('🚨 Prerender failed:', e.message);
   console.error(e.stack);

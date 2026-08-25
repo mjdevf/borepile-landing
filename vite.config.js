@@ -14,7 +14,8 @@ export default defineConfig({
       jpg: { quality: 80, progressive: true },
       webp: { quality: 80 },
       avif: { quality: 75, effort: 9 },
-       cache: true,
+      // NOTE: cache:true caused the plugin to write stray optimized copies
+      // (og-image.jpg, icons/, images/) into the project root on every build.
       test: /\.(png|jpe?g|webp|avif)$/i,
       exclude: /\.(svg|ico)$/i,
       logStats: true,

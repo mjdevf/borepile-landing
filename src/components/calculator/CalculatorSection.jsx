@@ -58,6 +58,14 @@ export default function CalculatorSection() {
     const updated = [item, ...saved].slice(0, 5);
     setSaved(updated);
     localStorage.setItem('bmj_saved_estimates', JSON.stringify(updated));
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'estimate_saved', {
+        pile_type: input.pileType,
+        diameter_cm: input.diameter,
+        depth_m: input.depth,
+        points: input.points,
+      });
+    }
   };
 
   const deleteSaved = (id, e) => {
