@@ -566,6 +566,8 @@ export const footer = {
     { title: "Apa Itu Borepile? Panduan Lengkap 2026", href: "/blog/apa-itu-borepile-panduan-lengkap-2026.html" },
     { title: "Harga Bore Pile per Titik 2026", href: "/blog/harga-bore-pile-per-titik-2026.html" },
     { title: "7 Tips Memilih Kontraktor Bore Pile Jakarta", href: "/blog/tips-memilih-kontraktor-bore-pile-jakarta.html" },
+    { title: "Perbedaan Strauss Pile dan Bore Pile", href: "/blog/perbedaan-strauss-pile-dan-bore-pile.html" },
+    { title: "Bore Pile untuk Rumah 2 Lantai", href: "/blog/bore-pile-untuk-rumah-2-lantai.html" },
   ],
   serviceLinks: [
     { title: "Jasa Bore Pile Jakarta", href: "/location/jakarta-pusat/" },

@@ -19,6 +19,14 @@ const articles = [
     file: "og-tips-kontraktor-bore-pile.jpg",
     title: "7 Tips Memilih Kontraktor\nBore Pile Terpercaya",
   },
+  {
+    file: "og-perbedaan-strauss-bore.jpg",
+    title: "Perbedaan Strauss Pile\ndan Bore Pile",
+  },
+  {
+    file: "og-borepile-rumah-2-lantai.jpg",
+    title: "Bore Pile untuk\nRumah 2 Lantai",
+  },
 ];
 
 const W = 1200, H = 630, BAR = 250;
