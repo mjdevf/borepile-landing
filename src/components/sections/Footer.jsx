@@ -193,7 +193,7 @@ export default function Footer() {
         <div className="flex flex-col gap-2">
           <h5 className="mb-2 text-xs font-semibold uppercase tracking-[0.05em] text-secondary">Wilayah Layanan</h5>
           {footer.serviceLinks.map((link) => (
-            <a key={link.href} href={link.href} className="text-sm text-on-surface-variant transition-colors hover:text-tertiary-container">
+            <a key={`${link.title}-${link.href}`} href={link.href} className="text-sm text-on-surface-variant transition-colors hover:text-tertiary-container">
               {link.title.trim()}
             </a>
           ))}

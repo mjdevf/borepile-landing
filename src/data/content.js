@@ -473,10 +473,41 @@ export const locationPages = [
   },
 ];
 
+/* lat/lng for nearest-city internal links (same coords as ServiceAreaMap) */
+const LOCATION_COORDS = {
+  serang: [-6.12, 106.15],
+  cilegon: [-6.04, 106.05],
+  tangerang: [-6.18, 106.63],
+  "jakarta-barat": [-6.17, 106.75],
+  "jakarta-utara": [-6.12, 106.88],
+  "jakarta-pusat": [-6.18, 106.83],
+  "jakarta-timur": [-6.23, 106.9],
+  "jakarta-selatan": [-6.26, 106.82],
+  depok: [-6.4, 106.82],
+  bekasi: [-6.24, 106.99],
+  cikarang: [-6.3, 107.15],
+  karawang: [-6.3, 107.3],
+  purwakarta: [-6.55, 107.45],
+  subang: [-6.57, 107.7],
+  bogor: [-6.59, 106.79],
+  cianjur: [-6.82, 107.13],
+};
+
+function dist2(a, b) {
+  const dLat = a[0] - b[0];
+  const dLng = a[1] - b[1];
+  return dLat * dLat + dLng * dLng;
+}
+
 /* ── Shared per-location SEO content: cross-links + expanded paragraph ── */
 export function getLocationDetail(location) {
+  const here = LOCATION_COORDS[location.slug];
   const others = locationPages
     .filter((l) => l.slug !== location.slug)
+    .sort((a, b) => {
+      if (!here) return 0;
+      return dist2(LOCATION_COORDS[a.slug] || here, here) - dist2(LOCATION_COORDS[b.slug] || here, here);
+    })
     .slice(0, 4)
     .map((l) => ({ title: `Jasa Bore Pile ${l.city}`, href: `/location/${l.slug}/` }));
 
@@ -570,7 +601,6 @@ export const footer = {
     { title: "Bore Pile untuk Rumah 2 Lantai", href: "/blog/bore-pile-untuk-rumah-2-lantai.html" },
   ],
   serviceLinks: [
-    { title: "Jasa Bore Pile Jakarta", href: "/location/jakarta-pusat/" },
     { title: "Jakarta Pusat", href: "/location/jakarta-pusat/" },
     { title: "Jakarta Selatan", href: "/location/jakarta-selatan/" },
     { title: "Jakarta Barat", href: "/location/jakarta-barat/" },

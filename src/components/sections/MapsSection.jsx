@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { MapPin, Phone, Mail } from "lucide-react";
-import { footer, serviceArea } from "../../data/content";
+import { footer, serviceArea, locationPages } from "../../data/content";
 
 const OFFICE_COORDS = [-6.2588, 106.8235];
 const OFFICE_NAME = "Jasa Bore Pile Majujaya";
@@ -141,9 +141,15 @@ function MapsSection() {
                 Area Layanan Utama
               </h3>
               <div className="flex flex-wrap gap-2">
-                {serviceArea.map(a => (
-                  <span key={a} className="rounded-full border border-border-muted bg-surface px-3 py-1.5 text-sm text-secondary transition-colors hover:border-outline hover:text-on-surface">{a}</span>
-                ))}
+                {serviceArea.map((a) => {
+                  const loc = locationPages.find((p) => p.city === a);
+                  const cls = "rounded-full border border-border-muted bg-surface px-3 py-1.5 text-sm text-secondary transition-colors hover:border-outline hover:text-on-surface";
+                  return loc ? (
+                    <a key={a} href={`/location/${loc.slug}/`} className={cls}>{a}</a>
+                  ) : (
+                    <span key={a} className={cls}>{a}</span>
+                  );
+                })}
               </div>
             </div>
           </div>

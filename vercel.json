@@ -3,6 +3,23 @@
   "outputDirectory": "dist",
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.borepilemajujaya.com" }],
+      "destination": "https://borepilemajujaya.com/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.borepilemajujaya.com" }],
+      "destination": "https://borepilemajujaya.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
       "source": "/location/:slug",
       "destination": "/location/:slug/",
       "permanent": true

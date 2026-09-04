@@ -111,8 +111,12 @@ function generateLocationPages() {
       const document = dom.window.document;
 
       const canonicalUrl = `https://borepilemajujaya.com/location/${loc.slug}/`;
-      const title = `Jasa Bore Pile & Strauss Pile di ${loc.name} | Majujaya`;
-      const description = `Jasa bore pile & strauss pile profesional di ${loc.name} sejak 2013. Survey gratis, harga bersaing, 250+ proyek. Melayani perumahan, gedung, infrastruktur di ${loc.name}.`;
+      const page = locMeta(loc);
+      const title = page.headline
+        ? `${page.headline} | Majujaya`
+        : `Jasa Bore Pile ${loc.name} — Survey Gratis | Majujaya`;
+      const description = page.metaDesc
+        || `Jasa bore pile & strauss pile profesional di ${loc.name} sejak 2013. Survey gratis, harga bersaing, 250+ proyek. Melayani perumahan, gedung, infrastruktur di ${loc.name}.`;
 
       // Update Title
       const titleEl = document.querySelector('title');
@@ -160,16 +164,21 @@ function generateLocationPages() {
       const locDir = path.join(DIST_DIR, 'location', loc.slug);
       fs.mkdirSync(locDir, { recursive: true });
       let html = dom.serialize();
-      // Replace the LAST <noscript>...</noscript> block (body SEO fallback) with full location content.
-      // JSDOM escapes noscript innerHTML as text, so do raw string surgery instead.
-      // NOTE: no global &amp; unescape here — it corrupted legitimate entities elsewhere in the document.
       const bodyContent = renderLocationBody(loc);
+
+      // Inject crawlable copy into #root so Semrush/Googlebot/AI crawlers see real
+      // text (they typically ignore <noscript>). React hydrates over this on JS clients.
+      const rootOpen = html.indexOf('<div id="root">');
+      if (rootOpen === -1) throw new Error('#root not found');
+      const rootClose = html.indexOf('</div>', rootOpen);
+      if (rootClose === -1) throw new Error('#root close not found');
+      html = html.slice(0, rootOpen) + '<div id="root">\n' + bodyContent + '\n    </div>' + html.slice(rootClose + '</div>'.length);
+
+      // Keep noscript as a fallback for no-JS clients (same body).
       const lastOpen = html.lastIndexOf('<noscript>');
       const lastClose = html.lastIndexOf('</noscript>');
       if (lastOpen !== -1 && lastClose > lastOpen) {
         html = html.slice(0, lastOpen) + '<noscript>\n' + bodyContent + '\n  </noscript>' + html.slice(lastClose + '</noscript>'.length);
-      } else {
-        throw new Error('noscript fallback block not found');
       }
       fs.writeFileSync(path.join(locDir, 'index.html'), html);
       
