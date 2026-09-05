@@ -54,8 +54,41 @@
     </script>
 </head>
 <body>
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-container"><div class="reading-progress-bar" id="progressBar"></div></div>
+
+    <!-- Top Navigation Bar -->
+    <header class="blog-nav">
+        <div class="blog-nav-container">
+            <a href="https://borepilemajujaya.com" class="blog-nav-brand">
+                <span class="blog-nav-brand-title">Majujaya Bore Pile</span>
+                <span class="blog-nav-brand-badge">Blog</span>
+            </a>
+            <nav class="blog-nav-links">
+                <a href="https://borepilemajujaya.com">Beranda</a>
+                <a href="https://borepilemajujaya.com/#layanan">Layanan</a>
+                <a href="https://borepilemajujaya.com/#kalkulator">Kalkulator</a>
+                <a href="https://borepilemajujaya.com/blog/" class="active">Blog</a>
+            </nav>
+            <a href="https://wa.me/6281514811120?text=Halo%20Majujaya%2C%20saya%20butuh%20konsultasi%20borepile" class="blog-nav-cta" target="_blank" rel="noopener">
+                Hubungi WA
+            </a>
+        </div>
+    </header>
+
     <div class="container">
-        <article-header>
+        <!-- Breadcrumbs UI -->
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="https://borepilemajujaya.com">Beranda</a>
+            <span class="breadcrumbs-sep">&rsaquo;</span>
+            <a href="https://borepilemajujaya.com/blog/">Blog</a>
+            <span class="breadcrumbs-sep">&rsaquo;</span>
+            <span class="breadcrumbs-current">Strauss Pile vs Bore Pile</span>
+        </nav>
+
+        <header class="article-header">
+            <span class="category-chip">Komparasi Teknis &middot; Analisa Metode</span>
+            <h1>Perbedaan Strauss Pile dan Bore Pile: Mana yang Tepat untuk Proyek Anda?</h1>
             <div class="article-meta">
                 <span>25 Agustus 2026</span>
                 <span class="article-meta-divider"></span>
@@ -63,160 +96,238 @@
                 <span class="article-meta-divider"></span>
                 <span>9 menit baca</span>
             </div>
-            <h1>Perbedaan Strauss Pile dan Bore Pile: Mana yang Tepat untuk Proyek Anda?</h1>
-        </article-header>
+            <p class="article-lead">Komparasi komprehensif dua teknologi pondasi bor terpopuler: perbandingan daya dukung, diameter alat bor, kedalaman tanah keras, kemudahan akses lokasi gang sempit, serta estimasi perbandingan biaya per titik.</p>
+        </header>
 
         <nav class="toc">
             <div class="toc-title">Daftar Isi</div>
             <ul>
-                <li><a href="#definisi">Apa Itu Strauss Pile dan Bore Pile?</a></li>
-                <li><a href="#cara-kerja">Cara Kerja Keduanya</a></li>
-                <li><a href="#tabel">Tabel Perbandingan Lengkap</a></li>
-                <li><a href="#kapan">Kapan Pakai Strauss Pile, Kapan Bore Pile?</a></li>
-                <li><a href="#biaya">Perbandingan Biaya</a></li>
-                <li><a href="#kesalahan">Kesalahan Umum Saat Memilih</a></li>
-                <li><a href="#faq">Pertanyaan yang Sering Diajukan</a></li>
+                <li><a href="#definisi">1. Apa Itu Strauss Pile dan Bore Pile?</a></li>
+                <li><a href="#cara-kerja">2. Cara Kerja Lapangan Keduanya</a></li>
+                <li><a href="#tabel">3. Tabel Perbandingan Lengkap</a></li>
+                <li><a href="#kapan">4. Kapan Pakai Strauss Pile, Kapan Bore Pile?</a></li>
+                <li><a href="#biaya">5. Perbandingan Biaya Riil</a></li>
+                <li><a href="#kesalahan">6. Kesalahan Umum Saat Memilih</a></li>
+                <li><a href="#faq">7. Pertanyaan yang Sering Diajukan</a></li>
             </ul>
         </nav>
 
         <article>
-            <p>Salah satu pertanyaan yang paling sering kami terima dari calon klien di <a href="https://borepilemajujaya.com">Majujaya Bore Pile</a>: <em>"Pak, untuk proyek saya sebaiknya pakai strauss pile atau bore pile?"</em> Pertanyaan yang bagus -- karena memilih metode pondasi yang salah bisa membuat Anda membayar lebih mahal, atau lebih buruk lagi, mendapatkan pondasi yang tidak memadai untuk bebannya.</p>
-            <p>Keduanya sama-sama termasuk pondasi dalam (deep foundation) yang bekerja dengan cara mengebor tanah lalu mengisinya dengan beton dan tulangan. Tapi cara pengerjaan, kapasitas, dan biayanya sangat berbeda. Artikel ini membedah tuntas perbedaan keduanya berdasarkan pengalaman kami menangani 250+ titik pengeboran sejak 2013.</p>
+            <p>Salah satu pertanyaan yang paling sering kami terima dari calon klien di <a href="https://borepilemajujaya.com">Majujaya Bore Pile</a>: <em>"Pak, untuk proyek saya sebaiknya pakai strauss pile atau bore pile mesin?"</em> Ini pertanyaan yang sangat krusial &mdash; karena salah menentukan metode pondasi bisa berakibat pemborosan anggaran puluhan juta rupiah, atau sebaliknya, menghasilkan tiang pancang yang tidak memadai menahan beban struktur atas.</p>
+            <p>Keduanya sama-sama tergolong kategori pondasi dalam (deep foundation) yang bekerja dengan cara melubangi tanah secara silindris lalu mengisinya dengan keranjang besi tulangan dan beton mutu tinggi. Namun alur pengerjaan, kapasitas dukung, dan biayanya sangat berbeda. Artikel ini membedah tuntas komparasi keduanya berdasarkan pengalaman kami menangani 250+ proyek pengeboran sejak 2013.</p>
 
             <section id="definisi">
-                <h2>Apa Itu Strauss Pile dan Bore Pile?</h2>
-                <p><strong>Strauss pile</strong> adalah pondasi bor yang dikerjakan secara <em>manual</em> -- menggunakan tenaga manusia dengan alat bantu sederhana seperti pipa casing, cakram pemotong, dan tali angkat. Disebut juga bor tangan atau pondasi bor manual. Metode ini sudah dipakai puluhan tahun di Indonesia dan menjadi andalan untuk proyek skala kecil-menengah.</p>
-                <p><strong>Bore pile</strong> (bored pile) adalah pondasi bor yang dikerjakan menggunakan <em>mesin bor</em> -- biasanya mini crane dengan auger atau rotary rig. Mesin memutar mata bor untuk menggali tanah jauh lebih dalam dan lebih cepat daripada tenaga manusia.</p>
-                <p>Sederhananya: <strong>strauss pile = dikerjakan manusia, bore pile = dikerjakan mesin.</strong> Dari perbedaan mendasar ini, semua perbedaan lain (kapasitas, biaya, kecepatan, kecocokan proyek) mengikuti.</p>
+                <h2>1. Apa Itu Strauss Pile dan Bore Pile?</h2>
+                <p><strong>Strauss pile</strong> adalah pondasi bor yang dikerjakan secara <em>manual</em> &mdash; mengandalkan tenaga putar teknisi dengan bantuan pipa stang bor, mata bor cakram pemotong (auger manual), dan katrol tripod sederhana. Disebut juga bor tangan atau bor manual. Metode ini menjadi andalan utama proyek perumahan di gang padat penduduk Jabodetabek.</p>
+                <p><strong>Bore pile (bored pile mesin)</strong> adalah pondasi bor yang dikerjakan menggunakan <em>mesin bertenaga motor hidrolik</em> &mdash; umumnya rig mini crane atau alat gawangan. Mesin memutar pipa bor baja berdiameter besar untuk menggali formasi tanah keras jauh lebih dalam dan cepat dibandingkan tenaga manual.</p>
+                <p>Prinsip dasarnya: <strong>strauss pile = dikerjakan manual manusia, bore pile = dikerjakan mesin mekanis.</strong> Dari perbedaan penggerak ini, kapasitas dukung, biaya, kecepatan, dan batas kedalaman tanah keras saling mengikuti.</p>
             </section>
 
             <section id="cara-kerja">
-                <h2>Cara Kerja Keduanya</h2>
+                <h2>2. Cara Kerja Lapangan Keduanya</h2>
+                
                 <h3>Proses Strauss Pile (Manual)</h3>
                 <ol>
-                    <li>Pipa casing (biasanya 80-100 cm) dipasang di titik bor sebagai pemandu</li>
-                    <li>Tukang bor menggali tanah di dalam casing menggunakan cakram bor yang ditarik-angkat secara manual dengan tali dan penyangga</li>
-                    <li>Tanah yang tergali diangkat keluar sedikit demi sedikit</li>
-                    <li>Setiap mencapai 1-1,5 meter, casing ditarik lebih dalam dan penggalian berlanjut</li>
-                    <li>Setelah kedalaman target tercapai, tulangan dimasukkan lalu cor beton bertahap sambil casing ditarik keluar</li>
+                    <li>Pipa casing pemandu awal (panjang 80&ndash;100 cm) dipasang di titik as tiang pondasi.</li>
+                    <li>Dua teknisi memutar stang bor manual menggunakan pipa lengan tuas secara bergantian.</li>
+                    <li>Cakram bor pengangkat tanah diangkat berkala untuk mengeluarkan serpihan tanah ke permukaan.</li>
+                    <li>Setelah kedalaman rencana tanah keras tercapai, dasar lubang dibersihkan dari endapan lumpur.</li>
+                    <li>Keranjang besi spiral diturunkan, lalu pengecoran beton dilakukan kontinu sampai permukaan.</li>
                 </ol>
-                <h3>Proses Bore Pile (Mesin)</h3>
+
+                <h3>Proses Bore Pile Mesin (Mini Crane)</h3>
                 <ol>
-                    <li>Mini crane atau rig diposisikan di titik bor</li>
-                    <li>Auger (mata bor heliks) memutar dan menggali tanah secara mekanis</li>
-                    <li>Tanah terangkat ke permukaan bersama auger setiap beberapa tarikan</li>
-                    <li>Casing dipasang jika tanah berlunak atau air tanah tinggi untuk mencegah longsor lubang</li>
-                    <li>Tulangan dimasukkan, kemudian beton dicor dengan tremie pipe dari bawah ke atas</li>
+                    <li>Rig mini crane diesel diposisikan tepat di atas titik koordinat tiang bor.</li>
+                    <li>Mata bor helical auger atau cross bit berputar mekanis menembus lapisan tanah keras atau lempung berkerikil.</li>
+                    <li>Tanah galian diangkat keluar lubang secara otomatis saat auger ditarik ke atas.</li>
+                    <li>Pipa casing baja panjang dipasang apabila dijumpai lapisan tanah pasir mudah runtuh atau muka air tanah tinggi.</li>
+                    <li>Keranjang tulangan diinstal, lalu pengecoran dilakukan menggunakan pipa tremie dari dasar lubang ke atas.</li>
                 </ol>
+
                 <div class="highlight">
-                    Kunci kualitas di kedua metode sama: lubang bor harus <em>kering dan bersih</em> sebelum dicor, serta beton harus dicor tanpa terputus agar tidak terjadi segregasi.
+                    <strong>Kunci Mutu Bersama:</strong> Pada kedua metode, integritas beton sangat bergantung pada kebersihan dasar lubang sebelum pengecoran serta pengecoran kontinu tanpa jeda untuk menghindari pemisahan agregat beton (segregasi).
                 </div>
             </section>
 
             <section id="tabel">
-                <h2>Tabel Perbandingan Lengkap</h2>
-                <table>
-                    <thead>
-                        <tr><th>Aspek</th><th>Strauss Pile (Manual)</th><th>Bore Pile (Mesin)</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Diameter umum</td><td>20, 25, 30 cm (bisa sampai 100 cm)</td><td>30, 40, 50, 60, 80, 100 cm</td></tr>
-                        <tr><td>Kedalaman efektif</td><td>3-8 meter</td><td>10-30 meter</td></tr>
-                        <tr><td>Kecepatan</td><td>1-2 titik/hari per tim</td><td>2-4 titik/hari per rig</td></tr>
-                        <tr><td>Akses lokasi</td><td>Sangat fleksibel -- gang sempit, dalam rumah, halaman kecil</td><td>Butuh akses alat berat (lebar 2,5-3 m)</td></tr>
-                        <tr><td>Kebisingan & getaran</td><td>Minim -- ramah lingkungan permukiman padat</td><td>Cukup bising, ada getaran ringan</td></tr>
-                        <tr><td>Biaya per titik</td><td>Lebih murah (mulai Rp750 ribuan)</td><td>Lebih mahal (jutaan per titik)</td></tr>
-                        <tr><td>Daya dukung</td><td>Cukup untuk 1-2 lantai</td><td>Untuk gedung bertingkat & beban berat</td></tr>
-                        <tr><td>Ketergantungan cuaca</td><td>Rendah</td><td>Sedang (alat berat di lahat lunak berisiko)</td></tr>
-                        <tr><td>Cocok untuk</td><td>Rumah, ruko 2 lantai, pagar, gudang kecil</td><td>Gedung, jembatan, pabrik, flyover</td></tr>
-                    </tbody>
-                </table>
-            </section>
+                <h2>3. Tabel Perbandingan Teknis Lengkap</h2>
 
-            <section id="kapan">
-                <h2>Kapan Pakai Strauss Pile, Kapan Bore Pile?</h2>
-                <h3>Pilih Strauss Pile jika:</h3>
-                <ul>
-                    <li>Membangun <strong>rumah 1-2 lantai</strong> di tanah dengan tanah keras yang tidak terlalu dalam (di bawah 8 meter)</li>
-                    <li>Lokasi <strong>gang sempit atau di dalam rumah</strong> yang mustahil dilewati alat berat -- ini keunggulan terbesar strauss pile</li>
-                    <li>Anggaran terbatas tapi tetap butuh pondasi dalam yang andal</li>
-                    <li>Berada di permukiman padat yang sensitif terhadap kebisingan dan getaran</li>
-                </ul>
-                <h3>Pilih Bore Pile jika:</h3>
-                <ul>
-                    <li>Membangun <strong>gedung bertingkat, ruko 3+ lantai, gudang besar, atau pabrik</strong> dengan beban kolom besar</li>
-                    <li>Tanah keras/lunak dalam berada di kedalaman lebih dari 8 meter</li>
-                    <li>Ada banyak titik bor dan target waktu cepat -- mesin jauh lebih efisien untuk volume besar</li>
-                    <li>Lokasi terbuka dan lebar sehingga mobilisasi mini crane mudah</li>
-                </ul>
-                <p>Di praktik lapangan, banyak proyek perumahan di <a href="https://borepilemajujaya.com/location/bekasi/">Bekasi</a>, <a href="https://borepilemajujaya.com/location/bogor/">Bogor</a>, dan <a href="https://borepilemajujaya.com/location/depok/">Depok</a> memakai kombinasi: strauss pile untuk rumah typ 36-70, bore pile untuk ruko dan fasilitas umum di kompleks yang sama.</p>
-            </section>
-
-            <section id="biaya">
-                <h2>Perbandingan Biaya</h2>
-                <p>Karena spesifikasi tiap proyek berbeda, biaya paling akurat didapat setelah survey lokasi (gratis di Majujaya). Tapi sebagai gambaran umum:</p>
-                <ul>
-                    <li><strong>Strauss pile manual:</strong> mulai sekitar Rp750.000 per titik untuk diameter kecil dengan kedalaman standar</li>
-                    <li><strong>Bore pile mesin:</strong> mulai beberapa juta per titik tergantung diameter, kedalaman, dan sistem (jasa saja atau all-in material)</li>
-                </ul>
-                <p>Faktor yang paling memengaruhi biaya keduanya sama: diameter, kedalaman, jenis tanah (keras/lunak), ketinggian air tanah, dan apakah material (beton + besi) diikutkan. Rincian lengkapnya kami bahas di artikel <a href="https://borepilemajujaya.com/blog/harga-bore-pile-per-titik-2026.html">harga bore pile per titik 2026</a>.</p>
-                <blockquote>"Jangan bandingkan harga per titik saja -- bandingkan harga per meter kedalaman dan pastikan diameter serta mutu betonnya setara. Titik yang murah dengan diameter kecil bisa jadi lebih mahal per meter."</blockquote>
-                <div class="highlight">
-                    <strong>Tips:</strong> Gunakan kalkulator estimasi di <a href="https://borepilemajujaya.com">beranda kami</a> untuk mendapat rentang harga awal sebelum survey -- gratis dan tanpa komitmen.
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspek Pembanding</th>
+                                <th>Strauss Pile (Manual)</th>
+                                <th>Bore Pile (Mesin Mini Crane)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Diameter Alat</strong></td>
+                                <td>25 cm, 30 cm, 40 cm</td>
+                                <td>30 cm, 40 cm, 50 cm, 60 cm, 80 cm</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Kedalaman Efektif</strong></td>
+                                <td>4 &ndash; 12 meter</td>
+                                <td>10 &ndash; 30+ meter</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Kecepatan Kerja</strong></td>
+                                <td>1 &ndash; 2 titik / hari per tim</td>
+                                <td>2 &ndash; 4 titik / hari per unit rig</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Akses Masuk Lokasi</strong></td>
+                                <td>Sangat fleksibel (gang 1 meter, dalam ruangan)</td>
+                                <td>Butuh akses jalan selebar minimal 2.5 &ndash; 3 meter</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tingkat Kebisingan</strong></td>
+                                <td>Sangat tenang &amp; bebas getaran</td>
+                                <td>Suara mesin diesel mini crane (getaran tetap minim)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Kisaran Biaya / Titik</strong></td>
+                                <td>Lebih terjangkau (mulai Rp 800 ribuan)</td>
+                                <td>Investasi lebih tinggi (mulai Rp 2 jutaan)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Daya Dukung Struktur</strong></td>
+                                <td>Optimal untuk beban rumah 1-3 lantai</td>
+                                <td>Menopang gedung bertingkat, ruko, pabrik, jembatan</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Penetrasi Cadas / Bebatuan</strong></td>
+                                <td>Terbatas pada tanah lempung &amp; pasir lunak</td>
+                                <td>Mampu menembus lapisan tanah keras berbatu (N-SPT &gt; 30)</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
 
+            <section id="kapan">
+                <h2>4. Kapan Menggunakan Strauss Pile vs Bore Pile Mesin?</h2>
+                
+                <h3>Pilih Strauss Pile jika:</h3>
+                <ul>
+                    <li>Anda membangun <strong>rumah tinggal 1-2 lantai</strong> dengan lapisan tanah keras di kedalaman dangkal (&le; 10 meter).</li>
+                    <li>Lokasi proyek berada di <strong>gang pemukiman padat atau renovasi dalam rumah</strong> yang mustahil dimasuki mobil truk mini crane.</li>
+                    <li>Anggaran proyek terbatas namun membutuhkan fondasi dalam yang jauh lebih kokoh dibanding pondasi cakar ayam dangkal.</li>
+                    <li>Regulasi lingkungan melarang operasional mesin bising di pemukiman sekitar.</li>
+                </ul>
+
+                <h3>Pilih Bore Pile Mesin jika:</h3>
+                <ul>
+                    <li>Anda membangun <strong>ruko 3-4 lantai, gedung kantor, kost eksklusif, gudang, atau pabrik</strong> dengan beban kolom besar.</li>
+                    <li>Hasil data uji tanah (sondir CPT) menunjukkan lapisan tanah pendukung berada di kedalaman lebih dari 12-15 meter.</li>
+                    <li>Jumlah titik pengeboran banyak (&ge; 25 titik) dengan target waktu penyelesaian cepat.</li>
+                    <li>Akses jalan menuju lokasi terbuka lebar memudahkan mobilisasi unit armada mini crane.</li>
+                </ul>
+                <p>Di lapangan, banyak pengembang perumahan di wilayah <a href="https://borepilemajujaya.com/location/bekasi/">Bekasi</a>, <a href="https://borepilemajujaya.com/location/bogor/">Bogor</a>, dan <a href="https://borepilemajujaya.com/location/depok/">Depok</a> menerapkan kombinasi cerdas: strauss pile untuk unit tipe 36-70, dan bore pile mesin untuk unit ruko 3 lantai di gerbang utama.</p>
+            </section>
+
+            <section id="biaya">
+                <h2>5. Perbandingan Biaya Riil</h2>
+                <p>Biaya final pengeboran selalu dipengaruhi kondisi tanah aktual di lokasi survey. Sebagai panduan kasar anggaran Anda:</p>
+                <ul>
+                    <li><strong>Strauss pile manual:</strong> mulai sekitar Rp 800.000 &ndash; Rp 1.500.000 per titik untuk diameter standar &Oslash;30 cm.</li>
+                    <li><strong>Bore pile mesin mini crane:</strong> mulai sekitar Rp 2.500.000 &ndash; Rp 5.000.000 per titik tergantung diameter &Oslash;40-60 cm dan kedalaman 15-25m.</li>
+                </ul>
+                <p>Pelajari rincian price list lengkap pada artikel: <a href="https://borepilemajujaya.com/blog/harga-bore-pile-per-titik-2026.html">Harga Bore Pile Per Titik 2026 (Transparan &amp; Lengkap) &raquo;</a></p>
+                <blockquote>
+                    "Jangan sekadar membandingkan harga per titik. Bandingkan tarif per meter lari kedalaman riil serta pastikan mutu beton ready mix dan diameter besi tulangan yang ditawarkan sebanding."
+                </blockquote>
+            </section>
+
             <section id="kesalahan">
-                <h2>Kesalahan Umum Saat Memilih Metode Pondasi</h2>
+                <h2>6. Kesalahan Umum Saat Memilih Metode Pondasi</h2>
                 <ol>
-                    <li><strong>Milih berdasarkan harga termurah saja.</strong> Strauss pile memang lebih murah, tapi dipaksakan untuk beban gedung 4 lantai adalah resep bencana. Sebaliknya, pakai bore pile mesin untuk rumah kecil di gang sempit = buang biaya mobilisasi.</li>
-                    <li><strong>Tidak melakukan soil test.</strong> Kedalaman tanah keras hanya bisa dipastikan dengan uji sondir/soil investigation. Tanpa data ini, semua estimasi kedalaman cuma tebakan.</li>
-                    <li><strong>Mengabaikan akses lokasi.</strong> Kami pernah menangani proyek di <a href="https://borepilemajujaya.com/location/jakarta-barat/">Jakarta Barat</a> di mana alat berat tidak mungkin masuk karena gang hanya 1,5 meter -- strauss pile manual satu-satunya solusi. Cek akses sebelum bikin RAB.</li>
-                    <li><strong>Lupa hitung biaya mobilisasi.</strong> Untuk titik yang sedikit (1-3 titik), biaya mobilisasi alat berat bisa lebih besar dari biaya geboran itu sendiri.</li>
+                    <li><strong>Memilih Hanya Berdasarkan Harga Termurah:</strong> Memaksakan strauss pile manual pada gedung 4 lantai di atas tanah rawa berpotensi menyebabkan retak struktural parah. Sebaliknya, menyewa mesin bor besar untuk 3 titik rumah kecil di gang sempit merupakan pemborosan biaya mobilisasi.</li>
+                    <li><strong>Melewatkan Uji Sondir:</strong> Tanpa data grafik sondir CPT, penentuan kedalaman pondasi hanyalah spekulasi tebakan yang berisiko menggantung sebelum mencapai lapisan tanah keras.</li>
+                    <li><strong>Mengabaikan Jalur Mobilisasi:</strong> Kami pernah menangani proyek di kawasan <a href="https://borepilemajujaya.com/location/jakarta-barat/">Jakarta Barat</a> dengan akses gang hanya selebar 1.2 meter &mdash; strauss pile manual menjadi satu-satunya solusi teknis yang dapat dieksekusi.</li>
                 </ol>
-                <p><strong>Baca juga:</strong> <a href="https://borepilemajujaya.com/blog/apa-itu-borepile-panduan-lengkap-2026.html">Apa Itu Borepile? Panduan Lengkap 2026 »</a></p>
             </section>
 
             <section id="faq">
-                <h2>Pertanyaan yang Sering Diajukan</h2>
+                <h2>7. Pertanyaan Populer (FAQ)</h2>
+
                 <details>
-                    <summary>Apakah strauss pile lebih lemah daripada bore pile mesin?</summary>
-                    <p>Bukan soal lemah atau kuat, tapi soal kesesuaian beban. Strauss pile diameter 30 cm yang dikerjakan benar sangat andal untuk rumah 2 lantai. Bore pile mesin diperlukan ketika beban kolom dan kedalaman tanah keras melampaui kapasitas kerja manual.</p>
+                    <summary>Apakah daya dukung strauss pile manual lebih lemah dari bore pile mesin?</summary>
+                    <p>Bukan persoalan lemah atau kuat, melainkan kapasitas beban rencana. Strauss pile &Oslash;30 cm yang duduk sempurna di lapisan tanah keras sudah terbukti sangat kokoh menopang rumah 2 lantai. Mesin bor digunakan saat beban kolom melampaui kemampuan diameter dan kedalaman manual.</p>
                 </details>
+
                 <details>
-                    <summary>Berapa lama pengerjaan 10 titik strauss pile?</summary>
-                    <p>Dengan 1 tim (4-6 orang), rata-rata 5-10 hari kerja tergantung kedalaman dan jenis tanah. Bore pile mesin bisa menyelesaikan jumlah titik yang sama dalam 3-5 hari, tapi dengan biaya mobilisasi yang lebih tinggi.</p>
+                    <summary>Berapa lama pengerjaan 12 titik strauss pile?</summary>
+                    <p>Satu tim teknisi strauss pile (4 orang) rata-rata menyelesaikan 12 titik dalam rentang waktu 5-7 hari kerja tergantung kedalaman tanah.</p>
                 </details>
+
                 <details>
-                    <summary>Bisa ganti metode di tengah proyek?</summary>
-                    <p>Bisa, dan sering terjadi. Contoh: rencana awal strauss pile 8 meter, ternyata tanah keras tidak ditemukan -- kami rekomendasikan lanjut bore pile mesin untuk titik tersebut. Karena itu penting memakai kontraktor yang punya <em>keduanya</em>, bukan yang cuma punya satu alat.</p>
-                </details>
-                <details>
-                    <summary>Apakah Majujaya mengerjakan keduanya?</summary>
-                    <p>Ya. Kami punya tim strauss pile manual dan rig bore pile mesin sendiri (bukan sewa), jadi rekomendasi kami netral mengikuti kebutuhan proyek -- bukan mengikuti alat yang kebetulan kami punya.</p>
+                    <summary>Apakah Majujaya memiliki armada alat untuk kedua metode tersebut?</summary>
+                    <p>Ya. Majujaya Bore Pile memiliki armada rig mesin mini crane diesel dan perlengkapan strauss pile manual milik sendiri, sehingga rekomendasi teknis kami selalu objektif mengikuti kebutuhan proyek Anda &mdash; bukan karena ketiadaan alat.</p>
                 </details>
             </section>
+
+            <!-- Related Articles -->
+            <section class="related-posts">
+                <div class="related-posts-title">Artikel Terkait</div>
+                <div class="related-posts-grid">
+                    <a href="/blog/apa-itu-borepile-panduan-lengkap-2026.html" class="related-post-card">
+                        <h4>Apa Itu Borepile? Panduan Lengkap 2026 untuk Pemula</h4>
+                        <span>Dasar Pondasi &middot; 8 menit baca &rarr;</span>
+                    </a>
+                    <a href="/blog/bore-pile-untuk-rumah-2-lantai.html" class="related-post-card">
+                        <h4>Bore Pile untuk Rumah 2 Lantai: Kapan Butuh &amp; Estimasi Biaya</h4>
+                        <span>Panduan Konstruksi &middot; 8 menit baca &rarr;</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Author Bio -->
+            <div class="author-section">
+                <div class="author-avatar">S</div>
+                <div class="author-info">
+                    <div class="author-name">Subiyanto</div>
+                    <div class="author-title">Pimpinan Teknis Majujaya Bore Pile</div>
+                    <p class="author-desc">Praktisi pondasi bor dengan pengalaman 12+ tahun menangani metode manual strauss pile maupun mekanis mini crane di kawasan Jakarta, Bogor, Depok, Tangerang, dan Bekasi.</p>
+                </div>
+            </div>
         </article>
 
-        <div class="cta-box">
-            <h3>Masih Bingung Pilih yang Mana?</h3>
-            <p>Survey lokasi dan konsultasi kami GRATIS. Tim Majujaya akan cek kondisi tanah, akses lokasi, dan rekomendasikan metode yang paling ekonomis untuk proyek Anda.</p>
-            <a href="https://wa.me/6281514811120?text=Halo%20Majujaya%2C%20saya%20mau%20konsultasi%20strauss%20pile%20atau%20bore%20pile%20untuk%20proyek%20saya" class="btn" target="_blank" rel="noopener">Konsultasi via WhatsApp</a>
-            <p style="margin-top:1rem; font-size:0.875rem; opacity:0.7;">0815-1481-1120 (Subiyanto) | Melayani Jakarta, Bogor, Depok, Tangerang, Bekasi, Karawang & sekitarnya</p>
-        </div>
+        <!-- CTA Box -->
+        <section class="cta-box">
+            <h3>Konsultasikan Pilihan Pondasi Anda</h3>
+            <p>Masih ragu memilih antara strauss pile atau bore pile mesin? Tim teknis Majujaya siap melakukan survey lokasi gratis untuk mengevaluasi jenis tanah dan memberikan rekomendasi paling efisien.</p>
+            <a href="https://wa.me/6281514811120?text=Halo%20Majujaya%2C%20saya%20mau%20konsultasi%20strauss%20pile%20atau%20bore%20pile%20untuk%20proyek%20saya" class="btn" target="_blank" rel="noopener">
+                Konsultasi WhatsApp Sekarang
+            </a>
+            <p class="cta-subtext">0815-1481-1120 (Subiyanto) &middot; Layanan Seluruh Kawasan Jabodetabek</p>
+        </section>
 
-        <div class="author-section">
-            <img src="https://borepilemajujaya.com/images/subiyanto-borepile.jpg" alt="Subiyanto - Pimpinan Majujaya Bore Pile" width="48" height="48">
-            <div>
-                <div class="author-name">Subiyanto</div>
-                <div class="author-title">Pimpinan Majujaya Bore Pile -- 12+ Tahun Pengalaman -- 250+ Titik Pengeboran</div>
-            </div>
-        </div>
-
+        <!-- Footer -->
         <footer>
-            <p>&copy; 2026 JASA BORE PILE MAJUJAYA</p>
-            <p><a href="https://borepilemajujaya.com">Kembali ke Beranda</a> | <a href="https://borepilemajujaya.com/location/jakarta-selatan/">Jakarta Selatan</a> | <a href="https://borepilemajujaya.com/location/jakarta-timur/">Jakarta Timur</a> | <a href="https://borepilemajujaya.com/location/tangerang/">Tangerang</a> | <a href="https://borepilemajujaya.com/location/karawang/">Karawang</a> | <a href="https://borepilemajujaya.com/location/cikarang/">Cikarang</a></p>
+            <p>&copy; 2026 JASA BORE PILE MAJUJAYA. Seluruh hak cipta dilindungi.</p>
+            <p>
+                <a href="https://borepilemajujaya.com">Kembali ke Beranda</a> &middot; 
+                <a href="https://borepilemajujaya.com/blog/">Index Blog</a> &middot; 
+                <a href="https://borepilemajujaya.com/location/jakarta-selatan/">Jakarta Selatan</a> &middot; 
+                <a href="https://borepilemajujaya.com/location/jakarta-timur/">Jakarta Timur</a> &middot; 
+                <a href="https://borepilemajujaya.com/location/tangerang/">Tangerang</a> &middot; 
+                <a href="https://borepilemajujaya.com/location/karawang/">Karawang</a>
+            </p>
         </footer>
     </div>
+
+    <!-- Reading Progress Script -->
+    <script>
+    window.addEventListener('scroll', function() {
+        var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        var bar = document.getElementById('progressBar');
+        if (bar) bar.style.width = scrolled + '%';
+    }, { passive: true });
+    </script>
 </body>
 </html>
