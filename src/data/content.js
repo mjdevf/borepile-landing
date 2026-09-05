@@ -21,8 +21,10 @@ export const hero = {
 
 export const trustBar = {
   items: [
-    { label: "Titik Pengeboran", value: 250, suffix: "+", icon: "Drill" },
-    { label: "Tahun Pengalaman", value: 12, suffix: "+", icon: "Calendar" },
+    { label: "Titik Pengeboran", value: "250", suffix: "+", icon: "Drill" },
+    { label: "Tahun Pengalaman", value: "12", suffix: "+", icon: "Calendar" },
+    { label: "Diameter", value: "30-80", suffix: "cm", icon: "Ruler" },
+    { label: "Kedalaman Maks", value: "30", suffix: "m", icon: "ArrowDown" },
   ],
 };
 
@@ -129,12 +131,12 @@ export const whyUs = [
 export const portfolioImages = [
   {
     src: "/images/portfolio/01.jpg",
-    alt: "Proyek bore pile perumahan di Jabodetabek — tim Majujaya melakukan pengecoran pondasi bore pile untuk perumahan skala menengah",
+    alt: "Proyek bore pile perumahan di Jabodetabek, tim Majujaya melakukan pengecoran pondasi bore pile untuk perumahan skala menengah",
     label: "Proyek Perumahan",
   },
   {
     src: "/images/portfolio/02.jpg",
-    alt: "Proyek pondasi bore pile gedung bertingkat — proses pengeboran mesin untuk pondasi bangunan bertingkat di Jakarta",
+    alt: "Proyek pondasi bore pile gedung bertingkat, proses pengeboran mesin untuk pondasi bangunan bertingkat di Jakarta",
     label: "Proyek Gedung",
   },
   {
@@ -149,32 +151,32 @@ export const portfolioImages = [
   },
   {
     src: "/images/portfolio/05.jpg",
-    alt: "Proses pengecoran bore pile di lokasi proyek — tim Majujaya memastikan kualitas campuran beton sesuai standar",
+    alt: "Proses pengecoran bore pile di lokasi proyek, tim Majujaya memastikan kualitas campuran beton sesuai standar",
     label: "Pengecoran Bore Pile",
   },
   {
     src: "/images/portfolio/06.jpg",
-    alt: "Strauss pile manual — metode pondasi manual cocok untuk akses sempit di proyek rumah tinggal Jakarta",
+    alt: "Strauss pile manual, metode pondasi manual cocok untuk akses sempit di proyek rumah tinggal Jakarta",
     label: "Strauss Pile",
   },
   {
     src: "/images/portfolio/07.jpg",
-    alt: "Rig bor mesin bore pile Majujaya — alat pengeboran hidrolik untuk proyek pondasi skala besar",
+    alt: "Rig bor mesin bore pile Majujaya, alat pengeboran hidrolik untuk proyek pondasi skala besar",
     label: "Alat Bor Mesin",
   },
   {
     src: "/images/portfolio/08.jpg",
-    alt: "Dokumentasi proyek bore pile skala besar — pengerjaan puluhan titik bore pile untuk gedung komersial di Jakarta",
+    alt: "Dokumentasi proyek bore pile skala besar, pengerjaan puluhan titik bore pile untuk gedung komersial di Jakarta",
     label: "Proyek Skala Besar",
   },
   {
     src: "/images/portfolio/09.jpg",
-    alt: "Hasil pengeboran bore pile mencapai tanah keras — dokumentasi QC tim Majujaya untuk memastikan kedalaman sesuai spek",
+    alt: "Hasil pengeboran bore pile mencapai tanah keras, dokumentasi QC tim Majujaya untuk memastikan kedalaman sesuai spek",
     label: "Hasil Pengeboran",
   },
   {
     src: "/images/portfolio/10.jpg",
-    alt: "Dokumentasi proyek bore pile Majujaya — kontraktor pondasi profesional berpengalaman sejak 2013",
+    alt: "Dokumentasi proyek bore pile Majujaya, kontraktor pondasi profesional berpengalaman sejak 2013",
     label: "Dokumentasi Proyek",
   },
 ];
@@ -515,7 +517,7 @@ export function getLocationDetail(location) {
   const paragraph =
     `Majujaya adalah kontraktor jasa bore pile dan strauss pile berpengalaman yang melayani kebutuhan pondasi di ${city} dan sekitarnya. Tim geoteknik kami menangani proyek mulai dari rumah tinggal, ruko, gedung bertingkat, hingga kawasan industri dan infrastruktur di ${city}. Setiap titik pengeboran di ${city} dikerjakan dengan metode standar, diawasi langsung, dan didokumentasikan untuk memastikan hasil yang sesuai rencana di atas tanah yang terkadang memiliki daya dukung bervariasi. Dengan pengalaman lebih dari 12 tahun dan 250+ proyek selesai, kami telah membantu banyak pemilik bangunan di ${city} mendapatkan pondasi yang aman, presisi, dan sesuai jadwal.
 
-Kami memahami kondisi tanah khas di ${city}. Sebelum pekerjaan dimulai, survey lokasi gratis dilakukan oleh tim kami untuk menentukan kedalaman, diameter, dan jenis bore pile yang paling efisien — bore pile mesin untuk proyek besar maupun strauss pile manual untuk area akses terbatas. Estimasi rinci biaya (RAB) diberikan tanpa biaya, termasuk mulai harga per titik dan biaya mobilisasi alat ke ${city}. Tidak ada biaya tersembunyi; pelanggan di ${city} dan sekitarnya mendapatkan hasil pekerjaan sesuai spesifikasi, harga borong yang jelas, dan dokumentasi pengeboran per titik sebagai bentuk transparansi. Hubungi kami melalui WhatsApp untuk konsultasi dan penjadwalan survey di ${city} — tim kami siap mobilisasi dalam 1x24 jam setelah deal disepakati.`;
+Kami memahami kondisi tanah khas di ${city}. Sebelum pekerjaan dimulai, survey lokasi gratis dilakukan oleh tim kami untuk menentukan kedalaman, diameter, dan jenis bore pile yang paling efisien, baik bore pile mesin untuk proyek besar maupun strauss pile manual untuk area akses terbatas. Estimasi rinci biaya (RAB) diberikan tanpa biaya, termasuk mulai harga per titik dan biaya mobilisasi alat ke ${city}. Tidak ada biaya tersembunyi; pelanggan di ${city} dan sekitarnya mendapatkan hasil pekerjaan sesuai spesifikasi, harga borong yang jelas, dan dokumentasi pengeboran per titik sebagai bentuk transparansi. Hubungi kami melalui WhatsApp untuk konsultasi dan penjadwalan survey di ${city}, tim kami siap mobilisasi dalam 1x24 jam setelah deal disepakati.`;
 
   return { others, paragraph: paragraph };
 }
@@ -550,7 +552,7 @@ export const faq = [
   },
   {
     q: "Berapa biaya jasa bore pile per titik?",
-    a: "Harga bore pile per titik mulai dari Rp750.000 hingga Rp2.000.000 tergantung diameter (30cm, 40cm, 60cm, 80cm, 100cm), kedalaman, dan kondisi tanah. <strong class=\"text-amber-500\">Hubungi kami untuk penawaran harga resmi — harga ini dapat berubah tanpa pemberitahuan dan bukan merupakan harga jadi.</strong>"
+    a: "Harga bore pile per titik mulai dari Rp750.000 hingga Rp2.000.000 tergantung diameter (30cm, 40cm, 60cm, 80cm, 100cm), kedalaman, dan kondisi tanah. <strong class=\"text-amber-500\">Hubungi kami untuk penawaran harga resmi, harga ini dapat berubah tanpa pemberitahuan dan bukan merupakan harga jadi.</strong>"
   },
   {
     q: "Berapa lama proses pengeboran?",

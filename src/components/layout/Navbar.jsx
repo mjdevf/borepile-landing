@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
-import { Menu, X } from "lucide-react";
-import { navLinks } from "../../data/content";
+import { Menu, X, Phone } from "lucide-react";
+import { navLinks, footer } from "../../data/content";
+
+const MSG = "Halo%20Majujaya%20Bore%20Pile%2C%20saya%20ingin%20konsultasi%20tentang%20pengeboran.";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -35,6 +37,7 @@ export default function Navbar() {
   }, [open, handleKeyDown]);
 
   const showScrolled = scrolled || open;
+  const menuLinks = navLinks.filter((l) => l.label !== "Kontak");
 
   return (
     <nav
@@ -45,21 +48,32 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 md:px-10">
-        <a href="/" className="text-2xl font-bold tracking-tight text-primary">
+        <a href="/" className="text-xl font-bold tracking-tight text-primary">
           Borepile Maju Jaya
         </a>
 
         {/* Desktop nav */}
         <div className="hidden items-center gap-6 md:flex">
-          {navLinks.map(({ label, href }) => (
+          {menuLinks.map(({ label, href }) => (
             <a
               key={href}
               href={href}
-              className="text-sm text-secondary transition-colors hover:text-tertiary-container"
+              className="text-sm font-medium text-secondary transition-colors hover:text-accent"
             >
               {label}
             </a>
           ))}
+
+          {/* Dedicated WA CTA Button */}
+          <a
+            href={`https://wa.me/${footer.wa}?text=${MSG}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-9 items-center gap-2 rounded-sm bg-accent px-4 text-xs font-semibold text-on-primary transition-colors hover:bg-accent-dark active:scale-[0.98]"
+          >
+            <Phone className="h-3.5 w-3.5" />
+            Hubungi WA
+          </a>
         </div>
 
         {/* Mobile hamburger */}
@@ -87,12 +101,12 @@ export default function Navbar() {
         }`}
       >
         <div className="flex flex-col gap-1 px-8 pt-28">
-          {navLinks.map(({ label, href }, i) => (
+          {menuLinks.map(({ label, href }, i) => (
             <a
               key={href}
               href={href}
               style={{ animationDelay: `${0.08 + i * 0.05}s` }}
-              className={`border-b border-border-muted py-4 text-sm font-medium text-primary transition-all duration-300 hover:text-tertiary ${
+              className={`border-b border-border-muted py-4 text-sm font-medium text-primary transition-all duration-300 hover:text-accent ${
                 open ? "ani-nav-link" : "opacity-0"
               }`}
               onClick={() => setOpen(false)}
@@ -100,6 +114,17 @@ export default function Navbar() {
               {label}
             </a>
           ))}
+
+          <a
+            href={`https://wa.me/${footer.wa}?text=${MSG}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-sm bg-accent px-6 text-sm font-semibold text-on-primary transition-colors hover:bg-accent-dark"
+            onClick={() => setOpen(false)}
+          >
+            <Phone className="h-4 w-4" />
+            Hubungi via WhatsApp
+          </a>
         </div>
       </div>
 

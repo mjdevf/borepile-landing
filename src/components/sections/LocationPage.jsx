@@ -14,10 +14,10 @@ class MapErrorBoundary extends React.Component {
   render() {
     if (this.state.err)
       return (
-        <div className="flex h-96 items-center justify-center rounded-lg border border-border-muted bg-surface-container-low">
+        <div className="flex h-96 items-center justify-center rounded-sm border border-border-muted bg-surface-container-low">
           <div className="text-center">
             <p className="mb-2 text-secondary">Peta gagal dimuat.</p>
-            <button onClick={() => this.setState({ err: false })} className="text-sm text-tertiary underline">Coba lagi</button>
+            <button onClick={() => this.setState({ err: false })} className="text-sm text-accent underline">Coba lagi</button>
           </div>
         </div>
       );
@@ -44,7 +44,7 @@ const LocationPage = () => {
         <div className="text-center">
           <h1 className="mb-4 text-3xl font-bold text-primary">Lokasi Tidak Ditemukan</h1>
           <p className="text-secondary">Halaman layanan ini mungkin belum tersedia.</p>
-          <Link to="/" className="mt-6 inline-block text-sm text-tertiary underline">Kembali ke Beranda</Link>
+          <Link to="/" className="mt-6 inline-block text-sm text-accent underline">Kembali ke Beranda</Link>
         </div>
       </div>
     );
@@ -62,9 +62,9 @@ const LocationPage = () => {
           {/* Breadcrumb */}
           <nav className="mb-6 text-sm text-secondary" aria-label="Breadcrumb">
             <ol className="flex items-center gap-2">
-              <li><Link to="/" className="transition-colors hover:text-tertiary">Beranda</Link></li>
+              <li><Link to="/" className="transition-colors hover:text-accent">Beranda</Link></li>
               <li className="text-outline">/</li>
-              <li><Link to="/#layanan" className="transition-colors hover:text-tertiary">Layanan</Link></li>
+              <li><Link to="/#layanan" className="transition-colors hover:text-accent">Layanan</Link></li>
               <li className="text-outline">/</li>
               <li className="font-semibold text-primary" aria-current="page">{location.city}</li>
             </ol>
@@ -81,14 +81,14 @@ const LocationPage = () => {
           </div>
 
           {/* Related locations / internal linking */}
-          <div className="mb-12 rounded-lg border border-border-muted bg-surface-container-low p-6">
+          <div className="mb-12 rounded-sm border border-border-muted bg-surface-container-low p-6">
             <h2 className="mb-4 text-xl font-bold text-primary">Layanan Bore Pile di Kota Lainnya</h2>
             <div className="flex flex-wrap gap-2">
               {getLocationDetail(location).others.map((l) => (
                 <Link
                   key={l.href}
                   to={l.href}
-                  className="rounded-full border border-border-muted bg-surface px-4 py-2 text-sm font-medium text-primary transition-colors hover:border-outline hover:text-tertiary"
+                  className="rounded-full border border-border-muted bg-surface px-4 py-2 text-sm font-medium text-primary transition-colors hover:border-accent hover:text-accent"
                 >
                   {l.title}
                 </Link>
@@ -180,19 +180,19 @@ const LocationPage = () => {
                 <h3 className="mb-4 text-xl font-semibold text-primary">Mengapa Pilih Kami?</h3>
                 <ul className="space-y-3 text-secondary">
                   <li className="flex items-start gap-3">
-                    <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-tertiary" />
+                    <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" />
                     <span>Berpengalaman 12+ tahun di Jakarta</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-tertiary" />
+                    <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" />
                     <span>250+ proyek selesai di seluruh Jabodetabek</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-tertiary" />
+                    <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" />
                     <span>Survey lokasi gratis tanpa biaya</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-tertiary" />
+                    <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" />
                     <span>Hasil pengeboran sesuai spesifikasi</span>
                   </li>
                 </ul>

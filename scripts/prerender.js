@@ -83,7 +83,7 @@ function renderLocationBody(loc) {
     <section style="margin-top:32px;"><h2 style="font-size:22px;margin-bottom:12px;">Area Layanan ${esc(city)}</h2><div>${area}</div></section>
     ${soil}
     <section style="margin-top:32px;"><h2 style="font-size:22px;margin-bottom:12px;">FAQ ${esc(city)}</h2>${faqs || '<p>Tidak ada FAQ.</p>'}</section>
-    <section style="margin-top:32px;background:#1e3a8a;color:#fff;border-radius:12px;padding:28px;text-align:center;"><h2 style="font-size:24px;margin:0 0 10px;">Butuh Jasa Bore Pile di ${esc(city)}?</h2><p style="margin:0 0 18px;">Survey lokasi GRATIS & RAB detail tanpa biaya. Hubungi tim Majujaya sekarang.</p><a href="${waUrl}" style="background:#25d366;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;display:inline-block;">Chat via WhatsApp 0815-1481-1120</a></section>
+    <section style="margin-top:32px;background:#17171A;color:#fff;border-radius:6px;padding:28px;text-align:center;"><h2 style="font-size:24px;margin:0 0 10px;">Butuh Jasa Bore Pile di ${esc(city)}?</h2><p style="margin:0 0 18px;">Survey lokasi GRATIS & RAB detail tanpa biaya. Hubungi tim Majujaya sekarang.</p><a href="${waUrl}" style="background:#A8422A;color:#fff;padding:14px 28px;border-radius:4px;text-decoration:none;font-weight:700;display:inline-block;">Chat via WhatsApp 0815-1481-1120</a></section>
     <footer style="margin-top:32px;border-top:1px solid #e5e7eb;padding-top:16px;font-size:13px;color:#6b7280;">${footLinks}</footer>
   </div>`;
 }

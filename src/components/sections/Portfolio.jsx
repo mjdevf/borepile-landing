@@ -48,7 +48,7 @@ export default function Portfolio() {
               <button
                 key={i}
                 onClick={() => setSelected(i)}
-                className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-border-muted bg-surface-container-low text-left shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] transition-transform duration-200 hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-tertiary focus-visible:ring-offset-2"
+                className="group relative aspect-[4/3] overflow-hidden rounded-sm border border-border-muted bg-surface-container-low text-left transition-transform duration-200 hover:scale-[1.01] focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               >
                 <picture>
                   <source

@@ -1,7 +1,3 @@
-import FadeInWrap from "../ui/FadeInWrap";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
-
 const testimonials = [
   {
     quote: "Pengerjaan borepile buat proyek perumahan saya tepat waktu dan sesuai spek. Timnya profesional, alat lengkap.",
@@ -31,72 +27,30 @@ const testimonials = [
 ];
 
 export default function TestimonialSection() {
-  const [active, setActive] = useState(0);
-
-  const next = () => setActive((p) => (p + 1) % testimonials.length);
-  const prev = () => setActive((p) => (p - 1 + testimonials.length) % testimonials.length);
-
-  const t = testimonials[active];
+  const t = testimonials[0];
 
   return (
-    <section className="bg-surface px-4 py-16 md:px-10 md:py-24">
-      <div className="mx-auto max-w-4xl text-center">
-        <h2
-          className="mb-4 text-3xl font-semibold text-primary"
-          style={{ letterSpacing: "-0.01em", lineHeight: "1.3" }}
-        >
-          Kata Klien Kami
-        </h2>
-        <p className="mb-10 text-base text-secondary">
-          Testimoni dari pengembang & kontraktor yang menggunakan jasa borepile kami.
-        </p>
-
-        {/* Carousel */}
-        <div className="relative mx-auto max-w-2xl">
-          {/* Arrows */}
-          <button
-            onClick={prev}
-            aria-label="Sebelumnya"
-            className="absolute left-0 top-1/2 z-10 hidden -translate-x-4 -translate-y-1/2 rounded-full border border-border-muted bg-surface p-2 text-secondary shadow-md transition-all hover:bg-primary hover:text-on-primary sm:block"
+    <section className="border-b border-border-muted bg-surface px-4 py-16 md:px-10 md:py-24">
+      <div className="mx-auto max-w-4xl space-y-8">
+        <div className="space-y-2">
+          <span className="font-mono text-xs text-accent">Testimoni Klien</span>
+          <h2
+            className="text-2xl font-bold text-primary md:text-3xl"
+            style={{ letterSpacing: "-0.01em", lineHeight: "1.3" }}
           >
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-          <button
-            onClick={next}
-            aria-label="Berikutnya"
-            className="absolute right-0 top-1/2 z-10 hidden translate-x-4 -translate-y-1/2 rounded-full border border-border-muted bg-surface p-2 text-secondary shadow-md transition-all hover:bg-primary hover:text-on-primary sm:block"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </button>
-
-          {/* Card */}
-          <FadeInWrap key={active} className="rounded-lg border border-border-muted bg-surface p-8 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)]">
-            <p className="mb-6 text-lg italic leading-relaxed text-on-surface">
-              &ldquo;{t.quote}&rdquo;
-            </p>
-            <div>
-              <p className="text-sm font-bold text-primary">{t.name}</p>
-              <p className="text-xs text-secondary">{t.role}</p>
-            </div>
-          </FadeInWrap>
+            Kepercayaan dari Pengembang Proyek
+          </h2>
         </div>
 
-        {/* Dots */}
-        <div className="mt-6 flex items-center justify-center gap-2">
-          {testimonials.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setActive(i)}
-              aria-label={`Testimonial ${i + 1}`}
-              className={`flex items-center justify-center rounded-full transition-all duration-300 min-w-6 min-h-6 ${
-                i === active
-                  ? "w-7 bg-primary"
-                  : "w-6 bg-border-muted hover:bg-secondary"
-              }`}
-            >
-              <span className="sr-only">Testimonial {i + 1}</span>
-            </button>
-          ))}
+        {/* Single Quote Block */}
+        <div className="border-l-4 border-accent pl-6 py-3">
+          <blockquote className="text-lg font-medium leading-relaxed text-primary sm:text-xl md:text-2xl">
+            &ldquo;{t.quote}&rdquo;
+          </blockquote>
+          <div className="mt-4">
+            <p className="text-sm font-bold text-primary sm:text-base">{t.name}</p>
+            <p className="font-mono text-xs text-secondary">{t.role}</p>
+          </div>
         </div>
       </div>
     </section>

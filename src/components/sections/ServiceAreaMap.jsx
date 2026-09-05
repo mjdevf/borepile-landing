@@ -79,7 +79,7 @@ export default function ServiceAreaMap() {
         const isHub = !!c.hub;
         const marker = L.default.circleMarker([c.lat, c.lng], {
           radius: isHub ? 9 : 7,
-          fillColor: c.hub ? "#0f172a" : "#C9A15A",
+          fillColor: c.hub ? "#17171A" : "#A8422A",
           color: "#ffffff",
           weight: 2.5,
           opacity: 0.9,
@@ -112,15 +112,15 @@ export default function ServiceAreaMap() {
   }, [navigate]);
 
   return (
-    <section className="bg-surface px-4 py-16 md:px-10 md:py-24">
+    <section className="border-b border-border-muted bg-surface px-4 py-16 md:px-10 md:py-24">
       <div className="mx-auto max-w-[760px]">
         {/* Header */}
         <div className="mb-6">
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
+          <p className="font-mono text-xs text-accent">
             Wilayah Layanan
           </p>
-          <h2 className="mt-1 text-[clamp(24px,4vw,34px)] font-bold leading-tight tracking-tight text-primary">
-            16 titik layanan di Jabodetabek &amp; sekitarnya
+          <h2 className="mt-1 text-2xl font-bold leading-tight tracking-tight text-primary md:text-3xl">
+            16 Titik Layanan di Jabodetabek &amp; Sekitarnya
           </h2>
           <p className="mt-2 max-w-[520px] text-base text-secondary">
             Ketuk salah satu titik untuk lihat detail layanan bore pile di kota tersebut.
@@ -129,7 +129,7 @@ export default function ServiceAreaMap() {
 
         {/* Map card */}
         <ErrorBoundary>
-          <div className="relative overflow-hidden rounded-xl border border-border-muted shadow-[0_1px_2px_rgba(15,30,61,0.04),0_12px_32px_-16px_rgba(15,30,61,0.12)]">
+          <div className="relative overflow-hidden rounded-sm border border-border-muted">
             {!ready && (
               <div className="h-[400px] w-full animate-pulse bg-surface-container-low" />
             )}

@@ -2,67 +2,51 @@
 
 @theme {
   /* ── Stitch Design System Colors ── */
-  --color-primary: #0f172a;
+  --color-primary: #17171A;
   --color-primary-container: #131b2e;
-  --color-on-primary: #ffffff;
+  --color-on-primary: #F8F8F6;
   --color-on-primary-container: #7c839b;
 
-  --color-secondary: #475569;
-  --color-secondary-container: #d5e3fc;
+  --color-secondary: #5B5A55;
+  --color-secondary-container: #E1E0DA;
   --color-on-secondary: #ffffff;
 
-  --color-tertiary: #2563eb;
-  --color-tertiary-container: #00174b;
-  --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #497cff;
+  --color-accent: #A8422A;
+  --color-accent-dark: #8A3420;
 
-  --color-surface: #ffffff;
-  --color-surface-dim: #d8dadc;
-  --color-surface-bright: #f7f9fb;
+  --color-surface: #F8F8F6;
+  --color-surface-dim: #E1E0DA;
+  --color-surface-bright: #FAF9F7;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f2f4f6;
-  --color-surface-container: #eceef0;
-  --color-surface-container-high: #e6e8ea;
-  --color-surface-container-highest: #e0e3e5;
+  --color-surface-container-low: #F3F2EE;
+  --color-surface-container: #EBEAE4;
+  --color-surface-container-high: #E1E0DA;
+  --color-surface-container-highest: #D7D6D0;
 
-  --color-background: #f7f9fb;
-  --color-on-background: #191c1e;
-  --color-on-surface: #191c1e;
-  --color-on-surface-variant: #45464d;
+  --color-background: #F8F8F6;
+  --color-on-background: #17171A;
+  --color-on-surface: #17171A;
+  --color-on-surface-variant: #5B5A55;
 
-  --color-outline: #5B6472;
-  --color-outline-variant: #c6c6cd;
-  --color-border-muted: #e2e8f0;
+  --color-outline: #5B5A55;
+  --color-outline-variant: #E1E0DA;
+  --color-border-muted: #E1E0DA;
 
-  --color-accent-gold: #C9A15A;
   --color-success-green: #16a34a;
-  --color-safety-orange: #ea580c;
   --color-alert-red: #b91c1c;
   --color-error: #ba1a1a;
   --color-on-error: #ffffff;
 
-  --color-inverse-surface: #2d3133;
-  --color-inverse-on-surface: #eff1f3;
+  --color-inverse-surface: #17171A;
+  --color-inverse-on-surface: #F8F8F6;
 
-  /* ── Legacy aliases for existing content refs ── */
-  --color-tanah-900: #0f172a;
-  --color-tanah-950: #0f172a;
-  --color-tanah-800: #1e293b;
-  --color-emas-400: #C9A15A;
-  --color-emas-500: #C9A15A;
-  --color-emas-600: #2563eb;
-  --color-emas-700: #1d4ed8;
-  --color-beton-50: #f7f9fb;
-  --color-beton-100: #f2f4f6;
-  --color-beton-200: #e2e8f0;
-  --color-beton-300: #cbd5e1;
-  --color-beton-400: #94a3b8;
-  --color-beton-500: #64748b;
-  --color-beton-600: #475569;
-  --color-beton-700: #334155;
-  --color-beton-800: #1e293b;
-  --color-beton-900: #0f172a;
-  --color-beton-950: #020617;
+  /* ── Legacy aliases mapped to new tokens ── */
+  --color-tertiary: #A8422A;
+  --color-tertiary-container: #8A3420;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #ffffff;
+  --color-accent-gold: #A8422A;
+  --color-safety-orange: #A8422A;
 
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -90,13 +74,13 @@ body {
 }
 
 ::selection {
-  background: var(--color-tertiary);
+  background: var(--color-accent);
   color: white;
 }
 
 /* ── Gradient text (legacy compat) ── */
 .text-gradient {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-tertiary));
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

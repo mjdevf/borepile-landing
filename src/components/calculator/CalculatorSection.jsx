@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Calculator, Phone, MapPin, Drill, Wrench, BookmarkPlus } from 'lucide-react';
+import { Phone, MapPin, Drill, Wrench, BookmarkPlus } from 'lucide-react';
 import { calculateEstimation, formatRangeCost, generateWhatsAppLink } from './calculator';
 import DrillVisualizer from './DrillVisualizer';
 import SavedEstimates from './SavedEstimates';
@@ -84,33 +84,29 @@ export default function CalculatorSection() {
   const depthMin = input.pileType === 'bored-pile-machine' ? 10 : 3;
   const depthMax = input.pileType === 'bored-pile-machine' ? 30 : 8;
 
-  const activeBtn = 'bg-primary text-on-primary shadow-sm';
-  const inactiveBtn = 'bg-surface-container-low hover:bg-surface-container text-secondary border border-border-muted';
-  const labelClass = 'text-[11px] font-semibold uppercase tracking-[0.08em] text-secondary mb-2 block';
+  const activeBtn = 'bg-primary text-on-primary rounded-sm';
+  const inactiveBtn = 'bg-surface hover:bg-surface-container-low text-secondary border border-border-muted rounded-sm';
+  const labelClass = 'text-xs font-mono text-secondary mb-2 block';
 
   return (
-    <section id="kalkulator" ref={sectionRef} className="bg-surface px-4 py-16 md:px-10 md:py-24 border-t border-border-muted">
+    <section id="kalkulator" ref={sectionRef} className="bg-surface px-4 py-16 md:px-10 md:py-24 border-b border-border-muted">
       <div className="mx-auto w-full max-w-7xl">
         {/* Header */}
-        <div className="mb-12 flex flex-col items-center gap-3 text-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-border-muted bg-surface-container-low px-3 py-1 font-mono text-[11px] text-secondary">
-            <Calculator className="h-3.5 w-3.5 text-tertiary" />
+        <div className="mb-10 flex flex-col items-start gap-2">
+          <span className="font-mono text-xs text-accent">
             Kalkulator Biaya Mandiri
           </span>
-          <h2 className="max-w-2xl text-3xl font-semibold text-primary" style={{ letterSpacing: '-0.01em', lineHeight: '1.3' }}>
+          <h2 className="max-w-2xl text-2xl font-bold text-primary md:text-3xl" style={{ letterSpacing: '-0.01em', lineHeight: '1.3' }}>
             Estimasi Biaya Fondasi Proyek Anda
           </h2>
-          <p className="max-w-xl text-base text-secondary">
+          <p className="max-w-2xl text-base text-secondary">
             Isi parameter proyek di bawah untuk simulasi kasar biaya. Hasil akan otomatis terupdate.
           </p>
 
           {/* PERINGATAN KERAS */}
-          <div className="mt-4 w-full max-w-2xl rounded-lg border border-alert-red/30 bg-alert-red/5 p-4 text-left">
-            <div className="flex items-start gap-3">
-              <span className="mt-0.5 text-lg font-bold leading-none text-alert-red">!</span>
-              <div className="text-xs leading-relaxed text-secondary">
-                <strong className="uppercase tracking-wider text-alert-red">PERINGATAN:</strong> Kalkulator ini hanya alat bantu simulasi kasar. Angka yang muncul <strong className="text-primary">BUKAN harga resmi, BUKAN quotation, dan BUKAN harga jadi</strong>. Biaya aktual bisa berbeda signifikan tergantung hasil survei lapangan, kondisi tanah aktual, akses lokasi, dan negosiasi. <strong className="text-primary">Jangan gunakan angka ini sebagai dasar kontrak atau klaim hukum.</strong> Hubungi kami untuk penawaran resmi dan survei gratis.
-              </div>
+          <div className="mt-2 w-full max-w-2xl border-l-2 border-accent bg-surface-container-low p-3 text-left">
+            <div className="text-xs leading-relaxed text-secondary">
+              <strong className="text-accent font-semibold">DISCLAIMER:</strong> Estimasi ini adalah simulasi kasar awal, <strong className="text-primary font-semibold">bukan harga jadi</strong>. Biaya aktual disesuaikan dengan hasil survey lokasi teknis gratis.
             </div>
           </div>
         </div>
@@ -119,29 +115,29 @@ export default function CalculatorSection() {
           <div className="grid gap-8 lg:grid-cols-12 lg:gap-10 items-start">
             {/* LEFT: Form */}
             <div className="lg:col-span-5 space-y-5">
-              <div className="rounded-lg border border-border-muted bg-surface p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] space-y-5">
+              <div className="border-t border-b border-border-muted divide-y divide-border-muted bg-surface py-2">
                 {/* Pile Type */}
-                <div>
+                <div className="py-4">
                   <label className={labelClass}>Metode Pekerjaan</label>
                   <div className="grid grid-cols-2 gap-2">
                     <button onClick={() => handlePileType('bored-pile-machine')}
-                      className={`flex items-center justify-center gap-2 rounded-lg px-4 py-3 text-xs font-semibold transition-all cursor-pointer ${input.pileType === 'bored-pile-machine' ? activeBtn : inactiveBtn}`}>
+                      className={`flex items-center justify-center gap-2 px-4 py-3 text-xs font-semibold transition-all cursor-pointer ${input.pileType === 'bored-pile-machine' ? activeBtn : inactiveBtn}`}>
                       <Drill className="h-4 w-4" /> Bored Pile Mesin
                     </button>
                     <button onClick={() => handlePileType('strauss-pile-manual')}
-                      className={`flex items-center justify-center gap-2 rounded-lg px-4 py-3 text-xs font-semibold transition-all cursor-pointer ${input.pileType === 'strauss-pile-manual' ? activeBtn : inactiveBtn}`}>
+                      className={`flex items-center justify-center gap-2 px-4 py-3 text-xs font-semibold transition-all cursor-pointer ${input.pileType === 'strauss-pile-manual' ? activeBtn : inactiveBtn}`}>
                       <Wrench className="h-4 w-4" /> Strauss Manual
                     </button>
                   </div>
                 </div>
 
                 {/* Diameter */}
-                <div>
+                <div className="py-4">
                   <label className={labelClass}>Diameter Tiang</label>
                   <div className="grid grid-cols-4 gap-2">
                     {diaOptions.map((d) => (
                       <button key={d} onClick={() => update('diameter', d)}
-                        className={`rounded-lg px-3 py-2.5 text-xs font-bold transition-all cursor-pointer ${input.diameter === d ? activeBtn : inactiveBtn}`}>
+                        className={`px-3 py-2.5 text-xs font-bold transition-all cursor-pointer ${input.diameter === d ? activeBtn : inactiveBtn}`}>
                         {d} cm
                       </button>
                     ))}
@@ -149,26 +145,26 @@ export default function CalculatorSection() {
                 </div>
 
                 {/* Depth & Points */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4 py-4">
                   <div>
                     <label className={labelClass}>Kedalaman (m)</label>
-                    <input type="range" min={depthMin} max={depthMax} step="1" value={input.depth} onChange={(e) => update('depth', Number(e.target.value))} className="w-full accent-tertiary" />
-                    <div className="mt-1 text-center font-mono text-sm font-bold text-tertiary">{input.depth} m</div>
+                    <input type="range" min={depthMin} max={depthMax} step="1" value={input.depth} onChange={(e) => update('depth', Number(e.target.value))} className="w-full accent-accent cursor-pointer" />
+                    <div className="mt-1 text-center font-mono text-sm font-bold text-accent">{input.depth} m</div>
                   </div>
                   <div>
                     <label className={labelClass}>Jumlah Titik</label>
-                    <input type="range" min="1" max="150" step="1" value={input.points} onChange={(e) => update('points', Number(e.target.value))} className="w-full accent-tertiary" />
-                    <div className="mt-1 text-center font-mono text-sm font-bold text-tertiary">{input.points} titik</div>
+                    <input type="range" min="1" max="150" step="1" value={input.points} onChange={(e) => update('points', Number(e.target.value))} className="w-full accent-accent cursor-pointer" />
+                    <div className="mt-1 text-center font-mono text-sm font-bold text-accent">{input.points} titik</div>
                   </div>
                 </div>
 
                 {/* Soil Type */}
-                <div>
+                <div className="py-4">
                   <label className={labelClass}>Kondisi Tanah</label>
                   <div className="grid grid-cols-3 gap-2">
                     {['soft', 'medium', 'hard'].map((s) => (
                       <button key={s} onClick={() => update('soilType', s)}
-                        className={`rounded-lg px-3 py-2.5 text-[11px] font-bold transition-all cursor-pointer ${input.soilType === s ? activeBtn : inactiveBtn}`}>
+                        className={`px-3 py-2.5 text-xs font-bold transition-all cursor-pointer ${input.soilType === s ? activeBtn : inactiveBtn}`}>
                         {SOIL_LABELS[s]}
                       </button>
                     ))}
@@ -176,10 +172,10 @@ export default function CalculatorSection() {
                 </div>
 
                 {/* Region */}
-                <div>
+                <div className="py-4">
                   <label className={labelClass}><MapPin className="mr-0.5 inline h-3 w-3 -mt-0.5" /> Wilayah Proyek</label>
                   <select value={input.region} onChange={(e) => update('region', e.target.value)}
-                    className="w-full rounded-lg border border-outline-variant bg-surface-container-lowest px-3.5 py-2.5 text-sm text-on-surface transition-colors focus:border-tertiary focus:outline-none focus:ring-1 focus:ring-tertiary cursor-pointer">
+                    className="w-full rounded-sm border border-border-muted bg-surface px-3.5 py-2.5 text-sm text-primary transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent cursor-pointer">
                     <option value="jabodetabek">JABODETABEK</option>
                     <option value="jawa-barat">Jawa Barat</option>
                     <option value="jawa-tengah-timur">Jawa Tengah / Jawa Timur</option>
@@ -188,13 +184,13 @@ export default function CalculatorSection() {
                 </div>
 
                 {/* Include Material */}
-                <div className="flex items-center justify-between rounded-lg border border-border-muted bg-surface-container-low p-3.5">
+                <div className="flex items-center justify-between py-4">
                   <div>
                     <div className="text-sm font-semibold text-primary">Sistem All-In Material</div>
                     <div className="text-xs text-secondary">Besi SNI + ReadyMix K-300</div>
                   </div>
                   <button onClick={() => update('includeMaterial', !input.includeMaterial)}
-                    className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors ${input.includeMaterial ? 'bg-tertiary' : 'bg-outline-variant'}`}>
+                    className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors ${input.includeMaterial ? 'bg-accent' : 'bg-outline-variant'}`}>
                     <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform ${input.includeMaterial ? 'translate-x-5' : 'translate-x-0'}`} />
                   </button>
                 </div>
@@ -203,7 +199,7 @@ export default function CalculatorSection() {
               {/* Save button */}
               {saved.length < 5 && (
                 <button onClick={saveEstimate}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-border-muted bg-surface px-4 py-3 text-xs font-semibold text-secondary transition-all hover:bg-surface-container-low cursor-pointer">
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-sm border border-border-muted bg-surface px-4 py-3 text-xs font-semibold text-primary transition-all hover:bg-surface-container-low cursor-pointer">
                   <BookmarkPlus className="h-4 w-4" /> Simpan Konfigurasi Ini
                 </button>
               )}
@@ -214,29 +210,26 @@ export default function CalculatorSection() {
               {/* Visualizer */}
               <DrillVisualizer pileType={input.pileType} diameter={input.diameter} depth={input.depth} soilType={input.soilType} includeMaterial={input.includeMaterial} />
 
-              {/* Result Card */}
-              <div className="rounded-lg border border-border-muted bg-surface p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)]">
-                <div className="mb-4 flex items-center justify-between">
-                  <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">Ringkasan Estimasi</h3>
-                  <span className="font-mono text-[11px] text-secondary">{result.totalMeters} m¹ total</span>
+              {/* Result Container (divide-y, flat) */}
+              <div className="border-t-2 border-accent bg-surface pt-5 space-y-5">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-bold text-primary">Ringkasan Estimasi</h3>
+                  <span className="font-mono text-xs text-secondary">{result.totalMeters} m¹ total</span>
                 </div>
 
-                {/* RANGE PRICING */}
-                <div className="mb-5 rounded-lg border border-border-muted bg-surface-container-low p-5 text-center">
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.08em] text-secondary">Estimasi Biaya Proyek</div>
-                  <div className="mt-1 font-display text-2xl font-extrabold text-tertiary sm:text-3xl" style={{ letterSpacing: '-0.01em' }}>
+                {/* RANGE PRICING (calc-out) */}
+                <div className="border-y border-border-muted py-5 text-center bg-surface-container-low/50">
+                  <div className="text-xs font-mono uppercase text-secondary">Perkiraan Rentang Biaya</div>
+                  <div className="mt-1 text-2xl font-bold text-accent sm:text-3xl" style={{ letterSpacing: '-0.01em' }}>
                     {formatRangeCost(result.costMin, result.costMax)}
                   </div>
-                  <div className="mt-1 text-[11px] text-secondary">*belum termasuk PPN 11%</div>
+                  <div className="mt-1 text-xs text-secondary">*belum termasuk PPN 11%</div>
 
-                  {/* DISCLAIMER KERAS */}
-                  <div className="mt-4 rounded-lg border border-alert-red/30 bg-alert-red/5 p-3">
-                    <p className="text-xs leading-relaxed text-secondary">
-                      <strong className="uppercase text-alert-red">PERINGATAN:</strong> Ini <strong className="text-primary">BUKAN harga resmi</strong>. Hanya simulasi kasar. Biaya aktual bisa berbeda. Harga pasti berlaku setelah survei lokasi dan penawaran resmi.
-                    </p>
+                  {/* WhatsApp send button */}
+                  <div className="mt-4 max-w-md mx-auto">
                     <a href={generateWhatsAppLink(input, result)} target="_blank" rel="noreferrer"
-                      className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-xs font-semibold text-on-primary transition-all hover:scale-[0.98] active:scale-[0.96] cursor-pointer">
-                      <Phone className="h-4 w-4" /> Kirim ke WhatsApp Admin
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-sm bg-accent px-4 py-3 text-xs font-semibold text-on-primary transition-all hover:bg-accent-dark cursor-pointer">
+                      <Phone className="h-4 w-4" /> Konsultasi Hasil Estimasi via WhatsApp
                     </a>
                   </div>
                 </div>

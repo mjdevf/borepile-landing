@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Trash2, Phone, Sparkles, X, Scale, Check, Copy, TrendingDown, Calendar, Coins, Layers, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { formatRupiah, formatRangeCost, generateWhatsAppLink } from './calculator';
+import { formatRangeCost, generateWhatsAppLink } from './calculator';
 
 export default function SavedEstimates({ estimates, onLoad, onDelete, onClearAll }) {
   const [selectedIds, setSelectedIds] = useState([]);
@@ -76,16 +76,15 @@ borepilemajujaya.com`;
 
   const borderCol = 'border-border-muted';
   const textSec = 'text-secondary';
-  const textPrim = 'text-primary';
-  const gold = 'text-accent-gold';
+  const gold = 'text-accent';
 
   return (
-    <div className="rounded-lg border border-border-muted bg-surface p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] relative overflow-hidden">
+    <div className="rounded-sm border border-border-muted bg-surface p-6 relative overflow-hidden">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 relative z-10">
         <div>
           <div className="flex items-center gap-1.5">
             <Sparkles className={`h-4 w-4 ${gold} animate-pulse`} />
-            <h3 className="text-sm sm:text-base font-bold uppercase tracking-wider text-primary">
+            <h3 className="text-sm sm:text-base font-bold text-primary">
               Konfigurasi Tersimpan & Perbandingan ({estimates.length}/5)
             </h3>
           </div>
@@ -97,7 +96,7 @@ borepilemajujaya.com`;
           {selectedIds.length > 0 && (
             <button onClick={handleClearSelected} className={`text-xs ${textSec} hover:text-primary font-semibold underline cursor-pointer`}>Reset Pilihan</button>
           )}
-          <button onClick={onClearAll} className={`text-xs text-alert-red hover:text-alert-red/80 font-bold flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-alert-red/5 border border-transparent hover:border-alert-red/20 transition-all cursor-pointer`}>
+          <button onClick={onClearAll} className={`text-xs text-alert-red hover:text-alert-red/80 font-bold flex items-center gap-1.5 px-3 py-1.5 rounded-sm hover:bg-alert-red/5 border border-transparent hover:border-alert-red/20 transition-all cursor-pointer`}>
             <Trash2 className="h-3.5 w-3.5" /> Hapus Semua
           </button>
         </div>
@@ -106,21 +105,21 @@ borepilemajujaya.com`;
       <AnimatePresence>
         {isComparing && itemA && itemB && (
           <motion.div initial={{ opacity: 0, height: 0, marginBottom: 0 }} animate={{ opacity: 1, height: 'auto', marginBottom: 24 }} exit={{ opacity: 0, height: 0, marginBottom: 0 }} transition={{ duration: 0.3, ease: 'easeInOut' }} className="overflow-hidden">
-            <div className="bg-surface-container-low rounded-lg border border-border-muted p-5 sm:p-6 shadow-sm relative">
+            <div className="bg-surface-container-low rounded-sm border border-border-muted p-5 sm:p-6 relative">
               <div className="absolute top-0 right-0 p-3">
                 <button onClick={handleClearSelected} className={`${textSec} hover:text-primary p-1 rounded-full hover:bg-surface-container transition-colors cursor-pointer`}><X className="h-4 w-4" /></button>
               </div>
               <div className="flex items-center gap-2 mb-4 border-b ${borderCol} pb-3">
                 <Scale className={`h-5 w-5 ${gold}`} />
-                <h4 className="text-sm font-bold uppercase tracking-wider text-primary">Matrik Perbandingan Berdampingan</h4>
+                <h4 className="text-sm font-bold text-primary">Matrik Perbandingan Berdampingan</h4>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse min-w-[500px]">
                   <thead>
                     <tr className="border-b ${borderCol}">
-                      <th className={`py-2.5 text-[10px] uppercase tracking-wider ${textSec} font-bold w-1/3`}>Parameter</th>
+                      <th className={`py-2.5 text-xs ${textSec} font-bold w-1/3`}>Parameter</th>
                       <th className={`py-2.5 text-xs font-bold ${gold} w-1/3`}>Opsi A: {itemA.name}</th>
-                      <th className="py-2.5 text-xs font-bold text-tertiary w-1/3">Opsi B: {itemB.name}</th>
+                      <th className="py-2.5 text-xs font-bold text-accent w-1/3">Opsi B: {itemB.name}</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y ${borderCol} text-xs text-secondary font-medium">
@@ -171,17 +170,17 @@ borepilemajujaya.com`;
                         {itemA.result.costMin < itemB.result.costMin && <span className="mt-1 inline-flex items-center gap-1 text-[10px] text-success-green font-bold bg-success-green/5 px-2 py-0.5 rounded border border-success-green/20"><TrendingDown className="h-3 w-3" /> Lebih Hemat</span>}
                       </td>
                       <td className="py-3 font-mono">
-                        <div className="font-bold text-sm text-tertiary">{formatRangeCost(itemB.result.costMin, itemB.result.costMax)}</div>
+                        <div className="font-bold text-sm text-accent">{formatRangeCost(itemB.result.costMin, itemB.result.costMax)}</div>
                         {itemB.result.costMin < itemA.result.costMin && <span className="mt-1 inline-flex items-center gap-1 text-[10px] text-success-green font-bold bg-success-green/5 px-2 py-0.5 rounded border border-success-green/20"><TrendingDown className="h-3 w-3" /> Lebih Hemat</span>}
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              <div className="mt-5 p-4 bg-surface-container-low rounded-lg border border-border-muted flex items-start gap-3">
-                <Info className="h-4 w-4 ${gold} mt-0.5 flex-shrink-0" />
+              <div className="mt-5 p-4 bg-surface-container-low rounded-sm border border-border-muted flex items-start gap-3">
+                <Info className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
                 <div className="text-xs">
-                  <h5 className={`font-bold uppercase tracking-wide text-[10px] mb-1 ${gold}`}>Rekomendasi Teknikal</h5>
+                  <h5 className="font-bold text-xs mb-1 text-accent">Rekomendasi Teknikal</h5>
                   <p className="text-secondary leading-relaxed">
                     {itemA.input.pileType !== itemB.input.pileType ? (
                       <span>Anda membandingkan <strong className="text-primary">Mini Crane</strong> dengan <strong className="text-primary">Strauss Pile</strong>. Mini Crane lebih andal untuk tanah keras & kedalaman besar; Strauss Pile cocok untuk akses sempit & biaya lebih ekonomis.</span>
@@ -191,12 +190,13 @@ borepilemajujaya.com`;
                   </p>
                 </div>
               </div>
-              <div className="mt-5 pt-4 border-t ${borderCol} flex flex-col sm:flex-row gap-3 justify-end">
-                <button onClick={handleCopyToClipboard} className={`bg-surface hover:bg-surface-container-low border ${borderCol} text-secondary hover:text-primary px-4 py-2.5 rounded-lg font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer`}>
-                  <Copy className="h-4 w-4" />{copied ? 'Berhasil Disalin!' : 'Salin Rincian'}
+              <div className="mt-5 pt-4 border-t border-border-muted flex flex-col sm:flex-row gap-3 justify-end">
+                <button onClick={handleCopyToClipboard} className="bg-surface hover:bg-surface-container-low border border-border-muted text-secondary hover:text-primary px-4 py-2.5 rounded-sm font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer">
+                  {copied ? <Check className="h-4 w-4 text-success-green" /> : <Copy className="h-4 w-4" />}
+                  {copied ? 'Tersalin!' : 'Salin Perbandingan'}
                 </button>
-                <a href={handleGetComparisonWALink()} target="_blank" rel="noreferrer" className="bg-primary hover:bg-primary/90 text-on-primary px-4 py-2.5 rounded-lg font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer">
-                  <Phone className="h-4 w-4 fill-current" /> Tanya Teknisi
+                <a href={handleGetComparisonWALink()} target="_blank" rel="noreferrer" className="bg-accent hover:bg-accent-dark text-on-primary px-5 py-2.5 rounded-sm font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer">
+                  <Phone className="h-4 w-4" /> Konsultasikan Kedua Opsi via WA
                 </a>
               </div>
             </div>
@@ -205,7 +205,7 @@ borepilemajujaya.com`;
       </AnimatePresence>
 
       {selectedIds.length === 1 && (
-        <div className="mb-4 p-3 bg-tertiary/5 rounded-lg border border-tertiary/10 text-xs text-tertiary flex items-center gap-2 animate-pulse">
+        <div className="mb-4 p-3 bg-accent/5 rounded-sm border border-accent/15 text-xs text-accent flex items-center gap-2 animate-pulse">
           <Scale className="h-4 w-4 flex-shrink-0" />
           <span>Pilih <strong className="text-primary">1 lagi</strong> untuk membandingkan keduanya!</span>
         </div>
@@ -217,22 +217,22 @@ borepilemajujaya.com`;
           const isMachine = item.input.pileType === 'bored-pile-machine';
           const isSelected = selectedIds.includes(item.id);
           return (
-            <div key={item.id} onClick={() => onLoad(item)} className={`group border p-5 rounded-lg cursor-pointer transition-all flex flex-col md:flex-row md:items-center justify-between gap-5 relative overflow-hidden ${isSelected ? 'border-tertiary bg-surface shadow-sm ring-1 ring-tertiary/30' : 'border-border-muted bg-surface hover:border-tertiary/40 hover:bg-surface-container-low'}`}>
+            <div key={item.id} onClick={() => onLoad(item)} className={`group border p-5 rounded-sm cursor-pointer transition-all flex flex-col md:flex-row md:items-center justify-between gap-5 relative overflow-hidden ${isSelected ? 'border-accent bg-surface shadow-sm ring-1 ring-accent/30' : 'border-border-muted bg-surface hover:border-accent/40 hover:bg-surface-container-low'}`}>
               <div className="flex-1 min-w-0 flex items-start gap-4">
-                <button onClick={(e) => handleToggleSelect(item.id, e)} className={`mt-1 h-5 w-5 rounded border flex items-center justify-center transition-all flex-shrink-0 cursor-pointer ${isSelected ? 'bg-tertiary border-tertiary text-on-primary' : 'border-outline-variant bg-surface-container-lowest group-hover:border-tertiary/50'}`}>
+                <button onClick={(e) => handleToggleSelect(item.id, e)} className={`mt-1 h-5 w-5 rounded-sm border flex items-center justify-center transition-all flex-shrink-0 cursor-pointer ${isSelected ? 'bg-accent border-accent text-on-primary' : 'border-outline-variant bg-surface-container-lowest group-hover:border-accent/50'}`}>
                   {isSelected && <Check className="h-3.5 w-3.5 stroke-[3.5]" />}
                 </button>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded uppercase tracking-wider ${isMachine ? 'bg-tertiary/5 text-tertiary border border-tertiary/20' : `${gold} bg-accent-gold/5 border border-accent-gold/20`}`}>
+                    <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-sm uppercase tracking-wider ${isMachine ? 'bg-accent/5 text-accent border border-accent/20' : `${gold} bg-accent/5 border border-accent/20`}`}>
                       {isMachine ? 'Mini Crane' : 'Strauss Manual'}
                     </span>
                     <span className="text-xs font-mono font-bold text-on-surface-variant">D-{item.input.diameter}cm | {item.input.depth}m | {item.input.points} Titik</span>
-                    <span className={`text-[10px] font-semibold text-secondary bg-surface-container-low px-1.5 py-0.5 rounded border ${borderCol}`}>{item.input.region.toUpperCase()}</span>
+                    <span className={`text-[10px] font-semibold text-secondary bg-surface-container-low px-1.5 py-0.5 rounded-sm border ${borderCol}`}>{item.input.region.toUpperCase()}</span>
                   </div>
-                  <h4 className="text-sm font-bold text-primary mt-2 group-hover:text-tertiary transition-colors line-clamp-1">{item.name}</h4>
+                  <h4 className="text-sm font-bold text-primary mt-2 group-hover:text-accent transition-colors line-clamp-1">{item.name}</h4>
                   <div className={`text-[10px] text-secondary mt-1 flex items-center gap-3`}>
-                    <span>Volume: <strong className="text-primary">{item.result.concreteVolumeM3} m\u00b3</strong></span>
+                    <span>Volume: <strong className="text-primary">{item.result.concreteVolumeM3} m³</strong></span>
                     <span>Besi: <strong className="text-primary">{item.input.includeMaterial ? `${(item.result.rebarWeightKg / 1000).toFixed(2)} Ton` : 'Disiapkan Owner'}</strong></span>
                     <span>Durasi: <strong className="text-primary">{item.result.durationDaysMin}-{item.result.durationDaysMax} Hari</strong></span>
                   </div>
@@ -243,8 +243,8 @@ borepilemajujaya.com`;
                   <span>Rasio</span>
                   <span className={`font-mono font-bold ${gold}`}>{ratio.toFixed(0)}%</span>
                 </div>
-                <div className="w-full bg-surface-container-low h-2 rounded-full overflow-hidden border ${borderCol}">
-                  <div className="bg-tertiary h-full rounded-full transition-all duration-500" style={{ width: `${ratio}%` }} />
+                <div className="w-full bg-surface-container-low h-2 rounded-full overflow-hidden border border-border-muted">
+                  <div className="bg-accent h-full rounded-full transition-all duration-500" style={{ width: `${ratio}%` }} />
                 </div>
               </div>
               <div className="flex items-center justify-between md:justify-end gap-4 border-t border-border-muted/40 md:border-t-0 pt-3 md:pt-0">
@@ -253,10 +253,10 @@ borepilemajujaya.com`;
                   <div className={`text-sm font-mono font-extrabold mt-0.5 ${gold}`}>{formatRangeCost(item.result.costMin, item.result.costMax)}</div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <a href={generateWhatsAppLink(item.input, item.result)} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} className="bg-success-green/5 hover:bg-success-green border border-success-green/20 text-success-green hover:text-on-primary p-2 rounded-lg transition-colors" title="Konsultasikan">
+                  <a href={generateWhatsAppLink(item.input, item.result)} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} className="bg-accent/10 hover:bg-accent border border-accent/20 text-accent hover:text-on-primary p-2 rounded-sm transition-colors" title="Konsultasikan">
                     <Phone className="h-4 w-4" />
                   </a>
-                  <button onClick={(e) => onDelete(item.id, e)} className={`text-secondary hover:text-alert-red p-2 hover:bg-alert-red/5 rounded-lg transition-colors cursor-pointer`}><X className="h-4 w-4" /></button>
+                  <button onClick={(e) => onDelete(item.id, e)} className="text-secondary hover:text-alert-red p-2 hover:bg-alert-red/5 rounded-sm transition-colors cursor-pointer"><X className="h-4 w-4" /></button>
                 </div>
               </div>
             </div>

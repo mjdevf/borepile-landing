@@ -1,5 +1,5 @@
 import { footer } from "../../data/content";
-import { Phone, Mail, MapPin, Clock, ChevronRight } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { navLinks } from "../../data/content";
 
 function handleSubmit(e) {
@@ -31,46 +31,46 @@ export default function Footer() {
             </div>
 
             {/* Contact info card */}
-            <div className="rounded-lg border border-border-muted bg-surface p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)]">
+            <div className="rounded-sm border border-border-muted bg-surface p-6">
               <h3 className="mb-5 text-xl font-bold text-primary">Kontak Langsung</h3>
               <div className="space-y-4 text-sm text-secondary">
                 <div className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface-container-low text-primary">
                     <MapPin className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="mb-0.5 text-xs font-semibold uppercase tracking-[0.05em] text-on-surface-variant">Kantor</p>
-                    <p className="text-on-surface">{footer.address}</p>
+                    <p className="mb-0.5 font-mono text-xs text-secondary">Kantor</p>
+                    <p className="text-primary">{footer.address}</p>
                   </div>
                 </div>
                 <div className="h-px bg-border-muted" />
                 <div className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface-container-low text-primary">
                     <Phone className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="mb-0.5 text-xs font-semibold uppercase tracking-[0.05em] text-on-surface-variant">WhatsApp</p>
-                    <p className="font-mono text-on-surface">+62 815 1481 1120</p>
+                    <p className="mb-0.5 font-mono text-xs text-secondary">WhatsApp</p>
+                    <p className="font-mono text-primary">+62 815 1481 1120</p>
                   </div>
                 </div>
                 <div className="h-px bg-border-muted" />
                 <div className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface-container-low text-primary">
                     <Mail className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="mb-0.5 text-xs font-semibold uppercase tracking-[0.05em] text-on-surface-variant">Email</p>
-                    <p className="font-mono text-on-surface">{footer.email}</p>
+                    <p className="mb-0.5 font-mono text-xs text-secondary">Email</p>
+                    <p className="font-mono text-primary">{footer.email}</p>
                   </div>
                 </div>
                 <div className="h-px bg-border-muted" />
                 <div className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface-container-low text-primary">
                     <Clock className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="mb-0.5 text-xs font-semibold uppercase tracking-[0.05em] text-on-surface-variant">Jam Kerja</p>
-                    <p className="text-on-surface">{footer.hours}</p>
+                    <p className="mb-0.5 font-mono text-xs text-secondary">Jam Kerja</p>
+                    <p className="text-primary">{footer.hours}</p>
                   </div>
                 </div>
               </div>
@@ -81,7 +81,7 @@ export default function Footer() {
           <div className="lg:col-span-7">
             <form
               onSubmit={handleSubmit}
-              className="rounded-lg border border-border-muted bg-surface p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)] md:p-8"
+              className="rounded-sm border border-border-muted bg-surface p-6 md:p-8"
             >
               {/* Honeypot — invisible to users, traps bots */}
               <div className="absolute -left-[9999px]" aria-hidden="true">
@@ -91,7 +91,7 @@ export default function Footer() {
               <div className="space-y-5">
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="name" className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.05em] text-secondary">
+                    <label htmlFor="name" className="mb-1.5 block font-mono text-xs text-secondary">
                       Nama / Perusahaan
                     </label>
                     <input
@@ -100,12 +100,12 @@ export default function Footer() {
                       type="text"
                       required
                       placeholder="Nama atau Perusahaan"
-                      className="w-full rounded border border-outline-variant bg-surface-container-lowest p-2.5 text-sm text-on-surface transition-colors focus:border-tertiary-container focus:outline-none focus:ring-1 focus:ring-tertiary-container"
+                      className="w-full rounded-sm border border-border-muted bg-surface p-2.5 text-sm text-primary transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.05em] text-secondary">
-                      No. Telepon
+                    <label htmlFor="phone" className="mb-1.5 block font-mono text-xs text-secondary">
+                      No. Telepon / WhatsApp
                     </label>
                     <input
                       id="phone"
@@ -113,43 +113,43 @@ export default function Footer() {
                       type="tel"
                       required
                       placeholder="+62..."
-                      className="w-full rounded border border-outline-variant bg-surface-container-lowest p-2.5 text-sm text-on-surface transition-colors focus:border-tertiary-container focus:outline-none focus:ring-1 focus:ring-tertiary-container"
+                      className="w-full rounded-sm border border-border-muted bg-surface p-2.5 text-sm text-primary transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                     />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="service" className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.05em] text-secondary">
-                    Layanan
+                  <label htmlFor="service" className="mb-1.5 block font-mono text-xs text-secondary">
+                    Pilihan Layanan
                   </label>
                   <select
                     id="service"
                     name="service"
-                    className="w-full appearance-none rounded border border-outline-variant bg-surface-container-lowest p-2.5 text-sm text-on-surface transition-colors focus:border-tertiary-container focus:outline-none focus:ring-1 focus:ring-tertiary-container"
+                    className="w-full appearance-none rounded-sm border border-border-muted bg-surface p-2.5 text-sm text-primary transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent cursor-pointer"
                   >
                     <option>Jasa Bore Pile Mesin</option>
                     <option>Strauss Pile Manual</option>
                     <option>Sondir / Soil Testing</option>
-                    <option>General Consultation</option>
+                    <option>Konsultasi Umum</option>
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="details" className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.05em] text-secondary">
-                    Detail Proyek
+                  <label htmlFor="details" className="mb-1.5 block font-mono text-xs text-secondary">
+                    Detail Kebutuhan Proyek
                   </label>
                   <textarea
                     id="details"
                     name="details"
                     rows={4}
                     required
-                    placeholder="Lokasi, estimasi jumlah titik, kondisi tanah..."
-                    className="w-full rounded border border-outline-variant bg-surface-container-lowest p-2.5 text-sm text-on-surface transition-colors focus:border-tertiary-container focus:outline-none focus:ring-1 focus:ring-tertiary-container"
+                    placeholder="Lokasi proyek, estimasi jumlah titik, kondisi tanah..."
+                    className="w-full rounded-sm border border-border-muted bg-surface p-2.5 text-sm text-primary transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="inline-flex h-[52px] w-full items-center justify-center gap-2 rounded-lg bg-primary text-xs font-semibold uppercase tracking-[0.05em] text-on-primary transition-all hover:scale-[0.98] active:scale-[0.96]"
+                  className="inline-flex h-[50px] w-full items-center justify-center gap-2 rounded-sm bg-accent text-sm font-semibold text-on-primary transition-colors hover:bg-accent-dark active:scale-[0.98] cursor-pointer"
                 >
-                  Kirim Permintaan
+                  Kirim Permintaan via WhatsApp
                 </button>
               </div>
             </form>
@@ -171,9 +171,9 @@ export default function Footer() {
 
         {/* Navigation */}
         <div className="flex flex-col gap-2">
-          <h5 className="mb-2 text-xs font-semibold uppercase tracking-[0.05em] text-secondary">Navigasi</h5>
+          <h5 className="mb-2 font-mono text-xs font-bold text-primary">Navigasi</h5>
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="text-sm text-on-surface-variant transition-colors hover:text-tertiary-container">
+            <a key={link.href} href={link.href} className="text-sm text-secondary transition-colors hover:text-accent">
               {link.label}
             </a>
           ))}
@@ -181,9 +181,9 @@ export default function Footer() {
 
         {/* Blog & Artikel */}
         <div className="flex flex-col gap-2">
-          <h5 className="mb-2 text-xs font-semibold uppercase tracking-[0.05em] text-secondary">Blog & Artikel</h5>
+          <h5 className="mb-2 font-mono text-xs font-bold text-primary">Blog & Artikel</h5>
           {footer.blogLinks.map((link) => (
-            <a key={link.href} href={link.href} className="text-sm text-on-surface-variant transition-colors hover:text-tertiary-container">
+            <a key={link.href} href={link.href} className="text-sm text-secondary transition-colors hover:text-accent">
               {link.title}
             </a>
           ))}
@@ -191,9 +191,9 @@ export default function Footer() {
 
         {/* Wilayah Layanan */}
         <div className="flex flex-col gap-2">
-          <h5 className="mb-2 text-xs font-semibold uppercase tracking-[0.05em] text-secondary">Wilayah Layanan</h5>
+          <h5 className="mb-2 font-mono text-xs font-bold text-primary">Wilayah Layanan</h5>
           {footer.serviceLinks.map((link) => (
-            <a key={`${link.title}-${link.href}`} href={link.href} className="text-sm text-on-surface-variant transition-colors hover:text-tertiary-container">
+            <a key={`${link.title}-${link.href}`} href={link.href} className="text-sm text-secondary transition-colors hover:text-accent">
               {link.title.trim()}
             </a>
           ))}

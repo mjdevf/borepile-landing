@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { MapPin, Phone, Mail } from "lucide-react";
-import { footer, serviceArea, locationPages } from "../../data/content";
+import { serviceArea, locationPages } from "../../data/content";
 
 const OFFICE_COORDS = [-6.2588, 106.8235];
 const OFFICE_NAME = "Jasa Bore Pile Majujaya";
@@ -119,25 +119,25 @@ function MapsSection() {
                 <p>{OFFICE_AREA}</p>
               </address>
             </div>
-            <div className="rounded-lg border border-border-muted bg-surface-container-low p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)]">
+            <div className="rounded-sm border border-border-muted bg-surface-container-low p-6">
               <h3 className="mb-4 flex items-center gap-2 text-xl font-bold text-primary">
-                <Mail className="h-5 w-5 text-tertiary" />
+                <Mail className="h-5 w-5 text-accent" />
                 Hubungi Kami
               </h3>
               <div className="space-y-3">
-                <a href={`tel:${OFFICE_PHONE.replace(/\s+/g, "")}`} className="flex items-center gap-3 rounded-md bg-surface p-3 transition-colors hover:bg-surface-container-high">
-                  <Phone className="h-5 w-5 shrink-0 text-tertiary" />
-                  <span className="font-mono text-sm font-medium text-on-surface">{OFFICE_PHONE}</span>
+                <a href={`tel:${OFFICE_PHONE.replace(/\s+/g, "")}`} className="flex items-center gap-3 rounded-sm bg-surface p-3 transition-colors hover:bg-surface-container-high">
+                  <Phone className="h-5 w-5 shrink-0 text-accent" />
+                  <span className="font-mono text-sm font-medium text-primary">{OFFICE_PHONE}</span>
                 </a>
-                <a href={OFFICE_WHATSAPP} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-md bg-primary p-3 text-on-primary transition-colors hover:bg-on-surface-variant">
+                <a href={OFFICE_WHATSAPP} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-sm bg-accent p-3 text-on-primary transition-colors hover:bg-accent-dark">
                   <svg className="h-5 w-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382A10.244 10.244 0 0 0 12 3C6.477 3 2 7.477 2 13c0 2.005.646 3.875 1.718 5.471l-1.318 4.475 4.575-1.236A10.236 10.236 0 0 0 17.472 14.382z" /></svg>
-                  <span className="text-sm font-semibold uppercase tracking-[0.05em]">Chat via WhatsApp</span>
+                  <span className="text-sm font-semibold">Chat via WhatsApp</span>
                 </a>
               </div>
             </div>
-            <div className="rounded-lg border border-border-muted bg-surface-container-low p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)]">
+            <div className="rounded-sm border border-border-muted bg-surface-container-low p-6">
               <h3 className="mb-4 flex items-center gap-2 text-xl font-bold text-primary">
-                <MapPin className="h-5 w-5 text-tertiary" />
+                <MapPin className="h-5 w-5 text-accent" />
                 Area Layanan Utama
               </h3>
               <div className="flex flex-wrap gap-2">

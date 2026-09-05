@@ -2,11 +2,9 @@ import "./index.css";
 import Navbar from "./components/layout/Navbar";
 import Hero from "./components/sections/Hero";
 import TrustBar from "./components/sections/TrustBar";
-import MarqueeStrip from "./components/sections/MarqueeStrip";
-import AboutUs from "./components/sections/AboutUs";
 import Services from "./components/sections/Services";
-import WhyUs from "./components/sections/WhyUs";
 import Portfolio from "./components/sections/Portfolio";
+import AboutUs from "./components/sections/AboutUs";
 import TestimonialSection from "./components/sections/TestimonialSection";
 import HowItWorks from "./components/sections/HowItWorks";
 import FAQ from "./components/sections/FAQ";
@@ -41,18 +39,16 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <MarqueeStrip />
+        <TrustBar />
         <Services />
         <Portfolio />
         <AboutUs />
-        <WhyUs />
         {/* Lazy load calculator with fallback */}
         <Suspense fallback={
           <div className="h-96 w-full bg-surface-container-low animate-pulse" aria-label="Memuat kalkulator estimasi" />
         }>
           <CalculatorSection />
         </Suspense>
-        <TrustBar />
         <LazyServiceAreaMap />
         <TestimonialSection />
         <HowItWorks />
