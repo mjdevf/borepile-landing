@@ -2,7 +2,10 @@ User-agent: *
 Allow: /
 Sitemap: https://borepilemajujaya.com/sitemap.xml
 
-# AI crawlers
+# AI crawlers & Search Bots
+User-agent: Googlebot
+Allow: /
+
 User-agent: GPTBot
 Allow: /
 
@@ -16,6 +19,9 @@ User-agent: Google-Extended
 Allow: /
 
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
 Allow: /
 
 User-agent: Claude-User
