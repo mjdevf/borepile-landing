@@ -185,7 +185,7 @@ const LocationPage = () => {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" />
-                    <span>250+ proyek selesai di seluruh Jabodetabek</span>
+                    <span>250+ titik pengeboran selesai di Jabodetabek</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" />

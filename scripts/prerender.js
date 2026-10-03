@@ -319,7 +319,7 @@ function generateLocationPages() {
 
       const canonicalUrl = `https://borepilemajujaya.com/location/${loc.slug}/`;
       const title = loc.title || (loc.headline ? `${loc.headline} | Majujaya` : `Jasa Bore Pile ${loc.city} — Survey Gratis | Majujaya`);
-      const description = loc.metaDesc || `Jasa bore pile & strauss pile profesional di ${loc.city} sejak 2013. Survey gratis, harga bersaing, 250+ proyek. Melayani seluruh wilayah ${loc.city}.`;
+      const description = loc.metaDesc || `Jasa bore pile & strauss pile profesional di ${loc.city} sejak 2013. Survey gratis, harga bersaing, 250+ titik. Melayani seluruh wilayah ${loc.city}.`;
 
       // Update Title
       const titleEl = document.querySelector('title');

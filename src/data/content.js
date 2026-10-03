@@ -11,7 +11,7 @@ export const navLinks = [
 export const hero = {
   headline: "Jasa Bore Pile & Strauss Pile Terpercaya dan Profesional",
   subheadline:
-    "Pengerjaan borepile untuk pondasi bangunan, irigasi, dan kebutuhan industri. Berpengalaman 12+ tahun, 250+ proyek selesai. Melayani Jakarta, Bogor, Depok, Tangerang, Bekasi, Karawang, Cikarang, dan seluruh Indonesia.",
+    "Pengerjaan borepile untuk pondasi bangunan, irigasi, dan kebutuhan industri. Berpengalaman 12+ tahun, 250+ titik pengeboran selesai. Melayani Jakarta, Bogor, Depok, Tangerang, Bekasi, Karawang, Cikarang, dan seluruh Indonesia.",
   owner: "Subiyanto",
   ownerTitle: "Pimpinan",
   coverage: "Melayani Jakarta, Jabodetabek, Karawang, Cikarang, Purwakarta, Serang, Cilegon, dan seluruh wilayah Indonesia.",
@@ -1114,7 +1114,7 @@ export function getLocationDetail(location) {
 
   const city = location.city;
   const paragraph =
-    `Majujaya adalah kontraktor jasa bore pile dan strauss pile berpengalaman yang melayani kebutuhan pondasi di ${city} dan sekitarnya. Tim geoteknik kami menangani proyek mulai dari rumah tinggal, ruko, gedung bertingkat, hingga kawasan industri dan infrastruktur di ${city}. Setiap titik pengeboran di ${city} dikerjakan dengan metode standar, diawasi langsung, dan didokumentasikan untuk memastikan hasil yang sesuai rencana di atas tanah yang terkadang memiliki daya dukung bervariasi. Dengan pengalaman lebih dari 12 tahun dan 250+ proyek selesai, kami telah membantu banyak pemilik bangunan di ${city} mendapatkan pondasi yang aman, presisi, dan sesuai jadwal.
+    `Majujaya adalah kontraktor jasa bore pile dan strauss pile berpengalaman yang melayani kebutuhan pondasi di ${city} dan sekitarnya. Tim geoteknik kami menangani proyek mulai dari rumah tinggal, ruko, gedung bertingkat, hingga kawasan industri dan infrastruktur di ${city}. Setiap titik pengeboran di ${city} dikerjakan dengan metode standar, diawasi langsung, dan didokumentasikan untuk memastikan hasil yang sesuai rencana di atas tanah yang terkadang memiliki daya dukung bervariasi. Dengan pengalaman lebih dari 12 tahun dan 250+ titik pengeboran selesai, kami telah membantu banyak pemilik bangunan di ${city} mendapatkan pondasi yang aman, presisi, dan sesuai jadwal.
 
 Kami memahami kondisi tanah khas di ${city}. Sebelum pekerjaan dimulai, survey lokasi gratis dilakukan oleh tim kami untuk menentukan kedalaman, diameter, dan jenis bore pile yang paling efisien, baik bore pile mesin untuk proyek besar maupun strauss pile manual untuk area akses terbatas. Estimasi rinci biaya (RAB) diberikan tanpa biaya, termasuk mulai harga per titik dan biaya mobilisasi alat ke ${city}. Tidak ada biaya tersembunyi; pelanggan di ${city} dan sekitarnya mendapatkan hasil pekerjaan sesuai spesifikasi, harga borong yang jelas, dan dokumentasi pengeboran per titik sebagai bentuk transparansi. Hubungi kami melalui WhatsApp untuk konsultasi dan penjadwalan survey di ${city}, tim kami siap mobilisasi dalam 1x24 jam setelah deal disepakati.`;
 
