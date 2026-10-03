@@ -545,6 +545,7 @@ export const howItWorks = [
   },
 ];
 
+// TODO: Konfirmasi ke user harga resmi bore pile per titik (apakah mulai Rp500.000 atau Rp750.000 s/d Rp2.000.000). Saat ini diselaraskan di Rp750.000 - Rp2.000.000.
 export const faq = [
   {
     q: "Apa itu borepile dan kapan saya butuh?",
@@ -555,8 +556,8 @@ export const faq = [
     a: "Harga bore pile per titik mulai dari Rp750.000 hingga Rp2.000.000 tergantung diameter (30cm, 40cm, 60cm, 80cm, 100cm), kedalaman, dan kondisi tanah. <strong class=\"text-amber-500\">Hubungi kami untuk penawaran harga resmi, harga ini dapat berubah tanpa pemberitahuan dan bukan merupakan harga jadi.</strong>"
   },
   {
-    q: "Berapa lama proses pengeboran?",
-    a: "Tergantung kedalaman dan kondisi tanah. Rata-rata 1-3 hari per titik untuk borepile standar. Untuk proyek standar, rata-rata 3-7 hari kerja tergantung jumlah titik. Tim kami akan estimasikan waktu setelah survey lokasi."
+    q: "Berapa lama proses pengerjaan bore pile dari survey hingga selesai?",
+    a: "Setelah survey lokasi dan deal disepakati, tim kami dapat mulai mobilisasi dalam 1x24 jam. Proses pengeboran rata-rata 1-3 hari per titik, atau total 3-7 hari kerja untuk proyek rumah atau ruko standar tergantung jumlah titik dan kondisi tanah."
   },
   {
     q: "Apakah survey lokasi gratis?",
@@ -565,10 +566,6 @@ export const faq = [
   {
     q: "Gimana kalau hasil pengeboran gak keluar air?",
     a: "Kami akan evaluasi dan cari solusi terbaik, termasuk pengeboran ulang di titik lain jika diperlukan. Pekerjaan akan disesuaikan dengan hasil yang disepakati awal. Tim kami ahli dalam kondisi tanah keras di Jakarta dan sekitarnya."
-  },
-  {
-    q: "Berapa lama dari survey sampai selesai?",
-    a: "Setelah deal, jadwal pengerjaan bisa mulai dalam 1x24 jam. Untuk proyek standar, rata-rata 3-7 hari kerja tergantung jumlah titik dan kondisi tanah."
   },
   {
     q: "Wilayah mana saja yang dilayani?",

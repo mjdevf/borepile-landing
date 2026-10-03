@@ -37,7 +37,7 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <TrustBar />
         <Services />
