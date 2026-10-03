@@ -20,6 +20,10 @@ const __dirname = path.dirname(__filename);
 
 const DIST_DIR = path.join(__dirname, '..', 'dist');
 
+function stripTags(s) {
+  return String(s ?? '').replace(/<[^>]*>/g, '');
+}
+
 function esc(s) {
   return String(s ?? '')
     .replace(/&/g, '&amp;')
@@ -43,7 +47,7 @@ function renderLocationBody(loc) {
   ).join('');
 
   const faqs = (loc.faq || []).map(
-    (f) => `<details style="border:1px solid #e5e7eb;border-radius:8px;padding:14px 18px;margin-bottom:12px;background:#ffffff;"><summary style="font-weight:600;cursor:pointer;color:#0f172a;">${esc(f.q)}</summary><p style="line-height:1.7;margin-top:10px;color:#374151;">${esc(f.a)}</p></details>`
+    (f) => `<details style="border:1px solid #e5e7eb;border-radius:8px;padding:14px 18px;margin-bottom:12px;background:#ffffff;"><summary style="font-weight:600;cursor:pointer;color:#0f172a;">${esc(f.q)}</summary><p style="line-height:1.7;margin-top:10px;color:#374151;">${esc(stripTags(f.a))}</p></details>`
   ).join('');
 
   const h1 = loc.headline || `Jasa Bore Pile & Strauss Pile di ${city} | Majujaya`;
@@ -167,7 +171,7 @@ function renderHomepageBody() {
   ).join('');
 
   const faqsHtml = faqData.map(
-    (f) => `<details style="border:1px solid #e2e8f0;border-radius:8px;padding:16px 20px;margin-bottom:12px;background:#ffffff;"><summary style="font-weight:600;cursor:pointer;color:#0f172a;">${esc(f.q)}</summary><p style="line-height:1.7;margin-top:10px;color:#334155;">${esc(f.a)}</p></details>`
+    (f) => `<details style="border:1px solid #e2e8f0;border-radius:8px;padding:16px 20px;margin-bottom:12px;background:#ffffff;"><summary style="font-weight:600;cursor:pointer;color:#0f172a;">${esc(f.q)}</summary><p style="line-height:1.7;margin-top:10px;color:#334155;">${esc(stripTags(f.a))}</p></details>`
   ).join('');
 
   const trustHtml = trustBar.items.map(

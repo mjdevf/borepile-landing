@@ -1152,7 +1152,7 @@ export const faq = [
   },
   {
     q: "Berapa biaya jasa bore pile per titik?",
-    a: "Harga bore pile per titik mulai dari Rp750.000 hingga Rp2.000.000 tergantung diameter (30cm, 40cm, 60cm, 80cm, 100cm), kedalaman, dan kondisi tanah. <strong class=\"text-amber-500\">Hubungi kami untuk penawaran harga resmi, harga ini dapat berubah tanpa pemberitahuan dan bukan merupakan harga jadi.</strong>"
+    a: "Harga bore pile per titik mulai dari Rp750.000 hingga Rp2.000.000 tergantung diameter (30cm, 40cm, 60cm, 80cm, 100cm), kedalaman, dan kondisi tanah. Hubungi kami untuk penawaran harga resmi, harga ini dapat berubah tanpa pemberitahuan dan bukan merupakan harga jadi."
   },
   {
     q: "Berapa lama proses pengerjaan bore pile dari survey hingga selesai?",
