@@ -293,12 +293,6 @@ function prerenderHomepage() {
 
   html = html.slice(0, rootOpen) + '<div id="root">\n' + bodyContent + '\n    </div>' + html.slice(rootClose + '</div>'.length);
 
-  // Keep noscript fallback updated as well
-  const lastOpen = html.lastIndexOf('<noscript>');
-  const lastClose = html.lastIndexOf('</noscript>');
-  if (lastOpen !== -1 && lastClose > lastOpen) {
-    html = html.slice(0, lastOpen) + '<noscript>\n' + bodyContent + '\n  </noscript>' + html.slice(lastClose + '</noscript>'.length);
-  }
 
   fs.writeFileSync(homepagePath, html, 'utf8');
   console.log(`✅ Homepage prerendered successfully (${html.length} bytes)!`);
@@ -409,12 +403,6 @@ function generateLocationPages() {
       if (rootClose === -1) throw new Error('#root close not found');
       html = html.slice(0, rootOpen) + '<div id="root">\n' + bodyContent + '\n    </div>' + html.slice(rootClose + '</div>'.length);
 
-      // Keep noscript as fallback
-      const lastOpen = html.lastIndexOf('<noscript>');
-      const lastClose = html.lastIndexOf('</noscript>');
-      if (lastOpen !== -1 && lastClose > lastOpen) {
-        html = html.slice(0, lastOpen) + '<noscript>\n' + bodyContent + '\n  </noscript>' + html.slice(lastClose + '</noscript>'.length);
-      }
       fs.writeFileSync(path.join(locDir, 'index.html'), html, 'utf8');
       
       console.log(`    ✅ Generated: /location/${loc.slug}/`);

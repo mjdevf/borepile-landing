@@ -88,10 +88,11 @@ for (const file of allHtmlFiles) {
   const doc = dom.window.document;
   
   const title = doc.querySelector('title')?.textContent?.trim();
-  const h1 = doc.querySelector('h1')?.textContent?.trim();
+  const h1Els = doc.querySelectorAll('h1');
+  const h1 = h1Els[0]?.textContent?.trim();
   
   assert(Boolean(title), `File ${relFile} must have a <title> (got: "${title}")`);
-  assert(Boolean(h1), `File ${relFile} must have an <h1> (got: "${h1}")`);
+  assert(h1Els.length === 1, `File ${relFile} must have exactly one <h1> (got: ${h1Els.length})`);
   
   if (title) {
     if (titles.has(title)) {
