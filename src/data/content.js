@@ -80,7 +80,7 @@ export const about = {
   highlights: [
     {
       title: "Kontraktor Jasa Bore Pile",
-      desc: "Dapat melakukan pengeboran mulai dari kedalaman 30 cm, 40 cm, 60 cm, 80 cm, sampai 100 cm.",
+      desc: "Dapat melakukan pengeboran mulai dari diameter 30 cm, 40 cm, 60 cm, 80 cm, sampai 100 cm.",
     },
     {
       title: "SDM Profesional",
