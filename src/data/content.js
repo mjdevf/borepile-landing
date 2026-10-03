@@ -596,7 +596,7 @@ export const footer = {
   hours: "Senin - Jum'at: 08.00 - 17.00",
   blogLinks: [
     { title: "Blog Bore Pile", href: "/blog/" },
-    { title: "Apa Itu Borepile? Panduan Lengkap 2026", href: "/blog/apa-itu-borepile-panduan-lengkap-2026.html" },
+    { title: "Apa Itu Borepile? Panduan Lengkap", href: "/blog/apa-itu-borepile-panduan-lengkap.html" },
     { title: "Harga Bore Pile per Titik 2026", href: "/blog/harga-bore-pile-per-titik-2026.html" },
     { title: "7 Tips Memilih Kontraktor Bore Pile Jakarta", href: "/blog/tips-memilih-kontraktor-bore-pile-jakarta.html" },
     { title: "Perbedaan Strauss Pile dan Bore Pile", href: "/blog/perbedaan-strauss-pile-dan-bore-pile.html" },

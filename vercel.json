@@ -25,6 +25,26 @@
       "permanent": true
     },
     {
+      "source": "/blog/apa-itu-borepile-panduan-lengkap-2024.html",
+      "destination": "/blog/apa-itu-borepile-panduan-lengkap.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/apa-itu-borepile-panduan-lengkap-2024",
+      "destination": "/blog/apa-itu-borepile-panduan-lengkap.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/apa-itu-borepile-panduan-lengkap-2026.html",
+      "destination": "/blog/apa-itu-borepile-panduan-lengkap.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/apa-itu-borepile-panduan-lengkap-2026",
+      "destination": "/blog/apa-itu-borepile-panduan-lengkap.html",
+      "permanent": true
+    },
+    {
       "source": "/wp-admin(.*)",
       "destination": "https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?w=800",
       "permanent": false
