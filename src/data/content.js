@@ -202,280 +202,879 @@ export const serviceArea = [
 
 export const locationPages = [
   {
-    slug: "jakarta-pusat",
-    city: "Jakarta Pusat",
-    region: "DKI Jakarta",
-    headline: "Jasa Bore Pile Jakarta Pusat – Kontraktor Pondasi Profesional",
-    intro: "Kami melayani jasa bore pile dan strauss pile di seluruh wilayah Jakarta Pusat termasuk Menteng, Senayan, Tanah Abang, Gambir, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile untuk gedung bertingkat, ruko, rumah, dan infrastruktur di Jakarta Pusat.",
-    keywords: ["bore pile jakarta pusat", "jasa bore pile menteng", "kontraktor pondasi jakpus", "bore pile senayan", "strauss pile jakarta pusat"],
-    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
-    areaCovered: ["Menteng", "Tanah Abang", "Gambir", "Senayan", "Cempaka Putih", "Senen", "Johar Baru", "Sawah Besar", "Kemayoran"],
-    image: "/images/portfolio/01.jpg",
-    metaDesc: "Jasa bore pile & strauss pile Jakarta Pusat sejak 2013. Survey gratis, harga bersaing. Melayani Menteng, Tanah Abang, Gambir, Senayan & area Jakpus lainnya. WA 0815-1481-1120.",
-    soilInfo: "Wilayah Jakarta umumnya memiliki karakteristik tanah lunak hingga sedang dengan lapisan tanah keras pada kedalaman 8-20 meter. Di Jakarta Utara dan Barat, tanah cenderung lebih lunak karena merupakan area bekas rawa, sementara Jakarta Selatan dan Timur memiliki kondisi tanah yang lebih stabil.",
-    faq: [
-      { q: "Apakah bore pile cocok untuk rumah di Jakarta dengan tanah yang tidak stabil?", a: "Sangat cocok. Bore pile dirancang khusus untuk menembus lapisan tanah lunak hingga mencapai tanah keras di kedalaman tertentu. Untuk proyek rumah di Jakarta, tim Majujaya akan melakukan survey lokasi gratis untuk menentukan kedalaman dan diameter bore pile yang tepat sesuai kondisi tanah di area Anda." },
-      { q: "Berapa lama proses bore pile untuk proyek rumah di Jakarta?", a: "Untuk proyek rumah standar di Jakarta, rata-rata pengerjaan 3-7 hari tergantung jumlah titik dan akses lokasi. Tim kami bisa mulai dalam 1x24 jam setelah deal. Jadwal pasti akan kami informasikan setelah survey lokasi gratis." },
+    "slug": "jakarta-pusat",
+    "city": "Jakarta Pusat",
+    "region": "DKI Jakarta",
+    "headline": "Jasa Bore Pile Jakarta Pusat – Pengeboran Pondasi Gedung & Ruko Menteng Senayan",
+    "title": "Jasa Bore Pile Jakarta Pusat — Pengeboran & Strauss Pile | Majujaya",
+    "intro": "Kebutuhan pondasi bore pile di Jakarta Pusat didominasi oleh peremajaan gedung kantor, pembangunan ruko komersial, dan renovasi rumah tinggal bertingkat di kawasan berdensitas tinggi seperti Menteng, Tanah Abang, Gambir, dan Senayan. Kerapatan bangunan perkotaan dan batas lahan yang berhimpitan menuntut metode pondasi minim getaran untuk menjaga stabilitas bangunan sekitar.",
+    "keywords": [
+      "bore pile jakarta pusat",
+      "jasa bore pile menteng",
+      "kontraktor pondasi jakpus",
+      "bore pile senayan",
+      "strauss pile jakarta pusat"
     ],
+    "services": [
+      "Bore Pile Pondasi",
+      "Strauss Pile Manual",
+      "Bore Pile Mesin",
+      "Sumur Bor Air",
+      "Soil Investigation"
+    ],
+    "areaCovered": [
+      "Menteng",
+      "Tanah Abang",
+      "Gambir",
+      "Senayan",
+      "Cempaka Putih",
+      "Senen",
+      "Johar Baru",
+      "Sawah Besar",
+      "Kemayoran",
+      "Cideng",
+      "Petojo",
+      "Gondangdia",
+      "Rawasari"
+    ],
+    "image": "/images/portfolio/01.jpg",
+    "metaDesc": "Jasa bore pile & strauss pile Jakarta Pusat sejak 2013. Survey gratis, harga bersaing. Melayani Menteng, Tanah Abang, Senayan & area Jakpus. WA 0815-1481-1120.",
+    "soilInfo": "Formasi geologi permukaan Jakarta Pusat tersusun atas endapan aluvial dan lempung lanauan dengan variasi daya dukung. Lapisan tanah keras (bearing layer dengan N-SPT > 50) umumnya ditemukan pada kedalaman 14 hingga 22 meter di bawah muka tanah. Pada area di sekitar lembah Kali Ciliwung dan kali buatan perkotaan, muka air tanah relatif dangkal (2–4 meter), sehingga pengeboran tiang pondasi memerlukan metode sirkulasi lumpur bentonit (wash boring) atau pemasangan temporary casing baja agar dinding bor terhindar dari kelongsoran saat proses pengecoran beton.",
+    "foundationRecommendation": "Untuk pemukiman padat dan renovasi rumah bertingkat di gang sempit (seperti di Menteng Dalam, Cempaka Putih, atau Johar Baru), metode Strauss Pile Manual diameter 30–40 cm sangat diunggulkan karena alat ringkas tanpa polusi suara. Sedangkan untuk konstruksi ruko, hotel butik, dan gedung 3–8 lantai di jalan utama kawasan Senayan, Tanah Abang, atau Kemayoran, Bore Pile Mesin Mini Crane diameter 40–80 cm menjadi solusi teknis terbaik untuk memikul beban struktural yang besar.",
+    "projectNote": "TODO: User untuk menambahkan daftar proyek nyata / portofolio spesifik di Jakarta Pusat (misal: Proyek Ruko di Tanah Abang, Rumah Tinggal di Menteng).",
+    "faq": [
+      {
+        "q": "Bagaimana pengendalian getaran bore pile di kawasan padat gedung Jakarta Pusat?",
+        "a": "Metode bore pile rotary dan strauss pile manual bekerja dengan memotong dan mengangkat tanah keluar, bukan memancang atau menumbuk. Hasilnya, getaran mekanis dan kebisingan sangat minim, sehingga aman dari risiko keretakan dinding pada gedung dan rumah tetangga yang berdempetan."
+      },
+      {
+        "q": "Apakah perlu izin khusus lingkungan untuk pengeboran di Menteng atau Senayan?",
+        "a": "Untuk kawasan pemukiman tertib seperti Menteng atau Senayan, koordinasi dengan pengurus lingkungan (RT/RW/Pengelola Kawasan) wajib dilakukan terkait jam kerja dan mobilisasi armada. Tim Majujaya siap mendampingi pemilik proyek dengan penyediaan metode kerja tertulis dan standar kebersihan lokasi."
+      },
+      {
+        "q": "Berapa lama estimasi mobilisasi alat bor ke lokasi proyek di Jakarta Pusat?",
+        "a": "Dengan workshop dan pool armada kami yang berlokasi strategis di Jakarta Selatan, mobilisasi unit mini crane maupun regu strauss pile manual ke seluruh area Jakarta Pusat dapat dilaksanakan dalam 1x24 jam setelah kesepakatan SPK disetujui."
+      }
+    ]
   },
   {
-    slug: "jakarta-selatan",
-    city: "Jakarta Selatan",
-    region: "DKI Jakarta",
-    headline: "Jasa Bore Pile Jakarta Selatan – Kontraktor Pondasi Profesional",
-    intro: "Kami melayani jasa bore pile dan strauss pile di seluruh wilayah Jakarta Selatan termasuk Kebayoran Baru, Pancoran, Tebet, Pasar Minggu, Jagakarsa, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile untuk gedung bertingkat, ruko, rumah, dan infrastruktur di Jakarta Selatan.",
-    keywords: ["bore pile jakarta selatan", "jasa bore pile kebayoran", "kontraktor pondasi jaksel", "bore pile tebet", "strauss pile jakarta selatan"],
-    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
-    areaCovered: ["Kebayoran Baru", "Kebayoran Lama", "Pancoran", "Tebet", "Pasar Minggu", "Jagakarsa", "Mampang Prapatan", "Setiabudi", "Pasar Rebo"],
-    image: "/images/portfolio/02.jpg",
-    metaDesc: "Jasa bore pile & strauss pile Jakarta Selatan sejak 2013. Survey gratis, harga bersaing. Melayani Kebayoran Baru, Tebet, Pancoran & area Jaksel lainnya. WA 0815-1481-1120.",
-    soilInfo: "Wilayah Jakarta Selatan memiliki karakteristik tanah lunak hingga sedang dengan lapisan tanah keras umumnya ditemukan di kedalaman 8-20 meter. Area Kebayoran Baru, Tebet, dan Pancoran memiliki lapisan tanah keras yang cukup stabil, namun tetap memerlukan analisis daya dukung tanah sebelum menentukan spesifikasi pondasi bore pile.",
-    faq: [
-      { q: "Apakah bore pile cocok untuk gedung bertingkat di kawasan Senayan atau Menteng?", a: "Sangat cocok. Bore pile dirancang menembus lapisan tanah lunak hingga mencapai tanah keras. Untuk gedung bertingkat di Jakarta Selatan, tim Majujaya akan melakukan survey lokasi gratis untuk menentukan kedalaman, diameter, dan jumlah titik bore pile yang tepat sesuai beban struktur dan kondisi tanah setempat." },
-      { q: "Berapa lama proses bore pile untuk proyek di Jakarta Selatan?", a: "Rata-rata pengerjaan 3-7 hari untuk proyek rumah atau ruko standar, tergantung jumlah titik dan akses lokasi. Untuk proyek gedung bertingkat, durasi disesuaikan volume titik. Tim bisa mulai dalam 1x24 jam setelah deal disepakati." },
+    "slug": "jakarta-selatan",
+    "city": "Jakarta Selatan",
+    "region": "DKI Jakarta",
+    "headline": "Jasa Bore Pile Jakarta Selatan – Pondasi Kuat Hunian & Komersial Jaksel",
+    "title": "Jasa Bore Pile Jakarta Selatan — Pondasi Profesional | Majujaya",
+    "intro": "Wilayah Jakarta Selatan merupakan pusat hunian premium, townhouse eksklusif, ruko komersial, serta sentra bisnis kuliner di koridor Kebayoran Baru, Tebet, Cilandak, Pasar Minggu, hingga Jagakarsa. Pembangunan gedung dan hunian bertingkat di kawasan ini membutuhkan pondasi dalam bore pile yang presisi untuk menjamin integritas struktural di atas kontur lahan yang dinamis.",
+    "keywords": [
+      "bore pile jakarta selatan",
+      "jasa bore pile kebayoran",
+      "kontraktor pondasi jaksel",
+      "bore pile tebet",
+      "strauss pile jakarta selatan"
     ],
+    "services": [
+      "Bore Pile Pondasi",
+      "Strauss Pile Manual",
+      "Bore Pile Mesin",
+      "Sumur Bor Air",
+      "Soil Investigation"
+    ],
+    "areaCovered": [
+      "Kebayoran Baru",
+      "Kebayoran Lama",
+      "Pancoran",
+      "Tebet",
+      "Pasar Minggu",
+      "Jagakarsa",
+      "Mampang Prapatan",
+      "Setiabudi",
+      "Pesanggrahan",
+      "Cilandak",
+      "Gandaria",
+      "Pondok Indah",
+      "Cipete"
+    ],
+    "image": "/images/portfolio/02.jpg",
+    "metaDesc": "Jasa bore pile & strauss pile Jakarta Selatan sejak 2013. Survey gratis, harga bersaing. Melayani Kebayoran Baru, Tebet, Cilandak & seluruh Jaksel. WA 0815-1481-1120.",
+    "soilInfo": "Karakteristik tanah Jakarta Selatan bervariasi dari lapisan lempung kaku (stiff clay) di wilayah utara (Kebayoran Baru, Senopati, Mampang) hingga endapan vulkanik tuff di wilayah selatan (Jagakarsa, Lenteng Agung, Ciganjur). Lapisan tanah keras umumnya berada pada kedalaman 10 hingga 18 meter. Kontur tanah bergelombang di sekitar sempadan sungai Krukut dan Pesanggrahan memerlukan survey topografi dan kedalaman bor yang teliti agar seluruh tiang mencapai formasi tanah pendukung yang merata.",
+    "foundationRecommendation": "Untuk bangunan rumah tinggal 2 hingga 3 lantai di kawasan pemukiman rapat seperti Tebet, Pancoran, dan Kebayoran Lama, strauss pile manual diameter 30–40 cm sangat direkomendasikan karena biaya ekonomis dan manuver mudah. Untuk perumahan klaster, townhouse bertingkat, dan bangunan perkantoran di Cilandak atau Pondok Indah, bore pile mesin mini crane diameter 40–60 cm memberikan kapasitas tahanan friksi dan tahanan ujung yang kokoh.",
+    "projectNote": "TODO: User untuk menambahkan daftar proyek nyata / portofolio spesifik di Jakarta Selatan (misal: Rumah Tinggal 3 Lantai di Tebet, Townhouse di Jagakarsa).",
+    "faq": [
+      {
+        "q": "Apakah area berkontur miring di Jagakarsa dan Ciganjur aman untuk dibor?",
+        "a": "Sangat aman dengan perencanaan rekayasa geoteknik yang benar. Pada lahan berkontur miring, pengeboran tiang bore pile dilakukan dengan memperhitungkan potensi gaya geser lateral, dan panjang tiang disesuaikan dengan elevasi muka lapisan tanah keras di tiap titik kontur."
+      },
+      {
+        "q": "Berapa lama pengerjaan 10–15 titik bore pile untuk rumah tinggal di Jaksel?",
+        "a": "Rata-rata proyek rumah tinggal dengan 10 hingga 15 titik bore pile kedalaman 8–12 meter dapat diselesaikan dalam kurun waktu 3 hingga 5 hari kerja, mencakup tahapan pengeboran, instalasi keranjang besi tulangan, dan pengecoran beton."
+      },
+      {
+        "q": "Apakah survey lokasi dan konsultasi teknis di Jakarta Selatan dikenakan biaya?",
+        "a": "Tidak ada biaya sama sekali. Tim geoteknik Majujaya menyediakan layanan survey lokasi, pengukuran kondisi tanah awal, dan penyusunan RAB detail secara GRATIS untuk seluruh area Jakarta Selatan."
+      }
+    ]
   },
   {
-    slug: "jakarta-barat",
-    city: "Jakarta Barat",
-    region: "DKI Jakarta",
-    headline: "Jasa Bore Pile Jakarta Barat – Kontraktor Pondasi Profesional",
-    intro: "Kami melayani jasa bore pile dan strauss pile di seluruh wilayah Jakarta Barat termasuk Grogol, Kalideres, Cengkareng, Kembangan, Palmerah, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile untuk gedung bertingkat, ruko, rumah, dan infrastruktur di Jakarta Barat.",
-    keywords: ["bore pile jakarta barat", "jasa bore pile grogol", "kontraktor pondasi jakbar", "bore pile cengkareng", "strauss pile jakarta barat"],
-    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
-    areaCovered: ["Grogol Petamburan", "Kalideres", "Cengkareng", "Kembangan", "Palmerah", "Taman Sari", "Tambora", "Keagungan"],
-    image: "/images/portfolio/03.jpg",
-    metaDesc: "Jasa bore pile & strauss pile Jakarta Barat sejak 2013. Survey gratis, harga bersaing. Melayani Grogol, Cengkareng, Kalideres & area Jakbar lainnya. WA 0815-1481-1120.",
-    soilInfo: "Wilayah Jakarta Barat memiliki karakteristik tanah lunak hingga sedang, sebagian area bekas rawa seperti Cengkareng dan Kalideres, dengan lapisan tanah keras umumnya ditemukan di kedalaman 10-20 meter. Area Grogol dan Palmerah relatif lebih stabil, namun tetap memerlukan analisis daya dukung tanah sebelum menentukan spesifikasi pondasi bore pile.",
-    faq: [
-      { q: "Apakah bore pile cocok untuk bangunan di area Cengkareng atau Kalideres yang tanahnya lunak?", a: "Sangat cocok. Tanah bekas rawa di Cengkareng dan Kalideres memiliki daya dukung rendah, sehingga pondasi bore pile wajib menembus hingga lapisan tanah keras di kedalaman yang lebih dalam. Tim Majujaya akan melakukan survey lokasi gratis untuk menentukan spesifikasi yang tepat." },
-      { q: "Berapa lama proses bore pile untuk proyek di Jakarta Barat?", a: "Rata-rata pengerjaan 3-7 hari untuk proyek rumah atau ruko standar, tergantung jumlah titik dan akses lokasi. Tim kami bisa mulai dalam 1x24 jam setelah deal disepakati." },
+    "slug": "jakarta-barat",
+    "city": "Jakarta Barat",
+    "region": "DKI Jakarta",
+    "headline": "Jasa Bore Pile Jakarta Barat – Solusi Pondasi Tanah Lunak & Bekas Rawa",
+    "title": "Jasa Bore Pile Jakarta Barat — Survey Gratis | Majujaya",
+    "intro": "Membangun di kawasan Jakarta Barat seperti Cengkareng, Kalideres, Kembangan, Palmerah, dan Grogol menghadirkan tantangan geoteknik tinggi karena sebagian besar wilayahnya merupakan dataran aluvial rendah bekas rawa. Pondasi tiang bore pile menjadi solusi mutlak bagi ruko, pergudangan, dan rumah tinggal untuk mencegah kegagalan struktur akibat penurunan pondasi (land subsidence).",
+    "keywords": [
+      "bore pile jakarta barat",
+      "jasa bore pile grogol",
+      "kontraktor pondasi jakbar",
+      "bore pile cengkareng",
+      "strauss pile jakarta barat"
     ],
+    "services": [
+      "Bore Pile Pondasi",
+      "Strauss Pile Manual",
+      "Bore Pile Mesin",
+      "Sumur Bor Air",
+      "Soil Investigation"
+    ],
+    "areaCovered": [
+      "Grogol Petamburan",
+      "Kalideres",
+      "Cengkareng",
+      "Kembangan",
+      "Palmerah",
+      "Taman Sari",
+      "Tambora",
+      "Daan Mogot",
+      "Meruya",
+      "Kebon Jeruk",
+      "Jelambar",
+      "Kapuk"
+    ],
+    "image": "/images/portfolio/03.jpg",
+    "metaDesc": "Jasa bore pile & strauss pile Jakarta Barat sejak 2013. Survey gratis, harga bersaing. Melayani Grogol, Cengkareng, Kembangan & seluruh Jakbar. WA 0815-1481-1120.",
+    "soilInfo": "Struktur tanah Jakarta Barat didominasi endapan lempung lunak (marine soft clay) dan lanau dengan nilai daya dukung tanah sangat rendah hingga kedalaman 8–12 meter. Lapisan tanah keras (N-SPT > 50) rata-rata baru dijumpai pada kedalaman 14 hingga 24 meter. Tingginya muka air tanah yang hanya 1–2 meter dari permukaan tanah memerlukan metode pengeboran basah (wash boring) disertai pipa casing pelindung baja agar lubang bor tidak longsor sebelum beton dicor.",
+    "foundationRecommendation": "Pondasi dangkal konvensional sangat berisiko amblas di tanah lunak Jakarta Barat. Kami merekomendasikan Bore Pile Mesin Mini Crane diameter 40–80 cm untuk ruko komersial di Daan Mogot dan Cengkareng agar beban tersalurkan sempurna ke tanah keras. Untuk rumah tinggal di gang sempit seperti Palmerah, Tambora, atau Jelambar, metode Strauss Pile Manual yang menembus lapisan lempung atas memberikan proteksi maksimal terhadap keretakan dinding.",
+    "projectNote": "TODO: User untuk menambahkan daftar proyek nyata / portofolio spesifik di Jakarta Barat (misal: Ruko 4 Lantai di Cengkareng, Gudang Logistik di Kalideres).",
+    "faq": [
+      {
+        "q": "Mengapa pondasi tapak konvensional sering mengalami retak dan miring di Jakarta Barat?",
+        "a": "Lapisan lempung lunak bekas rawa di Jakarta Barat mengalami proses konsolidasi dan penurunan volume saat menerima beban terus-menerus. Tanpa tiang bore pile yang bertumpu pada lapisan tanah keras di kedalaman belasan meter, penurunan tak seragam (differential settlement) akan memicu dinding retak dan struktur miring."
+      },
+      {
+        "q": "Bagaimana cara menangani lubang bor yang berair lumpur di Cengkareng dan Kalideres?",
+        "a": "Tim kami menerapkan sistem pengeboran sirkulasi fluida bentonit untuk menahan tekanan dinding lubang tanah serta menggunakan pipa tremi saat pengecoran agar pasta semen tidak tercampur lumpur tanah dasar."
+      },
+      {
+        "q": "Berapa estimasi kedalaman tiang bore pile untuk ruko 3 lantai di Kembangan?",
+        "a": "Berdasarkan data sondir umum kawasan Kembangan dan Puri Indah, kedalaman tiang bor rata-rata berkisar 14 hingga 20 meter dengan diameter 40 cm atau 50 cm. Survey lokasi gratis kami akan memastikan kebutuhan eksak titik pondasi Anda."
+      }
+    ]
   },
   {
-    slug: "jakarta-timur",
-    city: "Jakarta Timur",
-    region: "DKI Jakarta",
-    headline: "Jasa Bore Pile Jakarta Timur – Kontraktor Pondasi Profesional",
-    intro: "Kami melayani jasa bore pile dan strauss pile di seluruh wilayah Jakarta Timur termasuk Matraman, Jatinegara, Cakung, Pulo Gadung, Duren Sawit, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile untuk gedung bertingkat, ruko, rumah, dan infrastruktur di Jakarta Timur.",
-    keywords: ["bore pile jakarta timur", "jasa bore pile matraman", "kontraktor pondasi jaktim", "bore pile jatinegara", "strauss pile jakarta timur"],
-    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
-    areaCovered: ["Matraman", "Jatinegara", "Cakung", "Pulo Gadung", "Duren Sawit", "Kramat Jati", "Makasar", "Cipayung", "Ciracas"],
-    image: "/images/portfolio/04.jpg",
-    metaDesc: "Jasa bore pile & strauss pile Jakarta Timur sejak 2013. Survey gratis, harga bersaing. Melayani Matraman, Jatinegara, Cakung & area Jaktim lainnya. WA 0815-1481-1120.",
-    soilInfo: "Wilayah Jakarta Timur memiliki karakteristik tanah lunak hingga sedang dengan lapisan tanah keras umumnya ditemukan di kedalaman 8-18 meter. Area Cakung dan Pulo Gadung yang merupakan zona industri memiliki kondisi tanah yang bervariasi, sementara Matraman dan Jatinegara relatif lebih stabil.",
-    faq: [
-      { q: "Apakah bore pile cocok untuk kawasan industri Cakung atau Pulo Gadung?", a: "Sangat cocok. Kawasan industri Cakung dan Pulo Gadung umumnya membutuhkan pondasi dengan kapasitas beban tinggi. Tim Majujaya berpengalaman menangani bore pile untuk pabrik, gudang, dan pergudangan di kawasan industri Jakarta Timur dengan spesifikasi yang disesuaikan beban bangunan." },
-      { q: "Berapa lama proses bore pile untuk proyek di Jakarta Timur?", a: "Rata-rata pengerjaan 3-7 hari untuk proyek rumah atau ruko standar, tergantung jumlah titik dan akses lokasi. Tim kami bisa mulai dalam 1x24 jam setelah deal disepakati." },
+    "slug": "jakarta-timur",
+    "city": "Jakarta Timur",
+    "region": "DKI Jakarta",
+    "headline": "Jasa Bore Pile Jakarta Timur – Pondasi Industri, Pergudangan & Hunian Jaktim",
+    "title": "Jasa Bore Pile Jakarta Timur — Kontraktor Berpengalaman | Majujaya",
+    "intro": "Jakarta Timur adalah wilayah strategis yang memadukan kawasan residensial padat di Matraman, Jatinegara, dan Duren Sawit dengan zona pergudangan dan industri manufaktur di Cakung, Pulo Gadung, serta Ciracas. Keberagaman fungsi bangunan ini menuntut kontraktor bore pile dengan armada mesin berdaya bor tinggi dan kapasitas penanganan proyek skala menengah hingga besar.",
+    "keywords": [
+      "bore pile jakarta timur",
+      "jasa bore pile matraman",
+      "kontraktor pondasi jaktim",
+      "bore pile jatinegara",
+      "strauss pile jakarta timur"
     ],
+    "services": [
+      "Bore Pile Pondasi",
+      "Strauss Pile Manual",
+      "Bore Pile Mesin",
+      "Sumur Bor Air",
+      "Soil Investigation"
+    ],
+    "areaCovered": [
+      "Matraman",
+      "Jatinegara",
+      "Cakung",
+      "Pulo Gadung",
+      "Duren Sawit",
+      "Kramat Jati",
+      "Makasar",
+      "Cipayung",
+      "Ciracas",
+      "Pasar Rebo",
+      "Rawamangun",
+      "Klender",
+      "Cibubur"
+    ],
+    "image": "/images/portfolio/04.jpg",
+    "metaDesc": "Jasa bore pile & strauss pile Jakarta Timur sejak 2013. Survey gratis, harga bersaing. Melayani Cakung, Pulo Gadung, Duren Sawit & area Jaktim. WA 0815-1481-1120.",
+    "soilInfo": "Karakteristik tanah Jakarta Timur memiliki variasi formasi lempung ekspansif di area timur (Cakung, Ciracas) dan aluvial stabil di area tengah dan barat (Matraman, Rawamangun). Kedalaman lapisan tanah keras (N-SPT > 50) rata-rata berada pada kedalaman 10 hingga 18 meter. Muka air tanah di Jakarta Timur umumnya berada di kedalaman 3–6 meter, memberikan stabilitas lubang bor yang cukup baik selama tahapan pengeboran kering maupun basah.",
+    "foundationRecommendation": "Untuk fasilitas pergudangan logistik, pabrik, dan workshop di Kawasan Industri Pulo Gadung (JIEP) dan Cakung, tiang bor bore pile mesin diameter 50–80 cm wajib digunakan guna memikul beban lantai dan mesin produksi bergetar. Untuk pembangunan rumah tinggal keluarga dan klaster residensial di Rawamangun, Duren Sawit, dan Cibubur, strauss pile manual atau mini crane diameter 30–40 cm menawarkan efisiensi biaya dan kecepatan waktu kerja.",
+    "projectNote": "TODO: User untuk menambahkan daftar proyek nyata / portofolio spesifik di Jakarta Timur (misal: Gudang Logistik di Cakung, Ruko di Matraman).",
+    "faq": [
+      {
+        "q": "Apakah Majujaya melayani pekerjaan bore pile di kawasan industri Cakung dan Pulo Gadung?",
+        "a": "Ya, kami berpengalaman menangani bore pile untuk hanggar gudang, pabrik, silo, dan pondasi mesin di kawasan industri Jakarta Timur dengan pemenuhan standar K3 serta kapasitas daya dukung beban tinggi."
+      },
+      {
+        "q": "Apakah tim Majujaya menyediakan layanan uji sondir tanah di Jakarta Timur?",
+        "a": "Tentu. Kami menyediakan layanan Soil Investigation (uji sondir konus kapasitas 2,5 ton & 5 ton) untuk memberikan laporan daya dukung tanah dan kedalaman tanah keras sebelum desain pondasi dieksekusi."
+      },
+      {
+        "q": "Berapa lama waktu pengerjaan pondasi bore pile untuk rumah 2 lantai di Duren Sawit?",
+        "a": "Untuk volume standar rumah 2 lantai (rata-rata 10–14 titik bor kedalaman 8–10 meter), waktu pengerjaan normal adalah 3 sampai 4 hari kerja hingga selesai pengecoran."
+      }
+    ]
   },
   {
-    slug: "jakarta-utara",
-    city: "Jakarta Utara",
-    region: "DKI Jakarta",
-    headline: "Jasa Bore Pile Jakarta Utara – Kontraktor Pondasi Profesional",
-    intro: "Kami melayani jasa bore pile dan strauss pile di seluruh wilayah Jakarta Utara termasuk Kelapa Gading, Tanjung Priok, Koja, Cilincing, Pademangan, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile untuk gedung bertingkat, ruko, rumah, dan infrastruktur di Jakarta Utara.",
-    keywords: ["bore pile jakarta utara", "jasa bore pile kelapa gading", "kontraktor pondasi jakut", "bore pile tanjung priok", "strauss pile jakarta utara"],
-    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
-    areaCovered: ["Kelapa Gading", "Tanjung Priok", "Koja", "Cilincing", "Pademangan", "Penjaringan", "Kemayoran"],
-    image: "/images/portfolio/05.jpg",
-    metaDesc: "Jasa bore pile & strauss pile Jakarta Utara sejak 2013. Survey gratis, harga bersaing. Melayani Kelapa Gading, Tanjung Priok, Koja & area Jakut lainnya. WA 0815-1481-1120.",
-    soilInfo: "Wilayah Jakarta Utara memiliki karakteristik tanah lunak karena merupakan area bekas rawa dan dekat pesisir, dengan lapisan tanah keras umumnya ditemukan di kedalaman 12-25 meter. Area Kelapa Gading dan Penjaringan memerlukan kedalaman bore pile lebih dalam untuk mencapai lapisan tanah keras yang stabil.",
-    faq: [
-      { q: "Apakah tanah lunak di Jakarta Utara membutuhkan bore pile yang lebih dalam?", a: "Ya. Jakarta Utara merupakan area bekas rawa dan pesisir dengan daya dukung tanah rendah, sehingga bore pile umumnya membutuhkan kedalaman 12-25 meter untuk mencapai lapisan tanah keras. Tim Majujaya berpengalaman menangani kondisi ini di Kelapa Gading, Pluit, dan kawasan pesisir lainnya." },
-      { q: "Berapa lama proses bore pile untuk proyek di Jakarta Utara?", a: "Rata-rata pengerjaan 3-10 hari tergantung kedalaman pengeboran, jumlah titik, dan akses lokasi. Tim kami bisa mulai dalam 1x24 jam setelah deal disepakati." },
+    "slug": "jakarta-utara",
+    "city": "Jakarta Utara",
+    "region": "DKI Jakarta",
+    "headline": "Jasa Bore Pile Jakarta Utara – Spesialis Pondasi Dalam Area Pesisir & Reklamasi",
+    "title": "Jasa Bore Pile Jakarta Utara — Pondasi Tahan Ambles | Majujaya",
+    "intro": "Mendirikan bangunan di kawasan pesisir Jakarta Utara seperti Kelapa Gading, Pluit, Sunter, Tanjung Priok, Penjaringan, dan Cilincing memerlukan pertimbangan rekayasa geoteknik yang matang. Ancaman penurunan tanah (subsidence), paparan air asin pesisir, serta lapisan tanah lunak tebal menjadikan pondasi bore pile dalam sebagai tumpuan wajib bagi konstruksi gedung, ruko, dan residensial.",
+    "keywords": [
+      "bore pile jakarta utara",
+      "jasa bore pile kelapa gading",
+      "kontraktor pondasi jakut",
+      "bore pile tanjung priok",
+      "strauss pile jakarta utara"
     ],
+    "services": [
+      "Bore Pile Pondasi",
+      "Strauss Pile Manual",
+      "Bore Pile Mesin",
+      "Sumur Bor Air",
+      "Soil Investigation"
+    ],
+    "areaCovered": [
+      "Kelapa Gading",
+      "Tanjung Priok",
+      "Koja",
+      "Cilincing",
+      "Pademangan",
+      "Penjaringan",
+      "Pluit",
+      "Sunter",
+      "Ancol",
+      "Marunda",
+      "Pantai Indah Kapuk"
+    ],
+    "image": "/images/portfolio/05.jpg",
+    "metaDesc": "Jasa bore pile & strauss pile Jakarta Utara sejak 2013. Survey gratis, harga bersaing. Melayani Kelapa Gading, Pluit, Sunter & seluruh Jakut. WA 0815-1481-1120.",
+    "soilInfo": "Lapisan tanah Jakarta Utara tersusun atas formasi lempung kelautan (marine soft clay) sangat lunak dan pasir halus dengan ketebalan mencapai 12 hingga 18 meter. Lapisan tanah keras sejati (N-SPT > 50) baru dijumpai pada kedalaman 18 hingga 28 meter di bawah permukaan tanah. Selain itu, salinitas air tanah yang tinggi memerlukan spesifikasi beton kedap air dengan mutu minimal K-300 serta selimut beton ekstra untuk melindungi besi tulangan dari bahaya korosi klorida.",
+    "foundationRecommendation": "Metode yang paling efektif untuk wilayah Jakarta Utara adalah Bore Pile Mesin Mini Crane dengan sistem wash boring dan casing pelindung penuh pada lapisan atas. Tiang bor berdiameter 40–80 cm dirancang menembus seluruh lapisan lumpur pesisir hingga bertumpu kuat pada lapisan batuan/tanah keras. Metode tiang pancang pukul konvensional kerap dihindari di kawasan padat seperti Kelapa Gading dan Pluit karena getaran benturan yang dapat merusak struktur ruko sekitar.",
+    "projectNote": "TODO: User untuk menambahkan daftar proyek nyata / portofolio spesifik di Jakarta Utara (misal: Ruko Komersial di Kelapa Gading, Rumah Mewah di Pluit).",
+    "faq": [
+      {
+        "q": "Bagaimana cara bore pile mencegah amblas di tanah rawa pesisir Jakarta Utara?",
+        "a": "Bore pile meneruskan beban bangunan melewati seluruh lapisan tanah lunak atas langsung ke formasi tanah keras di kedalaman 18–28 meter. Tahanan friksi selimut tiang dan tahanan ujung bawah tiang bekerja simultan meniadakan risiko amblas."
+      },
+      {
+        "q": "Bagaimana perlindungan terhadap korosi air asin pada tiang bore pile di Jakut?",
+        "a": "Kami menerapkan spesifikasi beton mutu tinggi kedap air, penambahan tebal selimut beton (concrete cover) minimal 5–7 cm, serta pemakaian aditif anti-sulfat pada campuran beton bila diinstruksikan oleh konsultan struktur."
+      },
+      {
+        "q": "Apakah bore pile aman dilakukan bersebelahan langsung dengan ruko tetangga di Sunter?",
+        "a": "Sangat aman. Pengeboran rotary sistem rotasi tidak menimbulkan efek kejut hentakan lateral layaknya diesel hammer tiang pancang, sehingga bangunan bersebelahan tetap terlindungi seutuhnya."
+      }
+    ]
   },
   {
-    slug: "bogor",
-    city: "Bogor",
-    region: "Jawa Barat",
-    headline: "Jasa Bore Pile Bogor – Kontraktor Pondasi Profesional",
-    intro: "Kami melayani jasa bore pile dan strauss pile di seluruh wilayah Bogor termasuk Bogor Selatan, Bogor Utara, Bogor Timur, Bogor Barat, Tanah Sereal, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile untuk gedung bertingkat, ruko, rumah, dan infrastruktur di Bogor.",
-    keywords: ["bore pile bogor", "jasa bore pile bogor", "kontraktor pondasi bogor", "bore pile bogor selatan", "strauss pile bogor"],
-    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
-    areaCovered: ["Bogor Selatan", "Bogor Utara", "Bogor Timur", "Bogor Barat", "Tanah Sereal", "Bogor Tengah", "Cibinong", "Citeureup"],
-    image: "/images/portfolio/06.jpg",
-    metaDesc: "Jasa bore pile & strauss pile Bogor sejak 2013. Survey gratis, harga bersaing. Melayani seluruh area Bogor & sekitarnya. WA 0815-1481-1120.",
-    soilInfo: "Wilayah Bogor memiliki kontur tanah yang bervariasi -- dari tanah vulkanik di area Bogor Selatan hingga tanah aluvial di Bogor Utara dan Cibinong. Curah hujan tinggi di Bogor juga memerlukan perencanaan pondasi yang matang agar daya dukung optimal.",
-    faq: [
-      { q: "Apakah cuaca Bogor yang sering hujan mempengaruhi proses bore pile?", a: "Kami tetap bisa melakukan pengeboran saat hujan ringan, namun untuk intensitas tinggi akan dijadwalkan ulang demi keamanan dan kualitas pekerjaan. Kami selalu monitor prakiraan cuaca dan atur jadwal pengerjaan agar efisien. Survey lokasi gratis bisa dijadwalkan kapan saja -- termasuk di musim hujan." },
-      { q: "Berapa kedalaman bore pile yang ideal untuk rumah di Bogor?", a: "Rata-rata kedalaman bore pile untuk rumah di Bogor berkisar 6-15 meter tergantung kondisi tanah di lokasi spesifik. Area Bogor Selatan dengan tanah vulkanik cenderung lebih dangkal, sementara area Bogor Utara dan Cibinong butuh kedalaman lebih. Tim kami akan tentukan setelah survey lokasi gratis." },
+    "slug": "bogor",
+    "city": "Bogor",
+    "region": "Jawa Barat",
+    "headline": "Jasa Bore Pile Bogor – Pondasi Kokoh Kontur Tanah Miring & Curah Hujan Tinggi",
+    "title": "Jasa Bore Pile Bogor — Pondasi Lereng & Perumahan | Majujaya",
+    "intro": "Pembangunan di wilayah Bogor Kota maupun Kabupaten (Bogor Selatan, Bogor Utara, Tanah Sereal, Cibinong, Sentul, Bojonggede) memiliki karakteristik kontur perbukitan bergelombang dan intensitas curah hujan yang tinggi. Kontraktor bore pile berpengalaman sangat dibutuhkan untuk memastikan pondasi rumah tinggal, villa, ruko, dan dinding penahan tanah (retaining wall) berdiri kokoh tanpa risiko pergeseran tanah.",
+    "keywords": [
+      "bore pile bogor",
+      "jasa bore pile bogor",
+      "kontraktor pondasi bogor",
+      "bore pile bogor selatan",
+      "strauss pile bogor"
     ],
+    "services": [
+      "Bore Pile Pondasi",
+      "Strauss Pile Manual",
+      "Bore Pile Mesin",
+      "Sumur Bor Air",
+      "Soil Investigation"
+    ],
+    "areaCovered": [
+      "Bogor Selatan",
+      "Bogor Utara",
+      "Bogor Timur",
+      "Bogor Barat",
+      "Tanah Sereal",
+      "Bogor Tengah",
+      "Cibinong",
+      "Citeureup",
+      "Sentul",
+      "Bojonggede",
+      "Sukaraja",
+      "Ciomas"
+    ],
+    "image": "/images/portfolio/06.jpg",
+    "metaDesc": "Jasa bore pile & strauss pile Bogor sejak 2013. Survey gratis, harga bersaing. Melayani Cibinong, Sentul, Bogor Kota & seluruh area Bogor. WA 0815-1481-1120.",
+    "soilInfo": "Struktur geologi wilayah Bogor didominasi oleh batuan vulkanik muda hasil letusan Gunung Salak dan Gunung Pangrango, berupa tanah lempung tufaan kemerahan (laterit) dan lapisan breksi vulkanik. Pada kawasan lereng (Bogor Selatan, Sentul), lapisan tanah keras dapat ditemukan relatif dangkal pada kedalaman 6 hingga 12 meter, namun memiliki sifat rentan rayapan tanah (soil creep) saat jenuh air hujan. Sedangkan di zona dataran utara (Cibinong, Citeureup), kedalaman tanah keras berada di kisaran 10 hingga 16 meter.",
+    "foundationRecommendation": "Untuk pembangunan villa dan rumah di area perbukitan Sentul atau Bogor Selatan, kombinasi tiang bore pile mesin diameter 40–60 cm sebagai tiang penyangga pondasi dan secant pile penahan lereng longsor sangat efektif. Untuk kawasan pemukiman perumahan Cibinong dan Tanah Sereal, metode strauss pile manual diameter 30–40 cm sangat hemat biaya dan cepat dalam mobilisasi.",
+    "projectNote": "TODO: User untuk menambahkan daftar proyek nyata / portofolio spesifik di Bogor (misal: Villa di Sentul, Perumahan di Cibinong).",
+    "faq": [
+      {
+        "q": "Bagaimana penanganan pekerjaan pengeboran bore pile di Bogor saat musim hujan?",
+        "a": "Tim kami mengantisipasi curah hujan tinggi dengan pemasangan parit drainase sementara di area titik bor, penutupan lubang bor dengan terpal kedap air saat jeda kerja, dan percepatan pengecoran langsung setelah lubang bersih."
+      },
+      {
+        "q": "Apakah bore pile bisa diaplikasikan sebagai dinding penahan tanah (turap) lereng di Bogor?",
+        "a": "Sangat bisa. Kami sering mengerjakan bored pile berderet rapat (continous/secant pile) yang disatukan capping beam beton untuk mengunci lereng tanah di proyek villa perbukitan Bogor agar tidak longsor."
+      },
+      {
+        "q": "Berapa lama mobilisasi armada bor Majujaya menuju lokasi proyek di Bogor?",
+        "a": "Melalui akses tol Jagorawi dan Tol Lingkar Bogor, armada mesin mini crane dan tim kami siap tiba di lokasi proyek Anda dalam 1x24 jam setelah kesepakatan kerja tercapai."
+      }
+    ]
   },
   {
-    slug: "depok",
-    city: "Depok",
-    region: "Jawa Barat",
-    headline: "Jasa Bore Pile Depok – Kontraktor Pondasi Profesional",
-    intro: "Kami melayani jasa bore pile dan strauss pile di seluruh wilayah Depok termasuk Beji, Pancoran Mas, Cimanggis, Sukmajaya, Sawangan, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile untuk gedung bertingkat, ruko, rumah, dan infrastruktur di Depok.",
-    keywords: ["bore pile depok", "jasa bore pile depok", "kontraktor pondasi depok", "bore pile pancoran mas", "strauss pile depok"],
-    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
-    areaCovered: ["Beji", "Pancoran Mas", "Cimanggis", "Sukmajaya", "Sawangan", "Cinere", "Limo", "Tapos"],
-    image: "/images/portfolio/07.jpg",
-    metaDesc: "Jasa bore pile & strauss pile Depok sejak 2013. Survey gratis, harga bersaing. Melayani seluruh area Depok & sekitarnya. WA 0815-1481-1120.",
-    soilInfo: "Kondisi tanah di Depok cukup bervariasi. Wilayah Depok bagian utara (Beji, Margonda) memiliki tanah lunak hingga sedang dengan kedalaman tanah keras 8-14 meter. Bagian selatan (Sawangan, Tapos) cenderung lebih stabil. Cimanggis dan Sukmajaya berada di area transisi. Survey lokasi diperlukan untuk menentukan spesifikasi tepat.",
-    faq: [
-      { q: "Apakah tanah di daerah Sawangan/Cinere memerlukan bore pile yang lebih dalam?", a: "Sawangan dan Cinere yang berada di perbatasan Depok-Bogor memiliki kontur tanah perbukitan dengan lapisan tanah keras yang bervariasi. Di beberapa titik, tanah keras sudah ditemukan di kedalaman 4-6 meter, sementara di lokasi lain bisa mencapai 12-15 meter. Kami sarankan survey gratis untuk memastikan tanpa tebak-tebakan." },
-      { q: "Berapa lama proses bore pile untuk ruko di Margonda Depok?", a: "Untuk ruko di kawasan Margonda, rata-rata pengerjaan 2-4 hari untuk 6-10 titik bore pile. Akses jalan yang padat di Margonda mungkin mempengaruhi jadwal mobilisasi alat, namun tim kami biasa mengatur waktu pengerjaan di luar jam sibuk untuk meminimalkan gangguan." },
+    "slug": "depok",
+    "city": "Depok",
+    "region": "Jawa Barat",
+    "headline": "Jasa Bore Pile Depok – Pengeboran Pondasi Rumah Tinggal & Ruko Margonda Sawangan",
+    "title": "Jasa Bore Pile Depok — Pengeboran Cepat & Survey Gratis | Majujaya",
+    "intro": "Kota Depok terus berkembang pesat sebagai kawasan hunian favorit dan koridor bisnis pendidikan. Pembangunan rumah tinggal pribadi, townhouse, kos-kosan mahasiswa, dan deretan ruko komersial di Margonda, Beji, Cimanggis, Cinere, hingga Sawangan menuntut pondasi kokoh yang mampu menahan beban bertingkat dengan proses kerja yang efisien tanpa mengganggu tetangga.",
+    "keywords": [
+      "bore pile depok",
+      "jasa bore pile depok",
+      "kontraktor pondasi depok",
+      "bore pile pancoran mas",
+      "strauss pile depok"
     ],
+    "services": [
+      "Bore Pile Pondasi",
+      "Strauss Pile Manual",
+      "Bore Pile Mesin",
+      "Sumur Bor Air",
+      "Soil Investigation"
+    ],
+    "areaCovered": [
+      "Beji",
+      "Pancoran Mas",
+      "Cimanggis",
+      "Sukmajaya",
+      "Sawangan",
+      "Cinere",
+      "Limo",
+      "Tapos",
+      "Bojongsari",
+      "Cilodong",
+      "Margonda"
+    ],
+    "image": "/images/portfolio/07.jpg",
+    "metaDesc": "Jasa bore pile & strauss pile Depok sejak 2013. Survey gratis, harga bersaing. Melayani Margonda, Sawangan, Cinere & seluruh Depok. WA 0815-1481-1120.",
+    "soilInfo": "Formasi tanah di Depok terbagi menjadi dua karakteristik utama: kawasan utara (Margonda, Beji, Cinere) memiliki lapisan lempung tufaan pasiran dengan kedalaman tanah keras sekitar 8 hingga 14 meter. Sementara kawasan selatan dan barat (Sawangan, Bojongsari, Tapos) memiliki topografi perbukitan landai dengan lapisan padas keras yang terkadang dijumpai lebih dangkal pada kedalaman 6 hingga 10 meter. Muka air tanah di Depok bervariasi antara 3 hingga 7 meter di bawah permukaan.",
+    "foundationRecommendation": "Untuk pembangunan rumah kos dan hunian bertingkat di gang-gang pemukiman padat Margonda, Kukusan, atau Beji, metode Strauss Pile Manual diameter 30–40 cm adalah opsi paling tepat karena tidak memerlukan manuver truk besar. Untuk proyek perumahan townhouse di Sawangan, Cinere, atau ruko bertingkat di jalan utama Depok, Bore Pile Mesin Mini Crane memberikan kecepatan pengerjaan dan daya dukung tiang optimal.",
+    "projectNote": "TODO: User untuk menambahkan daftar proyek nyata / portofolio spesifik di Depok (misal: Rumah Kos 3 Lantai di Margonda, Townhouse di Sawangan).",
+    "faq": [
+      {
+        "q": "Mengapa strauss pile manual sangat digemari untuk proyek rumah tinggal di Depok?",
+        "a": "Karena strauss pile manual memiliki keunggulan akses fleksibel ke dalam gang perumahan sempit tanpa merusak jalan lingkungan, biaya operasional lebih ekonomis, dan waktu setup alat sangat cepat."
+      },
+      {
+        "q": "Berapa titik rata-rata bore pile untuk rumah 2 lantai ukuran 8x15 meter di Depok?",
+        "a": "Umumnya memerlukan 10 hingga 14 titik pondasi bore pile dengan diameter 30–40 cm dan kedalaman rata-rata 8–10 meter, tergantung layout kolom struktural bangunan Anda."
+      },
+      {
+        "q": "Bagaimana cara memesan survey lokasi gratis untuk proyek di Depok?",
+        "a": "Cukup hubungi tim kami via WhatsApp di 0815-1481-1120. Tim surveyor teknis Majujaya akan menjadwalkan kunjungan gratis langsung ke lokasi proyek Anda di Depok dalam 1x24 jam."
+      }
+    ]
   },
   {
-    slug: "tangerang",
-    city: "Tangerang",
-    region: "Banten",
-    headline: "Jasa Bore Pile Tangerang – Kontraktor Pondasi Profesional",
-    intro: "Kami melayani jasa bore pile dan strauss pile di seluruh wilayah Tangerang termasuk Tangerang Kota, Tangerang Selatan, Cipondoh, Ciledug, Karawaci, BSD, Gading Serpong, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile untuk gedung bertingkat, ruko, rumah, dan infrastruktur di Tangerang.",
-    keywords: ["bore pile tangerang", "jasa bore pile tangerang", "kontraktor pondasi tangerang", "bore pile BSD", "strauss pile tangerang"],
-    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
-    areaCovered: ["Tangerang Kota", "Tangerang Selatan", "Cipondoh", "Ciledug", "Karawaci", "BSD City", "Gading Serpong", "Legok", "Pagedangan"],
-    image: "/images/portfolio/08.jpg",
-    metaDesc: "Jasa bore pile & strauss pile Tangerang sejak 2013. Survey gratis, harga bersaing. Melayani BSD, Gading Serpong, Karawaci & seluruh Tangerang. WA 0815-1481-1120.",
-    soilInfo: "Wilayah Tangerang memiliki karakteristik tanah bekas rawa terutama di Serpong, BSD, dan Gading Serpong bagian utara. Tanah lunak ini memerlukan kedalaman bore pile yang lebih dalam untuk mencapai tanah keras. Tim kami berpengalaman menangani kondisi ini dengan metode bore pile mesin maupun strauss pile manual.",
-    faq: [
-      { q: "Mengapa bore pile penting untuk bangunan di BSD dan Gading Serpong?", a: "BSD, Gading Serpong, dan sebagian besar area Tangerang dibangun di atas tanah bekas perkebunan dan rawa yang memiliki daya dukung rendah. Tanpa pondasi bore pile yang memadai, bangunan berisiko ambles atau retak dalam 3-5 tahun. Banyak pengembang di BSD dan Gading Serpong mewajibkan bore pile untuk semua bangunan baru sebagai standar konstruksi." },
-      { q: "Berapa estimasi biaya bore pile untuk rumah di Tangerang?", a: "Harga mulai dari Rp750.000 per titik tergantung diameter, kedalaman, dan kondisi tanah. Untuk rumah standar di BSD atau Gading Serpong dengan 8-12 titik bore pile, estimasi biaya Rp8-18 juta termasuk mobilisasi dan material. Kami berikan RAB detail gratis setelah survey lokasi." },
+    "slug": "tangerang",
+    "city": "Tangerang",
+    "region": "Banten",
+    "headline": "Jasa Bore Pile Tangerang – Pondasi Kawasan Residensial & Komersial BSD Serpong",
+    "title": "Jasa Bore Pile Tangerang — Ahli Pondasi BSD & Tangerang | Majujaya",
+    "intro": "Kawasan Tangerang Raya (Tangerang Kota, Tangerang Selatan, BSD City, Gading Serpong, Karawaci, Alam Sutera, Bintaro) merupakan episentrum properti terpadat di barat Jakarta. Pembangunan ruko modern, pusat perbelanjaan, cluster perumahan bertingkat, dan gedung perkantoran menuntut standar pondasi bore pile yang presisi tinggi dan terverifikasi kelayakan geotekniknya.",
+    "keywords": [
+      "bore pile tangerang",
+      "jasa bore pile tangerang",
+      "kontraktor pondasi tangerang",
+      "bore pile BSD",
+      "strauss pile tangerang"
     ],
+    "services": [
+      "Bore Pile Pondasi",
+      "Strauss Pile Manual",
+      "Bore Pile Mesin",
+      "Sumur Bor Air",
+      "Soil Investigation"
+    ],
+    "areaCovered": [
+      "Tangerang Kota",
+      "Tangerang Selatan",
+      "Cipondoh",
+      "Ciledug",
+      "Karawaci",
+      "BSD City",
+      "Gading Serpong",
+      "Alam Sutera",
+      "Bintaro",
+      "Ciputat",
+      "Pamulang",
+      "Curug",
+      "Kelapa Dua"
+    ],
+    "image": "/images/portfolio/08.jpg",
+    "metaDesc": "Jasa bore pile & strauss pile Tangerang sejak 2013. Survey gratis, harga bersaing. Melayani BSD, Serpong, Karawaci & seluruh Tangerang. WA 0815-1481-1120.",
+    "soilInfo": "Sebagian besar kawasan pemukiman baru di Tangerang dan Serpong dibangun di atas bekas perkebunan karet dan cekungan aluvial sungai Cisadane. Lapisan atas berupa lempung lunak dan tanah urugan dengan daya dukung rendah sedalam 4–8 meter. Lapisan tanah keras (bearing stratum N-SPT > 50) umumnya dijumpai pada kedalaman 12 hingga 20 meter. Fluktuasi muka air tanah di area dekat danau retensi atau aliran sungai mengharuskan pengendalian sirkulasi air saat pengeboran berlangsung.",
+    "foundationRecommendation": "Pengembang di kawasan BSD City dan Gading Serpong umumnya mewajibkan penggunaan pondasi tiang bore pile untuk semua bangunan bertingkat demi mencegah keretakan dinding. Metode Bore Pile Mesin Mini Crane diameter 40–60 cm sangat cocok untuk ruko dan kavling mandiri, sedangkan metode Strauss Pile Manual sangat ideal untuk proyek renovasi hunian di perumahan yang sudah padat penghuni seperti Bintaro Jaya dan Karawaci.",
+    "projectNote": "TODO: User untuk menambahkan daftar proyek nyata / portofolio spesifik di Tangerang (misal: Ruko 3 Lantai di Gading Serpong, Rumah Mandiri di BSD).",
+    "faq": [
+      {
+        "q": "Mengapa banyak pengembang di BSD dan Gading Serpong mensyaratkan bore pile?",
+        "a": "Karakteristik tanah urugan bekas perkebunan memiliki potensi diferensiasi penurunan tanah jika hanya menggunakan pondasi cakar ayam dangkal. Tiang bore pile memastikan beban bertumpu langsung pada formasi cadas/tanah keras di kedalaman belasan meter."
+      },
+      {
+        "q": "Apakah mobilisasi alat bore pile diizinkan masuk ke dalam klaster perumahan BSD?",
+        "a": "Ya, unit mesin mini crane dan peralatan strauss pile kami didesain kompak dengan bobot terukur sehingga tidak merusak paving block jalan lingkungan klaster perumahan modern di Tangerang."
+      },
+      {
+        "q": "Berapa estimasi biaya bore pile per titik untuk rumah tinggal di Tangerang?",
+        "a": "Biaya jasa bore pile mulai dari Rp750.000 hingga Rp2.000.000 per titik tergantung diameter, kedalaman tanah keras, dan volume titik pengerjaan. Kami menyediakan proposal RAB transparan tanpa biaya siluman."
+      }
+    ]
   },
   {
-    slug: "bekasi",
-    city: "Bekasi",
-    region: "Jawa Barat",
-    headline: "Jasa Bore Pile Bekasi – Kontraktor Pondasi Profesional",
-    intro: "Kami melayani jasa bore pile dan strauss pile di seluruh wilayah Bekasi termasuk Bekasi Kota, Bekasi Barat, Bekasi Timur, Tambun, Cikarang, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile untuk gedung bertingkat, ruko, rumah, dan infrastruktur di Bekasi.",
-    keywords: ["bore pile bekasi", "jasa bore pile bekasi", "kontraktor pondasi bekasi", "bore pile cikarang", "strauss pile bekasi"],
-    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
-    areaCovered: ["Bekasi Kota", "Bekasi Barat", "Bekasi Timur", "Bekasi Utara", "Bekasi Selatan", "Tambun", "Cikarang", "Karawang"],
-    image: "/images/portfolio/09.jpg",
-    metaDesc: "Jasa bore pile & strauss pile Bekasi sejak 2013. Survey gratis, harga bersaing. Melayani Cikarang, Tambun & seluruh area Bekasi. WA 0815-1481-1120.",
-    soilInfo: "Bekasi dan Cikarang memiliki tanah yang relatif lebih stabil dibanding area Jakarta dan Tangerang. Lapisan tanah keras biasanya ditemukan di kedalaman 6-12 meter. Namun, proyek industrial di Cikarang sering memerlukan kapasitas beban lebih besar, sehingga diameter bore pile dan kedalaman perlu disesuaikan.",
-    faq: [
-      { q: "Apa perbedaan penanganan bore pile untuk kawasan industri Cikarang vs perumahan?", a: "Proyek industri di Cikarang umumnya membutuhkan bore pile dengan diameter lebih besar (60-100cm) dan kedalaman lebih dalam untuk menopang beban pabrik dan mesin berat. Untuk perumahan di Bekasi, diameter 30-40cm dengan kedalaman 6-12 meter biasanya mencukupi. Kami menyesuaikan spesifikasi berdasarkan kebutuhan spesifik proyek Anda." },
-      { q: "Apakah Anda melayani proyek bore pile skala besar di Cikarang?", a: "Ya, kami melayani proyek skala besar di kawasan industri Cikarang, EJIP, MM2100, dan Jababeka. Dengan peralatan bore pile mesin dan tim berpengalaman, kami mampu menangani ratusan titik pengeboran untuk pabrik, gudang, dan infrastruktur. Hubungi kami untuk diskusi kebutuhan proyek Anda." },
+    "slug": "bekasi",
+    "city": "Bekasi",
+    "region": "Jawa Barat",
+    "headline": "Jasa Bore Pile Bekasi – Pondasi Bangunan Bertingkat & Industri Tambun Bekasi",
+    "title": "Jasa Bore Pile Bekasi — Survey Gratis & Bergaransi | Majujaya",
+    "intro": "Bekasi merupakan gerbang timur metropolitan dengan dinamika pembangunan perumahan komersial skala besar, apartemen, ruko, dan sentra industri di Bekasi Kota, Bekasi Barat, Bekasi Timur, Medan Satria, hingga Tambun. Kondisi tanah ekspansif di sejumlah zona Bekasi menuntut solusi pondasi dalam bore pile yang sanggup menahan pergerakan kembang-susut tanah secara permanen.",
+    "keywords": [
+      "bore pile bekasi",
+      "jasa bore pile bekasi",
+      "kontraktor pondasi bekasi",
+      "bore pile cikarang",
+      "strauss pile bekasi"
     ],
+    "services": [
+      "Bore Pile Pondasi",
+      "Strauss Pile Manual",
+      "Bore Pile Mesin",
+      "Sumur Bor Air",
+      "Soil Investigation"
+    ],
+    "areaCovered": [
+      "Bekasi Kota",
+      "Bekasi Barat",
+      "Bekasi Timur",
+      "Bekasi Utara",
+      "Bekasi Selatan",
+      "Tambun Selatan",
+      "Tambun Utara",
+      "Medan Satria",
+      "Rawalumbu",
+      "Pondok Gede",
+      "Jatiasih",
+      "Bantar Gebang"
+    ],
+    "image": "/images/portfolio/09.jpg",
+    "metaDesc": "Jasa bore pile & strauss pile Bekasi sejak 2013. Survey gratis, harga bersaing. Melayani Tambun, Bekasi Barat, Jatiasih & seluruh Bekasi. WA 0815-1481-1120.",
+    "soilInfo": "Struktur tanah Bekasi didominasi endapan aluvial lempung hitam (black clay) yang bersifat ekspansif (mengembang saat basah dan menyusut drastis saat kemarau). Ketebalan lapisan lempung ini berkisar 4–8 meter. Lapisan tanah keras penopang tiang pondasi (N-SPT > 50) umumnya ditemukan pada kedalaman 10 hingga 16 meter di bawah permukaan. Daya dukung lateral tanah ekspansif memerlukan penulangan tiang bor yang memadai dengan besi ulir bersertifikat SNI.",
+    "foundationRecommendation": "Pondasi dangkal di tanah Bekasi sering mengalami kegagalan struktural (lantai pecah bergelombang dan dinding retak tarik) akibat sifat kembang susut tanah lempung. Bore Pile Mesin diameter 40–60 cm merupakan pilihan utama untuk proyek ruko, perkantoran, dan rumah mewah di Summarecon Bekasi atau Grand Galaxy. Untuk pemukiman padat di Tambun atau Jatiasih, metode Strauss Pile Manual diameter 30–40 cm memberikan perlindungan struktur terbaik dengan harga bersahabat.",
+    "projectNote": "TODO: User untuk menambahkan daftar proyek nyata / portofolio spesifik di Bekasi (misal: Ruko di Bekasi Barat, Rumah Tinggal di Jatiasih).",
+    "faq": [
+      {
+        "q": "Bagaimana bore pile mengatasi tanah lempung ekspansif di Bekasi?",
+        "a": "Tiang bore pile menembus seluruh zona aktif kembang susut lempung atas hingga menancap kuat ke tanah keras stabil di bawahnya, sehingga pergerakan tanah permukaan saat pergantian musim tidak mempengaruhi kestabilan bangunan."
+      },
+      {
+        "q": "Berapa lama proses pembuatan tiang bore pile per titik di Bekasi?",
+        "a": "Dengan mesin rotary mini crane, proses pengeboran dan pengecoran per titik rata-rata memakan waktu 1 hingga 2 jam untuk kedalaman 10–12 meter pada kondisi tanah lempung standar Bekasi."
+      },
+      {
+        "q": "Apakah tim Majujaya melayani proyek bore pile untuk ruko di pinggir jalan raya Bekasi?",
+        "a": "Tentu. Kami berpengalaman menangani proyek komersial di pinggir jalan raya utama Bekasi dengan pengaturan sirkulasi buangan tanah bor yang rapi dan tertib lalu lintas."
+      }
+    ]
   },
   {
-    slug: "karawang",
-    city: "Karawang",
-    region: "Jawa Barat",
-    headline: "Jasa Bore Pile Karawang – Kontraktor Pondasi Profesional",
-    intro: "Kami melayani jasa bore pile dan strauss pile di seluruh wilayah Karawang termasuk Karawang Kota, Klari, Cikampek, Purwasari, Teluk Jambe, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile untuk pabrik, gudang, ruko, rumah, dan infrastruktur di Karawang.",
-    keywords: ["bore pile karawang", "jasa bore pile karawang", "kontraktor pondasi karawang", "bore pile cikampek", "strauss pile karawang"],
-    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
-    areaCovered: ["Karawang Kota", "Klari", "Cikampek", "Purwasari", "Teluk Jambe", "Ciampel", "Rengasdengklok", "Batujaya"],
-    image: "/images/portfolio/10.jpg",
-    metaDesc: "Jasa bore pile & strauss pile Karawang sejak 2013. Survey gratis, harga bersaing. Melayani Cikampek, Klari & seluruh area Karawang. WA 0815-1481-1120.",
-    soilInfo: "Wilayah Karawang bagian utara (Rengasdengklok, Batujaya) memiliki tanah lunak karena dekat pesisir pantai, sementara Karawang selatan (Klari, Cikampek) memiliki tanah yang lebih stabil. Kawasan industri di Karawang umumnya membutuhkan bore pile dengan spesifikasi khusus sesuai beban bangunan.",
-    faq: [
-      { q: "Apakah Anda melayani proyek bore pile untuk pabrik di kawasan industri KIIC Karawang?", a: "Ya, kami melayani proyek pondasi untuk pabrik di kawasan industri KIIC, Surya Cipta, Mitra Karawang, dan Bukit Indah City. Proyek industri memerlukan bore pile dengan kapasitas beban tinggi. Tim kami berpengalaman menangani spesifikasi teknis yang dipersyaratkan oleh manajemen kawasan industri." },
-      { q: "Bagaimana dengan biaya mobilisasi ke Karawang dari Jakarta?", a: "Biaya mobilisasi alat ke Karawang sudah termasuk dalam RAB yang kami berikan. Untuk proyek di Karawang, tim kami biasanya mobilisasi pagi hari dan siap bekerja di lokasi. Kami juga telah menangani banyak proyek di Karawang sehingga akses dan logistik sudah terbukti." },
+    "slug": "karawang",
+    "city": "Karawang",
+    "region": "Jawa Barat",
+    "headline": "Jasa Bore Pile Karawang – Pengeboran Pondasi Pabrik Kawasan Industri KIIC Suryacipta",
+    "title": "Jasa Bore Pile Karawang — Spesialis Pabrik & Gudang | Majujaya",
+    "intro": "Kabupaten Karawang adalah salah satu lumbung industri terbesar di Asia Tenggara dengan kawasan industri raksasa seperti KIIC, Surya Cipta, KIM, dan Karawang Barat. Pembangunan sarana manufaktur otomotif, elektronik, data center, gudang logistik, serta residensial di Galuh Mas dan Telukjambe membutuhkan kontraktor tiang bore pile berstandar industri dengan kapasitas rig mumpuni.",
+    "keywords": [
+      "bore pile karawang",
+      "jasa bore pile karawang",
+      "kontraktor pondasi karawang",
+      "bore pile cikampek",
+      "strauss pile karawang"
     ],
+    "services": [
+      "Bore Pile Pondasi",
+      "Strauss Pile Manual",
+      "Bore Pile Mesin",
+      "Sumur Bor Air",
+      "Soil Investigation"
+    ],
+    "areaCovered": [
+      "Karawang Barat",
+      "Karawang Timur",
+      "Telukjambe Timur",
+      "Telukjambe Barat",
+      "Klari",
+      "Cikampek",
+      "Purwasari",
+      "Ciampel",
+      "Rengasdengklok",
+      "Kawasan KIIC",
+      "Kawasan Surya Cipta"
+    ],
+    "image": "/images/portfolio/10.jpg",
+    "metaDesc": "Jasa bore pile & strauss pile Karawang sejak 2013. Survey gratis, harga bersaing. Melayani kawasan industri KIIC, Surya Cipta, Klari & Karawang. WA 0815-1481-1120.",
+    "soilInfo": "Karakteristik tanah Karawang terbagi secara tegas antara zona selatan dan utara. Wilayah selatan (KIIC, Ciampel, Telukjambe) didominasi formasi perbukitan tuf lempung berpasir dengan kedalaman tanah keras berkisar 8 hingga 14 meter. Sebaliknya, wilayah utara mendekati pesisir Laut Jawa (Rengasdengklok, Batujaya) berupa dataran aluvial rawa dan sawah dengan tanah keras yang lebih dalam pada kisaran 16 hingga 22 meter.",
+    "foundationRecommendation": "Untuk bangunan pabrik, instalasi mesin berat, dan gedung penyimpanan di KIIC atau Surya Cipta, tiang Bore Pile Mesin diameter 50–100 cm adalah standar mutlak untuk mengantisipasi getaran dinamis dan beban titik berat. Untuk proyek komersial ruko, minimarket, dan perumahan di Galuh Mas atau Klari, bore pile mini crane diameter 40–50 cm memberikan solusi cepat dan kokoh.",
+    "projectNote": "TODO: User untuk menambahkan daftar proyek nyata / portofolio spesifik di Karawang (misal: Pondasi Pabrik di KIIC, Ruko di Galuh Mas Karawang).",
+    "faq": [
+      {
+        "q": "Apakah kontraktor Majujaya memenuhi standar K3 kawasan industri Karawang?",
+        "a": "Ya, tim kami terbiasa mematuhi SOP K3 ketat kawasan industri termasuk penggunaan APD lengkap (helmet, safety vest, boots, safety glass), izin kerja panas/dingin (permit to work), dan inspeksi kelayakan peralatan."
+      },
+      {
+        "q": "Bagaimana sistem mobilisasi armada bor Majujaya ke kawasan Karawang?",
+        "a": "Armada kami dimobilisasi melalui Tol Jakarta–Cikampek langsung ke lokasi proyek di Karawang. Biaya mobilisasi dan demobilisasi sudah dirinci secara transparan dalam penawaran RAB resmi."
+      },
+      {
+        "q": "Berapa kapasitas kedalaman pengeboran mesin bore pile Majujaya di Karawang?",
+        "a": "Rig bore pile mesin kami mampu mengebor hingga kedalaman 30 meter dengan diameter hingga 100 cm, mencukupi seluruh kebutuhan pondasi industri berat di Karawang."
+      }
+    ]
   },
   {
-    slug: "subang",
-    city: "Subang",
-    region: "Jawa Barat",
-    headline: "Jasa Bore Pile Subang – Kontraktor Pondasi Profesional",
-    intro: "Kami melayani jasa bore pile dan strauss pile di Subang termasuk Subang Kota, Ciasem, Patokbeusi, Pagaden, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile di Subang.",
-    keywords: ["bore pile subang", "jasa bore pile subang", "kontraktor pondasi subang", "strauss pile subang"],
-    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
-    areaCovered: ["Subang Kota", "Ciasem", "Patokbeusi", "Pagaden", "Pamanukan", "Binong", "Cibogo", "Cipeundeuy"],
-    image: "/images/portfolio/01.jpg",
-    metaDesc: "Jasa bore pile & strauss pile Subang sejak 2013. Survey gratis, harga bersaing. Melayani seluruh area Subang. WA 0815-1481-1120.",
-    soilInfo: "Wilayah Subang bagian utara (Pamanukan, Patokbeusi, Ciasem) merupakan area pesisir dan persawahan dengan tanah lunak serta muka air tanah tinggi. Bagian selatan (Subang Kota, Cibogo) memiliki kontur lebih stabil karena berada di kaki Gunung Tangkuban Perahu. Perbedaan karakteristik tanah ini memerlukan pendekatan perencanaan pondasi yang berbeda per lokasi.",
-    faq: [
-      { q: "Apakah bore pile diperlukan untuk bangunan di Subang yang sebagian besar area persawahan?", a: "Sangat diperlukan. Tanah bekas sawah di Subang utara memiliki daya dukung rendah dan rawan ambles. Pondasi bore pile menyalurkan beban bangunan ke lapisan tanah keras di kedalaman 8-15 meter. Banyak bangunan baru di Subang mewajibkan bore pile sebagai standar konstruksi." },
-      { q: "Apakah tim Majujaya bisa menjangkau proyek di Subang yang jaraknya cukup jauh?", a: "Tentu, tim kami sudah melayani Subang dan sekitarnya. Mobilisasi alat tidak masalah karena kami memiliki armada sendiri. Biaya mobilisasi sudah termasuk dalam RAB yang kami berikan. Kami bisa mulai survey lokasi dalam 1-2 hari kerja setelah konfirmasi." },
+    "slug": "cikarang",
+    "city": "Cikarang",
+    "region": "Jawa Barat",
+    "headline": "Jasa Bore Pile Cikarang – Pondasi Mesin Beban Berat Jababeka, MM2100 & EJIP",
+    "title": "Jasa Bore Pile Cikarang — Pengeboran Industri Terpercaya | Majujaya",
+    "intro": "Cikarang merupakan pusat manufaktur utama Indonesia dengan konsentrasi kawasan industri terpadat seperti Jababeka, MM2100, EJIP, Delta Silicon, GIIC, dan BIIE. Konstruksi pabrik modern, gudang e-commerce raksasa, pondasi mesin press bertekanan tinggi, serta fasilitas komersial di Cikarang membutuhkan tiang pondasi bore pile berdaya dukung tinggi dan toleransi kemiringan yang sangat ketat.",
+    "keywords": [
+      "bore pile cikarang",
+      "jasa bore pile cikarang",
+      "kontraktor pondasi cikarang",
+      "bore pile kawasan industri cikarang",
+      "strauss pile cikarang"
     ],
+    "services": [
+      "Bore Pile Pondasi",
+      "Strauss Pile Manual",
+      "Bore Pile Mesin",
+      "Sumur Bor Air",
+      "Soil Investigation"
+    ],
+    "areaCovered": [
+      "Cikarang Pusat",
+      "Cikarang Selatan",
+      "Cikarang Barat",
+      "Cikarang Timur",
+      "Cikarang Utara",
+      "Kawasan Jababeka",
+      "Kawasan MM2100",
+      "Kawasan EJIP",
+      "Delta Silicon",
+      "Cibitung",
+      "Lemahabang"
+    ],
+    "image": "/images/portfolio/03.jpg",
+    "metaDesc": "Jasa bore pile & strauss pile Cikarang sejak 2013. Survey gratis, harga bersaing. Melayani Jababeka, MM2100, EJIP, Delta Silicon. WA 0815-1481-1120.",
+    "soilInfo": "Struktur geologi Cikarang umumnya berada pada dataran aluvial dengan formasi lempung lanauan kaku (stiff to very stiff clay). Kedalaman tanah keras pendukung tiang pancang atau bore pile (N-SPT > 50) biasanya dijumpai pada kedalaman 8 hingga 15 meter. Karakteristik tanah Cikarang tergolong stabil, namun adanya beban getaran mesin frekuensi tinggi pada pabrik manufaktur menuntut penanaman tiang pondasi hingga menyatu kuat dengan lapisan tanah keras dasar.",
+    "foundationRecommendation": "Pondasi Bore Pile Mesin diameter 40–80 cm dengan mutu beton K-350 / fc 30 MPa menjadi pilihan wajib untuk instalasi struktur pabrik dan warehouse di Jababeka dan MM2100. Pengeboran tiang bor memberikan keuntungan signifikan dibandingkan tiang pancang karena tidak memicu getaran yang dapat mengganggu kalibrasi mesin-mesin presisi pabrik tetangga yang sedang beroperasi 24 jam.",
+    "projectNote": "TODO: User untuk menambahkan daftar proyek nyata / portofolio spesifik di Cikarang (misal: Pondasi Gudang di Jababeka, Pabrik Komponen di MM2100).",
+    "faq": [
+      {
+        "q": "Mengapa bore pile lebih dipilih dibanding tiang pancang di kawasan industri Cikarang?",
+        "a": "Tiang pancang menimbulkan gelombang getaran kejut tanah yang dapat mematikan sensor mesin presisi atau meretakkan lantai pabrik tetangga yang aktif berproduksi. Bore pile bebas getaran tumbukan sehingga dapat dikerjakan berdampingan dengan fasilitas operasional."
+      },
+      {
+        "q": "Apakah tim Majujaya sanggup mengerjakan volume puluhan hingga ratusan titik di Cikarang?",
+        "a": "Sanggup. Kami memiliki beberapa armada rig bor mesin mini crane dan kru profesional berpengalaman yang dapat bekerja simultan untuk mengejar jadwal serah terima proyek industri yang ketat."
+      },
+      {
+        "q": "Bagaimana proses verifikasi kedalaman tanah keras di lokasi proyek Cikarang?",
+        "a": "Kami melakukan uji sondir awal dan memantau sampel tanah bor (cutting sample) secara langsung saat proses pengeboran untuk memastikan mata bor telah menyentuh lapisan tanah keras sesuai gambar rencana."
+      }
+    ]
   },
   {
-    slug: "cianjur",
-    city: "Cianjur",
-    region: "Jawa Barat",
-    headline: "Jasa Bore Pile Cianjur – Kontraktor Pondasi Profesional",
-    intro: "Kami melayani jasa bore pile dan strauss pile di Cianjur termasuk Cianjur Kota, Cipanas, Pacet, Sukaresmi, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile di Cianjur.",
-    keywords: ["bore pile cianjur", "jasa bore pile cianjur", "kontraktor pondasi cianjur", "strauss pile cianjur"],
-    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
-    areaCovered: ["Cianjur Kota", "Cipanas", "Pacet", "Sukaresmi", "Cilaku", "Cibeber", "Bojongpicung", "Karangtengah"],
-    image: "/images/portfolio/02.jpg",
-    metaDesc: "Jasa bore pile & strauss pile Cianjur sejak 2013. Survey gratis, harga bersaing. Melayani seluruh area Cianjur & sekitarnya. WA 0815-1481-1120.",
-    soilInfo: "Wilayah Cianjur sebagian besar berada di zona Patahan Lembang dengan karakteristik tanah vulkanik dan alluvial. Tanah keras umumnya ditemukan di kedalaman bervariasi -- di area Cipanas dan Pacet relatif dangkal (4-8 meter), sementara di Cianjur Kota dan Bojongpicung bisa mencapai 10-15 meter. Gempa mikro sering terjadi di Cianjur sehingga kualitas pondasi menjadi prioritas utama.",
-    faq: [
-      { q: "Apakah kondisi gempa di Cianjur mempengaruhi desain bore pile?", a: "Iya, Cianjur berada di zona rawan gempa. Desain bore pile harus mempertimbangkan beban lateral dan momen gempa sesuai standar SNI 1726. Tim Majujaya menyesuaikan spesifikasi pondasi dengan kondisi seismik daerah setempat. Untuk bangunan di Cianjur, kami biasanya merekomendasikan tulangan tambahan pada bore pile." },
-      { q: "Berapa lama proses bore pile untuk rumah di Cipanas atau Pacet?", a: "Untuk rumah di area Cipanas dan Pacet, rata-rata pengerjaan 3-5 hari untuk 8-12 titik bore pile dengan kedalaman 6-12 meter. Akses lokasi di area perbukitan perlu dipertimbangkan dalam jadwal. Tim kami akan survey dulu dan kasih estimasi waktu yang realistis." },
+    "slug": "purwakarta",
+    "city": "Purwakarta",
+    "region": "Jawa Barat",
+    "headline": "Jasa Bore Pile Purwakarta – Pondasi Kontur Perbukitan & Kawasan Industri Bukit Indah",
+    "title": "Jasa Bore Pile Purwakarta — Pengeboran Cepat & Presisi | Majujaya",
+    "intro": "Kabupaten Purwakarta memadukan pusat kegiatan ekonomi perkotaan, perumahan komersial, dan kawasan industri modern seperti Kota Bukit Indah (BIC) serta koridor Sadang–Jatiluhur. Wilayah dengan variasi kontur perbukitan dan jalur seismik aktif ini membutuhkan konstruksi pondasi tiang bore pile yang dirancang kokoh menahan beban gravitasi maupun gempa bumi.",
+    "keywords": [
+      "bore pile purwakarta",
+      "jasa bore pile purwakarta",
+      "kontraktor pondasi purwakarta",
+      "bore pile purwakarta",
+      "strauss pile purwakarta"
     ],
+    "services": [
+      "Bore Pile Pondasi",
+      "Strauss Pile Manual",
+      "Bore Pile Mesin",
+      "Sumur Bor Air",
+      "Soil Investigation"
+    ],
+    "areaCovered": [
+      "Purwakarta Kota",
+      "Cibatu",
+      "Bungursari",
+      "Babakancikao",
+      "Plered",
+      "Sukatani",
+      "Campaka",
+      "Jatiluhur",
+      "Pasawahan",
+      "Darangdan",
+      "Kota Bukit Indah"
+    ],
+    "image": "/images/portfolio/04.jpg",
+    "metaDesc": "Jasa bore pile & strauss pile Purwakarta sejak 2013. Survey gratis, harga bersaing. Melayani Kota Bukit Indah, Bungursari, Sadang & Purwakarta. WA 0815-1481-1120.",
+    "soilInfo": "Kondisi tanah di Purwakarta tergolong bervariasi karena dipengaruhi formasi batuan sedimen vulkanik Formasi Cantayan dan aluvial danau Jatiluhur. Di wilayah dataran industri utara (Bungursari, Bukit Indah, Cibatu), tanah keras dijumpai pada kedalaman 6 hingga 12 meter. Di area selatan dan barat yang berbukit (Plered, Sukatani, Pasawahan), sering dijumpai batuan andesit keras dan lapisan cadas pada kedalaman lebih dangkal (4–8 meter). Keberadaan segmen sesar aktif memerlukan perhatian ekstra pada elastisitas tulangan tiang bor.",
+    "foundationRecommendation": "Untuk proyek pabrik, gudang, dan struktur berat di Kawasan Industri Bukit Indah BIC, bore pile mesin diameter 40–80 cm dengan mata bor coring batuan andesit adalah solusi paling handal. Untuk perumahan residensial dan ruko bertingkat di Purwakarta Kota atau Sadang, strauss pile manual atau mini crane diameter 30–40 cm sangat efisien dari segi biaya dan durasi.",
+    "projectNote": "TODO: User untuk menambahkan daftar proyek nyata / portofolio spesifik di Purwakarta (misal: Gudang Pabrik di Bukit Indah, Ruko di Sadang Purwakarta).",
+    "faq": [
+      {
+        "q": "Bagaimana cara bore pile menembus lapisan tanah berbatu cadas di Purwakarta?",
+        "a": "Rig bore pile mesin kami dilengkapi mata bor khusus tipe rock auger dan roller cone bit yang dirancang khusus untuk memotong lapisan batuan vulkanik keras di wilayah Purwakarta secara efektif."
+      },
+      {
+        "q": "Apakah kontur tanah lereng di Sukatani atau Jatiluhur membutuhkan pondasi khusus?",
+        "a": "Ya, kami menerapkan perhitungan kedalaman tiang yang menjangkau batuan dasar stabil di bawah bidang gelincir lereng, serta memperkuat tulangan lentur tiang bor untuk menahan dorongan lateral tanah lereng."
+      },
+      {
+        "q": "Berapa lama estimasi survey teknis tiba di Purwakarta dari Jakarta?",
+        "a": "Surveyor kami dapat menjangkau seluruh lokasi proyek di Purwakarta melalui Tol Cipularang dalam waktu 1 hari kerja setelah kontak awal dikonfirmasi."
+      }
+    ]
   },
   {
-    slug: "cikarang",
-    city: "Cikarang",
-    region: "Jawa Barat",
-    headline: "Jasa Bore Pile Cikarang – Kontraktor Pondasi Profesional",
-    intro: "Kami melayani jasa bore pile dan strauss pile di Cikarang termasuk Cikarang Selatan, Cikarang Pusat, Cikarang Barat, Cikarang Timur, Cikarang Utara, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile untuk kawasan industri di Cikarang.",
-    keywords: ["bore pile cikarang", "jasa bore pile cikarang", "kontraktor pondasi cikarang", "bore pile kawasan industri cikarang", "strauss pile cikarang"],
-    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
-    areaCovered: ["Cikarang Selatan", "Cikarang Pusat", "Cikarang Barat", "Cikarang Timur", "Cikarang Utara", "Lemahabang", "Cibitung", "Tambun"],
-    image: "/images/portfolio/03.jpg",
-    metaDesc: "Jasa bore pile & strauss pile Cikarang sejak 2013. Survey gratis, harga bersaing. Melayani kawasan industri Cikarang & sekitarnya. WA 0815-1481-1120.",
-    soilInfo: "Cikarang berada di area dataran rendah dengan tanah alluvial yang relatif stabil. Lapisan tanah keras biasanya ditemukan di kedalaman 6-12 meter. Sebagai pusat kawasan industri terbesar di Indonesia (Jababeka, MM2100, EJIP, Delta Silicon), hampir semua proyek di Cikarang memerlukan bore pile dengan spesifikasi teknis yang ketat sesuai standar pabrik.",
-    faq: [
-      { q: "Apa standar bore pile yang biasa diminta oleh kawasan industri di Cikarang?", a: "Kawasan industri di Cikarang seperti Jababeka, MM2100, EJIP, dan Delta Silicon umumnya mensyaratkan bore pile dengan diameter minimal 40-60cm untuk bangunan pabrik dan gudang. Kami juga harus memenuhi spesifikasi beban rencana yang ditentukan oleh manajemen kawasan dan konsultan struktur proyek." },
-      { q: "Apakah Anda bisa mengerjakan proyek bore pile di Cikarang dalam waktu singkat?", a: "Bisa. Untuk proyek di Cikarang, tim kami sangat terbiasa dengan jadwal ketat proyek industri. Pertama kami survey lokasi gratis, setelah deal tim bisa mobilisasi dan mulai pengerjaan dalam 1-2 hari. Proyek standar untuk gudang biasanya selesai 5-10 hari tergantung jumlah titik." },
+    "slug": "serang",
+    "city": "Serang",
+    "region": "Banten",
+    "headline": "Jasa Bore Pile Serang – Solusi Pondasi Wilayah Pesisir & Ibu Kota Banten",
+    "title": "Jasa Bore Pile Serang — Survey Lokasi Gratis | Majujaya",
+    "intro": "Sebagai ibu kota Provinsi Banten, Kota dan Kabupaten Serang mengalami pertumbuhan pesat pada sektor fasilitas publik, pergudangan, perumahan modern, dan sentra industri di koridor Cikande, Kragilan, hingga pesisir Kasemen dan Anyer. Karakteristik wilayah pesisir dan dataran aluvial menuntut kontraktor bore pile dengan spesifikasi ketahanan korosi dan daya dukung tiang prima.",
+    "keywords": [
+      "bore pile serang",
+      "jasa bore pile serang",
+      "kontraktor pondasi serang",
+      "bore pile serang banten",
+      "strauss pile serang"
     ],
+    "services": [
+      "Bore Pile Pondasi",
+      "Strauss Pile Manual",
+      "Bore Pile Mesin",
+      "Sumur Bor Air",
+      "Soil Investigation"
+    ],
+    "areaCovered": [
+      "Serang Kota",
+      "Cipocok Jaya",
+      "Curug",
+      "Taktakan",
+      "Kasemen",
+      "Walantaka",
+      "Ciruas",
+      "Kragilan",
+      "Cikande",
+      "Anyer",
+      "Kramatwatu"
+    ],
+    "image": "/images/portfolio/05.jpg",
+    "metaDesc": "Jasa bore pile & strauss pile Serang sejak 2013. Survey gratis, harga bersaing. Melayani Cikande, Ciruas, Serang Kota, Anyer & seluruh Banten. WA 0815-1481-1120.",
+    "soilInfo": "Struktur geologi wilayah Serang utara (Kasemen, Ciruas, Pontang) dipengaruhi endapan pantai Teluk Banten dengan dominasi lempung lunak dan muka air tanah tinggi. Kedalaman tanah keras pendukung pondasi berada di kisaran 10 hingga 20 meter. Di wilayah Serang tengah dan selatan (Serang Kota, Curug, Cipocok), tanah berupa lempung tufaan yang lebih padat dengan tanah keras pada kedalaman 8 hingga 14 meter. Daerah pesisir Anyer dan Teluk Banten memiliki air tanah payau yang menuntut mutu material beton berstandar anti-korosi.",
+    "foundationRecommendation": "Untuk kawasan industri padat Cikande dan Kragilan, tiang Bore Pile Mesin Mini Crane diameter 40–80 cm dengan sistem pengecoran pipa tremi menjamin kepadatan tiang beton di bawah muka air tanah. Untuk ruko, rukan, dan perumahan di Serang Kota dan Cipocok Jaya, Strauss Pile Manual diameter 30–40 cm menawarkan solusi ekonomis yang cepat selesai tanpa mengorbankan keamanan struktur.",
+    "projectNote": "TODO: User untuk menambahkan daftar proyek nyata / portofolio spesifik di Serang (misal: Bangunan Pabrik di Cikande, Ruko di Serang Kota).",
+    "faq": [
+      {
+        "q": "Bagaimana perlindungan tiang bore pile terhadap air tanah payau di pesisir Serang?",
+        "a": "Kami merekomendasikan pemakaian semen tahan sulfat atau campuran beton dengan slump terkontrol dan selimut beton tebal (minimal 6 cm) agar tulangan besi terlindung sempurna dari penetrasi ion klorida air laut."
+      },
+      {
+        "q": "Apakah Majujaya melayani proyek bore pile di Kawasan Industri Modern Cikande?",
+        "a": "Ya, kami siap melayani proyek gudang, pabrik, dan kantor di Modern Cikande Industrial Estate dengan kepatuhan penuh terhadap standar mutu konstruksi dan jadwal yang disepakati."
+      },
+      {
+        "q": "Apakah survey lokasi ke Kota Serang benar-benar bebas biaya?",
+        "a": "Ya, layanan survey lokasi, pengukuran lapangan, dan RAB estimasi biaya dari Majujaya bersifat 100% gratis untuk seluruh wilayah Serang dan sekitarnya."
+      }
+    ]
   },
   {
-    slug: "purwakarta",
-    city: "Purwakarta",
-    region: "Jawa Barat",
-    headline: "Jasa Bore Pile Purwakarta – Kontraktor Pondasi Profesional",
-    intro: "Kami melayani jasa bore pile dan strauss pile di Purwakarta termasuk Purwakarta Kota, Cibatu, Plered, Sukatani, Campaka, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile untuk perumahan dan industri di Purwakarta.",
-    keywords: ["bore pile purwakarta", "jasa bore pile purwakarta", "kontraktor pondasi purwakarta", "bore pile purwakarta", "strauss pile purwakarta"],
-    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
-    areaCovered: ["Purwakarta Kota", "Cibatu", "Plered", "Sukatani", "Campaka", "Darangdan", "Bojong", "Pasawahan"],
-    image: "/images/portfolio/04.jpg",
-    metaDesc: "Jasa bore pile & strauss pile Purwakarta sejak 2013. Survey gratis, harga bersaing. Melayani seluruh area Purwakarta. WA 0815-1481-1120.",
-    soilInfo: "Purwakarta memiliki kontur tanah perbukitan yang bervariasi. Area utara dan tengah (Purwakarta Kota, Cibatu, Plered) cenderung berbukit dengan tanah keras dangkal 4-8 meter. Area selatan (Sukatani, Campaka, Pasawahan) memiliki tanah yang lebih dalam untuk mencapai lapisan keras. Purwakarta juga dilewati Sesar Cimandiri yang memerlukan perhatian ekstra pada struktur pondasi.",
-    faq: [
-      { q: "Apakah tanah berbukit di Purwakarta memerlukan penanganan khusus untuk bore pile?", a: "Ya, tanah berbukit sering memiliki kemiringan lapisan tanah keras yang tidak rata. Tim kami melakukan survey topografi dan soil test sederhana untuk menentukan titik pengeboran yang tepat agar pondasi mencapai tanah keras secara merata. Untuk tanah miring, panjang bore pile per titik bisa berbeda." },
-      { q: "Apakah Majujaya melayani proyek di kawasan industri Purwakarta?", a: "Tentu. Purwakarta memiliki beberapa kawasan industri seperti Industri Purwakarta dan sekitarnya. Tim kami sudah menangani proyek bore pile untuk pabrik dan gudang di area tersebut. Kami paham persyaratan teknis yang dibutuhkan kawasan industri dan bisa menyesuaikan spesifikasi." },
+    "slug": "cilegon",
+    "city": "Cilegon",
+    "region": "Banten",
+    "headline": "Jasa Bore Pile Cilegon – Pondasi Industri Berat, Pabrik Baja & Petrokimia Merak",
+    "title": "Jasa Bore Pile Cilegon — Pondasi Standar Industri Berat | Majujaya",
+    "intro": "Kota Cilegon dikenal luas sebagai 'Kota Baja' dan episentrum industri petrokimia, pembangkit listrik, dan pelabuhan internasional di Selat Sunda. Pembangunan fasilitas pengolahan, tangki penyimpanan cairan kimia, pipa perpipaan berat, dan workshop alat industri di Ciwandan, Merak, Citangkil, hingga Gerogol menuntut pondasi bore pile dengan daya dukung tiang ekstra besar dan ketahanan kimiawi tinggi.",
+    "keywords": [
+      "bore pile cilegon",
+      "jasa bore pile cilegon",
+      "kontraktor pondasi cilegon",
+      "bore pile merak",
+      "strauss pile cilegon"
     ],
+    "services": [
+      "Bore Pile Pondasi",
+      "Strauss Pile Manual",
+      "Bore Pile Mesin",
+      "Sumur Bor Air",
+      "Soil Investigation"
+    ],
+    "areaCovered": [
+      "Cilegon Kota",
+      "Ciwandan",
+      "Merak",
+      "Pulomerak",
+      "Gerogol",
+      "Citangkil",
+      "Jombang",
+      "Cibeber",
+      "Grogol Cilegon",
+      "Krakatau Industrial Estate"
+    ],
+    "image": "/images/portfolio/06.jpg",
+    "metaDesc": "Jasa bore pile & strauss pile Cilegon sejak 2013. Survey gratis, harga bersaing. Melayani kawasan industri Merak, Ciwandan & seluruh Cilegon. WA 0815-1481-1120.",
+    "soilInfo": "Formasi geologi Cilegon tergolong kompleks karena pertemuan daerah pantai Selat Sunda dengan gugusan perbukitan andesit Gede-Merak. Pada zona pesisir (Ciwandan, Merak), tanah atas berupa endapan pasir aluvial dan lanau lunak dengan tanah keras di kedalaman 12 hingga 22 meter. Pada zona dataran timur (Cibeber, Jombang), lapisan batuan cadas dapat ditemukan pada kedalaman 6 hingga 12 meter. Getaran mesin industri berat dan paparan aerosol laut mengharuskan pemilihan diameter tiang dan mutu beton di atas rata-rata.",
+    "foundationRecommendation": "Metode Bore Pile Mesin sistem rotary hidrolik dengan diameter 50–100 cm adalah solusi mutlak untuk proyek skala industri berat di Krakatau Industrial Estate (KIEC) dan Ciwandan. Sistem pengeboran coring sanggup menembus lapisan lensa batuan keras pesisir tanpa menimbulkan keretakan pada instalasi pipa industri gas atau BBM di dekatnya.",
+    "projectNote": "TODO: User untuk menambahkan daftar proyek nyata / portofolio spesifik di Cilegon (misal: Struktur Pondasi di Kawasan Industri Ciwandan, Workshop di Merak).",
+    "faq": [
+      {
+        "q": "Bagaimana cara kerja bore pile di dekat instalasi pipa gas atau minyak di Cilegon?",
+        "a": "Bore pile tidak menghasilkan getaran hentakan tanah seperti tiang pancang, sehingga sangat aman dilakukan di samping pipa utilitas gas, pipa kimia, dan tangki bertekanan tanpa memicu kebocoran sambungan pipa."
+      },
+      {
+        "q": "Apakah tim Majujaya menyediakan laporan dokumentasi per titik bor untuk auditor industri?",
+        "a": "Ya, kami mencatat dan mendokumentasikan setiap titik pengeboran (boring log, kedalaman riil tanah keras, volume beton yang masuk, foto pengerjaan) sebagai lampiran berita acara serah terima resmi."
+      },
+      {
+        "q": "Berapa lama persiapan mobilisasi rig bor mesin ke kawasan industri Cilegon?",
+        "a": "Dengan akses jalan tol Jakarta–Merak yang terhubung langsung, armada mesin bor kami dapat tiba di kawasan industri Cilegon dalam 1x24 jam setelah izin kerja (SIMAK/permit) diterbitkan."
+      }
+    ]
   },
   {
-    slug: "serang",
-    city: "Serang",
-    region: "Banten",
-    headline: "Jasa Bore Pile Serang – Kontraktor Pondasi Profesional",
-    intro: "Kami melayani jasa bore pile dan strauss pile di Serang termasuk Serang Kota, Cipocok Jaya, Curug, Taktakan, Kasemen, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile di Serang.",
-    keywords: ["bore pile serang", "jasa bore pile serang", "kontraktor pondasi serang", "bore pile serang banten", "strauss pile serang"],
-    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
-    areaCovered: ["Serang Kota", "Cipocok Jaya", "Curug", "Taktakan", "Kasemen", "Walantaka", "Ciruas", "Carenang"],
-    image: "/images/portfolio/05.jpg",
-    metaDesc: "Jasa bore pile & strauss pile Serang sejak 2013. Survey gratis, harga bersaing. Melayani seluruh area Serang & sekitarnya. WA 0815-1481-1120.",
-    soilInfo: "Wilayah Serang bagian utara (Kasemen, Walantaka, Ciruas) dekat pesisir Teluk Banten dengan tanah lunak alluvial dan muka air tanah tinggi. Bagian selatan dan barat (Serang Kota, Cipocok Jaya, Curug) memiliki tanah yang lebih stabil. Kedalaman tanah keras di Serang bervariasi antara 8-18 meter tergantung jarak dari pantai.",
-    faq: [
-      { q: "Tanah di Serang dekat pantai -- apa itu masalah untuk pondasi?", a: "Tanah di area pesisir Serang memang memiliki tantangan tersendiri karena sifat tanah lunak dan potensi air asin yang korosif. Tim Majujaya menggunakan campuran beton dengan ketahanan korosi tinggi untuk proyek di area dekat pantai. Pondasi bore pile tetap menjadi solusi terbaik untuk mencapai tanah keras di bawah lapisan tanah lunak." },
-      { q: "Apakah Anda melayani proyek di kawasan Mandalika atau Anyer?", a: "Ya, kami melayani seluruh area Serang termasuk Anyer dan Carita yang merupakan area wisata. Banyak proyek vila dan hotel di Anyer yang menggunakan bore pile. Kami berpengalaman dengan kondisi tanah pesisir dan akses yang kadang menyempit di area wisata." },
+    "slug": "subang",
+    "city": "Subang",
+    "region": "Jawa Barat",
+    "headline": "Jasa Bore Pile Subang – Pondasi Tanah Aluvial Persawahan & Jalur Pantura Subang",
+    "title": "Jasa Bore Pile Subang — Layanan Terpercaya Seluruh Wilayah | Majujaya",
+    "intro": "Kabupaten Subang tengah mengalami lompatan industri dan infrastruktur pesat seiring beroperasinya Pelabuhan Internasional Patimban dan koridor industri baru Subang Smartpolitan. Pembangunan pergudangan ekspor-impor, kawasan komersial, perumahan, serta ruko di Subang Kota, Pagaden, Pamanukan, hingga Kalijati membutuhkan kontraktor pondasi bore pile yang handal menangani tanah persawahan dan aluvial pesisir.",
+    "keywords": [
+      "bore pile subang",
+      "jasa bore pile subang",
+      "kontraktor pondasi subang",
+      "strauss pile subang"
     ],
+    "services": [
+      "Bore Pile Pondasi",
+      "Strauss Pile Manual",
+      "Bore Pile Mesin",
+      "Sumur Bor Air",
+      "Soil Investigation"
+    ],
+    "areaCovered": [
+      "Subang Kota",
+      "Ciasem",
+      "Patokbeusi",
+      "Pagaden",
+      "Pamanukan",
+      "Binong",
+      "Cibogo",
+      "Cipeundeuy",
+      "Kalijati",
+      "Patimban",
+      "Purwadadi"
+    ],
+    "image": "/images/portfolio/01.jpg",
+    "metaDesc": "Jasa bore pile & strauss pile Subang sejak 2013. Survey gratis, harga bersaing. Melayani kawasan Patimban, Cipeundeuy, Pamanukan & Subang. WA 0815-1481-1120.",
+    "soilInfo": "Karakteristik tanah Subang terbagi tajam antara utara dan selatan. Zona Pantura (Pamanukan, Patokbeusi, Ciasem, Patimban) merupakan dataran aluvial rawa dan bekas persawahan dengan tanah lempung sangat lunak dan muka air tanah tinggi sedalam 0,5–2 meter. Tanah keras di utara berada pada kedalaman 12 hingga 22 meter. Sedangkan zona selatan (Subang Kota, Cibogo, Cipeundeuy) memiliki formasi tanah lempung tufaan perbukitan yang lebih padat dengan tanah keras pada kedalaman 6 hingga 12 meter.",
+    "foundationRecommendation": "Untuk kawasan pergudangan dan logistik penunjang Pelabuhan Patimban dan kawasan industri Cipeundeuy, tiang Bore Pile Mesin diameter 40–80 cm dengan bantuan temporary casing wajib diterapkan untuk mencegah runtuhnya dinding bor di lapisan lempung berair. Untuk ruko dan perumahan di Subang Kota atau Pagaden, metode Strauss Pile Manual diameter 30–40 cm sangat efisien dan terjangkau.",
+    "projectNote": "TODO: User untuk menambahkan daftar proyek nyata / portofolio spesifik di Subang (misal: Gudang Penunjang Patimban, Ruko di Subang Kota).",
+    "faq": [
+      {
+        "q": "Bagaimana solusi pondasi di area bekas sawah berlumpur di Subang Pantura?",
+        "a": "Pondasi bore pile menembus seluruh lapisan lumpur sawah atas sampai ujung bawah tiang bertumpu mantap pada lapisan pasir padat atau lempung keras di bawahnya, meniadakan risiko amblas secara permanen."
+      },
+      {
+        "q": "Apakah Majujaya melayani proyek bore pile penunjang Pelabuhan Patimban?",
+        "a": "Ya, kami melayani proyek fasilitas penunjang pergudangan, kantor logistik, ruko komersial, dan workshop di koridor Patimban dan akses jalan tol Subang."
+      },
+      {
+        "q": "Bagaimana cara mengatur jadwal survey lokasi gratis untuk proyek di Subang?",
+        "a": "Hubungi WhatsApp kami di 0815-1481-1120 dengan mencantumkan koordinat lokasi proyek. Tim teknis kami akan mengonfirmasi jadwal survey gratis dalam 1x24 jam."
+      }
+    ]
   },
   {
-    slug: "cilegon",
-    city: "Cilegon",
-    region: "Banten",
-    headline: "Jasa Bore Pile Cilegon – Kontraktor Pondasi Profesional",
-    intro: "Kami melayani jasa bore pile dan strauss pile di Cilegon termasuk Cilegon Kota, Ciwandan, Merak, Gerogol, dan sekitarnya. Dengan pengalaman 12+ tahun, tim kami siap menangani proyek pondasi bore pile untuk kawasan industri di Cilegon dan sekitarnya.",
-    keywords: ["bore pile cilegon", "jasa bore pile cilegon", "kontraktor pondasi cilegon", "bore pile merak", "strauss pile cilegon"],
-    services: ["Bore Pile Pondasi", "Strauss Pile Manual", "Bore Pile Mesin", "Sumur Bor Air", "Soil Investigation"],
-    areaCovered: ["Cilegon Kota", "Ciwandan", "Merak", "Gerogol", "Pulomerak", "Jombang", "Citangkil", "Cibeber"],
-    image: "/images/portfolio/06.jpg",
-    metaDesc: "Jasa bore pile & strauss pile Cilegon sejak 2013. Survey gratis, harga bersaing. Melayani kawasan industri Cilegon, Merak & sekitarnya. WA 0815-1481-1120.",
-    soilInfo: "Cilegon merupakan area industri berat dengan tanah yang bervariasi -- dari tanah alluvial lunak di area pesisir Merak hingga tanah laterit yang lebih stabil di Cilegon bagian timur. Sebagai pusat industri baja dan petrokimia, Cilegon banyak memiliki proyek pondasi dengan spesifikasi teknis tinggi dan beban sangat besar. Kedalaman tanah keras bervariasi 8-20 meter.",
-    faq: [
-      { q: "Apakah Anda bisa menangani proyek bore pile untuk pabrik baja atau petrokimia di Cilegon?", a: "Ya, tim Majujaya sudah menangani proyek pondasi untuk industri berat di Cilegon dan Merak. Proyek industri memerlukan bore pile berdiameter besar (60-100cm) dengan toleransi vertikalitas yang ketat. Kami memiliki peralatan dan pengalaman untuk memenuhi standar teknis yang dipersyaratkan oleh perusahaan industri di Cilegon." },
-      { q: "Bagaimana akses tanah di Cilegon dan sekitarnya?", a: "Akses di Cilegon umumnya baik karena merupakan kawasan industri utama. Jalan-jalan utama sudah beraspal dan lebar sehingga mobilisasi alat tidak masalah. Untuk proyek di area Merak dan Anyer, tim kami biasa mengatur jadwal pengerjaan yang efisien dari base kami di Jakarta Selatan. Survey lokasi gratis bisa dilakukan dalam 1-2 hari kerja." },
+    "slug": "cianjur",
+    "city": "Cianjur",
+    "region": "Jawa Barat",
+    "headline": "Jasa Bore Pile Cianjur – Pondasi Tahan Gempa & Daerah Pegunungan Cipanas Cianjur",
+    "title": "Jasa Bore Pile Cianjur — Konstruksi Pondasi Tahan Gempa | Majujaya",
+    "intro": "Membangun di Kabupaten Cianjur (Cianjur Kota, Cipanas, Pacet, Sukaresmi, Cilaku) memerlukan perhatian geoteknik khusus mengingat daerah ini berada di jalur aktivitas seismik aktif (Sesar Cugenang & Sesar Cimandiri) serta memiliki kontur lereng pegunungan. Pondasi bore pile bertulang kokoh menjadi standar rekayasa penting untuk menjamin bangunan tahan guncangan gempa dan pergeseran tanah lereng.",
+    "keywords": [
+      "bore pile cianjur",
+      "jasa bore pile cianjur",
+      "kontraktor pondasi cianjur",
+      "strauss pile cianjur"
     ],
-  },
+    "services": [
+      "Bore Pile Pondasi",
+      "Strauss Pile Manual",
+      "Bore Pile Mesin",
+      "Sumur Bor Air",
+      "Soil Investigation"
+    ],
+    "areaCovered": [
+      "Cianjur Kota",
+      "Cipanas",
+      "Pacet",
+      "Sukaresmi",
+      "Cilaku",
+      "Cibeber",
+      "Bojongpicung",
+      "Karangtengah",
+      "Cugenang",
+      "Warungkondang",
+      "Ciranjang"
+    ],
+    "image": "/images/portfolio/02.jpg",
+    "metaDesc": "Jasa bore pile & strauss pile Cianjur sejak 2013. Survey gratis, harga bersaing. Melayani Cipanas, Pacet, Cianjur Kota & seluruh area. WA 0815-1481-1120.",
+    "soilInfo": "Struktur geologi Cianjur didominasi endapan vulkanik Gunung Gede-Pangrango berupa breksi, lahar, dan tuf lempungan. Di wilayah pegunungan Cipanas dan Pacet, lapisan batuan keras dan cadas dijumpai pada kedalaman relatif dangkal (4–10 meter). Namun, kemiringan lereng yang curam menuntut pondasi tiang yang diangkurkan ke lapisan batuan dasar untuk mencegah bahaya gelincir lereng saat gempa bumi. Di Cianjur Kota dan Cilaku, tanah keras berada pada kedalaman 8 hingga 14 meter.",
+    "foundationRecommendation": "Untuk villa, resort, dan perumahan di Cipanas, Cugenang, dan Pacet, bore pile mesin diameter 40–60 cm yang diperkuat besi tulangan ulir penuh (full cage rebar) sesuai kaidah SNI 1726 (Tata Cara Perencanaan Ketahanan Gempa untuk Struktur Gedung) merupakan pilihan wajib. Untuk renovasi rumah bertingkat di pemukiman Cianjur Kota, metode strauss pile manual diameter 30–40 cm memberikan fleksibilitas kerja yang aman dan terjangkau.",
+    "projectNote": "TODO: User untuk menambahkan daftar proyek nyata / portofolio spesifik di Cianjur (misal: Villa di Cipanas, Rumah Tahan Gempa di Cianjur Kota).",
+    "faq": [
+      {
+        "q": "Mengapa desain penulangan tiang bore pile di Cianjur harus memperhitungkan faktor gempa?",
+        "a": "Saat gempa terjadi, gaya lateral dan momen lentur tinggi bekerja pada tiang pondasi. Pemasangan tulangan besi ulir dengan rasio sengkang spiral rapat memastikan tiang bore pile memiliki daktilitas tinggi dan tidak patah di bawah tanah."
+      },
+      {
+        "q": "Bagaimana pengeboran dilakukan pada lahan berkontur curam di area Cipanas?",
+        "a": "Kami melakukan perataan dudukan alat kerja bertingkat (terasing sementara) demi keamanan operator dan stabilitas vertikalitas tiang bor agar sudut tiang tegak lurus sempurna 90 derajat."
+      },
+      {
+        "q": "Berapa lama estimasi pengerjaan tiang bore pile untuk villa di Cipanas atau Pacet?",
+        "a": "Untuk proyek villa standar (8–12 titik tiang bor kedalaman 6–10 meter), waktu pengerjaan berkisar 3 sampai 5 hari kerja tergantung kekerasan lapisan batuan vulkanik di lokasi."
+      }
+    ]
+  }
 ];
 
-/* lat/lng for nearest-city internal links (same coords as ServiceAreaMap) */
 const LOCATION_COORDS = {
   serang: [-6.12, 106.15],
   cilegon: [-6.04, 106.05],
