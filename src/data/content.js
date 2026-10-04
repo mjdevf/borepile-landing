@@ -77,6 +77,7 @@ export const about = {
   title: "Tentang Majujaya Bore Pile",
   desc: "Kami adalah kontraktor jasa pondasi bore pile yang berasal dari Jakarta dan melayani proyek pengerjaan pondasi bore pile untuk wilayah Jabodetabek. Kami biasa menangani pekerjaan bore pile mesin maupun pondasi strauss pile manual dengan diameter mulai 30 cm, 40 cm, 60 cm, 80 cm, sampai 100 cm.",
   vision: "Menjadi perusahaan pengeboran tanah yang profesional yang mendukung pembangunan dan kemakmuran bangsa Indonesia.",
+  legacyNote: "Majujaya Bore Pile sebelumnya dikenal lewat website majujayaborepile.com. Situs borepilemajujaya.com ini adalah website resmi terbaru kami.",
   highlights: [
     {
       title: "Kontraktor Jasa Bore Pile",
@@ -1182,6 +1183,7 @@ export const faq = [
 
 export const footer = {
   company: "MAJUJAYA BORE PILE",
+  legacyNote: "Website resmi terbaru Majujaya Bore Pile (sebelumnya majujayaborepile.com).",
   tagline: "Jasa Bore Pile & Strauss Pile Profesional",
   address:
     "JL. OPHIR DALAM 2 RT.06/01 NO.61, KEL. GUNUNG KEBAYORAN BARU JAKSEL",

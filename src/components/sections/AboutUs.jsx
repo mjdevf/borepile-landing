@@ -50,6 +50,8 @@ export default function AboutUs() {
             &ldquo;{about.vision}&rdquo;
           </p>
         </div>
+
+        <p className="mt-6 text-xs leading-relaxed text-secondary">{about.legacyNote}</p>
       </div>
     </section>
   );

@@ -206,6 +206,7 @@ export default function Footer() {
           <p className="font-mono text-xs text-secondary">
             &copy; 2026 {footer.company}. Engineering Integrity &amp; Structural Trust.
           </p>
+          <p className="font-mono text-[10px] text-secondary">{footer.legacyNote}</p>
           <p className="font-mono text-[10px] text-on-surface-variant max-w-md text-center md:text-right">
             {footer.privacy}
           </p>

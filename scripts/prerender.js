@@ -214,6 +214,7 @@ function renderHomepageBody() {
         <h2 style="font-size:28px;font-weight:700;color:#0f172a;margin-bottom:16px;">${esc(about.title)}</h2>
         <p style="line-height:1.8;color:#334155;font-size:16px;margin-bottom:16px;">${esc(about.desc)}</p>
         <p style="line-height:1.8;color:#475569;font-size:15px;margin-bottom:24px;"><strong>Visi Perusahaan:</strong> ${esc(about.vision)}</p>
+        <p style="line-height:1.8;color:#475569;font-size:14px;margin-bottom:24px;">${esc(about.legacyNote)}</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
           ${about.highlights.map((h) => `<div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;padding:16px;"><h4 style="font-size:16px;font-weight:700;color:#0f172a;margin-bottom:6px;">${esc(h.title)}</h4><p style="font-size:14px;line-height:1.6;color:#64748b;margin:0;">${esc(h.desc)}</p></div>`).join('')}
         </div>
@@ -267,7 +268,7 @@ function renderHomepageBody() {
         </div>
       </div>
       <div style="max-width:1100px;margin:0 auto;padding-top:20px;border-top:1px solid #e2e8f0;text-align:center;font-size:13px;">
-        &copy; 2026 ${esc(footerData.company)}. Seluruh hak cipta dilindungi.
+        &copy; 2026 ${esc(footerData.company)}. Seluruh hak cipta dilindungi.<br>${esc(footerData.legacyNote)}
       </div>
     </footer>
   </div>`;
