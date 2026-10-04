@@ -157,6 +157,23 @@ for (const loc of locationDirs) {
   }
 }
 
+console.log('\n--- 6. VERIFY NO LEAKED TAGS, TODOs, OR INCONSISTENT CLAIMS ---');
+for (const file of allHtmlFiles) {
+  const relFile = path.relative(distDir, file);
+  const content = fs.readFileSync(file, 'utf8');
+  assert(!content.includes('TODO_MASUKKAN'), `File ${relFile} must not contain TODO_MASUKKAN`);
+  assert(!content.toLowerCase().includes('250+ proyek'), `File ${relFile} must not contain "250+ proyek"`);
+}
+
+const homepageFaqMatch = homepageHtml.match(/<section id="faq"[\s\S]*?<\/section>/);
+if (homepageFaqMatch) {
+  assert(!homepageFaqMatch[0].includes('<strong') && !homepageFaqMatch[0].includes('&lt;strong'), 'Homepage FAQ must not contain literal or escaped strong tags');
+}
+const hpJsonLd = homepageDom.window.document.querySelectorAll('script[type="application/ld+json"]');
+for (const s of hpJsonLd) {
+  assert(!s.textContent.includes('<strong') && !s.textContent.includes('&lt;strong'), 'JSON-LD scripts must not contain strong tags');
+}
+
 console.log('\n--- VERIFICATION SUMMARY ---');
 if (failed) {
   console.error('❌ Verification FAILED!');
