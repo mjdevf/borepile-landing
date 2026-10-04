@@ -23,7 +23,7 @@ export const trustBar = {
   items: [
     { label: "Titik Pengeboran", value: "250", suffix: "+", icon: "Drill" },
     { label: "Tahun Pengalaman", value: "12", suffix: "+", icon: "Calendar" },
-    { label: "Diameter", value: "30-80", suffix: "cm", icon: "Ruler" },
+    { label: "Diameter", value: "30-100", suffix: "cm", icon: "Ruler" },
     { label: "Kedalaman Maks", value: "30", suffix: "m", icon: "ArrowDown" },
   ],
 };
@@ -1152,7 +1152,7 @@ export const faq = [
   },
   {
     q: "Berapa biaya jasa bore pile per titik?",
-    a: "Harga bore pile per titik mulai dari Rp750.000 hingga Rp2.000.000 tergantung diameter (30cm, 40cm, 60cm, 80cm, 100cm), kedalaman, dan kondisi tanah. Hubungi kami untuk penawaran harga resmi, harga ini dapat berubah tanpa pemberitahuan dan bukan merupakan harga jadi."
+    a: "Biaya jasa mulai dari Rp750.000 per titik untuk strauss pile manual (diameter 30-40cm) dan mulai Rp2.000.000 per titik untuk bore pile mesin mini crane. Harga aktual dipengaruhi oleh diameter, kedalaman tanah keras, dan jumlah titik. Estimasi ini merupakan perkiraan kompetitif awal; hubungi kami untuk penawaran resmi dan survey lokasi teknis gratis di lokasi proyek Anda."
   },
   {
     q: "Berapa lama proses pengerjaan bore pile dari survey hingga selesai?",
@@ -1172,7 +1172,7 @@ export const faq = [
   },
   {
     q: "Apa perbedaan bore pile mesin dan strauss pile manual?",
-    a: "Bore pile mesin menggunakan alat berat untuk pengeboran dalam (30-100cm diameter) dengan kedalaman hingga 20 meter. Strauss pile manual menggunakan tenaga manusia dengan diameter lebih kecil. Kami menyediakan keduanya sesuai kebutuhan proyek Anda."
+    a: "Bore pile mesin menggunakan rig bertenaga mesin untuk pengeboran dalam diameter 30-100cm dengan kedalaman hingga 30 meter. Strauss pile manual menggunakan tenaga putar manusia untuk diameter 30-40cm pada kedalaman 6-15 meter. Kami menyediakan keduanya sesuai kebutuhan proyek Anda."
   },
   {
     q: "Bagaimana dengan kualitas dan standar pekerjaan?",
