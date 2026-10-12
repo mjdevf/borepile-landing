@@ -1102,6 +1102,25 @@ function dist2(a, b) {
 }
 
 /* ── Shared per-location SEO content: cross-links + expanded paragraph ── */
+const WORKSHOP_SLUG = "jakarta-selatan"; // workshop & pool armada Majujaya
+
+// Approximate straight-line distance in km (haversine) between two [lat, lng] pairs
+function distKm(a, b) {
+  const R = 6371;
+  const rad = (d) => (d * Math.PI) / 180;
+  const dLat = rad(b[0] - a[0]);
+  const dLng = rad(b[1] - a[1]);
+  const h =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(rad(a[0])) * Math.cos(rad(b[0])) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+function joinList(items) {
+  if (items.length <= 1) return items.join("");
+  return `${items.slice(0, -1).join(", ")} dan ${items[items.length - 1]}`;
+}
+
 export function getLocationDetail(location) {
   const here = LOCATION_COORDS[location.slug];
   const others = locationPages
@@ -1114,12 +1133,41 @@ export function getLocationDetail(location) {
     .map((l) => ({ title: `Jasa Bore Pile ${l.city}`, href: `/location/${l.slug}/` }));
 
   const city = location.city;
-  const paragraph =
-    `Majujaya adalah kontraktor jasa bore pile dan strauss pile berpengalaman yang melayani kebutuhan pondasi di ${city} dan sekitarnya. Tim geoteknik kami menangani proyek mulai dari rumah tinggal, ruko, gedung bertingkat, hingga kawasan industri dan infrastruktur di ${city}. Setiap titik pengeboran di ${city} dikerjakan dengan metode standar, diawasi langsung, dan didokumentasikan untuk memastikan hasil yang sesuai rencana di atas tanah yang terkadang memiliki daya dukung bervariasi. Dengan pengalaman lebih dari 12 tahun dan 250+ titik pengeboran selesai, kami telah membantu banyak pemilik bangunan di ${city} mendapatkan pondasi yang aman, presisi, dan sesuai jadwal.
+  const region = location.region;
+  const idx = Math.max(0, locationPages.findIndex((l) => l.slug === location.slug));
+  const areas = joinList((location.areaCovered || []).slice(0, 3));
+  const nearby = joinList(
+    others.slice(0, 2).map((o) => o.title.replace("Jasa Bore Pile ", ""))
+  );
 
-Kami memahami kondisi tanah khas di ${city}. Sebelum pekerjaan dimulai, survey lokasi gratis dilakukan oleh tim kami untuk menentukan kedalaman, diameter, dan jenis bore pile yang paling efisien, baik bore pile mesin untuk proyek besar maupun strauss pile manual untuk area akses terbatas. Estimasi rinci biaya (RAB) diberikan tanpa biaya, termasuk mulai harga per titik dan biaya mobilisasi alat ke ${city}. Tidak ada biaya tersembunyi; pelanggan di ${city} dan sekitarnya mendapatkan hasil pekerjaan sesuai spesifikasi, harga borong yang jelas, dan dokumentasi pengeboran per titik sebagai bentuk transparansi. Hubungi kami melalui WhatsApp untuk konsultasi dan penjadwalan survey di ${city}, tim kami siap mobilisasi dalam 1x24 jam setelah deal disepakati.`;
+  const workshop = LOCATION_COORDS[WORKSHOP_SLUG];
+  const km = here && location.slug !== WORKSHOP_SLUG ? Math.round(distKm(workshop, here) / 5) * 5 : 0;
 
-  return { others, paragraph: paragraph };
+  // Paragraph 1: who we are + where exactly (varied sentence structure, city-specific areas & neighbours)
+  const intros = [
+    `Majujaya melayani pekerjaan bore pile dan strauss pile di ${city}, ${region}, dengan titik kerja yang kerap berada di ${areas}. Mulai dari rumah tinggal, ruko, hingga bangunan komersial dan industri, setiap titik pengeboran dikerjakan dengan metode standar, diawasi langsung, dan didokumentasikan.`,
+    `Pemilik bangunan di wilayah ${areas} maupun sekitarnya dapat memakai jasa Majujaya untuk pondasi bore pile maupun strauss pile di ${city}. Kami berpengalaman lebih dari 12 tahun dengan 250+ titik pengeboran selesai, dan wilayah ${city} masuk dalam jangkauan layanan rutin kami bersama ${nearby}.`,
+    `Untuk proyek pondasi dalam di ${city}, ${region}, tim Majujaya menangani seluruh tahap: survey, penentuan kedalaman dan diameter tiang, pengeboran, hingga pengecoran. Area yang paling sering kami layani meliputi ${areas}, dengan hasil kerja yang dicatat per titik sebagai bentuk transparansi.`,
+  ];
+
+  // Paragraph 2: survey/RAB + mobilization that depends on real distance from our workshop
+  let mobil;
+  if (!km) {
+    mobil = `Workshop dan pool armada kami berada di ${city}, sehingga mobilisasi alat ke lokasi proyek dapat dilakukan dengan cepat, biasanya dalam 1x24 jam setelah deal disepakati.`;
+  } else if (km <= 60) {
+    mobil = `Lokasi ${city} berjarak sekitar ${km} km dari workshop kami di Jakarta Selatan, sehingga mobilisasi alat dapat dimulai dalam 1x24 jam setelah deal disepakati.`;
+  } else {
+    mobil = `Lokasi ${city} berjarak sekitar ${km} km dari workshop kami di Jakarta Selatan. Jadwal mobilisasi dikonfirmasi saat survey, dan biaya mobilisasi serta demobilisasi dirinci terbuka di dalam RAB.`;
+  }
+  const surveys = [
+    `Sebelum pekerjaan dimulai, survey lokasi gratis dilakukan untuk menentukan kedalaman, diameter, dan jenis tiang yang paling efisien di ${city}: bore pile mesin untuk beban besar, atau strauss pile manual untuk akses sempit. Estimasi biaya (RAB) diberikan tanpa biaya dan tanpa biaya tersembunyi. ${mobil}`,
+    `Konsultasi awal untuk proyek di ${city} gratis: tim kami meninjau lokasi, membaca kondisi tanah, lalu menyusun RAB rinci per titik. Kami menyediakan bore pile mesin dan strauss pile manual sesuai kebutuhan bangunan. ${mobil}`,
+    `Langkah awalnya sederhana: hubungi kami via WhatsApp, kami jadwalkan survey gratis ke lokasi di ${city}, lalu kirim RAB yang jelas dan terperinci. ${mobil} Jenis tiang, bore pile mesin atau strauss pile manual, disesuaikan dengan beban bangunan dan akses lokasi.`,
+  ];
+
+  const paragraph = `${intros[idx % 3]}\n\n${surveys[(idx + 1) % 3]}`;
+
+  return { others, paragraph };
 }
 
 export const howItWorks = [

@@ -97,8 +97,6 @@ function renderLocationBody(loc) {
       </div>
     </section>` : ''}
 
-    ${loc.projectNote ? `<!-- ${esc(loc.projectNote)} -->` : ''}
-
     <section style="margin-top:36px;">
       <h2 style="font-size:22px;margin-bottom:12px;color:#0f172a;">Layanan Bore Pile &amp; Strauss Pile di ${esc(city)}</h2>
       <ul style="list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;">${services}</ul>
