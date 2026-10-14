@@ -2,21 +2,6 @@ import { useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { portfolioImages } from "../../data/content";
 
-const FEATURE = [
-  {
-    src: "/images/portfolio/hero-bg.webp",
-    alt: "Auger rig bor mesin dan pekerja berhelm di area pengeboran",
-    label: "Pengeboran dengan rig bor mesin",
-    pos: "30% 82%",
-  },
-  {
-    src: "/images/subiyanto-borepile.webp",
-    alt: "Pekerja di lokasi proyek gedung dengan perancah dan pipa",
-    label: "Pekerjaan pondasi di lokasi proyek",
-    pos: "40% 70%",
-  },
-];
-
 export default function Portfolio() {
   const [selected, setSelected] = useState(null);
 
@@ -56,7 +41,7 @@ export default function Portfolio() {
 
           {/* Stacked feature photos */}
           <div className="relative mb-10 h-[420px] md:mb-16 md:h-[560px]">
-            {FEATURE.map((img, i) => {
+            {[portfolioImages[0], portfolioImages[1]].map((img, i) => {
               const back = i === 0;
               return (
                 <figure
@@ -73,7 +58,6 @@ export default function Portfolio() {
                     loading="lazy"
                     decoding="async"
                     className="h-full w-full object-cover"
-                    style={{ objectPosition: img.pos }}
                   />
                   <figcaption
                     className={`absolute bottom-3 left-3 rounded-[2px] px-2.5 py-1.5 text-xs text-on-primary md:text-sm ${
