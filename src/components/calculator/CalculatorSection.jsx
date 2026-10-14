@@ -1,10 +1,31 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Phone, MapPin, Drill, Wrench, BookmarkPlus } from 'lucide-react';
+import { Phone, Check, BookmarkPlus } from 'lucide-react';
 import { calculateEstimation, formatRangeCost, generateWhatsAppLink } from './calculator';
 import DrillVisualizer from './DrillVisualizer';
 import SavedEstimates from './SavedEstimates';
 
 const SOIL_LABELS = { soft: 'Tanah Lunak', medium: 'Tanah Sedang', hard: 'Tanah Keras' };
+
+const Step = ({ n, title, children }) => (
+  <section className="flex flex-col gap-3.5">
+    <div className="flex items-center gap-3">
+      <span aria-hidden="true" className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary font-mono text-[13px] text-on-primary">{n}</span>
+      <h3 className="text-lg font-bold text-primary">{title}</h3>
+    </div>
+    {children}
+  </section>
+);
+
+const Slider = ({ id, label, min, max, value, onChange, text, minText, maxText }) => (
+  <div className="flex flex-col gap-0.5">
+    <div className="flex items-baseline justify-between gap-3">
+      <label htmlFor={id} className="font-mono text-[13px] text-secondary">{label}</label>
+      <output htmlFor={id} className="font-mono text-xl font-medium text-accent">{text}</output>
+    </div>
+    <input id={id} type="range" min={min} max={max} step="1" value={value} onChange={onChange} className="m-0 h-11 w-full cursor-pointer accent-accent" />
+    <div className="flex justify-between font-mono text-xs text-outline"><span>{minText}</span><span>{maxText}</span></div>
+  </div>
+);
 
 export default function CalculatorSection() {
   const sectionRef = useRef(null);
@@ -84,203 +105,159 @@ export default function CalculatorSection() {
   const depthMin = input.pileType === 'bored-pile-machine' ? 10 : 3;
   const depthMax = input.pileType === 'bored-pile-machine' ? 30 : 8;
 
-  const activeBtn = 'bg-primary text-on-primary rounded-sm';
-  const inactiveBtn = 'bg-surface hover:bg-surface-container-low text-secondary border border-border-muted rounded-sm';
-  const labelClass = 'text-xs font-mono text-secondary mb-2 block';
+  const optBtn = (active) =>
+    `inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-sm border-[1.5px] px-3 text-[15px] font-semibold transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+      active
+        ? 'border-primary bg-primary text-on-primary'
+        : 'border-border-muted bg-white text-primary hover:border-primary'
+    }`;
+  const labelClass = 'mb-2 block font-mono text-[13px] text-secondary';
+
+  const row = 'flex justify-between gap-4 border-b border-white/15 py-2.5 text-[15px]';
 
   return (
-    <section id="kalkulator" ref={sectionRef} className="bg-surface px-4 py-16 md:px-10 md:py-24 border-b border-border-muted">
+    <section id="kalkulator" ref={sectionRef} className="bg-surface-container px-5 py-16 md:px-10 md:py-28">
       <div className="mx-auto w-full max-w-7xl">
         {/* Header */}
-        <div className="mb-10 flex flex-col items-start gap-2">
-          <span className="font-mono text-xs text-accent">
-            Kalkulator Biaya Mandiri
-          </span>
-          <h2 className="max-w-2xl text-2xl font-bold text-primary md:text-3xl" style={{ letterSpacing: '-0.01em', lineHeight: '1.3' }}>
-            Estimasi Biaya Fondasi Proyek Anda
+        <div className="mb-8 flex max-w-2xl flex-col gap-3 md:mb-12 md:gap-4">
+          <h2 className="text-[32px] leading-[1.1] tracking-tight text-primary md:text-[44px]">
+            Hitung Estimasi Biaya Pondasi
           </h2>
-          <p className="max-w-2xl text-base text-secondary">
-            Isi parameter proyek di bawah untuk simulasi kasar biaya. Hasil akan otomatis terupdate.
+          <p className="max-w-[56ch] text-base leading-relaxed text-secondary md:text-lg">
+            Pilih metode, diameter, dan kedalaman. Hasilnya perkiraan awal sebelum survey lokasi.
           </p>
-
-          {/* PERINGATAN KERAS */}
-          <div className="mt-2 w-full max-w-2xl border-l-2 border-accent bg-surface-container-low p-3 text-left">
-            <div className="text-xs leading-relaxed text-secondary">
-              <strong className="text-accent font-semibold">DISCLAIMER:</strong> Estimasi ini adalah simulasi kasar awal, <strong className="text-primary font-semibold">bukan harga jadi</strong>. Biaya aktual disesuaikan dengan hasil survey lokasi teknis gratis.
-            </div>
-          </div>
+          <p className="max-w-[56ch] border-l-2 border-accent pl-3 text-xs leading-relaxed text-secondary">
+            <strong className="font-semibold text-accent">DISCLAIMER:</strong> simulasi kasar awal, <strong className="font-semibold text-primary">bukan harga jadi</strong>. Biaya aktual mengikuti hasil survey lokasi teknis gratis.
+          </p>
         </div>
 
         {visible ? (
-          <div className="grid gap-8 lg:grid-cols-12 lg:gap-10 items-start">
-            {/* LEFT: Form */}
-            <div className="lg:col-span-5 space-y-5">
-              <div className="border-t border-b border-border-muted divide-y divide-border-muted bg-surface py-2">
-                {/* Pile Type */}
-                <div className="py-4">
-                  <label className={labelClass}>Metode Pekerjaan</label>
-                  <div className="grid grid-cols-2 gap-2">
-                    <button onClick={() => handlePileType('bored-pile-machine')}
-                      className={`flex items-center justify-center gap-2 px-4 py-3 text-xs font-semibold transition-all cursor-pointer ${input.pileType === 'bored-pile-machine' ? activeBtn : inactiveBtn}`}>
-                      <Drill className="h-4 w-4" /> Bored Pile Mesin
+          <div className="grid items-start gap-6 lg:grid-cols-12">
+            {/* LEFT: steps */}
+            <div className="flex flex-col gap-8 rounded-sm border border-border-muted bg-surface p-5 md:p-8 lg:col-span-6">
+              <Step n={1} title="Jenis pekerjaan">
+                <div>
+                  <span className={labelClass}>Metode</span>
+                  <div className="flex flex-wrap gap-2">
+                    <button type="button" aria-pressed={input.pileType === 'bored-pile-machine'} onClick={() => handlePileType('bored-pile-machine')} className={`${optBtn(input.pileType === 'bored-pile-machine')} min-w-[130px]`}>
+                      {input.pileType === 'bored-pile-machine' && <Check className="h-3.5 w-3.5" strokeWidth={3} />} Bore Pile Mesin
                     </button>
-                    <button onClick={() => handlePileType('strauss-pile-manual')}
-                      className={`flex items-center justify-center gap-2 px-4 py-3 text-xs font-semibold transition-all cursor-pointer ${input.pileType === 'strauss-pile-manual' ? activeBtn : inactiveBtn}`}>
-                      <Wrench className="h-4 w-4" /> Strauss Manual
+                    <button type="button" aria-pressed={input.pileType === 'strauss-pile-manual'} onClick={() => handlePileType('strauss-pile-manual')} className={`${optBtn(input.pileType === 'strauss-pile-manual')} min-w-[130px]`}>
+                      {input.pileType === 'strauss-pile-manual' && <Check className="h-3.5 w-3.5" strokeWidth={3} />} Strauss Pile Manual
                     </button>
                   </div>
                 </div>
-
-                {/* Diameter */}
-                <div className="py-4">
-                  <label className={labelClass}>Diameter Tiang</label>
-                  <div className="grid grid-cols-4 gap-2">
+                <div>
+                  <span className={labelClass}>Diameter tiang</span>
+                  <div className="flex flex-wrap gap-2">
                     {diaOptions.map((d) => (
-                      <button key={d} onClick={() => update('diameter', d)}
-                        className={`px-3 py-2.5 text-xs font-bold transition-all cursor-pointer ${input.diameter === d ? activeBtn : inactiveBtn}`}>
-                        {d} cm
+                      <button type="button" key={d} aria-pressed={input.diameter === d} onClick={() => update('diameter', d)} className={`${optBtn(input.diameter === d)} min-w-16`}>
+                        {input.diameter === d && <Check className="h-3.5 w-3.5" strokeWidth={3} />} {d} cm
                       </button>
                     ))}
                   </div>
                 </div>
+              </Step>
 
-                {/* Depth & Points */}
-                <div className="grid grid-cols-2 gap-4 py-4">
-                  <div>
-                    <label className={labelClass}>Kedalaman (m)</label>
-                    <input type="range" min={depthMin} max={depthMax} step="1" value={input.depth} onChange={(e) => update('depth', Number(e.target.value))} className="w-full accent-accent cursor-pointer" />
-                    <div className="mt-1 text-center font-mono text-sm font-bold text-accent">{input.depth} m</div>
-                  </div>
-                  <div>
-                    <label className={labelClass}>Jumlah Titik</label>
-                    <input type="range" min="1" max="150" step="1" value={input.points} onChange={(e) => update('points', Number(e.target.value))} className="w-full accent-accent cursor-pointer" />
-                    <div className="mt-1 text-center font-mono text-sm font-bold text-accent">{input.points} titik</div>
-                  </div>
-                </div>
+              <div className="h-px bg-border-muted" />
 
-                {/* Soil Type */}
-                <div className="py-4">
-                  <label className={labelClass}>Kondisi Tanah</label>
-                  <div className="grid grid-cols-3 gap-2">
-                    {['soft', 'medium', 'hard'].map((s) => (
-                      <button key={s} onClick={() => update('soilType', s)}
-                        className={`px-3 py-2.5 text-xs font-bold transition-all cursor-pointer ${input.soilType === s ? activeBtn : inactiveBtn}`}>
-                        {SOIL_LABELS[s]}
+              <Step n={2} title="Dimensi">
+                <Slider id="c-depth" label="Kedalaman per titik" min={depthMin} max={depthMax} value={input.depth} onChange={(e) => update('depth', Number(e.target.value))} text={`${input.depth} m`} minText={`${depthMin} m`} maxText={`${depthMax} m`} />
+                <Slider id="c-points" label="Jumlah titik" min={1} max={150} value={input.points} onChange={(e) => update('points', Number(e.target.value))} text={`${input.points} titik`} minText="1" maxText="150" />
+              </Step>
+
+              <div className="h-px bg-border-muted" />
+
+              <Step n={3} title="Lokasi dan tanah">
+                <div>
+                  <span className={labelClass}>Kondisi tanah</span>
+                  <div className="flex flex-wrap gap-2">
+                    {['soft', 'medium', 'hard'].map((k) => (
+                      <button type="button" key={k} aria-pressed={input.soilType === k} onClick={() => update('soilType', k)} className={`${optBtn(input.soilType === k)} min-w-24`}>
+                        {input.soilType === k && <Check className="h-3.5 w-3.5" strokeWidth={3} />} {SOIL_LABELS[k]}
                       </button>
                     ))}
                   </div>
                 </div>
-
-                {/* Region */}
-                <div className="py-4">
-                  <label className={labelClass}><MapPin className="mr-0.5 inline h-3 w-3 -mt-0.5" /> Wilayah Proyek</label>
-                  <select value={input.region} onChange={(e) => update('region', e.target.value)}
-                    className="w-full rounded-sm border border-border-muted bg-surface px-3.5 py-2.5 text-sm text-primary transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent cursor-pointer">
+                <div>
+                  <label htmlFor="c-region" className={labelClass}>Wilayah proyek</label>
+                  <select id="c-region" value={input.region} onChange={(e) => update('region', e.target.value)}
+                    className="min-h-12 w-full cursor-pointer rounded-sm border-[1.5px] border-border-muted bg-white px-3 text-base text-primary focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent">
                     <option value="jabodetabek">JABODETABEK</option>
                     <option value="jawa-barat">Jawa Barat</option>
                     <option value="jawa-tengah-timur">Jawa Tengah / Jawa Timur</option>
                     <option value="luar-jawa">Luar Pulau Jawa</option>
                   </select>
                 </div>
+              </Step>
 
-                {/* Include Material */}
-                <div className="flex items-center justify-between py-4">
+              <div className="h-px bg-border-muted" />
+
+              <Step n={4} title="Opsi material">
+                <div className="flex items-center justify-between gap-4 rounded-sm border-[1.5px] border-border-muted bg-white px-4 py-3">
                   <div>
-                    <div className="text-sm font-semibold text-primary">Sistem All-In Material</div>
-                    <div className="text-xs text-secondary">Besi SNI + ReadyMix K-300</div>
+                    <div className="text-base font-bold text-primary">Sistem All-In Material</div>
+                    <div className="text-sm text-secondary">Besi SNI + ReadyMix K-300</div>
                   </div>
-                  <button onClick={() => update('includeMaterial', !input.includeMaterial)}
-                    className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors ${input.includeMaterial ? 'bg-accent' : 'bg-outline-variant'}`}>
-                    <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform ${input.includeMaterial ? 'translate-x-5' : 'translate-x-0'}`} />
+                  <button type="button" role="switch" aria-checked={input.includeMaterial} aria-label="Sistem All-In Material" onClick={() => update('includeMaterial', !input.includeMaterial)}
+                    className="flex h-11 w-[52px] shrink-0 cursor-pointer items-center">
+                    <span className={`relative block h-7 w-12 rounded-full transition-colors ${input.includeMaterial ? 'bg-accent' : 'bg-[#A8A69E]'}`}>
+                      <span className={`absolute top-[3px] h-[22px] w-[22px] rounded-full bg-white transition-all ${input.includeMaterial ? 'left-[23px]' : 'left-[3px]'}`} />
+                    </span>
                   </button>
                 </div>
-              </div>
+              </Step>
 
-              {/* Save button */}
               {saved.length < 5 && (
-                <button onClick={saveEstimate}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-sm border border-border-muted bg-surface px-4 py-3 text-xs font-semibold text-primary transition-all hover:bg-surface-container-low cursor-pointer">
-                  <BookmarkPlus className="h-4 w-4" /> Simpan Konfigurasi Ini
+                <button type="button" onClick={saveEstimate}
+                  className="inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-sm border border-border-muted bg-surface text-sm font-semibold text-primary transition-colors hover:bg-surface-container-low">
+                  <BookmarkPlus className="h-4 w-4" /> Simpan konfigurasi ini
                 </button>
               )}
             </div>
 
-            {/* RIGHT: Results */}
-            <div className="lg:col-span-7 space-y-6">
-              {/* Visualizer */}
+            {/* RIGHT: visual + result (sticky on desktop) */}
+            <div className="flex flex-col gap-4 lg:sticky lg:top-24 lg:col-span-6">
               <DrillVisualizer pileType={input.pileType} diameter={input.diameter} depth={input.depth} soilType={input.soilType} includeMaterial={input.includeMaterial} />
 
-              {/* Result Container (divide-y, flat) */}
-              <div className="border-t-2 border-accent bg-surface pt-5 space-y-5">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-bold text-primary">Ringkasan Estimasi</h3>
-                  <span className="font-mono text-xs text-secondary">{result.totalMeters} m¹ total</span>
-                </div>
-
-                {/* RANGE PRICING (calc-out) */}
-                <div className="border-y border-border-muted py-5 text-center bg-surface-container-low/50">
-                  <div className="text-xs font-mono uppercase text-secondary">Perkiraan Rentang Biaya</div>
-                  <div className="mt-1 text-2xl font-bold text-accent sm:text-3xl" style={{ letterSpacing: '-0.01em' }}>
+              <div className="flex flex-col gap-5 rounded-sm bg-primary p-6 text-on-primary md:p-8">
+                <div className="flex flex-col gap-1.5">
+                  <div className="font-mono text-[13px] text-[#B9B8B0]">Estimasi biaya · {result.totalMeters} m total</div>
+                  <div aria-live="polite" className="text-[30px] font-extrabold leading-[1.08] tracking-tight md:text-[40px]">
                     {formatRangeCost(result.costMin, result.costMax)}
                   </div>
-                  <div className="mt-1 text-xs text-secondary">*belum termasuk PPN 11%</div>
-
-                  {/* WhatsApp send button */}
-                  <div className="mt-4 max-w-md mx-auto">
-                    <a href={generateWhatsAppLink(input, result)} target="_blank" rel="noreferrer"
-                      className="inline-flex w-full items-center justify-center gap-2 rounded-sm bg-accent px-4 py-3 text-xs font-semibold text-on-primary transition-all hover:bg-accent-dark cursor-pointer">
-                      <Phone className="h-4 w-4" /> Konsultasi Hasil Estimasi via WhatsApp
-                    </a>
-                  </div>
+                  <div className="text-base text-[#D2D1CA]">Durasi {result.durationDaysMin} - {result.durationDaysMax} hari kerja</div>
                 </div>
 
-                {/* Itemized */}
-                <div className="space-y-3 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-secondary">Jasa Pengeboran</span>
-                    <span className="font-mono font-bold text-primary">{formatRangeCost(result.itemizedCosts.drilling.min, result.itemizedCosts.drilling.max)}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-secondary">Material (Besi + Beton)</span>
-                    <span className="font-mono font-bold text-primary">{input.includeMaterial ? formatRangeCost(result.itemizedCosts.material.min, result.itemizedCosts.material.max) : 'Tidak termasuk'}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-secondary">Mobilisasi Alat</span>
-                    <span className="font-mono font-bold text-primary">Rp {(result.itemizedCosts.mobilization / 1000000).toFixed(1)} Juta</span>
-                  </div>
-                  {result.itemizedCosts.mudHandling && (
-                    <div className="flex justify-between">
-                      <span className="text-secondary">Penanganan Lumpur</span>
-                      <span className="font-mono font-bold text-primary">Rp {(result.itemizedCosts.mudHandling / 1000000).toFixed(1)} Juta</span>
-                    </div>
+                <div className="border-t border-white/15">
+                  <div className={row}><span className="text-[#D2D1CA]">Pengeboran</span><span className="font-mono">{formatRangeCost(result.itemizedCosts.drilling.min, result.itemizedCosts.drilling.max)}</span></div>
+                  {input.includeMaterial && (
+                    <div className={row}><span className="text-[#D2D1CA]">Material</span><span className="font-mono">{formatRangeCost(result.itemizedCosts.material.min, result.itemizedCosts.material.max)}</span></div>
                   )}
-                  <div className="flex justify-between border-t border-border-muted pt-3">
-                    <span className="text-secondary">Estimasi Durasi</span>
-                    <span className="font-mono font-bold text-primary">{result.durationDaysMin} - {result.durationDaysMax} hari kerja</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-secondary">Volume Beton ReadyMix</span>
-                    <span className="font-mono font-bold text-primary">{result.concreteVolumeM3} m³</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-secondary">Berat Besi Tulangan</span>
-                    <span className="font-mono font-bold text-primary">{input.includeMaterial ? `${result.rebarWeightKg} Kg (${(result.rebarWeightKg / 1000).toFixed(2)} Ton)` : 'Disiapkan Owner'}</span>
-                  </div>
+                  <div className={row}><span className="text-[#D2D1CA]">Mobilisasi</span><span className="font-mono">Rp {(result.itemizedCosts.mobilization / 1000000).toFixed(1)} Juta</span></div>
+                  {result.itemizedCosts.mudHandling > 0 && (
+                    <div className={row}><span className="text-[#D2D1CA]">Penanganan lumpur</span><span className="font-mono">Rp {(result.itemizedCosts.mudHandling / 1000000).toFixed(1)} Juta</span></div>
+                  )}
+                  <div className={row}><span className="text-[#D2D1CA]">Volume beton ReadyMix</span><span className="font-mono">{result.concreteVolumeM3} m³</span></div>
+                  <div className={row}><span className="text-[#D2D1CA]">Berat besi tulangan</span><span className="font-mono">{input.includeMaterial ? `${result.rebarWeightKg} Kg` : 'Disiapkan owner'}</span></div>
                 </div>
+
+                <a href={generateWhatsAppLink(input, result)} target="_blank" rel="noreferrer"
+                  className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-sm bg-accent px-4 text-base font-semibold text-on-primary transition-colors hover:bg-accent-dark">
+                  <Phone className="h-4 w-4" /> Kirim rincian via WhatsApp
+                </a>
+                <p className="font-mono text-xs leading-relaxed text-[#B9B8B0]">Perkiraan awal, belum termasuk PPN 11%. Harga final setelah survey lokasi.</p>
               </div>
 
-              {/* Saved Estimates */}
               <SavedEstimates estimates={saved} onLoad={loadSaved} onDelete={deleteSaved} onClearAll={() => { setSaved([]); localStorage.removeItem('bmj_saved_estimates'); }} />
             </div>
           </div>
         ) : (
-          <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
-            <div className="lg:col-span-5">
-              <div className="h-96 animate-pulse rounded-lg border border-border-muted bg-surface-container-low" />
-            </div>
-            <div className="lg:col-span-7 space-y-6">
-              <div className="h-64 animate-pulse rounded-lg border border-border-muted bg-surface-container-low" />
-              <div className="h-48 animate-pulse rounded-lg border border-border-muted bg-surface-container-low" />
+          <div className="grid gap-6 lg:grid-cols-12">
+            <div className="lg:col-span-6"><div className="h-96 animate-pulse rounded-sm border border-border-muted bg-surface-container-low" /></div>
+            <div className="space-y-4 lg:col-span-6">
+              <div className="h-64 animate-pulse rounded-sm border border-border-muted bg-surface-container-low" />
+              <div className="h-48 animate-pulse rounded-sm border border-border-muted bg-surface-container-low" />
             </div>
           </div>
         )}

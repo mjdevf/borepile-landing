@@ -14,6 +14,7 @@ import CTA from "./components/sections/CTA";
 import Footer from "./components/sections/Footer";
 import WhatsAppFloatingButton from "./components/ui/WhatsAppFloatingButton";
 import LazyServiceAreaMap from "./components/sections/LazyServiceAreaMap";
+import LocationDirectory from "./components/sections/LocationDirectory";
 
 // Lazy load heavy components for better code splitting
 const MapsSection = lazy(() => import("./components/sections/MapsSection"));
@@ -49,6 +50,7 @@ export default function App() {
         }>
           <CalculatorSection />
         </Suspense>
+        <LocationDirectory />
         <LazyServiceAreaMap />
         <TestimonialSection />
         <HowItWorks />

@@ -2,29 +2,26 @@ import { trustBar } from "../../data/content";
 
 export default function TrustBar() {
   return (
-    <section className="border-y border-border-muted bg-surface">
-      <div className="mx-auto max-w-7xl px-4 md:px-10">
-        <div className="grid grid-cols-2 divide-y divide-border-muted sm:grid-cols-4 sm:divide-y-0 sm:divide-x sm:divide-border-muted">
-          {trustBar.items.map((item) => (
+    <section aria-label="Angka kerja" className="bg-surface">
+      <div className="mx-auto max-w-[1360px] px-5 md:px-10">
+        <dl className="m-0 grid grid-cols-2 border-y border-t-primary border-b-border-muted md:grid-cols-4">
+          {trustBar.items.map((item, i) => (
             <div
               key={item.label}
-              className="flex flex-col items-center justify-center px-4 py-8 text-center"
+              className={`flex flex-col gap-1.5 py-5 md:gap-2.5 md:py-8 ${
+                i % 2 === 1 ? "border-l border-border-muted pl-4" : ""
+              } ${i > 1 ? "border-t border-border-muted md:border-t-0" : ""} ${
+                i > 0 ? "md:border-l md:pl-8" : ""
+              } ${i === 2 ? "pl-0 md:pl-8" : ""}`}
             >
-              <div
-                className="text-3xl font-bold text-primary lg:text-4xl"
-                style={{ letterSpacing: "-0.02em" }}
-              >
+              <dt className="text-sm leading-tight text-secondary">{item.label}</dt>
+              <dd className="m-0 whitespace-nowrap font-mono text-[22px] font-medium leading-none md:text-[32px]">
                 {item.value}
-                <span className="ml-0.5 text-xl font-medium text-accent lg:text-2xl">
-                  {item.suffix}
-                </span>
-              </div>
-              <div className="mt-2 font-mono text-xs text-secondary">
-                {item.label}
-              </div>
+                <span className="ml-1 text-[0.6em] text-accent">{item.suffix}</span>
+              </dd>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   );

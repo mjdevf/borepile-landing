@@ -112,16 +112,11 @@ export default function ServiceAreaMap() {
   }, [navigate]);
 
   return (
-    <section className="border-b border-border-muted bg-surface px-4 py-16 md:px-10 md:py-24">
-      <div className="mx-auto max-w-[760px]">
+    <section className="bg-surface px-5 py-12 md:px-10 md:py-16">
+      <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-6">
-          <p className="font-mono text-xs text-accent">
-            Wilayah Layanan
-          </p>
-          <h2 className="mt-1 text-2xl font-bold leading-tight tracking-tight text-primary md:text-3xl">
-            16 Titik Layanan di Jabodetabek &amp; Sekitarnya
-          </h2>
+          <p className="font-mono text-xs text-accent">Peta Wilayah Layanan</p>
           <p className="mt-2 max-w-[520px] text-base text-secondary">
             Ketuk salah satu titik untuk lihat detail layanan bore pile di kota tersebut.
           </p>

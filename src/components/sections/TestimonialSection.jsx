@@ -27,31 +27,38 @@ const testimonials = [
 ];
 
 export default function TestimonialSection() {
-  const t = testimonials[0];
-
   return (
-    <section className="border-b border-border-muted bg-surface px-4 py-16 md:px-10 md:py-24">
-      <div className="mx-auto max-w-4xl space-y-8">
-        <div className="space-y-2">
-          <span className="font-mono text-xs text-accent">Testimoni Klien</span>
-          <h2
-            className="text-2xl font-bold text-primary md:text-3xl"
-            style={{ letterSpacing: "-0.01em", lineHeight: "1.3" }}
-          >
+    <section className="border-t border-border-muted bg-surface px-5 py-16 md:px-10 md:py-28">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-7 md:gap-12">
+        <div className="flex items-end justify-between gap-8">
+          <h2 className="max-w-xl text-[32px] leading-[1.1] tracking-tight text-primary md:text-[44px]">
             Kepercayaan dari Pengembang Proyek
           </h2>
+          <p className="hidden text-base text-secondary md:block">Geser untuk melihat testimoni lainnya</p>
         </div>
 
-        {/* Single Quote Block */}
-        <div className="border-l-4 border-accent pl-6 py-3">
-          <blockquote className="text-lg font-medium leading-relaxed text-primary sm:text-xl md:text-2xl">
-            &ldquo;{t.quote}&rdquo;
-          </blockquote>
-          <div className="mt-4">
-            <p className="text-sm font-bold text-primary sm:text-base">{t.name}</p>
-            <p className="font-mono text-xs text-secondary">{t.role}</p>
-          </div>
+        <div
+          className="slider -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-5 px-5 pb-4 md:mx-0 md:gap-6 md:px-0"
+          role="region"
+          aria-label="Testimoni klien"
+          tabIndex={0}
+        >
+          {testimonials.map((t) => (
+            <figure
+              key={t.name}
+              className="m-0 flex min-h-[260px] shrink-0 basis-[84%] snap-start flex-col justify-between gap-7 border-t-[3px] border-accent bg-surface-container p-6 md:min-h-[300px] md:basis-[calc((100%-3rem)/3)] md:p-8"
+            >
+              <blockquote className="quote-serif m-0 text-xl font-medium leading-[1.4] text-primary md:text-2xl">
+                &ldquo;{t.quote}&rdquo;
+              </blockquote>
+              <figcaption>
+                <div className="text-[17px] font-bold text-primary md:text-lg">{t.name}</div>
+                <div className="mt-0.5 text-[15px] text-secondary md:text-base">{t.role}</div>
+              </figcaption>
+            </figure>
+          ))}
         </div>
+        <p className="text-sm text-secondary md:hidden">Geser untuk melihat testimoni lainnya</p>
       </div>
     </section>
   );

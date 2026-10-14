@@ -47,9 +47,9 @@ export default function Navbar() {
           : "bg-surface border-transparent"
       }`}
     >
-      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 md:px-10">
-        <a href="/" className="text-xl font-bold tracking-tight text-primary">
-          Borepile Maju Jaya
+      <div className="mx-auto flex h-[72px] max-w-[1360px] items-center justify-between px-4 md:px-10">
+        <a href="/" className="whitespace-nowrap text-lg font-extrabold tracking-wide text-primary">
+          MAJUJAYA <span className="font-medium text-secondary">BORE PILE</span>
         </a>
 
         {/* Desktop nav */}

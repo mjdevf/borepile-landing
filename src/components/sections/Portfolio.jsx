@@ -2,6 +2,21 @@ import { useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { portfolioImages } from "../../data/content";
 
+const FEATURE = [
+  {
+    src: "/images/portfolio/hero-bg.webp",
+    alt: "Auger rig bor mesin dan pekerja berhelm di area pengeboran",
+    label: "Pengeboran dengan rig bor mesin",
+    pos: "30% 82%",
+  },
+  {
+    src: "/images/subiyanto-borepile.webp",
+    alt: "Pekerja di lokasi proyek gedung dengan perancah dan pipa",
+    label: "Pekerjaan pondasi di lokasi proyek",
+    pos: "40% 70%",
+  },
+];
+
 export default function Portfolio() {
   const [selected, setSelected] = useState(null);
 
@@ -28,55 +43,84 @@ export default function Portfolio() {
 
   return (
     <>
-      <section id="portfolio" className="bg-surface px-4 py-16 md:px-10 md:py-24">
-        <div className="mx-auto w-full max-w-7xl space-y-8">
-          {/* Header */}
-          <div className="space-y-3">
-            <h2
-              className="max-w-2xl text-3xl font-semibold text-primary"
-              style={{ letterSpacing: "-0.01em", lineHeight: "1.3" }}
-            >
-              Portofolio Proyek
+      <section id="portfolio" className="bg-surface-container px-5 py-16 md:px-10 md:py-28">
+        <div className="mx-auto w-full max-w-7xl">
+          <div className="mb-8 flex max-w-2xl flex-col gap-3 md:mb-12 md:gap-4">
+            <h2 className="text-[32px] leading-[1.1] tracking-tight text-primary md:text-[44px]">
+              Dokumentasi Proyek
             </h2>
-            <p className="text-base text-secondary">
-              Hasil pekerjaan bore pile & strauss pile yang telah kami selesaikan.
+            <p className="max-w-[56ch] text-base leading-relaxed text-secondary md:text-lg">
+              Perumahan, gedung bertingkat, sampai pengeboran lapangan. Setiap titik didokumentasikan.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
-            {portfolioImages.map((img, i) => (
-              <button
-                key={i}
-                onClick={() => setSelected(i)}
-                className="group relative aspect-[4/3] overflow-hidden rounded-sm border border-border-muted bg-surface-container-low text-left transition-transform duration-200 hover:scale-[1.01] focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-              >
-                <picture>
-                  <source
-                    srcSet={`${toResized(toWebp(img.src), 640)} 640w, ${toResized(toWebp(img.src), 320)} 320w`}
-                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                    type="image/webp"
-                  />
-                  <source
-                    srcSet={`${toResized(img.src, 640)} 640w, ${toResized(img.src, 320)} 320w`}
-                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                    type="image/jpeg"
-                  />
+          {/* Stacked feature photos */}
+          <div className="relative mb-10 h-[420px] md:mb-16 md:h-[560px]">
+            {FEATURE.map((img, i) => {
+              const back = i === 0;
+              return (
+                <figure
+                  key={img.src}
+                  className={`group absolute m-0 overflow-hidden rounded-sm ${
+                    back
+                      ? "left-0 top-0 h-[260px] w-[86%] shadow-[0_18px_40px_rgba(23,23,26,.18)] md:h-[420px] md:w-[64%]"
+                      : "right-0 top-[210px] h-[210px] w-[66%] border-[6px] border-surface-container shadow-[0_18px_40px_rgba(23,23,26,.22)] md:top-[220px] md:h-[340px] md:w-[46%]"
+                  }`}
+                >
                   <img
                     src={img.src}
                     alt={img.alt}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="h-full w-full object-cover"
+                    style={{ objectPosition: img.pos }}
                   />
-                </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#191c1e]/80 via-[#191c1e]/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <div className="absolute inset-x-0 bottom-0 translate-y-4 p-3 transition-transform duration-500 group-hover:translate-y-0">
-                  <p className="text-xs font-semibold text-on-primary opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  <figcaption
+                    className={`absolute bottom-3 left-3 rounded-[2px] px-2.5 py-1.5 text-xs text-on-primary md:text-sm ${
+                      back ? "bg-primary" : "bg-accent"
+                    }`}
+                  >
                     {img.label}
-                  </p>
-                </div>
-              </button>
-            ))}
+                  </figcaption>
+                </figure>
+              );
+            })}
+          </div>
+
+          {/* More photos */}
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-5 md:gap-4">
+            {portfolioImages.map((img, i) => {
+              return (
+                <button
+                  key={img.src}
+                  onClick={() => setSelected(i)}
+                  className="group relative aspect-[4/3] overflow-hidden rounded-sm bg-surface-container-low text-left focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                >
+                  <picture>
+                    <source
+                      srcSet={`${toResized(toWebp(img.src), 640)} 640w, ${toResized(toWebp(img.src), 320)} 320w`}
+                      sizes="(max-width: 768px) 50vw, 20vw"
+                      type="image/webp"
+                    />
+                    <source
+                      srcSet={`${toResized(img.src, 640)} 640w, ${toResized(img.src, 320)} 320w`}
+                      sizes="(max-width: 768px) 50vw, 20vw"
+                      type="image/jpeg"
+                    />
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </picture>
+                  <span className="absolute bottom-2 left-2 rounded-[2px] bg-primary/85 px-2 py-1 text-xs text-on-primary">
+                    {img.label}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
