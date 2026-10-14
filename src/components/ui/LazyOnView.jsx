@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 /* Render children only once the placeholder is near the viewport.
    Keeps heavy, lazy chunks (map, calculator) off the initial load. */
-export default function LazyOnView({ children, minHeight = 400, rootMargin = "800px 0px", id, label }) {
+export default function LazyOnView({ children, minHeight = 400, rootMargin = "800px 0px", id }) {
   const ref = useRef(null);
   const [show, setShow] = useState(false);
 
@@ -38,5 +38,5 @@ export default function LazyOnView({ children, minHeight = 400, rootMargin = "80
   }, [show, id]);
 
   if (show) return children;
-  return <div ref={ref} id={id} style={{ minHeight }} aria-label={label} />;
+  return <div ref={ref} id={id} style={{ minHeight }} />;
 }

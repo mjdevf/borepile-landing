@@ -46,7 +46,7 @@ export default function App() {
         <Portfolio />
         <AboutUs />
         {/* Lazy load calculator with fallback */}
-        <LazyOnView id="kalkulator" minHeight={1000} label="Kalkulator estimasi biaya">
+        <LazyOnView id="kalkulator" minHeight={1000}>
           <Suspense fallback={
             <div className="h-[1000px] w-full bg-surface-container-low animate-pulse" aria-label="Memuat kalkulator estimasi" />
           }>
@@ -61,7 +61,7 @@ export default function App() {
         <HowItWorks />
         <FAQ />
         {/* Lazy load maps with fallback */}
-        <LazyOnView id="maps" minHeight={640} label="Peta lokasi">
+        <LazyOnView id="maps" minHeight={640}>
           <Suspense fallback={
             <div className="h-64 w-full bg-surface-container-low animate-pulse" aria-live="polite" aria-label="Memuat peta lokasi" />
           }>
