@@ -28,12 +28,9 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-                      if (id.includes('leaflet')) return 'map'
                       if (id.includes('lucide-react')) return 'ui'
-                      if (id.includes('motion')) return 'motion'
                       if (id.includes('react-router')) return 'router'
                       if (id.includes('react-dom')) return 'react-dom'
-                      return 'vendor'
                     }
         },
       },

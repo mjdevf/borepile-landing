@@ -52,13 +52,16 @@ export default function Portfolio() {
                       : "right-0 top-[210px] h-[210px] w-[66%] border-[6px] border-surface-container shadow-[0_18px_40px_rgba(23,23,26,.22)] md:top-[220px] md:h-[340px] md:w-[46%]"
                   }`}
                 >
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover"
-                  />
+                  <picture>
+                    <source srcSet={toWebp(img.src)} type="image/webp" />
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover"
+                    />
+                  </picture>
                   <figcaption
                     className={`absolute bottom-3 left-3 rounded-[2px] px-2.5 py-1.5 text-xs text-on-primary md:text-sm ${
                       back ? "bg-primary" : "bg-accent"

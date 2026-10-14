@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Trash2, Phone, Sparkles, X, Scale, Check, Copy, TrendingDown, Calendar, Coins, Layers, Info } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
 import { formatRangeCost, generateWhatsAppLink } from './calculator';
 
 export default function SavedEstimates({ estimates, onLoad, onDelete, onClearAll }) {
@@ -102,9 +101,8 @@ borepilemajujaya.com`;
         </div>
       </div>
 
-      <AnimatePresence>
         {isComparing && itemA && itemB && (
-          <motion.div initial={{ opacity: 0, height: 0, marginBottom: 0 }} animate={{ opacity: 1, height: 'auto', marginBottom: 24 }} exit={{ opacity: 0, height: 0, marginBottom: 0 }} transition={{ duration: 0.3, ease: 'easeInOut' }} className="overflow-hidden">
+          <div className="overflow-hidden mb-6 ani-fade-in-up">
             <div className="bg-surface-container-low rounded-sm border border-border-muted p-5 sm:p-6 relative">
               <div className="absolute top-0 right-0 p-3">
                 <button onClick={handleClearSelected} className={`${textSec} hover:text-primary p-1 rounded-full hover:bg-surface-container transition-colors cursor-pointer`}><X className="h-4 w-4" /></button>
@@ -200,9 +198,8 @@ borepilemajujaya.com`;
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
 
       {selectedIds.length === 1 && (
         <div className="mb-4 p-3 bg-accent/5 rounded-sm border border-accent/15 text-xs text-accent flex items-center gap-2 animate-pulse">

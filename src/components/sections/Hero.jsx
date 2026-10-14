@@ -16,12 +16,15 @@ export default function Hero() {
       <div className="absolute inset-0">
         <picture>
           <source
-            srcSet="/images/portfolio/hero-bg-640.webp 640w, /images/portfolio/hero-bg.webp 1600w"
-            sizes="100vw"
+            srcSet="/images/portfolio/hero-bg-640.webp 640w, /images/portfolio/hero-bg-960.webp 960w, /images/portfolio/hero-bg.webp 1920w"
+            sizes="(max-width: 768px) 60vw, 100vw"
             type="image/webp"
           />
           <img
-            src="/images/portfolio/hero-bg.jpg"
+            src="/images/portfolio/hero-bg-960.webp"
+            width="1920"
+            height="1440"
+            decoding="async"
             alt="Kontraktor bore pile profesional Majujaya sedang melakukan pengeboran pondasi di lokasi proyek"
             fetchPriority="high"
             className="h-full w-full object-cover object-[70%_center] md:object-[center_35%]"
