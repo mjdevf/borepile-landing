@@ -7,7 +7,7 @@ const OFFICE_NAME = "Jasa Bore Pile Majujaya";
 const OFFICE_ADDRESS = "JL. OPHIR DALAM 2 RT.06/01 NO.61";
 const OFFICE_AREA = "Gunung, Kebayoran Baru, Jakarta Selatan 12310";
 const OFFICE_PHONE = "+62 815 1481 1120";
-const OFFICE_WHATSAPP = "https://wa.me/6281514811120";
+const OFFICE_WHATSAPP = "https://api.whatsapp.com/send/?phone=6281514811120";
 
 class ErrorBoundary extends React.Component {
   state = { err: false };

@@ -132,5 +132,5 @@ Berikut rincian estimasi proyek saya dari kalkulator website:
 
 Mohon info ketersediaan jadwal dan survei lokasi untuk penawaran resmi. Terima kasih!`;
 
-  return `https://wa.me/6281514811120?text=${encodeURIComponent(text)}`;
+  return `https://api.whatsapp.com/send/?phone=6281514811120&text=${encodeURIComponent(text)}`;
 }

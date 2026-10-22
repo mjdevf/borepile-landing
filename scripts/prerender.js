@@ -36,7 +36,7 @@ function esc(s) {
 function renderLocationBody(loc) {
   const city = loc.city;
   const wa = '6281514811120';
-  const waUrl = `https://wa.me/${wa}?text=${encodeURIComponent(`Halo Majujaya, saya mau konsultasi bore pile di ${city}. Tolong info harga & survey lokasi gratis.`)}`;
+  const waUrl = `https://api.whatsapp.com/send/?phone=${wa}&text=${encodeURIComponent(`Halo Majujaya, saya mau konsultasi bore pile di ${city}. Tolong info harga & survey lokasi gratis.`)}`;
 
   const services = (loc.services || []).map(
     (s) => `<li style="background:#f5f7fa;border:1px solid #e5e7eb;border-radius:8px;padding:12px 16px;"><strong>${esc(s)}</strong><br><span style="font-size:14px;color:#4b5563;">Layanan pengeboran ${esc(s.toLowerCase())} terpercaya di ${esc(city)} dan sekitarnya.</span></li>`
@@ -141,7 +141,7 @@ function renderLocationBody(loc) {
 
 function renderHomepageBody() {
   const wa = '6281514811120';
-  const waUrl = `https://wa.me/${wa}?text=${encodeURIComponent('Halo Majujaya, saya mau konsultasi jasa bore pile & survey lokasi gratis.')}`;
+  const waUrl = `https://api.whatsapp.com/send/?phone=${wa}&text=${encodeURIComponent('Halo Majujaya, saya mau konsultasi jasa bore pile & survey lokasi gratis.')}`;
 
   const navHtml = navLinks.map(
     (l) => `<a href="${l.href}" style="margin:0 12px;color:#0f172a;text-decoration:none;font-weight:500;">${esc(l.label)}</a>`

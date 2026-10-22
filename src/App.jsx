@@ -25,7 +25,7 @@ export default function App() {
   /* Track WhatsApp clicks as GA4 conversion events (delegated, covers every WA link) */
   useEffect(() => {
     const trackWaClick = (e) => {
-      const link = e.target.closest?.('a[href*="wa.me"]');
+      const link = e.target.closest?.('a[href*="whatsapp.com"], a[href*="wa.me"]');
       if (!link || typeof window.gtag !== "function") return;
       window.gtag("event", "whatsapp_click", {
         page_path: window.location.pathname,

@@ -51,7 +51,7 @@ const LocationPage = () => {
   }
 
   const officeCoords = [-6.2588, 106.8235];
-  const whatsappUrl = "https://wa.me/6281514811120";
+  const whatsappUrl = "https://api.whatsapp.com/send/?phone=6281514811120";
 
   return (
     <main className="bg-background">

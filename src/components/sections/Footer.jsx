@@ -7,7 +7,7 @@ function handleSubmit(e) {
   const fd = new FormData(e.currentTarget);
   if (fd.get("_gotcha")) return;
   const text = `Halo Majujaya Bore Pile, saya ${fd.get("name")} (${fd.get("phone")}). Ingin konsultasi ${fd.get("service")}. ${fd.get("details")}`;
-  window.location.href = `https://wa.me/${footer.wa}?text=${encodeURIComponent(text)}`;
+  window.location.href = `https://api.whatsapp.com/send/?phone=${footer.wa}&text=${encodeURIComponent(text)}`;
 }
 
 export default function Footer() {

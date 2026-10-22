@@ -9,9 +9,9 @@ export const navLinks = [
 ];
 
 export const hero = {
-  headline: "Jasa Bore Pile & Strauss Pile Terpercaya dan Profesional",
+  headline: "Jasa Bore Pile Jakarta & Strauss Pile Terpercaya dan Profesional",
   subheadline:
-    "Pengerjaan borepile untuk pondasi bangunan, irigasi, dan kebutuhan industri. Berpengalaman 12+ tahun, 250+ titik pengeboran selesai. Melayani Jakarta, Bogor, Depok, Tangerang, Bekasi, Karawang, Cikarang, dan seluruh Indonesia.",
+    "Jasa bore pile Jakarta untuk pondasi bangunan, irigasi, dan kebutuhan industri. Berpengalaman 12+ tahun, 250+ titik pengeboran selesai. Melayani Jakarta Selatan, Jakarta Pusat, Jakarta Barat, Jakarta Timur, Jakarta Utara, Bogor, Depok, Tangerang, Bekasi, Karawang, Cikarang, dan seluruh Indonesia.",
   owner: "Subiyanto",
   ownerTitle: "Pimpinan",
   coverage: "Melayani Jakarta, Jabodetabek, Karawang, Cikarang, Purwakarta, Serang, Cilegon, dan seluruh wilayah Indonesia.",
@@ -31,9 +31,9 @@ export const trustBar = {
 export const services = [
   {
     title: "Borepile Pondasi",
-    desc: "Pengeboran dalam untuk pondasi bangunan bertingkat, rumah, dan konstruksi berat. Layanan bore pile profesional untuk proyek properti, infrastruktur, dan industri.",
+    desc: "Jasa bore pile Jakarta untuk pondasi bangunan bertingkat, rumah, dan konstruksi berat. Layanan kontraktor bore pile profesional untuk proyek properti, infrastruktur, dan industri.",
     icon: "Building2",
-    keywords: ["bore pile", "jasa bore pile", "kontraktor bore pile", "pondasi bore pile"],
+    keywords: ["bore pile", "jasa bore pile", "jasa bore pile jakarta", "kontraktor bore pile jakarta", "harga bore pile jakarta", "pondasi bore pile"],
     link: "/#layanan",
   },
   {
@@ -75,7 +75,7 @@ export const services = [
 
 export const about = {
   title: "Tentang Majujaya Bore Pile",
-  desc: "Kami adalah kontraktor jasa pondasi bore pile yang berasal dari Jakarta dan melayani proyek pengerjaan pondasi bore pile untuk wilayah Jabodetabek. Kami biasa menangani pekerjaan bore pile mesin maupun pondasi strauss pile manual dengan diameter mulai 30 cm, 40 cm, 60 cm, 80 cm, sampai 100 cm.",
+  desc: "Kami adalah kontraktor jasa bore pile Jakarta yang berbasis di Jakarta Selatan dan melayani proyek pondasi bore pile untuk wilayah Jabodetabek. Kami biasa menangani jasa bore pile Jakarta Selatan, Jakarta Pusat, Jakarta Barat, Jakarta Timur, dan Jakarta Utara, baik bore pile mesin maupun pondasi strauss pile manual dengan diameter mulai 30 cm, 40 cm, 60 cm, 80 cm, sampai 100 cm.",
   vision: "Menjadi perusahaan pengeboran tanah yang profesional yang mendukung pembangunan dan kemakmuran bangsa Indonesia.",
   legacyNote: "Majujaya Bore Pile sebelumnya dikenal lewat website majujayaborepile.com. Situs borepilemajujaya.com ini adalah website resmi terbaru kami.",
   highlights: [
@@ -210,6 +210,7 @@ export const locationPages = [
     "title": "Jasa Bore Pile Jakarta Pusat — Pengeboran & Strauss Pile | Majujaya",
     "intro": "Kebutuhan pondasi bore pile di Jakarta Pusat didominasi oleh peremajaan gedung kantor, pembangunan ruko komersial, dan renovasi rumah tinggal bertingkat di kawasan berdensitas tinggi seperti Menteng, Tanah Abang, Gambir, dan Senayan. Kerapatan bangunan perkotaan dan batas lahan yang berhimpitan menuntut metode pondasi minim getaran untuk menjaga stabilitas bangunan sekitar.",
     "keywords": [
+      "jasa bore pile jakarta pusat",
       "bore pile jakarta pusat",
       "jasa bore pile menteng",
       "kontraktor pondasi jakpus",
@@ -266,6 +267,7 @@ export const locationPages = [
     "title": "Jasa Bore Pile Jakarta Selatan — Pondasi Profesional | Majujaya",
     "intro": "Wilayah Jakarta Selatan merupakan pusat hunian premium, townhouse eksklusif, ruko komersial, serta sentra bisnis kuliner di koridor Kebayoran Baru, Tebet, Cilandak, Pasar Minggu, hingga Jagakarsa. Pembangunan gedung dan hunian bertingkat di kawasan ini membutuhkan pondasi dalam bore pile yang presisi untuk menjamin integritas struktural di atas kontur lahan yang dinamis.",
     "keywords": [
+      "jasa bore pile jakarta selatan",
       "bore pile jakarta selatan",
       "jasa bore pile kebayoran",
       "kontraktor pondasi jaksel",
@@ -322,6 +324,7 @@ export const locationPages = [
     "title": "Jasa Bore Pile Jakarta Barat — Survey Gratis | Majujaya",
     "intro": "Membangun di kawasan Jakarta Barat seperti Cengkareng, Kalideres, Kembangan, Palmerah, dan Grogol menghadirkan tantangan geoteknik tinggi karena sebagian besar wilayahnya merupakan dataran aluvial rendah bekas rawa. Pondasi tiang bore pile menjadi solusi mutlak bagi ruko, pergudangan, dan rumah tinggal untuk mencegah kegagalan struktur akibat penurunan pondasi (land subsidence).",
     "keywords": [
+      "jasa bore pile jakarta barat",
       "bore pile jakarta barat",
       "jasa bore pile grogol",
       "kontraktor pondasi jakbar",
@@ -377,6 +380,7 @@ export const locationPages = [
     "title": "Jasa Bore Pile Jakarta Timur — Kontraktor Berpengalaman | Majujaya",
     "intro": "Jakarta Timur adalah wilayah strategis yang memadukan kawasan residensial padat di Matraman, Jatinegara, dan Duren Sawit dengan zona pergudangan dan industri manufaktur di Cakung, Pulo Gadung, serta Ciracas. Keberagaman fungsi bangunan ini menuntut kontraktor bore pile dengan armada mesin berdaya bor tinggi dan kapasitas penanganan proyek skala menengah hingga besar.",
     "keywords": [
+      "jasa bore pile jakarta timur",
       "bore pile jakarta timur",
       "jasa bore pile matraman",
       "kontraktor pondasi jaktim",
@@ -433,6 +437,7 @@ export const locationPages = [
     "title": "Jasa Bore Pile Jakarta Utara — Pondasi Tahan Ambles | Majujaya",
     "intro": "Mendirikan bangunan di kawasan pesisir Jakarta Utara seperti Kelapa Gading, Pluit, Sunter, Tanjung Priok, Penjaringan, dan Cilincing memerlukan pertimbangan rekayasa geoteknik yang matang. Ancaman penurunan tanah (subsidence), paparan air asin pesisir, serta lapisan tanah lunak tebal menjadikan pondasi bore pile dalam sebagai tumpuan wajib bagi konstruksi gedung, ruko, dan residensial.",
     "keywords": [
+      "jasa bore pile jakarta utara",
       "bore pile jakarta utara",
       "jasa bore pile kelapa gading",
       "kontraktor pondasi jakut",
@@ -1145,9 +1150,9 @@ export function getLocationDetail(location) {
 
   // Paragraph 1: who we are + where exactly (varied sentence structure, city-specific areas & neighbours)
   const intros = [
-    `Majujaya melayani pekerjaan bore pile dan strauss pile di ${city}, ${region}, dengan titik kerja yang kerap berada di ${areas}. Mulai dari rumah tinggal, ruko, hingga bangunan komersial dan industri, setiap titik pengeboran dikerjakan dengan metode standar, diawasi langsung, dan didokumentasikan.`,
-    `Pemilik bangunan di wilayah ${areas} maupun sekitarnya dapat memakai jasa Majujaya untuk pondasi bore pile maupun strauss pile di ${city}. Kami berpengalaman lebih dari 12 tahun dengan 250+ titik pengeboran selesai, dan wilayah ${city} masuk dalam jangkauan layanan rutin kami bersama ${nearby}.`,
-    `Untuk proyek pondasi dalam di ${city}, ${region}, tim Majujaya menangani seluruh tahap: survey, penentuan kedalaman dan diameter tiang, pengeboran, hingga pengecoran. Area yang paling sering kami layani meliputi ${areas}, dengan hasil kerja yang dicatat per titik sebagai bentuk transparansi.`,
+    `Majujaya melayani jasa bore pile ${city} dan strauss pile di ${city}, ${region}, dengan titik kerja yang kerap berada di ${areas}. Mulai dari rumah tinggal, ruko, hingga bangunan komersial dan industri, setiap titik pengeboran dikerjakan dengan metode standar, diawasi langsung, dan didokumentasikan.`,
+    `Pemilik bangunan di wilayah ${areas} maupun sekitarnya dapat memakai jasa bore pile ${city} dari Majujaya, baik untuk pondasi bore pile maupun strauss pile. Kami berpengalaman lebih dari 12 tahun dengan 250+ titik pengeboran selesai, dan wilayah ${city} masuk dalam jangkauan layanan rutin kami bersama ${nearby}.`,
+    `Untuk proyek pondasi dalam di ${city}, ${region}, tim Majujaya menangani jasa bore pile ${city} dari tahap survey, penentuan kedalaman dan diameter tiang, pengeboran, hingga pengecoran. Area yang paling sering kami layani meliputi ${areas}, dengan hasil kerja yang dicatat per titik sebagai bentuk transparansi.`,
   ];
 
   // Paragraph 2: survey/RAB + mobilization that depends on real distance from our workshop
@@ -1200,8 +1205,8 @@ export const faq = [
     a: "Borepile adalah teknik pengeboran dalam untuk pondasi bangunan. Anda butuh borepile jika membangun rumah bertingkat, ruko, atau gedung di area dengan kondisi tanah lunak. Kami melayani jasa bore pile di Jakarta, Bogor, Depok, Tangerang, Bekasi, dan seluruh Indonesia."
   },
   {
-    q: "Berapa biaya jasa bore pile per titik?",
-    a: "Biaya jasa mulai dari Rp750.000 per titik untuk strauss pile manual (diameter 30-40cm) dan mulai Rp2.000.000 per titik untuk bore pile mesin mini crane. Harga aktual dipengaruhi oleh diameter, kedalaman tanah keras, dan jumlah titik. Estimasi ini merupakan perkiraan kompetitif awal; hubungi kami untuk penawaran resmi dan survey lokasi teknis gratis di lokasi proyek Anda."
+    q: "Berapa biaya jasa bore pile Jakarta per titik?",
+    a: "Harga jasa bore pile Jakarta mulai dari Rp750.000 per titik untuk strauss pile manual (diameter 30-40cm) dan mulai Rp2.000.000 per titik untuk bore pile mesin mini crane. Biaya aktual dipengaruhi oleh diameter, kedalaman tanah keras, dan jumlah titik. Estimasi ini merupakan perkiraan kompetitif awal; hubungi kami untuk penawaran resmi dan survey lokasi teknis gratis di lokasi proyek Anda."
   },
   {
     q: "Berapa lama proses pengerjaan bore pile dari survey hingga selesai?",
@@ -1217,7 +1222,7 @@ export const faq = [
   },
   {
     q: "Wilayah mana saja yang dilayani?",
-    a: "Kami melayani seluruh wilayah Jabodetabek termasuk Jakarta Pusat, Utara, Barat, Selatan, dan Timur. Selain itu Karawang, Cikarang, Purwakarta, Serang, Cilegon, Subang, Cianjur, dan proyek di seluruh Indonesia."
+    a: "Kami melayani jasa bore pile Jakarta Selatan, Jakarta Pusat, Jakarta Barat, Jakarta Timur, dan Jakarta Utara, serta seluruh Jabodetabek. Selain itu Karawang, Cikarang, Purwakarta, Serang, Cilegon, Subang, Cianjur, dan proyek di seluruh Indonesia."
   },
   {
     q: "Apa perbedaan bore pile mesin dan strauss pile manual?",
@@ -1249,11 +1254,11 @@ export const footer = {
     { title: "Bore Pile untuk Rumah 2 Lantai", href: "/blog/bore-pile-untuk-rumah-2-lantai.html" },
   ],
   serviceLinks: [
-    { title: "Jakarta Pusat", href: "/location/jakarta-pusat/" },
-    { title: "Jakarta Selatan", href: "/location/jakarta-selatan/" },
-    { title: "Jakarta Barat", href: "/location/jakarta-barat/" },
-    { title: "Jakarta Timur", href: "/location/jakarta-timur/" },
-    { title: "Jakarta Utara", href: "/location/jakarta-utara/" },
+    { title: "Jasa Bore Pile Jakarta Pusat", href: "/location/jakarta-pusat/" },
+    { title: "Jasa Bore Pile Jakarta Selatan", href: "/location/jakarta-selatan/" },
+    { title: "Jasa Bore Pile Jakarta Barat", href: "/location/jakarta-barat/" },
+    { title: "Jasa Bore Pile Jakarta Timur", href: "/location/jakarta-timur/" },
+    { title: "Jasa Bore Pile Jakarta Utara", href: "/location/jakarta-utara/" },
     { title: "Jasa Bore Pile Bogor", href: "/location/bogor/" },
     { title: "Jasa Bore Pile Tangerang", href: "/location/tangerang/" },
     { title: "Jasa Bore Pile Bekasi", href: "/location/bekasi/" },

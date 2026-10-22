@@ -66,7 +66,7 @@ export default function Navbar() {
 
           {/* Dedicated WA CTA Button */}
           <a
-            href={`https://wa.me/${footer.wa}?text=${MSG}`}
+            href={`https://api.whatsapp.com/send/?phone=${footer.wa}&text=${MSG}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex h-9 items-center gap-2 rounded-sm bg-accent px-4 text-xs font-semibold text-on-primary transition-colors hover:bg-accent-dark active:scale-[0.98]"
@@ -116,7 +116,7 @@ export default function Navbar() {
           ))}
 
           <a
-            href={`https://wa.me/${footer.wa}?text=${MSG}`}
+            href={`https://api.whatsapp.com/send/?phone=${footer.wa}&text=${MSG}`}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-sm bg-accent px-6 text-sm font-semibold text-on-primary transition-colors hover:bg-accent-dark"

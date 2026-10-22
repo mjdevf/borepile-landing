@@ -15,7 +15,7 @@ export default function CTA() {
         </p>
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
-            href={`https://wa.me/${footer.wa}?text=${MSG}`}
+            href={`https://api.whatsapp.com/send/?phone=${footer.wa}&text=${MSG}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex h-[50px] items-center justify-center gap-2 rounded-sm bg-accent px-8 text-sm font-semibold text-on-primary transition-colors hover:bg-accent-dark active:scale-[0.98]"
