@@ -11,7 +11,6 @@ import {
   trustBar,
   services as servicesData,
   about,
-  portfolioImages,
   faq as faqData,
 } from '../src/data/content.js';
 
@@ -70,7 +69,7 @@ function renderLocationBody(loc) {
     ...footerData.serviceLinks.map((l) => `<a href="${l.href}" style="color:#4b5563;text-decoration:none;">${esc(l.title.trim())}</a>`),
   ].join(' · ');
 
-  return `<div style="padding:40px 20px;font-family:system-ui,-apple-system,sans-serif;max-width:960px;margin:0 auto;color:#1e293b;">
+  return `<main id="main-content" style="padding:40px 20px;font-family:system-ui,-apple-system,sans-serif;max-width:960px;margin:0 auto;color:#1e293b;">
     <nav aria-label="Breadcrumb" style="margin-bottom:20px;font-size:14px;color:#64748b;">
       <a href="/" style="color:#2563eb;text-decoration:none;font-weight:600;">Beranda</a> &rsaquo;
       <a href="/#layanan" style="color:#2563eb;text-decoration:none;">Layanan</a> &rsaquo;
@@ -136,7 +135,7 @@ function renderLocationBody(loc) {
       <p style="font-weight:600;margin-bottom:8px;color:#334155;">Navigasi &amp; Tautan Halaman:</p>
       ${footLinks}
     </footer>
-  </div>`;
+  </main>`;
 }
 
 function renderHomepageBody() {
@@ -361,6 +360,24 @@ function generateLocationPages() {
       for (const script of scripts) {
         try {
           const parsed = JSON.parse(script.textContent);
+          if (parsed['@type'] === 'FAQPage') {
+            // FAQPage must mirror the FAQ visible on this page (not the homepage FAQ).
+            if (loc.faq && loc.faq.length) {
+              parsed.mainEntity = loc.faq.map((f) => ({
+                '@type': 'Question',
+                name: f.q,
+                acceptedAnswer: { '@type': 'Answer', text: stripTags(f.a) },
+              }));
+              script.textContent = JSON.stringify(parsed, null, 2);
+            } else {
+              script.remove();
+            }
+          }
+          if (parsed['@type'] === 'Service') {
+            parsed.name = `Jasa Bore Pile & Strauss Pile ${loc.city}`;
+            parsed.areaServed = { '@type': 'AdministrativeArea', name: loc.city };
+            script.textContent = JSON.stringify(parsed, null, 2);
+          }
           if (parsed['@type'] === 'BreadcrumbList') {
             parsed.itemListElement = [
               {

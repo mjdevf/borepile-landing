@@ -54,7 +54,7 @@ const LocationPage = () => {
   const whatsappUrl = "https://api.whatsapp.com/send/?phone=6281514811120";
 
   return (
-    <main className="bg-background">
+    <main id="main-content" className="bg-background">
       <Navbar />
       {/* Hero */}
       <AnimatedSection className="bg-surface pt-[72px] pb-12">

@@ -23,7 +23,7 @@ export default defineConfig({
   ],
   build: {
     cssCodeSplit: true,
-    target: 'esnext',
+    target: 'es2020',
     rollupOptions: {
       output: {
         manualChunks(id) {
@@ -48,11 +48,6 @@ export default defineConfig({
     reportCompressedSize: false,
     sourcemap: false,
   },
-  server: {
-    headers: {
-      'Cache-Control': 'public, max-age=31536000, immutable, s-maxage=86400, stale-while-revalidate=86400',
-    },
-  },
   preview: {
     headers: {
       'Cache-Control': 'public, max-age=3600',
@@ -60,31 +55,5 @@ export default defineConfig({
       'X-Frame-Options': 'SAMEORIGIN',
       'X-XSS-Protection': '1; mode=block',
     },
-  },
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'motion/react'],
-    force: true,
-  },
-  // Critical CSS inline for above-the-fold
-  transformIndexHtml(html) {
-    return html.replace(
-      '</head>',
-      `<style>
-        .hero { min-height: 100dvh; display: flex; align-items: center; background: #000000; }
-        .text-white { color: #ffffff !important; }
-        .max-w-7xl { max-width: 80rem; margin: 0 auto; }
-        .px-4 { padding-left: 1rem; padding-right: 1rem; }
-        @media (min-width: 640px) { .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; } }
-        .mt-28 { margin-top: 7rem; }
-        .mb-2 { margin-bottom: 0.5rem; }
-        .text-xs { font-size: 0.75rem; }
-        .font-bold { font-weight: 700; }
-        .uppercase { text-transform: uppercase; }
-        .tracking-widest { letter-spacing: 0.1em; }
-        .text-emas-500 { color: #d4a843 !important; }
-        .text-beton-200 { color: #d6d3d1 !important; }
-        @media (min-width: 640px) { .sm\:text-lg { font-size: 1.125rem; } }
-      </style></head>`
-    );
   },
 })
