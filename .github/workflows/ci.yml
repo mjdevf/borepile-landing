@@ -43,3 +43,8 @@ jobs:
 
       - name: Pricing verification
         run: node scripts/verify_pricing.mjs
+
+      - name: Verify lastmod.json is synchronized with git
+        run: |
+          npm run lastmod
+          git diff --exit-code scripts/lastmod.json || { echo "scripts/lastmod.json is out of date. Run 'npm run lastmod' and commit."; exit 1; }
