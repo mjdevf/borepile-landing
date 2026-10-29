@@ -117,7 +117,6 @@ function renderLocationBody(loc) {
   return `<main id="main-content" style="padding:40px 20px;font-family:system-ui,-apple-system,sans-serif;max-width:960px;margin:0 auto;color:#17171A;">
     <nav aria-label="Breadcrumb" style="margin-bottom:20px;font-size:14px;color:#5B5A55;">
       <a href="/" style="color:#A8422A;text-decoration:none;font-weight:600;">Beranda</a> &rsaquo;
-      <a href="/#layanan" style="color:#A8422A;text-decoration:none;">Layanan</a> &rsaquo;
       <span style="color:#5B5A55;">Jasa Bore Pile ${esc(city)}</span>
     </nav>
 
@@ -227,7 +226,7 @@ function renderHomepageBody() {
     </header>
 
     <main id="main-content" style="max-width:1100px;margin:0 auto;padding:40px 20px;">
-      <section style="text-align:center;padding:40px 0 60px;">
+      <section id="hero" style="text-align:center;padding:40px 0 60px;">
         <h1 style="font-size:36px;line-height:1.25;font-weight:800;color:#17171A;margin-bottom:20px;max-width:900px;margin-left:auto;margin-right:auto;">${esc(hero.headline)}</h1>
         <p style="font-size:18px;line-height:1.7;color:#5B5A55;max-width:800px;margin:0 auto 28px;">${esc(hero.subheadline)}</p>
         <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
@@ -244,6 +243,11 @@ function renderHomepageBody() {
         <h2 style="font-size:28px;font-weight:700;color:#17171A;margin-bottom:12px;text-align:center;">Layanan Pondasi &amp; Pengeboran Tanah</h2>
         <p style="text-align:center;color:#5B5A55;max-width:650px;margin:0 auto 32px;">Solusi komprehensif mulai dari pengeboran tiang bore pile mesin, strauss pile manual, hingga investigasi tanah di seluruh Indonesia.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">${servicesHtml}</div>
+      <div id="kalkulator"></div>
+      <div id="portfolio"></div>
+      <div id="maps"></div>
+      <div id="wilayah"></div>
+
       </section>
 
       <section id="wilayah-layanan" style="margin-bottom:60px;">
@@ -434,12 +438,6 @@ function generateLocationPages() {
               {
                 '@type': 'ListItem',
                 'position': 2,
-                'name': 'Layanan',
-                'item': 'https://borepilemajujaya.com/#layanan'
-              },
-              {
-                '@type': 'ListItem',
-                'position': 3,
                 'name': `Jasa Bore Pile ${loc.city}`,
                 'item': canonicalUrl
               }

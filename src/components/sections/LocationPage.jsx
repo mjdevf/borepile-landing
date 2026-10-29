@@ -64,8 +64,6 @@ const LocationPage = () => {
             <ol className="flex items-center gap-2">
               <li><Link to="/" className="transition-colors hover:text-accent">Beranda</Link></li>
               <li className="text-outline">/</li>
-              <li><Link to="/#layanan" className="transition-colors hover:text-accent">Layanan</Link></li>
-              <li className="text-outline">/</li>
               <li className="font-semibold text-primary" aria-current="page">{location.city}</li>
             </ol>
           </nav>
