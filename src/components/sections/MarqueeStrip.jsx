@@ -20,7 +20,7 @@ export default function MarqueeStrip() {
               key={i}
               className="inline-flex shrink-0 items-center gap-2 rounded-full border border-border-muted bg-surface px-4 py-2 shadow-[0_2px_8px_-4px_rgba(15,23,42,0.06)]"
             >
-              <Icon className="h-3.5 w-3.5 text-tertiary" />
+              <Icon className="h-3.5 w-3.5 text-accent" />
               <span className="text-xs font-semibold uppercase tracking-[0.15em] text-secondary">
                 {item.label}
               </span>

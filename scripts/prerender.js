@@ -169,6 +169,7 @@ function renderLocationBody(loc) {
       <h2 style="font-size:24px;margin:0 0 12px;color:#ffffff;">Butuh Jasa Bore Pile Terpercaya di ${esc(city)}?</h2>
       <p style="margin:0 0 20px;color:#E1E0DA;line-height:1.6;">Konsultasikan spesifikasi bangunan dan kondisi tanah Anda bersama tim ahli kami. Survey lokasi GRATIS &amp; estimasi RAB detail tanpa biaya.</p>
       <a href="${waUrl}" style="background:#A8422A;color:#ffffff;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:700;display:inline-block;box-shadow:0 4px 12px rgba(37,99,235,0.3);">Chat via WhatsApp 0815-1481-1120</a>
+      <p style="font-size:13px;color:#D2D1CA;margin:14px auto 0;max-width:600px;"><em>*Harga estimasi, bukan harga pasti. Penawaran resmi (RAB) diberikan setelah survey lokasi gratis.</em></p>
     </section>
 
     <div style="margin-top:32px;">

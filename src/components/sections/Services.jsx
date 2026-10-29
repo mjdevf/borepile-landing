@@ -15,7 +15,7 @@ const TILE = [
   "border border-border-muted bg-surface text-primary",
   "border border-border-muted bg-surface text-primary",
 ];
-const TILE_COPY = ["text-[#4A4944]", "text-[#FCEEE9]", "text-secondary", "text-secondary", "text-secondary"];
+const TILE_COPY = ["text-secondary", "text-accent-soft", "text-secondary", "text-secondary", "text-secondary"];
 
 function Keywords({ svc, className = "" }) {
   if (!svc.keywords) return null;
@@ -31,7 +31,7 @@ export default function Services() {
     <section id="layanan" className="bg-surface px-5 py-16 md:px-10 md:py-28">
       <div className="mx-auto w-full max-w-7xl">
         <div className="mb-8 flex max-w-2xl flex-col gap-3 md:mb-12 md:gap-4">
-          <h2 className="text-[32px] leading-[1.1] tracking-tight text-primary md:text-[44px]">
+          <h2 className="text-display-sm leading-[1.1] tracking-tight text-primary md:text-display">
             Layanan Pengeboran dan Pondasi
           </h2>
           <p className="max-w-[56ch] text-base leading-relaxed text-secondary md:text-lg">
@@ -43,19 +43,19 @@ export default function Services() {
         <div className="grid gap-4 md:grid-cols-12 md:gap-6">
           <article className="flex flex-col justify-between gap-8 rounded-sm bg-primary p-7 text-on-primary md:col-span-5 md:p-10">
             <div className="flex flex-col gap-3">
-              <h3 className="text-[30px] font-extrabold leading-[1.1] tracking-tight md:text-4xl">{FEATURED.title}</h3>
-              <p className="text-base leading-relaxed text-[#D2D1CA]">{FEATURED.desc}</p>
-              <Keywords svc={FEATURED} className="text-[#B9B8B0]" />
+              <h3 className="text-3xl font-extrabold leading-[1.1] tracking-tight md:text-4xl">{FEATURED.title}</h3>
+              <p className="text-base leading-relaxed text-on-primary-subtle">{FEATURED.desc}</p>
+              <Keywords svc={FEATURED} className="text-on-primary-muted" />
             </div>
             <div className="flex flex-col gap-6">
               <div className="flex gap-7">
                 <div>
                   <div className="font-mono text-xl font-medium">30-100 cm</div>
-                  <div className="mt-1 text-[13px] text-[#B9B8B0]">Diameter</div>
+                  <div className="mt-1 text-xs text-on-primary-muted">Diameter</div>
                 </div>
                 <div>
                   <div className="font-mono text-xl font-medium">30 m</div>
-                  <div className="mt-1 text-[13px] text-[#B9B8B0]">Kedalaman maksimal</div>
+                  <div className="mt-1 text-xs text-on-primary-muted">Kedalaman maksimal</div>
                 </div>
               </div>
               <a
@@ -75,7 +75,7 @@ export default function Services() {
                 key={svc.title}
                 className={`flex flex-col gap-2.5 rounded-sm p-7 ${TILE[i]} ${i === REST.length - 1 ? "col-span-2" : ""}`}
               >
-                <h3 className="text-[22px] font-bold leading-tight">{svc.title}</h3>
+                <h3 className="text-xl font-bold leading-tight">{svc.title}</h3>
                 <p className={`text-base leading-relaxed ${TILE_COPY[i]}`}>{svc.desc}</p>
                 <Keywords svc={svc} className={i === 1 ? "text-white/80" : "text-secondary/80"} />
               </article>

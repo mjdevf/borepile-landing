@@ -8,6 +8,7 @@
     "build": "vite build && node scripts/minify-blog-css.mjs && node scripts/prerender.js",
     "build:analyze": "vite build --mode analyze",
     "prerender": "node scripts/prerender.js",
+    "lastmod": "node scripts/update-lastmod.mjs",
     "lint": "oxlint",
     "preview": "vite preview",
     "optimize": "node scripts/prerender.js"

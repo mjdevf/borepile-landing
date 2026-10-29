@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { Menu, X, Phone } from "lucide-react";
+import Button from "../ui/Button";
 import { navLinks, footer } from "../../data/content";
 
 const MSG = "Halo%20Majujaya%20Bore%20Pile%2C%20saya%20ingin%20konsultasi%20tentang%20pengeboran.";
@@ -65,15 +66,17 @@ export default function Navbar() {
           ))}
 
           {/* Dedicated WA CTA Button */}
-          <a
+          <Button
             href={`https://api.whatsapp.com/send/?phone=${footer.wa}&text=${MSG}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-11 items-center gap-2 rounded-sm bg-accent px-4 text-xs font-semibold text-on-primary transition-colors hover:bg-accent-dark active:scale-[0.98]"
+            variant="primary"
+            size="sm"
+            className="text-xs"
           >
             <Phone className="h-3.5 w-3.5" />
             Hubungi WA
-          </a>
+          </Button>
         </div>
 
         {/* Mobile hamburger */}
@@ -115,16 +118,18 @@ export default function Navbar() {
             </a>
           ))}
 
-          <a
+          <Button
             href={`https://api.whatsapp.com/send/?phone=${footer.wa}&text=${MSG}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-sm bg-accent px-6 text-sm font-semibold text-on-primary transition-colors hover:bg-accent-dark"
+            variant="primary"
+            size="sm"
+            className="mt-6 w-full"
             onClick={() => setOpen(false)}
           >
             <Phone className="h-4 w-4" />
             Hubungi via WhatsApp
-          </a>
+          </Button>
         </div>
       </div>
 

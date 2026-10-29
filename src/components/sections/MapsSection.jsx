@@ -18,7 +18,7 @@ class ErrorBoundary extends React.Component {
         <div className="flex h-[400px] items-center justify-center rounded-md border border-border-muted bg-surface-container-low">
           <div className="text-center">
             <p className="mb-2 text-sm text-secondary">Peta gagal dimuat.</p>
-            <button onClick={() => this.setState({ err: false })} className="text-sm text-tertiary underline">Coba lagi</button>
+            <button onClick={() => this.setState({ err: false })} className="text-sm text-accent underline">Coba lagi</button>
           </div>
         </div>
       );
@@ -110,7 +110,7 @@ function MapsSection() {
           <div className="space-y-6">
             <div className="rounded-lg border border-border-muted bg-surface-container-low p-6 shadow-[0_10px_30px_-10px_rgba(15,23,42,0.05)]">
               <h3 className="mb-4 flex items-center gap-2 text-xl font-bold text-primary">
-                <MapPin className="h-5 w-5 text-tertiary" />
+                <MapPin className="h-5 w-5 text-accent" />
                 Lokasi Kantor
               </h3>
               <address className="space-y-2 not-italic text-secondary">
@@ -125,7 +125,7 @@ function MapsSection() {
                 Hubungi Kami
               </h3>
               <div className="space-y-3">
-                <a href={`tel:${OFFICE_PHONE.replace(/\s+/g, "")}`} className="flex items-center gap-3 rounded-sm bg-surface p-3 transition-colors hover:bg-surface-container-high">
+                <a href={`tel:${OFFICE_PHONE.replace(/\s+/g, "")}`} className="flex items-center gap-3 rounded-sm bg-surface p-3 transition-colors hover:bg-border-muted">
                   <Phone className="h-5 w-5 shrink-0 text-accent" />
                   <span className="font-mono text-sm font-medium text-primary">{OFFICE_PHONE}</span>
                 </a>

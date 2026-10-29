@@ -7,7 +7,7 @@ export default function AboutUs() {
         {/* Intro + vision */}
         <div className="flex flex-col gap-8 md:col-span-5">
           <div className="flex flex-col gap-4">
-            <h2 className="text-[32px] leading-[1.1] tracking-tight text-primary md:text-[44px]">
+            <h2 className="text-display-sm leading-[1.1] tracking-tight text-primary md:text-display">
               {about.title}
             </h2>
             <p className="max-w-[44ch] text-base leading-[1.65] text-secondary md:text-lg">
@@ -32,12 +32,12 @@ export default function AboutUs() {
         <div className="border-t border-primary md:col-span-6 md:col-start-7 md:self-start">
           {about.highlights.map((item, i) => (
             <div key={item.title} className="flex gap-4 border-b border-border-muted py-5 md:gap-6 md:py-6">
-              <span className="w-7 shrink-0 font-mono text-[13px] leading-6 text-accent md:w-9">
+              <span className="w-7 shrink-0 font-mono text-xs leading-6 text-accent md:w-9">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div>
-                <h3 className="text-[17px] font-bold leading-snug text-primary md:text-lg">{item.title}</h3>
-                <p className="mt-1 text-[15px] leading-[1.55] text-secondary md:text-base">{item.desc}</p>
+                <h3 className="text-base font-bold leading-snug text-primary md:text-lg">{item.title}</h3>
+                <p className="mt-1 text-sm leading-[1.55] text-secondary md:text-base">{item.desc}</p>
               </div>
             </div>
           ))}

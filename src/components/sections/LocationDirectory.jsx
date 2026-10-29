@@ -37,7 +37,7 @@ export default function LocationDirectory() {
     <section id="wilayah" className="bg-surface px-5 pt-16 md:px-10 md:pt-28">
       <div className="mx-auto w-full max-w-7xl">
         <div className="mb-8 flex max-w-2xl flex-col gap-3 md:mb-14 md:gap-4">
-          <h2 className="text-[32px] leading-[1.1] tracking-tight text-primary md:text-[44px]">
+          <h2 className="text-display-sm leading-[1.1] tracking-tight text-primary md:text-display">
             Melayani Jabodetabek dan Sekitarnya
           </h2>
           <p className="max-w-[56ch] text-base leading-relaxed text-secondary md:text-lg">

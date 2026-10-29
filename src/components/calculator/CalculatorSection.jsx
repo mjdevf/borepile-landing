@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Phone, Check, BookmarkPlus } from 'lucide-react';
+import Button from '../ui/Button';
 import { calculateEstimation, formatRangeCost, generateWhatsAppLink } from './calculator';
 import DrillVisualizer from './DrillVisualizer';
 import SavedEstimates from './SavedEstimates';
@@ -9,7 +10,7 @@ const SOIL_LABELS = { soft: 'Tanah Lunak', medium: 'Tanah Sedang', hard: 'Tanah 
 const Step = ({ n, title, children }) => (
   <section className="flex flex-col gap-3.5">
     <div className="flex items-center gap-3">
-      <span aria-hidden="true" className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary font-mono text-[13px] text-on-primary">{n}</span>
+      <span aria-hidden="true" className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary font-mono text-xs text-on-primary">{n}</span>
       <h3 className="text-lg font-bold text-primary">{title}</h3>
     </div>
     {children}
@@ -19,7 +20,7 @@ const Step = ({ n, title, children }) => (
 const Slider = ({ id, label, min, max, value, onChange, text, minText, maxText }) => (
   <div className="flex flex-col gap-0.5">
     <div className="flex items-baseline justify-between gap-3">
-      <label htmlFor={id} className="font-mono text-[13px] text-secondary">{label}</label>
+      <label htmlFor={id} className="font-mono text-xs text-secondary">{label}</label>
       <output htmlFor={id} className="font-mono text-xl font-medium text-accent">{text}</output>
     </div>
     <input id={id} type="range" min={min} max={max} step="1" value={value} onChange={onChange} className="m-0 h-11 w-full cursor-pointer accent-accent" />
@@ -106,28 +107,28 @@ export default function CalculatorSection() {
   const depthMax = input.pileType === 'bored-pile-machine' ? 30 : 8;
 
   const optBtn = (active) =>
-    `inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-sm border-[1.5px] px-3 text-[15px] font-semibold transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+    `inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-sm border-[1.5px] px-3 text-sm font-semibold transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
       active
         ? 'border-primary bg-primary text-on-primary'
         : 'border-border-muted bg-white text-primary hover:border-primary'
     }`;
-  const labelClass = 'mb-2 block font-mono text-[13px] text-secondary';
+  const labelClass = 'mb-2 block font-mono text-xs text-secondary';
 
-  const row = 'flex justify-between gap-4 border-b border-white/15 py-2.5 text-[15px]';
+  const row = 'flex justify-between gap-4 border-b border-white/15 py-2.5 text-sm';
 
   return (
     <section id="kalkulator" ref={sectionRef} className="bg-surface-container px-5 py-16 md:px-10 md:py-28">
       <div className="mx-auto w-full max-w-7xl">
         {/* Header */}
         <div className="mb-8 flex max-w-2xl flex-col gap-3 md:mb-12 md:gap-4">
-          <h2 className="text-[32px] leading-[1.1] tracking-tight text-primary md:text-[44px]">
+          <h2 className="text-display-sm leading-[1.1] tracking-tight text-primary md:text-display">
             Hitung Estimasi Biaya Pondasi
           </h2>
           <p className="max-w-[56ch] text-base leading-relaxed text-secondary md:text-lg">
             Pilih metode, diameter, dan kedalaman. Hasilnya perkiraan awal sebelum survey lokasi.
           </p>
           <p className="max-w-[56ch] border-l-2 border-accent pl-3 text-xs leading-relaxed text-secondary">
-            <strong className="font-semibold text-accent">DISCLAIMER:</strong> simulasi kasar awal, <strong className="font-semibold text-primary">bukan harga jadi</strong>. Biaya aktual mengikuti hasil survey lokasi teknis gratis.
+            <strong className="font-semibold text-accent">DISCLAIMER:</strong> Simulasi awal estimasi kisaran pasar, <strong className="font-semibold text-primary">bukan harga pasti</strong> (bukan harga jadi). Biaya aktual mengikuti hasil survey lokasi teknis gratis.
           </p>
         </div>
 
@@ -201,7 +202,7 @@ export default function CalculatorSection() {
                   </div>
                   <button type="button" role="switch" aria-checked={input.includeMaterial} aria-label="Sistem All-In Material" onClick={() => update('includeMaterial', !input.includeMaterial)}
                     className="flex h-11 w-[52px] shrink-0 cursor-pointer items-center">
-                    <span className={`relative block h-7 w-12 rounded-full transition-colors ${input.includeMaterial ? 'bg-accent' : 'bg-[#A8A69E]'}`}>
+                    <span className={`relative block h-7 w-12 rounded-full transition-colors ${input.includeMaterial ? 'bg-accent' : 'bg-switch-off'}`}>
                       <span className={`absolute top-[3px] h-[22px] w-[22px] rounded-full bg-white transition-all ${input.includeMaterial ? 'left-[23px]' : 'left-[3px]'}`} />
                     </span>
                   </button>
@@ -209,10 +210,9 @@ export default function CalculatorSection() {
               </Step>
 
               {saved.length < 5 && (
-                <button type="button" onClick={saveEstimate}
-                  className="inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-sm border border-border-muted bg-surface text-sm font-semibold text-primary transition-colors hover:bg-surface-container-low">
+                <Button type="button" onClick={saveEstimate} variant="secondary" size="md" className="w-full">
                   <BookmarkPlus className="h-4 w-4" /> Simpan konfigurasi ini
-                </button>
+                </Button>
               )}
             </div>
 
@@ -222,31 +222,37 @@ export default function CalculatorSection() {
 
               <div className="flex flex-col gap-5 rounded-sm bg-primary p-6 text-on-primary md:p-8">
                 <div className="flex flex-col gap-1.5">
-                  <div className="font-mono text-[13px] text-[#B9B8B0]">Estimasi biaya · {result.totalMeters} m total</div>
-                  <div aria-live="polite" className="text-[30px] font-extrabold leading-[1.08] tracking-tight md:text-[40px]">
+                  <div className="font-mono text-xs text-on-primary-muted">Estimasi biaya · {result.totalMeters} m total</div>
+                  <div aria-live="polite" className="text-3xl font-extrabold leading-[1.08] tracking-tight md:text-4xl">
                     {formatRangeCost(result.costMin, result.costMax)}
                   </div>
-                  <div className="text-base text-[#D2D1CA]">Durasi {result.durationDaysMin} - {result.durationDaysMax} hari kerja</div>
+                  <div className="text-base text-on-primary-subtle">Durasi {result.durationDaysMin} - {result.durationDaysMax} hari kerja</div>
                 </div>
 
                 <div className="border-t border-white/15">
-                  <div className={row}><span className="text-[#D2D1CA]">Pengeboran</span><span className="font-mono">{formatRangeCost(result.itemizedCosts.drilling.min, result.itemizedCosts.drilling.max)}</span></div>
+                  <div className={row}><span className="text-on-primary-subtle">Pengeboran</span><span className="font-mono">{formatRangeCost(result.itemizedCosts.drilling.min, result.itemizedCosts.drilling.max)}</span></div>
                   {input.includeMaterial && (
-                    <div className={row}><span className="text-[#D2D1CA]">Material</span><span className="font-mono">{formatRangeCost(result.itemizedCosts.material.min, result.itemizedCosts.material.max)}</span></div>
+                    <div className={row}><span className="text-on-primary-subtle">Material</span><span className="font-mono">{formatRangeCost(result.itemizedCosts.material.min, result.itemizedCosts.material.max)}</span></div>
                   )}
-                  <div className={row}><span className="text-[#D2D1CA]">Mobilisasi</span><span className="font-mono">Rp {(result.itemizedCosts.mobilization / 1000000).toFixed(1)} Juta</span></div>
+                  <div className={row}><span className="text-on-primary-subtle">Mobilisasi</span><span className="font-mono">Rp {(result.itemizedCosts.mobilization / 1000000).toFixed(1)} Juta</span></div>
                   {result.itemizedCosts.mudHandling > 0 && (
-                    <div className={row}><span className="text-[#D2D1CA]">Penanganan lumpur</span><span className="font-mono">Rp {(result.itemizedCosts.mudHandling / 1000000).toFixed(1)} Juta</span></div>
+                    <div className={row}><span className="text-on-primary-subtle">Penanganan lumpur</span><span className="font-mono">Rp {(result.itemizedCosts.mudHandling / 1000000).toFixed(1)} Juta</span></div>
                   )}
-                  <div className={row}><span className="text-[#D2D1CA]">Volume beton ReadyMix</span><span className="font-mono">{result.concreteVolumeM3} m³</span></div>
-                  <div className={row}><span className="text-[#D2D1CA]">Berat besi tulangan</span><span className="font-mono">{input.includeMaterial ? `${result.rebarWeightKg} Kg` : 'Disiapkan owner'}</span></div>
+                  <div className={row}><span className="text-on-primary-subtle">Volume beton ReadyMix</span><span className="font-mono">{result.concreteVolumeM3} m³</span></div>
+                  <div className={row}><span className="text-on-primary-subtle">Berat besi tulangan</span><span className="font-mono">{input.includeMaterial ? `${result.rebarWeightKg} Kg` : 'Disiapkan owner'}</span></div>
                 </div>
 
-                <a href={generateWhatsAppLink(input, result)} target="_blank" rel="noreferrer"
-                  className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-sm bg-accent px-4 text-base font-semibold text-on-primary transition-colors hover:bg-accent-dark">
+                <Button
+                  href={generateWhatsAppLink(input, result)}
+                  target="_blank"
+                  rel="noreferrer"
+                  variant="primary"
+                  size="lg"
+                  className="w-full"
+                >
                   <Phone className="h-4 w-4" /> Kirim rincian via WhatsApp
-                </a>
-                <p className="font-mono text-xs leading-relaxed text-[#B9B8B0]">Perkiraan awal, belum termasuk PPN 11%. Harga final setelah survey lokasi.</p>
+                </Button>
+                <p className="font-mono text-xs leading-relaxed text-on-primary-muted">Estimasi kisaran pasar, bukan harga pasti. Belum termasuk PPN 11%. Harga final setelah survey lokasi.</p>
               </div>
 
               <SavedEstimates estimates={saved} onLoad={loadSaved} onDelete={deleteSaved} onClearAll={() => { setSaved([]); localStorage.removeItem('bmj_saved_estimates'); }} />

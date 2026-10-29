@@ -1,15 +1,9 @@
 import FadeInWrap from "./FadeInWrap";
 
-export default function AnimatedSection({
-  children,
-  className = "",
-  delay = 0,
-  y = 30,
-  ...props
-}) {
-  return (
-    <FadeInWrap as="section" delay={delay} className={className} {...props}>
-      {children}
-    </FadeInWrap>
-  );
+/**
+ * Unified animation wrapper: delegates directly to FadeInWrap with as="section".
+ * Kept for clean component encapsulation and backward compatibility.
+ */
+export default function AnimatedSection(props) {
+  return <FadeInWrap as="section" {...props} />;
 }
