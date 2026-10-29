@@ -6,7 +6,7 @@ export default function FAQ() {
       <div className="mx-auto max-w-4xl space-y-10">
         <div className="space-y-3">
           <span className="font-mono text-xs text-accent">Tanya Jawab</span>
-          <h2 className="text-[32px] leading-[1.1] tracking-tight text-primary md:text-[44px]">
+          <h2 className="text-display-sm leading-[1.1] tracking-tight text-primary md:text-display">
             Pertanyaan Umum (FAQ)
           </h2>
           <p className="max-w-2xl text-base text-secondary">

@@ -31,7 +31,7 @@ export default function TestimonialSection() {
     <section className="border-t border-border-muted bg-surface px-5 py-16 md:px-10 md:py-28">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-7 md:gap-12">
         <div className="flex items-end justify-between gap-8">
-          <h2 className="max-w-xl text-[32px] leading-[1.1] tracking-tight text-primary md:text-[44px]">
+          <h2 className="max-w-xl text-display-sm leading-[1.1] tracking-tight text-primary md:text-display">
             Kepercayaan dari Pengembang Proyek
           </h2>
           <p className="hidden text-base text-secondary md:block">Geser untuk melihat testimoni lainnya</p>
@@ -52,8 +52,8 @@ export default function TestimonialSection() {
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
               <figcaption>
-                <div className="text-[17px] font-bold text-primary md:text-lg">{t.name}</div>
-                <div className="mt-0.5 text-[15px] text-secondary md:text-base">{t.role}</div>
+                <div className="text-base font-bold text-primary md:text-lg">{t.name}</div>
+                <div className="mt-0.5 text-sm text-secondary md:text-base">{t.role}</div>
               </figcaption>
             </figure>
           ))}

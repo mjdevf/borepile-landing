@@ -3,51 +3,77 @@
 @theme {
   /* ── Stitch Design System Colors ── */
   --color-primary: #17171A;
-  --color-primary-container: #131b2e;
   --color-on-primary: #F8F8F6;
-  --color-on-primary-container: #7c839b;
 
   --color-secondary: #5B5A55;
-  --color-secondary-container: #E1E0DA;
-  --color-on-secondary: #ffffff;
 
   --color-accent: #A8422A;
   --color-accent-dark: #8A3420;
+  --color-accent-soft: #FCEEE9;
 
   --color-surface: #F8F8F6;
-  --color-surface-dim: #E1E0DA;
-  --color-surface-bright: #FAF9F7;
   --color-surface-container-lowest: #ffffff;
   --color-surface-container-low: #F3F2EE;
   --color-surface-container: #EBEAE4;
-  --color-surface-container-high: #E1E0DA;
-  --color-surface-container-highest: #D7D6D0;
 
   --color-background: #F8F8F6;
-  --color-on-background: #17171A;
   --color-on-surface: #17171A;
   --color-on-surface-variant: #5B5A55;
 
   --color-outline: #5B5A55;
-  --color-outline-variant: #E1E0DA;
   --color-border-muted: #E1E0DA;
 
   --color-success-green: #16a34a;
   --color-success-green-dark: #15803d;
   --color-alert-red: #b91c1c;
-  --color-error: #ba1a1a;
-  --color-on-error: #ffffff;
 
-  --color-inverse-surface: #17171A;
-  --color-inverse-on-surface: #F8F8F6;
+  /* ── Hero & Card UI semantic tokens ── */
+  --color-hero-script: #F0A58F;
+  --color-hero-sub: #E8E7E1;
+  --color-on-primary-muted: #B9B8B0;
+  --color-on-primary-subtle: #D2D1CA;
+  --color-switch-off: #A8A69E;
 
-  /* ── Legacy aliases mapped to new tokens ── */
-  --color-tertiary: #A8422A;
-  --color-tertiary-container: #8A3420;
-  --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #ffffff;
-  --color-accent-gold: #A8422A;
-  --color-safety-orange: #A8422A;
+  /* ── Chart & Diagram tokens (DrillVisualizer) ── */
+  --color-chart-amber: #F59E0B;
+  --color-chart-amber-light: #FBBF24;
+  --color-chart-amber-dark: #D97706;
+  --color-chart-amber-deep: #B45309;
+  --color-chart-amber-darkest: #92400E;
+
+  --color-chart-slate-200: #E2E8F0;
+  --color-chart-slate-300: #CBD5E1;
+  --color-chart-slate-400: #94A3B8;
+  --color-chart-slate-500: #64748B;
+  --color-chart-slate-600: #475569;
+  --color-chart-slate-700: #334155;
+  --color-chart-slate-800: #1E293B;
+  --color-chart-slate-900: #0F172A;
+  --color-chart-slate-950: #0F1729;
+
+  --color-chart-red: #EF4444;
+
+  /* ── Type scale ── */
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.75rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: 2.5rem;
+  --text-display-sm: 2rem;
+  --text-display-sm--line-height: 1.15;
+  --text-display: 2.75rem;
+  --text-display--line-height: 1.1;
 
   --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
@@ -73,7 +99,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   background-color: var(--color-background);
-  color: var(--color-on-background);
+  color: var(--color-on-surface);
 }
 
 ::selection {

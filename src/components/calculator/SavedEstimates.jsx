@@ -216,7 +216,7 @@ borepilemajujaya.com`;
           return (
             <div key={item.id} onClick={() => onLoad(item)} className={`group border p-5 rounded-sm cursor-pointer transition-all flex flex-col md:flex-row md:items-center justify-between gap-5 relative overflow-hidden ${isSelected ? 'border-accent bg-surface shadow-sm ring-1 ring-accent/30' : 'border-border-muted bg-surface hover:border-accent/40 hover:bg-surface-container-low'}`}>
               <div className="flex-1 min-w-0 flex items-start gap-4">
-                <button onClick={(e) => handleToggleSelect(item.id, e)} className={`mt-1 h-5 w-5 rounded-sm border flex items-center justify-center transition-all flex-shrink-0 cursor-pointer ${isSelected ? 'bg-accent border-accent text-on-primary' : 'border-outline-variant bg-surface-container-lowest group-hover:border-accent/50'}`}>
+                <button onClick={(e) => handleToggleSelect(item.id, e)} className={`mt-1 h-5 w-5 rounded-sm border flex items-center justify-center transition-all flex-shrink-0 cursor-pointer ${isSelected ? 'bg-accent border-accent text-on-primary' : 'border-border-muted bg-surface-container-lowest group-hover:border-accent/50'}`}>
                   {isSelected && <Check className="h-3.5 w-3.5 stroke-[3.5]" />}
                 </button>
                 <div className="min-w-0 flex-1">

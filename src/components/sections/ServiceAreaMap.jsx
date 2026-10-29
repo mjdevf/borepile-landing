@@ -10,7 +10,7 @@ class ErrorBoundary extends React.Component {
         <div className="flex h-[400px] items-center justify-center rounded-md border border-border-muted bg-surface-container-low">
           <div className="text-center">
             <p className="mb-2 text-sm text-secondary">Peta gagal dimuat.</p>
-            <button onClick={() => this.setState({ err: false })} className="text-sm text-tertiary underline">Coba lagi</button>
+            <button onClick={() => this.setState({ err: false })} className="text-sm text-accent underline">Coba lagi</button>
           </div>
         </div>
       );
@@ -79,8 +79,8 @@ export default function ServiceAreaMap() {
         const isHub = !!c.hub;
         const marker = L.default.circleMarker([c.lat, c.lng], {
           radius: isHub ? 9 : 7,
-          fillColor: c.hub ? "#17171A" : "#A8422A",
-          color: "#ffffff",
+          fillColor: c.hub ? "var(--color-primary)" : "var(--color-accent)",
+          color: "white",
           weight: 2.5,
           opacity: 0.9,
           fillOpacity: 1,

@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import AnimatedSection from "../ui/AnimatedSection";
+import Button from "../ui/Button";
 import { locationPages, getLocationDetail } from "../../data/content";
 import WhatsAppFloatingButton from "../ui/WhatsAppFloatingButton";
 import Navbar from "../layout/Navbar";
@@ -199,23 +200,27 @@ const LocationPage = () => {
               <div>
                 <h3 className="mb-4 text-xl font-semibold text-primary">Hubungi Kami</h3>
                 <div className="space-y-4">
-                  <a
+                  <Button
                     href="tel:+6281514811120"
-                    className="block w-full rounded-lg bg-surface-container-low py-3 px-6 text-center font-semibold text-primary transition-colors hover:bg-surface-container"
+                    variant="secondary"
+                    size="md"
+                    className="w-full rounded-lg"
                   >
                     Telepon: +62 815 1481 1120
-                  </a>
-                  <a
+                  </Button>
+                  <Button
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 px-6 text-center font-semibold text-on-primary transition-colors hover:bg-on-surface-variant"
+                    variant="primary"
+                    size="md"
+                    className="w-full rounded-lg bg-primary text-on-primary hover:bg-secondary"
                   >
                     <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M17.472 14.382A10.244 10.244 0 0 0 12 3C6.477 3 2 7.477 2 13c0 2.005.646 3.875 1.718 5.471l-1.318 4.475 4.575-1.236A10.236 10.236 0 0 0 17.472 14.382z" />
                     </svg>
                     Chat WhatsApp
-                  </a>
+                  </Button>
                   <p className="text-center text-xs text-secondary">
                     Harga estimasi, bukan harga pasti. Penawaran resmi diberikan setelah survey lokasi gratis.
                   </p>

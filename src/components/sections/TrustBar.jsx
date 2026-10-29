@@ -15,7 +15,7 @@ export default function TrustBar() {
               } ${i === 2 ? "pl-0 md:pl-8" : ""}`}
             >
               <dt className="text-sm leading-tight text-secondary">{item.label}</dt>
-              <dd className="m-0 whitespace-nowrap font-mono text-[22px] font-medium leading-none md:text-[32px]">
+              <dd className="m-0 whitespace-nowrap font-mono text-2xl font-medium leading-none md:text-display-sm">
                 {item.value}
                 <span className="ml-1 text-[0.6em] text-accent">{item.suffix}</span>
               </dd>

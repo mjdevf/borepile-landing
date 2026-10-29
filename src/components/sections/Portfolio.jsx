@@ -31,7 +31,7 @@ export default function Portfolio() {
       <section id="portfolio" className="bg-surface-container px-5 py-16 md:px-10 md:py-28">
         <div className="mx-auto w-full max-w-7xl">
           <div className="mb-8 flex max-w-2xl flex-col gap-3 md:mb-12 md:gap-4">
-            <h2 className="text-[32px] leading-[1.1] tracking-tight text-primary md:text-[44px]">
+            <h2 className="text-display-sm leading-[1.1] tracking-tight text-primary md:text-display">
               Dokumentasi Proyek
             </h2>
             <p className="max-w-[56ch] text-base leading-relaxed text-secondary md:text-lg">

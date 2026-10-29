@@ -1,4 +1,5 @@
 import { Phone, ArrowRight } from "lucide-react";
+import Button from "../ui/Button";
 import { hero, footer } from "../../data/content";
 
 const MSG = "Halo%20Majujaya%20Bore%20Pile%2C%20saya%20ingin%20konsultasi%20tentang%20pengeboran.";
@@ -41,7 +42,7 @@ export default function Hero() {
           >
             <span className="block">{lineOne}</span>
             <span
-              className="block text-[1.18em] leading-[1.1] text-[#F0A58F]"
+              className="block text-[1.18em] leading-[1.1] text-hero-script"
               style={{ fontFamily: "var(--font-script)", fontWeight: 700, letterSpacing: 0 }}
             >
               {lineTwo}
@@ -49,7 +50,7 @@ export default function Hero() {
           </h1>
 
           <p
-            className="ani-hero mt-6 max-w-xl text-base leading-relaxed text-[#E8E7E1] md:text-xl"
+            className="ani-hero mt-6 max-w-xl text-base leading-relaxed text-hero-sub md:text-xl"
             style={{ animationDelay: "0.16s" }}
           >
             {hero.subheadline}
@@ -59,22 +60,26 @@ export default function Hero() {
             className="ani-hero mt-9 flex flex-col gap-3 sm:flex-row"
             style={{ animationDelay: "0.24s" }}
           >
-            <a
+            <Button
               href={`https://api.whatsapp.com/send/?phone=${footer.wa}&text=${MSG}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-[52px] items-center justify-center gap-2 rounded-sm bg-accent px-7 text-base font-semibold text-on-primary transition-colors hover:bg-accent-dark active:scale-[0.98]"
+              variant="primary"
+              size="lg"
+              className="px-7"
             >
               <Phone className="h-4 w-4" />
               {hero.cta}
-            </a>
-            <a
+            </Button>
+            <Button
               href="#portfolio"
-              className="inline-flex h-[52px] items-center justify-center gap-2 rounded-sm border-[1.5px] border-white px-7 text-base font-semibold text-white transition-colors hover:bg-white hover:text-primary"
+              variant="secondary"
+              size="lg"
+              className="border-white bg-transparent text-white hover:bg-white hover:text-primary px-7"
             >
               {hero.ctaSecondary}
               <ArrowRight className="h-4 w-4" />
-            </a>
+            </Button>
           </div>
         </div>
       </div>

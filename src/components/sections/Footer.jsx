@@ -1,5 +1,6 @@
 import { footer } from "../../data/content";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import Button from "../ui/Button";
 import { navLinks } from "../../data/content";
 
 function handleSubmit(e) {
@@ -14,7 +15,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border-muted bg-surface-container-low">
       {/* Contact + CTA section */}
-      <section id="kontak" className="border-b border-border-muted bg-surface-container-high px-4 py-16 md:px-10 md:py-24">
+      <section id="kontak" className="border-b border-border-muted bg-border-muted px-4 py-16 md:px-10 md:py-24">
         <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 lg:grid-cols-12">
           {/* Left — Contact Info */}
           <div className="flex flex-col gap-6 lg:col-span-5">
@@ -145,12 +146,14 @@ export default function Footer() {
                     className="w-full rounded-sm border border-border-muted bg-surface p-2.5 text-sm text-primary transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                   />
                 </div>
-                <button
+                <Button
                   type="submit"
-                  className="inline-flex h-[50px] w-full items-center justify-center gap-2 rounded-sm bg-accent text-sm font-semibold text-on-primary transition-colors hover:bg-accent-dark active:scale-[0.98] cursor-pointer"
+                  variant="primary"
+                  size="lg"
+                  className="w-full text-sm"
                 >
                   Kirim Permintaan via WhatsApp
-                </button>
+                </Button>
               </div>
             </form>
           </div>
