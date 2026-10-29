@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { execFileSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import { JSDOM } from 'jsdom';
 import {
@@ -18,6 +19,50 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const DIST_DIR = path.join(__dirname, '..', 'dist');
+const REPO_ROOT = path.join(__dirname, '..');
+const LASTMOD_FALLBACK_PATH = path.join(__dirname, 'lastmod.json');
+
+function readLastmodFallback() {
+  try {
+    return JSON.parse(fs.readFileSync(LASTMOD_FALLBACK_PATH, 'utf8'));
+  } catch {
+    return {};
+  }
+}
+
+function isFullGitClone() {
+  try {
+    const out = execFileSync('git', ['rev-parse', '--is-shallow-repository'], {
+      cwd: REPO_ROOT,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim();
+    return out === 'false';
+  } catch {
+    return false;
+  }
+}
+
+function gitLastmodForFile(file) {
+  try {
+    const out = execFileSync('git', ['log', '-1', '--format=%cs', '--', file], {
+      cwd: REPO_ROOT,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim();
+    return /^\d{4}-\d{2}-\d{2}$/.test(out) ? out : null;
+  } catch {
+    return null;
+  }
+}
+
+function sourceFileForPath(pathname) {
+  if (pathname === '/') return 'index.html';
+  if (pathname === '/blog/') return 'public/blog/index.html';
+  if (pathname.startsWith('/location/')) return 'src/data/content.js';
+  if (pathname.startsWith('/blog/')) return path.posix.join('public', pathname.replace(/^\//, ''));
+  return null;
+}
 
 function stripTags(s) {
   return String(s ?? '').replace(/<[^>]*>/g, '');
@@ -431,24 +476,44 @@ function generateLocationPages() {
   console.log('🎉 All location pages generated!');
 }
 
-function refreshSitemapLastmod() {
+function updateSitemapLastmod() {
   const sitemapPath = path.join(DIST_DIR, 'sitemap.xml');
   if (!fs.existsSync(sitemapPath)) {
-    console.warn('⚠️  sitemap.xml not found in dist — skipping lastmod refresh');
+    console.warn('⚠️  sitemap.xml not found in dist — skipping lastmod update');
     return;
   }
-  const today = new Date().toISOString().slice(0, 10);
+  const fallback = readLastmodFallback();
+  const useGit = isFullGitClone();
   let xml = fs.readFileSync(sitemapPath, 'utf8');
-  const before = xml.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1];
-  xml = xml.replace(/<lastmod>[^<]+<\/lastmod>/g, `<lastmod>${today}</lastmod>`);
+  xml = xml.replace(/\s*<changefreq>[^<]*<\/changefreq>/g, '');
+  xml = xml.replace(/\s*<priority>[^<]*<\/priority>/g, '');
+  xml = xml.replace(/<url>([\s\S]*?)<\/url>/g, (block) => {
+    const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1];
+    if (!loc) return block;
+    let pathname;
+    try {
+      pathname = new URL(loc).pathname;
+    } catch {
+      return block;
+    }
+    const source = sourceFileForPath(pathname);
+    const gitDate = useGit && source ? gitLastmodForFile(source) : null;
+    const existing = block.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1];
+    const date = gitDate || fallback[pathname] || existing;
+    if (!date) return block;
+    if (/<lastmod>/.test(block)) {
+      return block.replace(/<lastmod>[^<]+<\/lastmod>/, `<lastmod>${date}</lastmod>`);
+    }
+    return block.replace('</loc>', `</loc>\n    <lastmod>${date}</lastmod>`);
+  });
   fs.writeFileSync(sitemapPath, xml, 'utf8');
-  console.log(`🗓️  sitemap.xml lastmod refreshed: ${before} -> ${today}`);
+  console.log(`🗓️  sitemap.xml lastmod updated (${useGit ? 'git history' : 'lastmod.json fallback'})`);
 }
 
 try {
   generateLocationPages();
   prerenderHomepage();
-  refreshSitemapLastmod();
+  updateSitemapLastmod();
 } catch (e) {
   console.error('🚨 Prerender failed:', e.message);
   console.error(e.stack);
