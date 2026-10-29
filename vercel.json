@@ -46,6 +46,16 @@
       "permanent": true
     },
     {
+      "source": "/blog/:slug([a-z0-9-]+)",
+      "destination": "/blog/:slug.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:slug([a-z0-9-]+)/",
+      "destination": "/blog/:slug.html",
+      "permanent": true
+    },
+    {
       "source": "/wp-admin(.*)",
       "destination": "/404",
       "statusCode": 404
@@ -69,12 +79,6 @@
       "source": "/api/(.*)",
       "destination": "/404",
       "statusCode": 404
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/blog/:slug",
-      "destination": "/blog/:slug.html"
     }
   ],
   "headers": [
@@ -142,7 +146,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://*.tile.openstreetmap.org data: https://unpkg.com https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.tile.openstreetmap.org https://wa.me https://api.whatsapp.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self'; frame-ancestors 'none'"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googlea[..."
         }
       ]
     },
@@ -171,7 +175,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://*.tile.openstreetmap.org data: https://unpkg.com https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.tile.openstreetmap.org https://wa.me https://api.whatsapp.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self'; frame-ancestors 'none'"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googlea[..."
         }
       ]
     },
@@ -196,7 +200,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://*.tile.openstreetmap.org data: https://unpkg.com https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.tile.openstreetmap.org https://wa.me https://api.whatsapp.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self'; frame-ancestors 'none'"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googlea[..."
         }
       ]
     }
