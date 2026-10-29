@@ -33,3 +33,6 @@ jobs:
           test -f dist/404.html || { echo "missing 404 page"; exit 1; }
           grep -q "$(date +%F)" dist/sitemap.xml || { echo "sitemap lastmod not refreshed"; exit 1; }
           echo "output OK"
+
+      - name: SEO verification
+        run: node scripts/verify_seo.mjs
