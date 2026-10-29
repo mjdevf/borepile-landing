@@ -1,3 +1,5 @@
+import { STRAUSS_FROM, MESIN_FROM, MESIN_MAX, DISCLAIMER_LONG } from './pricing.js';
+
 export const navLinks = [
   { label: "Beranda", href: "/#hero", id: "nav-home" },
   { label: "Tentang Kami", href: "/#tentang", id: "nav-about" },
@@ -645,7 +647,7 @@ export const locationPages = [
       },
       {
         "q": "Berapa estimasi biaya bore pile per titik untuk rumah tinggal di Tangerang?",
-        "a": "Biaya jasa bore pile mulai dari Rp750.000 hingga Rp2.000.000 per titik tergantung diameter, kedalaman tanah keras, dan volume titik pengerjaan. Kami menyediakan proposal RAB transparan tanpa biaya siluman."
+        "a": `Biaya jasa bore pile mulai dari ${STRAUSS_FROM} per titik untuk strauss pile manual hingga ${MESIN_MAX} untuk bore pile mesin diameter besar. ${DISCLAIMER_LONG}`
       }
     ]
   },
@@ -1199,15 +1201,14 @@ export const howItWorks = [
   },
 ];
 
-// TODO: Konfirmasi ke user harga resmi bore pile per titik (apakah mulai Rp500.000 atau Rp750.000 s/d Rp2.000.000). Saat ini diselaraskan di Rp750.000 - Rp2.000.000.
 export const faq = [
   {
     q: "Apa itu borepile dan kapan saya butuh?",
     a: "Borepile adalah teknik pengeboran dalam untuk pondasi bangunan. Anda butuh borepile jika membangun rumah bertingkat, ruko, atau gedung di area dengan kondisi tanah lunak. Kami melayani jasa bore pile di Jakarta, Bogor, Depok, Tangerang, Bekasi, dan seluruh Indonesia."
   },
   {
-    q: "Berapa biaya jasa bore pile Jakarta per titik?",
-    a: "Harga jasa bore pile Jakarta mulai dari Rp750.000 per titik untuk strauss pile manual (diameter 30-40cm) dan mulai Rp2.000.000 per titik untuk bore pile mesin mini crane. Biaya aktual dipengaruhi oleh diameter, kedalaman tanah keras, dan jumlah titik. Estimasi ini merupakan perkiraan kompetitif awal; hubungi kami untuk penawaran resmi dan survey lokasi teknis gratis di lokasi proyek Anda."
+    q: "Berapa biaya jasa bore pile per titik?",
+    a: `Biaya jasa mulai dari ${STRAUSS_FROM} per titik untuk strauss pile manual (diameter 30–40 cm) dan mulai ${MESIN_FROM} per titik untuk bore pile mesin mini crane. ${DISCLAIMER_LONG}`
   },
   {
     q: "Berapa lama proses pengerjaan bore pile dari survey hingga selesai?",

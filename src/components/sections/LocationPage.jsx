@@ -216,6 +216,9 @@ const LocationPage = () => {
                     </svg>
                     Chat WhatsApp
                   </a>
+                  <p className="text-center text-xs text-secondary">
+                    Harga estimasi, bukan harga pasti. Penawaran resmi diberikan setelah survey lokasi gratis.
+                  </p>
                 </div>
               </div>
             </div>

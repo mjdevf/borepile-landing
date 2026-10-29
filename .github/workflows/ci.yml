@@ -40,3 +40,6 @@ jobs:
 
       - name: SEO verification
         run: node scripts/verify_seo.mjs
+
+      - name: Pricing verification
+        run: node scripts/verify_pricing.mjs

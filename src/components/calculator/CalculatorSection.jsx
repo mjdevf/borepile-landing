@@ -127,7 +127,7 @@ export default function CalculatorSection() {
             Pilih metode, diameter, dan kedalaman. Hasilnya perkiraan awal sebelum survey lokasi.
           </p>
           <p className="max-w-[56ch] border-l-2 border-accent pl-3 text-xs leading-relaxed text-secondary">
-            <strong className="font-semibold text-accent">DISCLAIMER:</strong> simulasi kasar awal, <strong className="font-semibold text-primary">bukan harga jadi</strong>. Biaya aktual mengikuti hasil survey lokasi teknis gratis.
+            <strong className="font-semibold text-accent">DISCLAIMER:</strong> Simulasi awal estimasi kisaran pasar, <strong className="font-semibold text-primary">bukan harga pasti</strong> (bukan harga jadi). Biaya aktual mengikuti hasil survey lokasi teknis gratis.
           </p>
         </div>
 
@@ -246,7 +246,7 @@ export default function CalculatorSection() {
                   className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-sm bg-accent px-4 text-base font-semibold text-on-primary transition-colors hover:bg-accent-dark">
                   <Phone className="h-4 w-4" /> Kirim rincian via WhatsApp
                 </a>
-                <p className="font-mono text-xs leading-relaxed text-[#B9B8B0]">Perkiraan awal, belum termasuk PPN 11%. Harga final setelah survey lokasi.</p>
+                <p className="font-mono text-xs leading-relaxed text-[#B9B8B0]">Estimasi kisaran pasar, bukan harga pasti. Belum termasuk PPN 11%. Harga final setelah survey lokasi.</p>
               </div>
 
               <SavedEstimates estimates={saved} onLoad={loadSaved} onDelete={deleteSaved} onClearAll={() => { setSaved([]); localStorage.removeItem('bmj_saved_estimates'); }} />
