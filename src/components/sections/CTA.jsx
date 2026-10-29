@@ -25,7 +25,7 @@ export default function CTA() {
           </a>
           <a
             href="#portfolio"
-            className="inline-flex h-[50px] items-center justify-center gap-2 rounded-sm border border-border-muted px-8 text-sm font-semibold text-on-primary transition-colors hover:border-accent hover:text-accent"
+            className="inline-flex h-[50px] items-center justify-center gap-2 rounded-sm border border-border-muted px-8 text-sm font-semibold text-on-primary transition-colors hover:border-accent hover:text-on-primary"
           >
             Lihat Portofolio
             <ArrowRight className="h-4 w-4" />

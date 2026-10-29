@@ -28,7 +28,7 @@ export default function ScrollToTop() {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }
           }}
-          className="fixed bottom-20 right-4 z-40 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-on-primary shadow-lg transition-all duration-200 hover:bg-on-surface-variant hover:scale-110 sm:bottom-24 sm:right-6"
+          className="fixed bottom-20 right-4 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-primary text-on-primary shadow-lg transition-all duration-200 hover:bg-on-surface-variant hover:scale-110 sm:bottom-24 sm:right-6"
           aria-label="Scroll ke atas"
         >
           <ArrowUp className="h-5 w-5" />

@@ -57,6 +57,8 @@ export default function Portfolio() {
                     <img
                       src={img.src}
                       alt={img.alt}
+                      width={640}
+                      height={480}
                       loading="lazy"
                       decoding="async"
                       className="h-full w-full object-cover"
@@ -97,6 +99,8 @@ export default function Portfolio() {
                     <img
                       src={img.src}
                       alt={img.alt}
+                      width={640}
+                      height={480}
                       loading="lazy"
                       decoding="async"
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -143,6 +147,8 @@ export default function Portfolio() {
                 <img
                   src={portfolioImages[selected].src}
                   alt={portfolioImages[selected].alt}
+                  width={640}
+                  height={480}
                   className="max-h-[75vh] max-w-full rounded-lg object-contain shadow-2xl"
                 />
               </picture>

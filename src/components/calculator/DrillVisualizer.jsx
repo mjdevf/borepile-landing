@@ -29,7 +29,7 @@ export default function DrillVisualizer({
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-accent/5 rounded-full blur-2xl pointer-events-none" />
       <div className="w-full flex justify-between items-center mb-4 z-10">
         <span className="font-mono text-xs text-accent">Visualisasi Struktur Tiang</span>
-        <span className="text-[10px] font-mono text-secondary bg-surface-container-low px-2 py-1 rounded-sm border border-border-muted">Skala Adaptif</span>
+        <span className="text-xs font-mono text-secondary bg-surface-container-low px-2 py-1 rounded-sm border border-border-muted">Skala Adaptif</span>
       </div>
       <svg viewBox="0 0 320 400" className="w-full max-w-[280px] h-auto drop-shadow-lg overflow-visible" aria-label="Drill visual diagram">
         <defs>
@@ -128,7 +128,7 @@ export default function DrillVisualizer({
           <line x1={160 - shaftWidth / 2 + 3} y1="126" x2={160 + shaftWidth / 2 - 3} y2="126" stroke="#F59E0B" strokeWidth="1" />
           <path d={`M ${160 - shaftWidth / 2} 126 L ${160 - shaftWidth / 2 + 4} 123 L ${160 - shaftWidth / 2 + 4} 129 Z`} fill="#F59E0B" />
           <path d={`M ${160 + shaftWidth / 2} 126 L ${160 + shaftWidth / 2 - 4} 123 L ${160 + shaftWidth / 2 - 4} 129 Z`} fill="#F59E0B" />
-          <text x="160" y="118" textAnchor="middle" className="fill-amber-400 font-mono font-extrabold text-[10px]">{'Ø'} {diameter} cm</text>
+          <text x="160" y="118" textAnchor="middle" className="fill-amber-400 font-mono font-extrabold text-xs">{'Ø'} {diameter} cm</text>
         </g>
         {/* Depth label */}
         <g>
@@ -137,16 +137,16 @@ export default function DrillVisualizer({
           <line x1="36" y1="143" x2="36" y2={140 + shaftHeight - 3} stroke="#F59E0B" strokeWidth="1" />
           <path d="M 36 140 L 33 144 L 39 144 Z" fill="#F59E0B" />
           <path d={`M 36 ${140 + shaftHeight} L 33 ${140 + shaftHeight - 4} L 39 ${140 + shaftHeight - 4} Z`} fill="#F59E0B" />
-          <text x="24" y={140 + shaftHeight / 2} textAnchor="middle" transform={`rotate(-90, 24, ${140 + shaftHeight / 2})`} className="fill-amber-400 font-mono font-extrabold text-[10px]">{depth} Meter</text>
+          <text x="24" y={140 + shaftHeight / 2} textAnchor="middle" transform={`rotate(-90, 24, ${140 + shaftHeight / 2})`} className="fill-amber-400 font-mono font-extrabold text-xs">{depth} Meter</text>
         </g>
         {/* Soil annotation */}
         <g transform={`translate(210, ${150 + shaftHeight / 2})`}>
           <rect x="-5" y="-12" width="80" height="20" fill="#0F1729" rx="3" stroke="#475569" strokeWidth="0.5" opacity="0.8" />
-          <text x="35" y="1" textAnchor="middle" className="fill-slate-300 font-sans font-semibold text-[8px]">{soil.label}</text>
+          <text x="35" y="1" textAnchor="middle" className="fill-slate-300 font-sans font-semibold text-xs">{soil.label}</text>
         </g>
       </svg>
       <div className="w-full text-center mt-3 pt-3 border-t border-border-muted z-10">
-        <p className="text-[11px] text-secondary font-medium">
+        <p className="text-xs text-secondary font-medium">
           {includeMaterial ? (
             <span>Status: <strong className="text-emerald-400 font-semibold">Cor Beton ReadyMix K-300</strong> & <strong className="text-emerald-400 font-semibold">Besi Spiral Terinstalasi</strong></span>
           ) : (

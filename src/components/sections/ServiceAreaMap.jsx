@@ -135,7 +135,7 @@ export default function ServiceAreaMap() {
             />
 
             {/* Attribution overlay */}
-            <div className="pointer-events-none absolute bottom-0 right-0 z-[1000] p-1 text-[10px] text-gray-500">
+            <div className="pointer-events-none absolute bottom-0 right-0 z-[1000] p-1 text-xs text-gray-500">
               &copy; OpenStreetMap contributors
             </div>
           </div>

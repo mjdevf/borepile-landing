@@ -69,7 +69,7 @@ export default function Navbar() {
             href={`https://api.whatsapp.com/send/?phone=${footer.wa}&text=${MSG}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-9 items-center gap-2 rounded-sm bg-accent px-4 text-xs font-semibold text-on-primary transition-colors hover:bg-accent-dark active:scale-[0.98]"
+            className="inline-flex h-11 items-center gap-2 rounded-sm bg-accent px-4 text-xs font-semibold text-on-primary transition-colors hover:bg-accent-dark active:scale-[0.98]"
           >
             <Phone className="h-3.5 w-3.5" />
             Hubungi WA

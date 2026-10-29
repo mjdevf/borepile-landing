@@ -153,23 +153,23 @@ borepilemajujaya.com`;
                     </tr>
                     <tr>
                       <td className="py-3 font-semibold text-secondary">Sistem Pengadaan</td>
-                      <td className="py-3">{itemA.input.includeMaterial ? <span className="text-success-green font-bold bg-success-green/5 px-1.5 py-0.5 rounded border border-success-green/20">All-In Material</span> : <span className={textSec}>Jasa Bor Saja</span>}</td>
-                      <td className="py-3">{itemB.input.includeMaterial ? <span className="text-success-green font-bold bg-success-green/5 px-1.5 py-0.5 rounded border border-success-green/20">All-In Material</span> : <span className={textSec}>Jasa Bor Saja</span>}</td>
+                      <td className="py-3">{itemA.input.includeMaterial ? <span className="text-success-green-dark font-bold bg-success-green/5 px-1.5 py-0.5 rounded border border-success-green/20">All-In Material</span> : <span className={textSec}>Jasa Bor Saja</span>}</td>
+                      <td className="py-3">{itemB.input.includeMaterial ? <span className="text-success-green-dark font-bold bg-success-green/5 px-1.5 py-0.5 rounded border border-success-green/20">All-In Material</span> : <span className={textSec}>Jasa Bor Saja</span>}</td>
                     </tr>
                     <tr>
                       <td className="py-3 font-semibold text-secondary flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5 text-on-surface-variant" /> Durasi Konstruksi</td>
-                      <td className="py-3"><span className="font-mono font-bold text-primary">{itemA.result.durationDaysMin} - {itemA.result.durationDaysMax} Hari</span>{itemA.result.durationDaysMax < itemB.result.durationDaysMax && <span className="ml-2 text-[10px] text-success-green font-semibold bg-success-green/5 px-1.5 py-0.2 rounded">Lebih Cepat</span>}</td>
-                      <td className="py-3"><span className="font-mono font-bold text-primary">{itemB.result.durationDaysMin} - {itemB.result.durationDaysMax} Hari</span>{itemB.result.durationDaysMax < itemA.result.durationDaysMax && <span className="ml-2 text-[10px] text-success-green font-semibold bg-success-green/5 px-1.5 py-0.2 rounded">Lebih Cepat</span>}</td>
+                      <td className="py-3"><span className="font-mono font-bold text-primary">{itemA.result.durationDaysMin} - {itemA.result.durationDaysMax} Hari</span>{itemA.result.durationDaysMax < itemB.result.durationDaysMax && <span className="ml-2 text-xs text-success-green-dark font-semibold bg-success-green/5 px-1.5 py-0.2 rounded">Lebih Cepat</span>}</td>
+                      <td className="py-3"><span className="font-mono font-bold text-primary">{itemB.result.durationDaysMin} - {itemB.result.durationDaysMax} Hari</span>{itemB.result.durationDaysMax < itemA.result.durationDaysMax && <span className="ml-2 text-xs text-success-green-dark font-semibold bg-success-green/5 px-1.5 py-0.2 rounded">Lebih Cepat</span>}</td>
                     </tr>
                     <tr>
                       <td className="py-3 font-semibold text-secondary flex items-center gap-1.5"><Coins className="h-3.5 w-3.5 text-on-surface-variant" /> Estimasi Investasi</td>
                       <td className="py-3 font-mono">
                         <div className={`font-bold text-sm ${gold}`}>{formatRangeCost(itemA.result.costMin, itemA.result.costMax)}</div>
-                        {itemA.result.costMin < itemB.result.costMin && <span className="mt-1 inline-flex items-center gap-1 text-[10px] text-success-green font-bold bg-success-green/5 px-2 py-0.5 rounded border border-success-green/20"><TrendingDown className="h-3 w-3" /> Lebih Hemat</span>}
+                        {itemA.result.costMin < itemB.result.costMin && <span className="mt-1 inline-flex items-center gap-1 text-xs text-success-green-dark font-bold bg-success-green/5 px-2 py-0.5 rounded border border-success-green/20"><TrendingDown className="h-3 w-3" /> Lebih Hemat</span>}
                       </td>
                       <td className="py-3 font-mono">
                         <div className="font-bold text-sm text-accent">{formatRangeCost(itemB.result.costMin, itemB.result.costMax)}</div>
-                        {itemB.result.costMin < itemA.result.costMin && <span className="mt-1 inline-flex items-center gap-1 text-[10px] text-success-green font-bold bg-success-green/5 px-2 py-0.5 rounded border border-success-green/20"><TrendingDown className="h-3 w-3" /> Lebih Hemat</span>}
+                        {itemB.result.costMin < itemA.result.costMin && <span className="mt-1 inline-flex items-center gap-1 text-xs text-success-green-dark font-bold bg-success-green/5 px-2 py-0.5 rounded border border-success-green/20"><TrendingDown className="h-3 w-3" /> Lebih Hemat</span>}
                       </td>
                     </tr>
                   </tbody>
@@ -190,7 +190,7 @@ borepilemajujaya.com`;
               </div>
               <div className="mt-5 pt-4 border-t border-border-muted flex flex-col sm:flex-row gap-3 justify-end">
                 <button onClick={handleCopyToClipboard} className="bg-surface hover:bg-surface-container-low border border-border-muted text-secondary hover:text-primary px-4 py-2.5 rounded-sm font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer">
-                  {copied ? <Check className="h-4 w-4 text-success-green" /> : <Copy className="h-4 w-4" />}
+                  {copied ? <Check className="h-4 w-4 text-success-green-dark" /> : <Copy className="h-4 w-4" />}
                   {copied ? 'Tersalin!' : 'Salin Perbandingan'}
                 </button>
                 <a href={handleGetComparisonWALink()} target="_blank" rel="noreferrer" className="bg-accent hover:bg-accent-dark text-on-primary px-5 py-2.5 rounded-sm font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer">
@@ -221,14 +221,14 @@ borepilemajujaya.com`;
                 </button>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-sm uppercase tracking-wider ${isMachine ? 'bg-accent/5 text-accent border border-accent/20' : `${gold} bg-accent/5 border border-accent/20`}`}>
+                    <span className={`text-xs font-extrabold px-2 py-0.5 rounded-sm uppercase tracking-wider ${isMachine ? 'bg-accent/5 text-accent border border-accent/20' : `${gold} bg-accent/5 border border-accent/20`}`}>
                       {isMachine ? 'Mini Crane' : 'Strauss Manual'}
                     </span>
                     <span className="text-xs font-mono font-bold text-on-surface-variant">D-{item.input.diameter}cm | {item.input.depth}m | {item.input.points} Titik</span>
-                    <span className={`text-[10px] font-semibold text-secondary bg-surface-container-low px-1.5 py-0.5 rounded-sm border ${borderCol}`}>{item.input.region.toUpperCase()}</span>
+                    <span className={`text-xs font-semibold text-secondary bg-surface-container-low px-1.5 py-0.5 rounded-sm border ${borderCol}`}>{item.input.region.toUpperCase()}</span>
                   </div>
                   <h4 className="text-sm font-bold text-primary mt-2 group-hover:text-accent transition-colors line-clamp-1">{item.name}</h4>
-                  <div className={`text-[10px] text-secondary mt-1 flex items-center gap-3`}>
+                  <div className={`text-xs text-secondary mt-1 flex items-center gap-3`}>
                     <span>Volume: <strong className="text-primary">{item.result.concreteVolumeM3} m³</strong></span>
                     <span>Besi: <strong className="text-primary">{item.input.includeMaterial ? `${(item.result.rebarWeightKg / 1000).toFixed(2)} Ton` : 'Disiapkan Owner'}</strong></span>
                     <span>Durasi: <strong className="text-primary">{item.result.durationDaysMin}-{item.result.durationDaysMax} Hari</strong></span>
@@ -236,7 +236,7 @@ borepilemajujaya.com`;
                 </div>
               </div>
               <div className="flex-1 max-w-sm hidden lg:block">
-                <div className="flex justify-between items-center text-[10px] text-secondary mb-1">
+                <div className="flex justify-between items-center text-xs text-secondary mb-1">
                   <span>Rasio</span>
                   <span className={`font-mono font-bold ${gold}`}>{ratio.toFixed(0)}%</span>
                 </div>
@@ -246,7 +246,7 @@ borepilemajujaya.com`;
               </div>
               <div className="flex items-center justify-between md:justify-end gap-4 border-t border-border-muted/40 md:border-t-0 pt-3 md:pt-0">
                 <div className="text-left md:text-right">
-                  <div className={`text-[9px] uppercase tracking-wider ${textSec}`}>Estimasi</div>
+                  <div className={`text-xs uppercase tracking-wider ${textSec}`}>Estimasi</div>
                   <div className={`text-sm font-mono font-extrabold mt-0.5 ${gold}`}>{formatRangeCost(item.result.costMin, item.result.costMax)}</div>
                 </div>
                 <div className="flex items-center gap-2">
