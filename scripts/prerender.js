@@ -258,7 +258,7 @@ function renderHomepageBody() {
         <p style="line-height:1.8;color:#475569;font-size:15px;margin-bottom:24px;"><strong>Visi Perusahaan:</strong> ${esc(about.vision)}</p>
         <p style="line-height:1.8;color:#475569;font-size:14px;margin-bottom:24px;">${esc(about.legacyNote)}</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
-          ${about.highlights.map((h) => `<div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;padding:16px;"><h4 style="font-size:16px;font-weight:700;color:#0f172a;margin-bottom:6px;">${esc(h.title)}</h4><p style="font-size:14px;line-height:1.6;color:#64748b;margin:0;">${esc(h.desc)}</p></div>`).join('')}
+          ${about.highlights.map((h) => `<div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;padding:16px;"><h3 style="font-size:16px;font-weight:700;color:#0f172a;margin-bottom:6px;">${esc(h.title)}</h3><p style="font-size:14px;line-height:1.6;color:#64748b;margin:0;">${esc(h.desc)}</p></div>`).join('')}
         </div>
       </section>
 
@@ -284,26 +284,26 @@ function renderHomepageBody() {
     <footer style="border-top:1px solid #e2e8f0;background:#f8fafc;padding:40px 20px;font-size:14px;color:#64748b;">
       <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;margin-bottom:32px;">
         <div>
-          <h4 style="font-size:18px;font-weight:700;color:#0f172a;margin-bottom:12px;">${esc(footerData.company)}</h4>
+          <h3 style="font-size:18px;font-weight:700;color:#0f172a;margin-bottom:12px;">${esc(footerData.company)}</h3>
           <p style="line-height:1.6;margin-bottom:12px;">${esc(footerData.tagline)}. Kontraktor pondasi bore pile &amp; strauss pile profesional sejak 2013.</p>
           <p style="line-height:1.6;font-size:13px;"><strong>Alamat:</strong> ${esc(footerData.address)}</p>
           <p style="line-height:1.6;font-size:13px;"><strong>WhatsApp:</strong> +62 815 1481 1120</p>
           <p style="line-height:1.6;font-size:13px;"><strong>Email:</strong> ${esc(footerData.email)}</p>
         </div>
         <div>
-          <h4 style="font-size:16px;font-weight:700;color:#0f172a;margin-bottom:12px;">Navigasi</h4>
+          <h3 style="font-size:16px;font-weight:700;color:#0f172a;margin-bottom:12px;">Navigasi</h3>
           <ul style="list-style:none;padding:0;line-height:2;">
             ${navLinks.map((l) => `<li><a href="${l.href}" style="color:#64748b;text-decoration:none;">${esc(l.label)}</a></li>`).join('')}
           </ul>
         </div>
         <div>
-          <h4 style="font-size:16px;font-weight:700;color:#0f172a;margin-bottom:12px;">Blog &amp; Artikel</h4>
+          <h3 style="font-size:16px;font-weight:700;color:#0f172a;margin-bottom:12px;">Blog &amp; Artikel</h3>
           <ul style="list-style:none;padding:0;line-height:2;">
             ${footerData.blogLinks.map((l) => `<li><a href="${l.href}" style="color:#64748b;text-decoration:none;">${esc(l.title)}</a></li>`).join('')}
           </ul>
         </div>
         <div>
-          <h4 style="font-size:16px;font-weight:700;color:#0f172a;margin-bottom:12px;">Wilayah Layanan</h4>
+          <h3 style="font-size:16px;font-weight:700;color:#0f172a;margin-bottom:12px;">Wilayah Layanan</h3>
           <ul style="list-style:none;padding:0;line-height:2;">
             ${footerData.serviceLinks.map((l) => `<li><a href="${l.href}" style="color:#64748b;text-decoration:none;">${esc(l.title.trim())}</a></li>`).join('')}
           </ul>

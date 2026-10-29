@@ -161,9 +161,9 @@ export default function Footer() {
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-8 px-4 py-12 md:grid-cols-5 md:px-10">
         {/* Brand */}
         <div className="md:col-span-2">
-          <h4 className="mb-4 text-2xl font-bold text-primary" style={{ letterSpacing: "-0.02em" }}>
+          <h3 className="mb-4 text-2xl font-bold text-primary" style={{ letterSpacing: "-0.02em" }}>
             {footer.company}
-          </h4>
+          </h3>
           <p className="mb-6 max-w-sm text-sm text-on-surface-variant">
             {footer.tagline}. Kontraktor pondasi dalam profesional yang menghadirkan solusi pengeboran mekanis dan manual yang andal di seluruh Indonesia.
           </p>
@@ -171,7 +171,7 @@ export default function Footer() {
 
         {/* Navigation */}
         <div className="flex flex-col gap-2">
-          <h5 className="mb-2 font-mono text-xs font-bold text-primary">Navigasi</h5>
+          <h3 className="mb-2 font-mono text-xs font-bold text-primary">Navigasi</h3>
           {navLinks.map((link) => (
             <a key={link.href} href={link.href} className="text-sm text-secondary transition-colors hover:text-accent">
               {link.label}
@@ -181,7 +181,7 @@ export default function Footer() {
 
         {/* Blog & Artikel */}
         <div className="flex flex-col gap-2">
-          <h5 className="mb-2 font-mono text-xs font-bold text-primary">Blog & Artikel</h5>
+          <h3 className="mb-2 font-mono text-xs font-bold text-primary">Blog & Artikel</h3>
           {footer.blogLinks.map((link) => (
             <a key={link.href} href={link.href} className="text-sm text-secondary transition-colors hover:text-accent">
               {link.title}
@@ -191,7 +191,7 @@ export default function Footer() {
 
         {/* Wilayah Layanan */}
         <div className="flex flex-col gap-2">
-          <h5 className="mb-2 font-mono text-xs font-bold text-primary">Wilayah Layanan</h5>
+          <h3 className="mb-2 font-mono text-xs font-bold text-primary">Wilayah Layanan</h3>
           {footer.serviceLinks.map((link) => (
             <a key={`${link.title}-${link.href}`} href={link.href} className="text-sm text-secondary transition-colors hover:text-accent">
               {link.title.trim()}

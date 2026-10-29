@@ -620,7 +620,7 @@ tr:nth-child(even) {
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--color-ink);
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -649,7 +649,7 @@ tr:nth-child(even) {
   transform: translateY(-2px);
 }
 
-.related-post-card h4 {
+.related-post-card h3 {
   font-size: 0.9375rem;
   font-weight: 700;
   color: var(--color-ink);
@@ -658,7 +658,7 @@ tr:nth-child(even) {
   transition: color 0.15s ease;
 }
 
-.related-post-card:hover h4 {
+.related-post-card:hover h3 {
   color: var(--color-accent);
 }
 
