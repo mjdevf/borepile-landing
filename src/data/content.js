@@ -1251,6 +1251,8 @@ export const footer = {
     { title: "Bore Pile vs Tiang Pancang", href: "/blog/bore-pile-vs-tiang-pancang.html" },
     { title: "Pondasi Rumah di Tanah Lembek", href: "/blog/pondasi-rumah-di-tanah-lembek.html" },
     { title: "Sondir & Soil Test Sebelum Pondasi", href: "/blog/sondir-dan-soil-test-sebelum-pondasi.html" },
+    { title: "Pondasi Ruko Bertingkat", href: "/blog/pondasi-ruko-bertingkat-bore-pile-atau-strauss.html" },
+    { title: "Bore Pile untuk Gudang & Pabrik", href: "/blog/bore-pile-untuk-gudang-dan-pabrik.html" },
   ],
   serviceLinks: [
     { title: "Jasa Bore Pile Jakarta Pusat", href: "/location/jakarta-pusat/" },
