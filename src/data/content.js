@@ -656,7 +656,7 @@ export const locationPages = [
       "bore pile bekasi",
       "jasa bore pile bekasi",
       "kontraktor pondasi bekasi",
-      "bore pile cikarang",
+      "jasa bore pile tambun",
       "strauss pile bekasi"
     ],
     "services": [
@@ -819,7 +819,7 @@ export const locationPages = [
       "bore pile purwakarta",
       "jasa bore pile purwakarta",
       "kontraktor pondasi purwakarta",
-      "bore pile purwakarta",
+      "jasa bore pile jatiluhur",
       "strauss pile purwakarta"
     ],
     "services": [
