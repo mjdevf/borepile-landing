@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { serviceArea, locationPages } from "../../data/content";
 
-const OFFICE_COORDS = [-6.2588, 106.8235];
+const OFFICE_COORDS = [-6.150083, 106.857248];
 const OFFICE_NAME = "Jasa Bore Pile Majujaya";
-const OFFICE_ADDRESS = "JL. OPHIR DALAM 2 RT.06/01 NO.61";
-const OFFICE_AREA = "Gunung, Kebayoran Baru, Jakarta Selatan 12310";
+const OFFICE_ADDRESS = "JL. SUNTER MUARA NO.7, RT.7/RW.5";
+const OFFICE_AREA = "Sunter Agung, Tanjung Priok, Jakarta Utara 14350";
 const OFFICE_PHONE = "+62 815 1481 1120";
 const OFFICE_WHATSAPP = "https://api.whatsapp.com/send/?phone=6281514811120";
 
@@ -101,7 +101,7 @@ function MapsSection() {
       <div className="mx-auto max-w-7xl px-4 py-16 md:px-10 md:py-24">
         <div className="mb-10">
           <h2 className="text-3xl font-semibold text-primary" style={{ letterSpacing: "-0.01em", lineHeight: "1.3" }}>Lokasi &amp; Area Layanan</h2>
-          <p className="mt-3 max-w-2xl text-base text-secondary">Kantor &amp; workshop kami berlokasi di Jakarta Selatan, melayani proyek bore pile &amp; strauss pile di Jabodetabek, Karawang, Cikarang, Purwakarta, Serang, Cilegon, dan seluruh Indonesia.</p>
+          <p className="mt-3 max-w-2xl text-base text-secondary">Kantor kami berlokasi di Jakarta Utara, sedangkan workshop dan pool armada berada di Jakarta Selatan. Kami melayani proyek bore pile &amp; strauss pile di Jabodetabek, Karawang, Cikarang, Purwakarta, Serang, Cilegon, dan seluruh Indonesia.</p>
         </div>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="relative" ref={mapRef}>

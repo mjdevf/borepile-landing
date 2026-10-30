@@ -250,7 +250,7 @@ const LocationPage = () => {
                   <Popup>
                     <div className="p-3">
                       <strong className="text-primary">Majujaya Bore Pile</strong>
-                      <p className="mt-1 text-sm text-secondary">Jl. Ophir Dalam 2 RT.06/01 NO.61, Gunung, Kebayoran Baru, Jakarta Selatan</p>
+                      <p className="mt-1 text-sm text-secondary">Jl. Sunter Muara No.7, RT.7/RW.5, Sunter Agung, Tanjung Priok, Jakarta Utara</p>
                       <a
                         href={whatsappUrl}
                         target="_blank"

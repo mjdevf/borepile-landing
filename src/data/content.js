@@ -71,7 +71,7 @@ export const services = [
 
 export const about = {
   title: "Tentang Majujaya Bore Pile",
-  desc: "Kami adalah kontraktor jasa bore pile Jakarta yang berbasis di Jakarta Selatan dan melayani proyek pondasi bore pile untuk wilayah Jabodetabek. Kami biasa menangani jasa bore pile Jakarta Selatan, Jakarta Pusat, Jakarta Barat, Jakarta Timur, dan Jakarta Utara, baik bore pile mesin maupun pondasi strauss pile manual dengan diameter mulai 30 cm, 40 cm, 60 cm, 80 cm, sampai 100 cm.",
+  desc: "Kami adalah kontraktor jasa bore pile Jakarta yang berbasis di Jakarta Utara dan melayani proyek pondasi bore pile untuk wilayah Jabodetabek. Kami biasa menangani jasa bore pile Jakarta Selatan, Jakarta Pusat, Jakarta Barat, Jakarta Timur, dan Jakarta Utara, baik bore pile mesin maupun pondasi strauss pile manual dengan diameter mulai 30 cm, 40 cm, 60 cm, 80 cm, sampai 100 cm.",
   vision: "Menjadi perusahaan pengeboran tanah yang profesional yang mendukung pembangunan dan kemakmuran bangsa Indonesia.",
   legacyNote: "Majujaya Bore Pile sebelumnya dikenal lewat website majujayaborepile.com. Situs borepilemajujaya.com ini adalah website resmi terbaru kami.",
   highlights: [
@@ -1235,7 +1235,7 @@ export const footer = {
   legacyNote: "Website resmi terbaru Majujaya Bore Pile (sebelumnya majujayaborepile.com).",
   tagline: "Jasa Bore Pile & Strauss Pile Profesional",
   address:
-    "JL. OPHIR DALAM 2 RT.06/01 NO.61, KEL. GUNUNG KEBAYORAN BARU JAKSEL",
+    "JL. SUNTER MUARA NO.7, RT.7/RW.5, SUNTER AGUNG, TANJUNG PRIOK, JAKARTA UTARA",
   phone: "081514811120",
   wa: "6281514811120",
   wa2: "6281284499082",
