@@ -35,42 +35,36 @@ export const services = [
     title: "Borepile Pondasi",
     desc: "Jasa bore pile Jakarta untuk pondasi bangunan bertingkat, rumah, dan konstruksi berat. Layanan kontraktor bore pile profesional untuk proyek properti, infrastruktur, dan industri.",
     icon: "Building2",
-    keywords: ["bore pile", "jasa bore pile", "jasa bore pile jakarta", "kontraktor bore pile jakarta", "harga bore pile jakarta", "pondasi bore pile"],
     link: "/#layanan",
   },
   {
     title: "Sumur Bor Air",
     desc: "Pengeboran sumur air bersih untuk rumah tangga, perumahan, hingga industri. Solusi air bersih dengan teknologi pengeboran terkini untuk kebutuhan perumahan dan industri.",
     icon: "Droplets",
-    keywords: ["sumur bor", "pengeboran sumur", "sumur air bersih", "jasa sumur bor"],
     link: "/#layanan",
   },
   {
     title: "Strauss Pile Manual",
     desc: "Pondasi strauss pile manual diameter 30 cm, 40 cm, 60 cm, 80 cm, sampai 100 cm. Sistem pondasi alternatif yang lebih ekonomis untuk berbagai jenis bangunan.",
     icon: "Ruler",
-    keywords: ["strauss pile", "pondasi strauss", "jasa strauss pile", "strauss pile manual"],
     link: "/#layanan",
   },
   {
     title: "Pengeboran Irigasi",
     desc: "Solusi pengeboran untuk sistem irigasi pertanian dan perkebunan skala besar. Layanan pengeboran irigasi untuk mendukung produktivitas pertanian dan perkebunan.",
     icon: "Sprout",
-    keywords: ["pengeboran irigasi", "jasa irigasi", "sumur irigasi", "pengeboran pertanian"],
     link: "/#layanan",
   },
   {
     title: "Soil Investigation",
     desc: "Uji sondir / soil test untuk analisis daya dukung tanah sebelum pembangunan. Investigasi tanah profesional untuk perencanaan fondasi yang tepat dan aman.",
     icon: "Search",
-    keywords: ["soil test", "soil investigation", "uji sondir", "daya dukung tanah"],
     link: "/#layanan",
   },
   {
     title: "Borepile Mesin",
     desc: "Pengeboran mesin untuk proyek skala besar dengan kapasitas dan kedalaman maksimal. Teknologi pengeboran mesin modern untuk proyek-proyek besar dan kompleks.",
     icon: "Drill",
-    keywords: ["bore pile mesin", "pengeboran mesin", "bore pile besar", "kontraktor bore pile mesin"],
     link: "/#layanan",
   },
 ];
@@ -662,7 +656,7 @@ export const locationPages = [
       "bore pile bekasi",
       "jasa bore pile bekasi",
       "kontraktor pondasi bekasi",
-      "bore pile cikarang",
+      "jasa bore pile tambun",
       "strauss pile bekasi"
     ],
     "services": [
@@ -825,7 +819,7 @@ export const locationPages = [
       "bore pile purwakarta",
       "jasa bore pile purwakarta",
       "kontraktor pondasi purwakarta",
-      "bore pile purwakarta",
+      "jasa bore pile jatiluhur",
       "strauss pile purwakarta"
     ],
     "services": [
@@ -1254,6 +1248,11 @@ export const footer = {
     { title: "7 Tips Memilih Kontraktor Bore Pile Jakarta", href: "/blog/tips-memilih-kontraktor-bore-pile-jakarta.html" },
     { title: "Perbedaan Strauss Pile dan Bore Pile", href: "/blog/perbedaan-strauss-pile-dan-bore-pile.html" },
     { title: "Bore Pile untuk Rumah 2 Lantai", href: "/blog/bore-pile-untuk-rumah-2-lantai.html" },
+    { title: "Bore Pile vs Tiang Pancang", href: "/blog/bore-pile-vs-tiang-pancang.html" },
+    { title: "Pondasi Rumah di Tanah Lembek", href: "/blog/pondasi-rumah-di-tanah-lembek.html" },
+    { title: "Sondir & Soil Test Sebelum Pondasi", href: "/blog/sondir-dan-soil-test-sebelum-pondasi.html" },
+    { title: "Pondasi Ruko Bertingkat", href: "/blog/pondasi-ruko-bertingkat-bore-pile-atau-strauss.html" },
+    { title: "Bore Pile untuk Gudang & Pabrik", href: "/blog/bore-pile-untuk-gudang-dan-pabrik.html" },
   ],
   serviceLinks: [
     { title: "Jasa Bore Pile Jakarta Pusat", href: "/location/jakarta-pusat/" },
