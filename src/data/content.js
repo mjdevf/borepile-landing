@@ -1248,6 +1248,9 @@ export const footer = {
     { title: "7 Tips Memilih Kontraktor Bore Pile Jakarta", href: "/blog/tips-memilih-kontraktor-bore-pile-jakarta.html" },
     { title: "Perbedaan Strauss Pile dan Bore Pile", href: "/blog/perbedaan-strauss-pile-dan-bore-pile.html" },
     { title: "Bore Pile untuk Rumah 2 Lantai", href: "/blog/bore-pile-untuk-rumah-2-lantai.html" },
+    { title: "Bore Pile vs Tiang Pancang", href: "/blog/bore-pile-vs-tiang-pancang.html" },
+    { title: "Pondasi Rumah di Tanah Lembek", href: "/blog/pondasi-rumah-di-tanah-lembek.html" },
+    { title: "Sondir & Soil Test Sebelum Pondasi", href: "/blog/sondir-dan-soil-test-sebelum-pondasi.html" },
   ],
   serviceLinks: [
     { title: "Jasa Bore Pile Jakarta Pusat", href: "/location/jakarta-pusat/" },
