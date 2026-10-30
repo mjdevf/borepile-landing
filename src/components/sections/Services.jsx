@@ -17,15 +17,6 @@ const TILE = [
 ];
 const TILE_COPY = ["text-secondary", "text-accent-soft", "text-secondary", "text-secondary", "text-secondary"];
 
-function Keywords({ svc, className = "" }) {
-  if (!svc.keywords) return null;
-  return (
-    <p className={`font-mono text-xs ${className}`}>
-      Kata kunci: {svc.keywords.slice(0, 3).join(", ")}
-    </p>
-  );
-}
-
 export default function Services() {
   return (
     <section id="layanan" className="bg-surface px-5 py-16 md:px-10 md:py-28">
@@ -45,7 +36,6 @@ export default function Services() {
             <div className="flex flex-col gap-3">
               <h3 className="text-3xl font-extrabold leading-[1.1] tracking-tight md:text-4xl">{FEATURED.title}</h3>
               <p className="text-base leading-relaxed text-on-primary-subtle">{FEATURED.desc}</p>
-              <Keywords svc={FEATURED} className="text-on-primary-muted" />
             </div>
             <div className="flex flex-col gap-6">
               <div className="flex gap-7">
@@ -77,7 +67,6 @@ export default function Services() {
               >
                 <h3 className="text-xl font-bold leading-tight">{svc.title}</h3>
                 <p className={`text-base leading-relaxed ${TILE_COPY[i]}`}>{svc.desc}</p>
-                <Keywords svc={svc} className={i === 1 ? "text-white/80" : "text-secondary/80"} />
               </article>
             ))}
           </div>
@@ -89,7 +78,6 @@ export default function Services() {
             <div key={svc.title} className="flex flex-col gap-1.5 border-b border-border-muted py-5">
               <h3 className="text-xl font-bold leading-tight">{svc.title}</h3>
               <p className="text-base leading-[1.55] text-secondary">{svc.desc}</p>
-              <Keywords svc={svc} className="text-secondary/80" />
             </div>
           ))}
         </div>
