@@ -10,6 +10,26 @@
       gtag("js", new Date());
       gtag("config", "AW-10996838445");
     </script>
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != "undefined") {
+            window.location = url;
+          }
+        };
+        gtag("event", "conversion", {
+          "send_to": "AW-10996838445/YgskCKDp384cEK3g2fso",
+          "event_callback": callback
+        });
+        return false;
+      }
+      document.addEventListener("click", function (e) {
+        var link = e.target.closest && e.target.closest("a[href*="wa.me"], a[href*="api.whatsapp.com"]");
+        if (!link) return;
+        gtag("event", "conversion", { "send_to": "AW-10996838445/YgskCKDp384cEK3g2fso" });
+      });
+    </script>
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bore pile atau tiang pancang? Bandingkan getaran, kedalaman, kondisi tanah, dan faktor biaya agar pondasi rumah atau ruko tepat sasaran.">
