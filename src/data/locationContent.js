@@ -223,6 +223,34 @@ export const LOCATION_CONTENT = {
       ]
     ),
   }),
+  "jakarta-utara": fullPage({
+    city: "Jakarta Utara",
+    title: "Jasa Bore Pile Jakarta Utara | Survey Gratis | Majujaya",
+    metaDesc:
+      "Jasa bore pile dan strauss pile di Jakarta Utara: Penjaringan, Pademangan, Tanjung Priok, Koja. Survey lokasi gratis, estimasi biaya jelas. Chat WA sekarang.",
+    intro: [
+      "Majujaya Bore Pile mengerjakan pondasi bore pile dan strauss pile di Jakarta Utara, dari Penjaringan sampai Cilincing. Kantor kami ada di Sunter Agung, Tanjung Priok, Jakarta Utara. Kami berdiri sejak 2013 dan sudah menyelesaikan 250+ titik pengeboran di Jabodetabek dan sekitarnya.",
+      "Survey lokasi gratis. Setelah survey, Anda menerima penawaran resmi (RAB).",
+    ],
+    districts: districtSection(
+      "Jakarta Utara",
+      [
+        "Penjaringan",
+        "Pademangan",
+        "Tanjung Priok",
+        "Koja",
+        "Kelapa Gading",
+        "Cilincing",
+      ],
+      [
+        "Kalau lokasi Anda berada di perbatasan, misalnya dekat Jakarta Pusat atau Jakarta Barat, kirim titik lokasinya lewat WhatsApp. Lihat juga halaman ",
+        link("jasa bore pile Jakarta Pusat", "/location/jakarta-pusat/"),
+        " dan ",
+        link("jasa bore pile Jakarta Barat", "/location/jakarta-barat/"),
+        ".",
+      ]
+    ),
+  }),
 };
 
 export function getLocationPageContent(slug) {
