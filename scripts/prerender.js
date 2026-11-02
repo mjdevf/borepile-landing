@@ -14,6 +14,7 @@ import {
   about,
   faq as faqData,
 } from '../src/data/content.js';
+import { SITE, PRICE_DISCLAIMER_TEXT } from '../src/data/siteFacts.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -59,6 +60,7 @@ function gitLastmodForFile(file) {
 function sourceFileForPath(pathname) {
   if (pathname === '/') return 'index.html';
   if (pathname === '/blog/') return 'public/blog/index.html';
+  if (pathname === '/borepile-terdekat/') return 'src/data/siteFacts.js';
   if (pathname.startsWith('/location/')) return 'src/data/content.js';
   if (pathname.startsWith('/blog/')) return path.posix.join('public', pathname.replace(/^\//, ''));
   return null;
@@ -475,6 +477,286 @@ function generateLocationPages() {
   console.log('🎉 All location pages generated!');
 }
 
+function generateBorepileTerdekatPage() {
+  const url = 'https://borepilemajujaya.com/borepile-terdekat/';
+  const title = 'Jasa Borepile Terdekat di Jabodetabek | Majujaya';
+  const description = 'Cari jasa borepile terdekat? Kami berbasis di Sunter, Jakarta Utara, dan melayani 16 wilayah di Jabodetabek, Banten, dan Jawa Barat. Survey lokasi gratis.';
+  const waUrl = 'https://api.whatsapp.com/send/?phone=6281514811120&text=Halo%20Majujaya%2C%20saya%20cari%20jasa%20borepile%20terdekat%20dan%20mau%20survey%20lokasi%20gratis.%20Lokasi%20proyek%20saya%3A%20';
+
+  const cityBySlug = new Map(locationPages.map((loc) => [loc.slug, loc.city]));
+  const regionGroups = [
+    { label: 'Jakarta', slugs: ['jakarta-pusat', 'jakarta-selatan', 'jakarta-barat', 'jakarta-timur', 'jakarta-utara'] },
+    { label: 'Sekitar Jakarta', slugs: ['bogor', 'depok', 'tangerang', 'bekasi'] },
+    { label: 'Karawang dan sekitarnya', slugs: ['karawang', 'cikarang', 'purwakarta', 'subang', 'cianjur'] },
+    { label: 'Banten', slugs: ['serang', 'cilegon'] },
+  ];
+
+  const regionHtml = regionGroups.map((group) => {
+    const links = group.slugs.map((slug) => {
+      const city = cityBySlug.get(slug) || slug;
+      return `<a href="/location/${slug}/">${esc(city)}</a>`;
+    }).join(', ');
+    return `<p><strong>${esc(group.label)}:</strong> ${links}</p>`;
+  }).join('\n');
+
+  const faqs = [
+    {
+      q: 'Apakah survey lokasi ada biayanya?',
+      a: 'Tidak. Survey lokasi dan konsultasi awal gratis.',
+    },
+    {
+      q: 'Apakah kantor Majujaya harus dekat dengan proyek saya?',
+      a: 'Tidak harus. Kami berbasis di Sunter, Jakarta Utara, dan melayani langsung 16 wilayah yang tercantum di atas. Untuk lokasi lain, kirim pesan dulu supaya kita bisa membahas jarak dan biaya mobilisasi alatnya.',
+    },
+    {
+      q: 'Berapa lama sampai tim mulai bekerja?',
+      a: 'Mobilisasi dimulai dalam 1x24 jam setelah survey selesai dan penawaran disepakati. Jadwal surveynya kami tentukan bersama Anda saat Anda menghubungi kami.',
+    },
+    {
+      q: 'Metode mana yang cocok untuk rumah dua lantai?',
+      a: 'Itu bergantung pada kondisi tanah, beban bangunan, dan akses ke lokasi. Ukuran pondasi akhir ditentukan perencana struktur Anda dari data tanah, dan kami mengerjakan bagian pelaksanaannya. Pembahasan lebih jauh ada di artikel <a href="/blog/bore-pile-untuk-rumah-2-lantai.html">bore pile untuk rumah 2 lantai</a>.',
+    },
+    {
+      q: 'Apa yang perlu saya kirim saat menghubungi?',
+      a: 'Lokasi proyek, jenis bangunan, jumlah lantai, perkiraan jumlah titik, dan foto lahan serta jalan masuk. Kalau sudah ada denah atau hasil sondir, lampirkan juga. Daftar lengkapnya ada di artikel <a href="/blog/persiapan-sebelum-survey-bore-pile.html">persiapan sebelum survey bore pile</a>.',
+    },
+  ];
+
+  const regionAreaServed = locationPages.map((loc) => ({
+    '@type': 'AdministrativeArea',
+    name: loc.city,
+  }));
+
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${url}#service`,
+    name: 'Jasa Borepile Terdekat di Jabodetabek',
+    serviceType: 'Jasa bore pile dan strauss pile',
+    description,
+    url,
+    provider: {
+      '@type': 'LocalBusiness',
+      '@id': 'https://borepilemajujaya.com/#localbusiness',
+      name: SITE.brand,
+      telephone: '+62-815-1481-1120',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Jl. Sunter Muara No.7, RT.7/RW.5, Sunter Agung, Kec. Tanjung Priok',
+        addressLocality: 'Jakarta Utara',
+        addressRegion: 'DKI Jakarta',
+        postalCode: '14350',
+        addressCountry: 'ID',
+      },
+    },
+    areaServed: regionAreaServed,
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://borepilemajujaya.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Borepile Terdekat', item: url },
+    ],
+  };
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: stripTags(faq.a) },
+    })),
+  };
+
+  const html = `<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10996838445"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "AW-10996838445");
+    </script>
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != "undefined") {
+            window.location = url;
+          }
+        };
+        gtag("event", "conversion", {
+          "send_to": "AW-10996838445/YgskCKDp384cEK3g2fso",
+          "event_callback": callback
+        });
+        return false;
+      }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${esc(title)}</title>
+    <meta name="description" content="${esc(description)}">
+    <meta name="author" content="${esc(SITE.name)}">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="theme-color" content="#17171A">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="canonical" href="${url}">
+    <link rel="alternate" hreflang="id" href="${url}">
+    <link rel="alternate" hreflang="x-default" href="${url}">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="${esc(SITE.brand)}">
+    <meta property="og:title" content="${esc(title)}">
+    <meta property="og:description" content="${esc(description)}">
+    <meta property="og:url" content="${url}">
+    <meta property="og:image" content="${SITE.ogImage}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="${url}">
+    <meta property="twitter:title" content="${esc(title)}">
+    <meta property="twitter:description" content="${esc(description)}">
+    <meta property="twitter:image" content="${SITE.ogImage}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/blog/blog.css?v=3">
+    <style>
+      .borepile-region{margin-bottom:1rem}
+      .borepile-region a{color:var(--color-accent);text-decoration:none;font-weight:500}
+      .borepile-region a:hover{text-decoration:underline}
+      .borepile-faq h3{margin-top:1.75rem}
+      .borepile-faq h3:first-of-type{margin-top:0}
+      .borepile-cta{margin-top:3rem}
+      .borepile-cta p{color:#E1E0DA}
+    </style>
+    <script type="application/ld+json">
+${JSON.stringify(serviceSchema, null, 2)}
+    </script>
+    <script type="application/ld+json">
+${JSON.stringify(breadcrumbSchema, null, 2)}
+    </script>
+    <script type="application/ld+json">
+${JSON.stringify(faqSchema, null, 2)}
+    </script>
+</head>
+<body>
+    <header class="blog-nav">
+        <div class="blog-nav-container">
+            <a href="https://borepilemajujaya.com/" class="blog-nav-brand">
+                <span class="blog-nav-brand-title">Majujaya Bore Pile</span>
+                <span class="blog-nav-brand-badge">Layanan</span>
+            </a>
+            <nav class="blog-nav-links">
+                <a href="https://borepilemajujaya.com/">Beranda</a>
+                <a href="https://borepilemajujaya.com/#layanan">Layanan</a>
+                <a href="https://borepilemajujaya.com/#kalkulator">Kalkulator</a>
+                <a href="https://borepilemajujaya.com/blog/">Blog</a>
+            </nav>
+            <a href="https://api.whatsapp.com/send/?phone=6281514811120&text=Halo%20Majujaya%2C%20saya%20butuh%20konsultasi%20borepile" class="blog-nav-cta" target="_blank" rel="noopener">
+                Hubungi WA
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="https://borepilemajujaya.com/">Beranda</a>
+            <span class="breadcrumbs-sep">/</span>
+            <span class="breadcrumbs-current">Borepile Terdekat</span>
+        </nav>
+
+        <article>
+            <h1>Jasa borepile terdekat dari lokasi proyek Anda</h1>
+
+            <p class="article-lead">Majujaya Bore Pile berbasis di Sunter, Jakarta Utara, dan mengerjakan pondasi bore pile serta strauss pile di 16 wilayah di Jabodetabek, Banten, dan Jawa Barat. Kami berdiri sejak 2013 dan sudah menyelesaikan 250+ titik pengeboran.</p>
+
+            <p>Jarak ke lokasi proyek memengaruhi dua hal: ongkos membawa alat bor dan seberapa cepat tim bisa mulai bekerja. Itu sebabnya orang mencari kontraktor yang dekat. Halaman ini menjelaskan wilayah yang kami layani, apa yang terjadi setelah Anda menghubungi kami, dan pertanyaan yang sebaiknya Anda ajukan ke kontraktor mana pun sebelum menyetujui penawaran.</p>
+
+            <section>
+                <h2>Wilayah yang kami layani</h2>
+                <p>Pilih wilayah proyek Anda untuk melihat halaman khususnya.</p>
+                <div class="borepile-region">
+${regionHtml}
+                </div>
+                <p>Proyek di luar daftar ini bisa kita bicarakan lewat WhatsApp. Membawa alat ke lokasi yang jauh memengaruhi biaya, jadi hal itu dibahas di awal.</p>
+            </section>
+
+            <section>
+                <h2>Dari chat sampai mulai bekerja</h2>
+                <ol>
+                    <li>Anda mengirim pesan WhatsApp berisi lokasi proyek (bagikan lokasi dari Google Maps), jenis bangunan, jumlah lantai, dan perkiraan jumlah titik.</li>
+                    <li>Kami menjadwalkan survey lokasi. Survey dan konsultasi awal gratis.</li>
+                    <li>Di lokasi, tim mengukur kondisi tanah dan kebutuhan pengeboran.</li>
+                    <li>Setelah survey, Anda menerima penawaran resmi (RAB).</li>
+                    <li>Setelah penawaran disepakati, tim bisa mulai mobilisasi dalam 1x24 jam.</li>
+                    <li>Pengeboran rata-rata memakan 1 sampai 3 hari per titik. Rumah atau ruko standar selesai dalam 3 sampai 7 hari kerja, tergantung jumlah titik dan kondisi tanah.</li>
+                </ol>
+                <p>Urutan kerja di lapangan lebih rinci ada di artikel <a href="/blog/tahapan-pengerjaan-bore-pile.html">tahapan pengerjaan bore pile</a>.</p>
+            </section>
+
+            <section>
+                <h2>Metode yang tersedia</h2>
+                <p>Bore pile mesin dikerjakan dengan mini crane untuk diameter 30 sampai 100 cm dan kedalaman hingga 30 meter. Strauss pile manual memakai tenaga putar manusia, untuk diameter 30 sampai 40 cm pada kedalaman 6 sampai 15 meter.</p>
+                <p>Di permukiman padat, lebar jalan masuk sering menentukan metode mana yang bisa dipakai, jadi kami mengecek akses lokasi saat survey. Perbandingan lengkapnya ada di artikel <a href="/blog/perbedaan-strauss-pile-dan-bore-pile.html">perbedaan strauss pile dan bore pile</a>.</p>
+            </section>
+
+            <section>
+                <h2>Pertanyaan untuk kontraktor mana pun</h2>
+                <p>Sebelum menandatangani penawaran dari kami atau dari siapa pun, tanyakan hal berikut:</p>
+                <ul>
+                    <li>Apakah penawarannya tertulis dan memisahkan mobilisasi, pengeboran, tulangan, dan pengecoran?</li>
+                    <li>Diameter dan kedalaman yang dipakai untuk menghitung harga berasal dari mana, dan apa yang terjadi kalau kedalaman berubah di lapangan?</li>
+                    <li>Siapa yang menyediakan besi dan beton?</li>
+                    <li>Siapa yang mengurus tanah hasil galian?</li>
+                    <li>Bagaimana hasil pengeboran diperiksa terhadap spesifikasi yang disepakati?</li>
+                </ul>
+                <p>Daftar yang lebih panjang ada di <a href="/blog/tips-memilih-kontraktor-bore-pile-jakarta.html">7 tips memilih kontraktor bore pile Jakarta</a>, dan cara membaca angka di penawaran dijelaskan di <a href="/blog/cara-membaca-penawaran-bore-pile.html">artikel tentang RAB bore pile</a>.</p>
+            </section>
+
+            <section>
+                <h2>Biaya</h2>
+                <p>${esc(PRICE_DISCLAIMER_TEXT)}</p>
+                <p>Rincian faktor biaya ada di <a href="/blog/harga-bore-pile-per-titik-2026.html">harga bore pile per titik 2026</a>.</p>
+            </section>
+
+            <section class="borepile-faq">
+                <h2>Pertanyaan yang sering diajukan</h2>
+${faqs.map((faq) => `                <h3>${esc(faq.q)}</h3>\n                <p>${faq.a}</p>`).join('\n')}
+            </section>
+
+            <div class="cta-box borepile-cta">
+                <p><strong>Kirim lokasi proyek Anda lewat WhatsApp 0815-1481-1120.</strong></p>
+                <a class="btn" href="${waUrl}" target="_blank" rel="noopener">Kirim lokasi proyek via WhatsApp</a>
+            </div>
+        </article>
+
+        <footer>
+            <p>&copy; 2026 JASA BORE PILE MAJUJAYA. Seluruh hak cipta dilindungi.</p>
+            <p>
+                <a href="https://borepilemajujaya.com/">Kembali ke Beranda</a> &middot;
+                <a href="https://borepilemajujaya.com/location/jakarta-pusat/">Jakarta Pusat</a> &middot;
+                <a href="https://borepilemajujaya.com/location/jakarta-selatan/">Jakarta Selatan</a> &middot;
+                <a href="https://borepilemajujaya.com/location/jakarta-barat/">Jakarta Barat</a> &middot;
+                <a href="https://borepilemajujaya.com/location/tangerang/">Tangerang</a> &middot;
+                <a href="https://borepilemajujaya.com/location/bekasi/">Bekasi</a>
+            </p>
+        </footer>
+    </main>
+</body>
+</html>
+`;
+
+  const outDir = path.join(DIST_DIR, 'borepile-terdekat');
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
+  console.log('    ✅ Generated: /borepile-terdekat/');
+}
+
 function updateSitemapLastmod() {
   const sitemapPath = path.join(DIST_DIR, 'sitemap.xml');
   if (!fs.existsSync(sitemapPath)) {
@@ -511,6 +793,7 @@ function updateSitemapLastmod() {
 
 try {
   generateLocationPages();
+  generateBorepileTerdekatPage();
   prerenderHomepage();
   updateSitemapLastmod();
 } catch (e) {
