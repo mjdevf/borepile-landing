@@ -251,7 +251,7 @@ export const locationPages = [
       },
       {
         "q": "Berapa lama estimasi mobilisasi alat bor ke lokasi proyek di Jakarta Pusat?",
-        "a": "Dengan workshop dan pool armada kami yang berlokasi strategis di Jakarta Selatan, mobilisasi unit mini crane maupun regu strauss pile manual ke seluruh area Jakarta Pusat dapat dilaksanakan dalam 1x24 jam setelah kesepakatan SPK disetujui."
+        "a": "Dengan workshop dan pool armada kami yang berlokasi strategis di Jakarta Utara, mobilisasi unit mini crane maupun regu strauss pile manual ke seluruh area Jakarta Pusat dapat dilaksanakan dalam 1x24 jam setelah kesepakatan SPK disetujui."
       }
     ]
   },
@@ -296,7 +296,7 @@ export const locationPages = [
     "metaDesc": "Jasa bore pile & strauss pile Jakarta Selatan. Survey gratis, harga bersaing. Melayani Kebayoran Baru, Tebet, Cilandak & seluruh Jaksel. WA 0815-1481-1120.",
     "soilInfo": "Karakteristik tanah Jakarta Selatan bervariasi dari lapisan lempung kaku (stiff clay) di wilayah utara (Kebayoran Baru, Senopati, Mampang) hingga endapan vulkanik tuff di wilayah selatan (Jagakarsa, Lenteng Agung, Ciganjur). Lapisan tanah keras umumnya berada pada kedalaman 10 hingga 18 meter. Kontur tanah bergelombang di sekitar sempadan sungai Krukut dan Pesanggrahan memerlukan survey topografi dan kedalaman bor yang teliti agar seluruh tiang mencapai formasi tanah pendukung yang merata.",
     "foundationRecommendation": "Untuk bangunan rumah tinggal 2 hingga 3 lantai di kawasan pemukiman rapat seperti Tebet, Pancoran, dan Kebayoran Lama, strauss pile manual diameter 30–40 cm sangat direkomendasikan karena biaya ekonomis dan manuver mudah. Untuk perumahan klaster, townhouse bertingkat, dan bangunan perkantoran di Cilandak atau Pondok Indah, bore pile mesin mini crane diameter 40–60 cm memberikan kapasitas tahanan friksi dan tahanan ujung yang kokoh.",
-    "localContext": "Perbedaan kontur antara Kebayoran Baru yang relatif datar dan Jagakarsa yang berbukit membuat kedalaman bor di Jakarta Selatan tidak bisa diseragamkan. Rumah tinggal dan townhouse di Tebet, Cilandak, serta Pondok Indah umumnya memakai strauss pile manual karena lahan sempit dan berdekatan dengan bangunan tetangga. Sementara ruko dan bangunan komersial di koridor Pasar Minggu serta Mampang Prapatan lebih cocok memakai bore pile mesin untuk memikul beban lantai bertingkat. Survey awal kami memetakan akses, batas lahan, dan posisi utilitas sebelum menetapkan diameter serta kedalaman tiang.",
+    "localContext": "Perbedaan kontur antara Kebayoran Baru yang relatif datar dan Jagakarsa yang berbukit membuat kedalaman bor di Jakarta Utara tidak bisa diseragamkan. Rumah tinggal dan townhouse di Tebet, Cilandak, serta Pondok Indah umumnya memakai strauss pile manual karena lahan sempit dan berdekatan dengan bangunan tetangga. Sementara ruko dan bangunan komersial di koridor Pasar Minggu serta Mampang Prapatan lebih cocok memakai bore pile mesin untuk memikul beban lantai bertingkat. Survey awal kami memetakan akses, batas lahan, dan posisi utilitas sebelum menetapkan diameter serta kedalaman tiang.",
     "faq": [
       {
         "q": "Apakah area berkontur miring di Jagakarsa dan Ciganjur aman untuk dibor?",
@@ -307,7 +307,7 @@ export const locationPages = [
         "a": "Rata-rata proyek rumah tinggal dengan 10 hingga 15 titik bore pile kedalaman 8–12 meter dapat diselesaikan dalam kurun waktu 3 hingga 5 hari kerja, mencakup tahapan pengeboran, instalasi keranjang besi tulangan, dan pengecoran beton."
       },
       {
-        "q": "Apakah survey lokasi dan konsultasi teknis di Jakarta Selatan dikenakan biaya?",
+        "q": "Apakah survey lokasi dan konsultasi teknis di Jakarta Utara dikenakan biaya?",
         "a": "Tidak ada biaya sama sekali. Tim geoteknik Majujaya menyediakan layanan survey lokasi, pengukuran kondisi tanah awal, dan penyusunan RAB detail secara GRATIS untuk seluruh area Jakarta Selatan."
       }
     ]
@@ -1103,7 +1103,7 @@ function dist2(a, b) {
 }
 
 /* ── Shared per-location SEO content: cross-links + expanded paragraph ── */
-const WORKSHOP_SLUG = "jakarta-selatan"; // workshop & pool armada Majujaya
+const WORKSHOP_SLUG = "jakarta-utara"; // kantor & pool armada Majujaya (Sunter)
 
 // Approximate straight-line distance in km (haversine) between two [lat, lng] pairs
 function distKm(a, b) {
@@ -1156,9 +1156,9 @@ export function getLocationDetail(location) {
   if (!km) {
     mobil = `Workshop dan pool armada kami berada di ${city}, sehingga mobilisasi alat ke lokasi proyek dapat dilakukan dengan cepat, biasanya dalam 1x24 jam setelah deal disepakati.`;
   } else if (km <= 60) {
-    mobil = `Lokasi ${city} berjarak sekitar ${km} km dari workshop kami di Jakarta Selatan, sehingga mobilisasi alat dapat dimulai dalam 1x24 jam setelah deal disepakati.`;
+    mobil = `Lokasi ${city} berjarak sekitar ${km} km dari workshop kami di Jakarta Utara, sehingga mobilisasi alat dapat dimulai dalam 1x24 jam setelah deal disepakati.`;
   } else {
-    mobil = `Lokasi ${city} berjarak sekitar ${km} km dari workshop kami di Jakarta Selatan. Jadwal mobilisasi dikonfirmasi saat survey, dan biaya mobilisasi serta demobilisasi dirinci terbuka di dalam RAB.`;
+    mobil = `Lokasi ${city} berjarak sekitar ${km} km dari workshop kami di Jakarta Utara. Jadwal mobilisasi dikonfirmasi saat survey, dan biaya mobilisasi serta demobilisasi dirinci terbuka di dalam RAB.`;
   }
   const surveys = [
     `Sebelum pekerjaan dimulai, survey lokasi gratis dilakukan untuk menentukan kedalaman, diameter, dan jenis tiang yang paling efisien di ${city}: bore pile mesin untuk beban besar, atau strauss pile manual untuk akses sempit. Estimasi biaya (RAB) diberikan tanpa biaya dan tanpa biaya tersembunyi. ${mobil}`,
