@@ -580,6 +580,7 @@ function generateLocationPages() {
           if (parsed['@type'] === 'Service') {
             parsed['@id'] = `${canonicalUrl}#service`;
             parsed.name = `Jasa Bore Pile dan Strauss Pile di ${loc.city}`;
+            delete parsed.description;
             parsed.serviceType = ['Bore pile', 'Strauss pile'];
             parsed.provider = { '@id': 'https://borepilemajujaya.com/#localbusiness' };
             parsed.areaServed = { '@type': 'AdministrativeArea', name: loc.city };
