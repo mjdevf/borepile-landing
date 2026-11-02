@@ -1,23 +1,24 @@
+import { PRICE_DISCLAIMER_TEXT } from "./siteFacts.js";
+
 const WA_NUMBER = "6281514811120";
 const WA_BASE = `https://api.whatsapp.com/send/?phone=${WA_NUMBER}&text=`;
 
-const PRICE_TEXT =
-  "Biaya strauss pile manual mulai Rp800.000 per titik untuk diameter 30-40 cm. Bore pile mesin mulai Rp2.500.000 per titik, tergantung diameter dan kedalaman. Harga per November 2026. Penawaran resmi (RAB) diberikan setelah survey lokasi gratis.";
-
-const FAQ = [
-  {
-    q: "Berapa lama pengerjaan bore pile untuk rumah 2 lantai?",
-    a: "Untuk rumah 2 lantai dengan 12-16 titik, strauss pile manual biasanya selesai 3-5 hari kerja setelah alat dan material siap.",
-  },
-  {
-    q: "Apakah survey lokasi benar-benar gratis?",
-    a: "Ya. Survey lokasi gratis. Kami hanya menagih pekerjaan pengeboran setelah penawaran disetujui.",
-  },
-  {
-    q: "Bagaimana kalau jalan masuk sempit?",
-    a: "Kami cek akses saat survey. Kalau alat mesin tidak bisa masuk, metode strauss pile manual jadi pilihan.",
-  },
-];
+function faqFor(city) {
+  return [
+    {
+      q: `Apakah survey di ${city} gratis?`,
+      a: "Ya. Survey lokasi dan konsultasi awal gratis di seluruh wilayah yang kami layani.",
+    },
+    {
+      q: "Bagaimana kalau rumah saya berada di gang sempit?",
+      a: "Sebutkan lebar gang saat Anda mengirim pesan. Setelah survey, kami menentukan metode yang bisa masuk. Strauss pile manual tidak membutuhkan alat besar, jadi sering menjadi pilihan di lokasi seperti itu.",
+    },
+    {
+      q: "Berapa lama pengerjaannya?",
+      a: "Pengeboran rata-rata 1 sampai 3 hari per titik. Rumah atau ruko standar selesai dalam 3 sampai 7 hari kerja, tergantung jumlah titik dan kondisi tanah. Mobilisasi dimulai dalam 1x24 jam setelah penawaran disepakati.",
+    },
+  ];
+}
 
 function waUrl(city) {
   return (
@@ -32,20 +33,25 @@ function link(text, href) {
   return { text, href };
 }
 
+function joinDistricts(districts) {
+  if (districts.length <= 1) return districts[0] || "";
+  return `${districts.slice(0, -1).join(", ")}, dan ${districts[districts.length - 1]}`;
+}
+
 function methodSection(city) {
   return {
     heading: `Memilih metode untuk bangunan di ${city}`,
     paragraphs: [
       "Jenis bangunan dan lebar jalan masuk biasanya menentukan metodenya.",
-      "Bore pile mesin cocok untuk bangunan bertingkat, gudang, dan proyek yang membutuhkan tiang diameter besar. Mesin mini crane bisa masuk ke lahan yang masih punya akses jalan.",
-      "Strauss pile manual cocok untuk rumah tinggal, pagar, dan ruko di gang sempit. Tenaga manual dipakai karena alat berat tidak bisa masuk.",
+      "Bore pile mesin dikerjakan dengan mini crane untuk diameter 30 sampai 100 cm dan kedalaman hingga 30 meter. Metode ini cocok untuk bangunan dengan beban lebih besar atau yang membutuhkan tiang lebih dalam.",
+      "Strauss pile manual dikerjakan dengan tenaga putar manusia, untuk diameter 30 sampai 40 cm pada kedalaman 6 sampai 15 meter. Karena tidak membutuhkan alat besar masuk ke lokasi, metode ini lebih mudah dipakai di tempat dengan akses sempit.",
       [
-        "Ukuran dan kedalaman tiang ditentukan setelah sondir atau pengecekan tanah. Baca ",
+        "Ukuran dan kedalaman tiang yang final ditentukan perencana struktur dari data tanah. Kami mengerjakan bagian pelaksanaannya. Perbandingan lengkap ada di artikel ",
         link(
           "perbedaan strauss pile dan bore pile",
           "/blog/perbedaan-strauss-pile-dan-bore-pile.html"
         ),
-        " sebelum memilih metode.",
+        ".",
       ],
     ],
   };
@@ -54,15 +60,15 @@ function methodSection(city) {
 function surveySection() {
   return {
     heading: "Yang kami periksa saat survey",
-    intro: "Saat survey, kami memeriksa:",
     items: [
-      "Akses jalan masuk dan ruang untuk alat.",
-      "Jarak ke bangunan tetangga.",
-      "Kondisi tanah dan muka air tanah.",
-      "Beban bangunan dan jumlah titik.",
+      "Lebar dan kondisi jalan masuk, diukur di titik tersempit",
+      "Ruang kerja di sekitar titik pondasi",
+      "Jarak dan kondisi bangunan tetangga",
+      "Kabel listrik atau telepon di atas jalur alat",
+      "Tempat untuk menaruh tanah hasil galian",
     ],
     closing: [
-      "Panduan singkatnya ada di ",
+      "Siapkan informasi ini sebelum kami datang dengan membaca ",
       link(
         "persiapan sebelum survey bore pile",
         "/blog/persiapan-sebelum-survey-bore-pile.html"
@@ -73,7 +79,17 @@ function surveySection() {
 }
 
 function districtSection(city, districts, closing) {
-  return { heading: `Kecamatan di ${city} yang kami layani`, list: districts, closing };
+  return {
+    heading: `Kecamatan di ${city} yang kami layani`,
+    listText: `${joinDistricts(districts)}.`,
+    closing,
+  };
+}
+
+function standardIntro(city, office) {
+  return [
+    `Majujaya Bore Pile mengerjakan pondasi bore pile dan strauss pile di ${city}. ${office}, dan kami sudah menyelesaikan 250+ titik sejak 2013. Survey lokasi gratis, dan setelah survey Anda menerima penawaran resmi (RAB).`,
+  ];
 }
 
 function fullPage(config) {
@@ -86,13 +102,13 @@ function fullPage(config) {
     districts: config.districts,
     method: methodSection(config.city),
     survey: surveySection(),
-    price: { heading: "Biaya", text: PRICE_TEXT },
+    price: { heading: "Biaya", text: PRICE_DISCLAIMER_TEXT },
     projects: null,
-    faq: FAQ,
-    faqHeading: `FAQ bore pile ${config.city}`,
+    faq: faqFor(config.city),
+    faqHeading: "Pertanyaan yang sering diajukan",
     cta: {
       text: `Kirim lokasi proyek di ${config.city} lewat WhatsApp 0815-1481-1120.`,
-      button: "Chat WhatsApp Sekarang",
+      button: "Kirim lokasi proyek via WhatsApp",
       url: waUrl(config.city),
     },
   };
@@ -136,10 +152,10 @@ export const LOCATION_CONTENT = {
     title: "Jasa Bore Pile Jakarta Pusat | Survey Gratis | Majujaya",
     metaDesc:
       "Jasa bore pile dan strauss pile di Jakarta Pusat: Gambir, Sawah Besar, Kemayoran, Senen. Survey lokasi gratis, estimasi biaya jelas. Chat WA sekarang.",
-    intro: [
-      "Majujaya Bore Pile mengerjakan pondasi bore pile dan strauss pile di Jakarta Pusat, dari Gambir sampai Johar Baru. Kantor kami ada di Sunter, Jakarta Utara. Kami berdiri sejak 2013 dan sudah menyelesaikan 250+ titik pengeboran di Jabodetabek dan sekitarnya.",
-      "Survey lokasi gratis. Setelah survey, Anda menerima penawaran resmi (RAB).",
-    ],
+    intro: standardIntro(
+      "Jakarta Pusat",
+      "Kantor kami ada di Sunter, Jakarta Utara"
+    ),
     districts: districtSection(
       "Jakarta Pusat",
       [
@@ -166,10 +182,10 @@ export const LOCATION_CONTENT = {
     title: "Jasa Bore Pile Jakarta Barat | Survey Gratis | Majujaya",
     metaDesc:
       "Jasa bore pile dan strauss pile di Jakarta Barat: Cengkareng, Grogol Petamburan, Taman Sari. Survey lokasi gratis, estimasi biaya jelas. Chat WA sekarang.",
-    intro: [
-      "Majujaya Bore Pile mengerjakan pondasi bore pile dan strauss pile di Jakarta Barat, dari Cengkareng sampai Kembangan. Kantor kami ada di Sunter, Jakarta Utara. Kami berdiri sejak 2013 dan sudah menyelesaikan 250+ titik pengeboran di Jabodetabek dan sekitarnya.",
-      "Survey lokasi gratis. Setelah survey, Anda menerima penawaran resmi (RAB).",
-    ],
+    intro: standardIntro(
+      "Jakarta Barat",
+      "Kantor kami ada di Sunter, Jakarta Utara"
+    ),
     districts: districtSection(
       "Jakarta Barat",
       [
@@ -196,10 +212,10 @@ export const LOCATION_CONTENT = {
     title: "Jasa Bore Pile Jakarta Timur | Survey Gratis | Majujaya",
     metaDesc:
       "Jasa bore pile dan strauss pile di Jakarta Timur: Matraman, Pulogadung, Jatinegara, Kramat Jati. Survey lokasi gratis, estimasi biaya jelas. Chat WA sekarang.",
-    intro: [
-      "Majujaya Bore Pile mengerjakan pondasi bore pile dan strauss pile di Jakarta Timur, dari Matraman sampai Cipayung. Kantor kami ada di Sunter, Jakarta Utara. Kami berdiri sejak 2013 dan sudah menyelesaikan 250+ titik pengeboran di Jabodetabek dan sekitarnya.",
-      "Survey lokasi gratis. Setelah survey, Anda menerima penawaran resmi (RAB).",
-    ],
+    intro: standardIntro(
+      "Jakarta Timur",
+      "Kantor kami ada di Sunter, Jakarta Utara"
+    ),
     districts: districtSection(
       "Jakarta Timur",
       [
@@ -228,10 +244,10 @@ export const LOCATION_CONTENT = {
     title: "Jasa Bore Pile Jakarta Utara | Survey Gratis | Majujaya",
     metaDesc:
       "Jasa bore pile dan strauss pile di Jakarta Utara: Penjaringan, Pademangan, Tanjung Priok, Koja. Survey lokasi gratis, estimasi biaya jelas. Chat WA sekarang.",
-    intro: [
-      "Majujaya Bore Pile mengerjakan pondasi bore pile dan strauss pile di Jakarta Utara, dari Penjaringan sampai Cilincing. Kantor kami ada di Sunter Agung, Tanjung Priok, Jakarta Utara. Kami berdiri sejak 2013 dan sudah menyelesaikan 250+ titik pengeboran di Jabodetabek dan sekitarnya.",
-      "Survey lokasi gratis. Setelah survey, Anda menerima penawaran resmi (RAB).",
-    ],
+    intro: standardIntro(
+      "Jakarta Utara",
+      "Kantor kami ada di Sunter Agung, Tanjung Priok, Jakarta Utara"
+    ),
     districts: districtSection(
       "Jakarta Utara",
       [
@@ -283,13 +299,13 @@ function thinPage(city) {
     },
     method: null,
     survey: null,
-    price: { heading: "Biaya", text: PRICE_TEXT },
+    price: { heading: "Biaya", text: PRICE_DISCLAIMER_TEXT },
     projects: null,
-    faq: FAQ,
-    faqHeading: `FAQ bore pile ${city}`,
+    faq: faqFor(city),
+    faqHeading: "Pertanyaan yang sering diajukan",
     cta: {
       text: `Kirim lokasi proyek di ${city} lewat WhatsApp 0815-1481-1120.`,
-      button: "Chat WhatsApp Sekarang",
+      button: "Kirim lokasi proyek via WhatsApp",
       url: waUrl(city),
     },
   };

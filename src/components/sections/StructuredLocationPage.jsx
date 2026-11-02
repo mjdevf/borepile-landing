@@ -34,15 +34,21 @@ class MapErrorBoundary extends React.Component {
 
 const RichText = ({ parts }) => {
   if (typeof parts === "string") return parts;
-  return parts.map((part, index) =>
-    typeof part === "string" ? (
-      <React.Fragment key={index}>{part}</React.Fragment>
-    ) : (
-      <Link key={index} to={part.href} className="font-semibold text-accent underline">
+  return parts.map((part, index) => {
+    if (typeof part === "string") {
+      return <React.Fragment key={index}>{part}</React.Fragment>;
+    }
+    const className = "font-semibold text-accent underline";
+    return part.href.startsWith("/location/") ? (
+      <Link key={index} to={part.href} className={className}>
         {part.text}
       </Link>
-    )
-  );
+    ) : (
+      <a key={index} href={part.href} className={className}>
+        {part.text}
+      </a>
+    );
+  });
 };
 
 const StructuredLocationPage = ({ location, content }) => {
@@ -86,7 +92,7 @@ const StructuredLocationPage = ({ location, content }) => {
             <section className="mb-10">
               <h2 className="mb-4 text-2xl font-bold text-primary">{content.districts.heading}</h2>
               <p className="mb-4 leading-relaxed text-secondary">
-                {content.districts.list.join(", ")}.
+                {content.districts.listText}
               </p>
               <p className="leading-relaxed text-secondary">
                 <RichText parts={content.districts.closing} />
@@ -110,7 +116,6 @@ const StructuredLocationPage = ({ location, content }) => {
           {content.survey && (
             <section className="mb-10">
               <h2 className="mb-4 text-2xl font-bold text-primary">{content.survey.heading}</h2>
-              <p className="mb-3 leading-relaxed text-secondary">{content.survey.intro}</p>
               <ul className="mb-4 list-disc space-y-2 pl-6 leading-relaxed text-secondary">
                 {content.survey.items.map((item, index) => (
                   <li key={index}>{item}</li>
@@ -161,17 +166,14 @@ const StructuredLocationPage = ({ location, content }) => {
 
           <p className="mb-10 leading-relaxed text-secondary">
             Lihat halaman{" "}
-            <Link to="/borepile-terdekat/" className="font-semibold text-accent underline">
+            <a href="/borepile-terdekat/" className="font-semibold text-accent underline">
               jasa borepile terdekat
-            </Link>{" "}
+            </a>{" "}
             untuk wilayah lain di Jabodetabek.
           </p>
 
           <div className="rounded-xl border border-border-muted bg-primary p-8 text-center text-on-primary md:p-12">
-            <h2 className="mb-4 text-2xl font-bold text-on-primary md:text-3xl">
-              Butuh Jasa Bore Pile di {location.city}?
-            </h2>
-            <p className="mx-auto mb-6 max-w-2xl leading-relaxed text-on-primary/80">
+            <p className="mx-auto mb-6 max-w-2xl text-xl font-bold text-on-primary md:text-2xl">
               {content.cta.text}
             </p>
             <Button

@@ -112,7 +112,7 @@ function renderStructuredLocationBody(loc, page) {
   const districtsHtml = page.districts
     ? `<section style="margin-top:36px;">
       <h2 style="font-size:22px;margin-bottom:12px;color:#17171A;">${esc(page.districts.heading)}</h2>
-      <p style="line-height:1.75;color:#5B5A55;margin-bottom:12px;">${page.districts.list.map((d) => esc(d)).join(", ")}.</p>
+      <p style="line-height:1.75;color:#5B5A55;margin-bottom:12px;">${esc(page.districts.listText)}</p>
       <p style="line-height:1.75;color:#5B5A55;">${renderRich(page.districts.closing)}</p>
     </section>`
     : "";
@@ -132,7 +132,6 @@ function renderStructuredLocationBody(loc, page) {
   const surveyHtml = page.survey
     ? `<section style="margin-top:36px;">
       <h2 style="font-size:22px;margin-bottom:12px;color:#17171A;">${esc(page.survey.heading)}</h2>
-      <p style="line-height:1.75;color:#5B5A55;margin-bottom:8px;">${esc(page.survey.intro)}</p>
       <ul style="line-height:1.75;color:#5B5A55;padding-left:22px;margin-bottom:12px;">
         ${page.survey.items.map((item) => `<li>${esc(item)}</li>`).join("")}
       </ul>
@@ -206,8 +205,7 @@ function renderStructuredLocationBody(loc, page) {
     <p style="line-height:1.75;color:#5B5A55;margin-top:24px;">Lihat halaman <a href="/borepile-terdekat/" style="color:#A8422A;font-weight:600;text-decoration:none;">jasa borepile terdekat</a> untuk wilayah lain di Jabodetabek.</p>
 
     <section style="margin-top:40px;background:#17171A;color:#ffffff;border-radius:8px;padding:32px;text-align:center;">
-      <h2 style="font-size:24px;margin:0 0 12px;color:#ffffff;">Butuh Jasa Bore Pile di ${esc(city)}?</h2>
-      <p style="margin:0 0 20px;color:#E1E0DA;line-height:1.6;">${esc(page.cta.text)}</p>
+      <p style="margin:0 0 20px;color:#ffffff;font-size:20px;font-weight:700;line-height:1.6;">${esc(page.cta.text)}</p>
       <a href="${waUrl}" style="background:#A8422A;color:#ffffff;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:700;display:inline-block;box-shadow:0 4px 12px rgba(37,99,235,0.3);">${esc(page.cta.button)}</a>
     </section>
 
