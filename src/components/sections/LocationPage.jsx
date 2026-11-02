@@ -4,9 +4,11 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import AnimatedSection from "../ui/AnimatedSection";
 import Button from "../ui/Button";
 import { locationPages, getLocationDetail } from "../../data/content";
+import { getLocationPageContent } from "../../data/locationContent";
 import WhatsAppFloatingButton from "../ui/WhatsAppFloatingButton";
 import Navbar from "../layout/Navbar";
 import Footer from "./Footer";
+import StructuredLocationPage from "./StructuredLocationPage";
 import { ChevronDown } from "lucide-react";
 
 class MapErrorBoundary extends React.Component {
@@ -49,6 +51,11 @@ const LocationPage = () => {
         </div>
       </div>
     );
+  }
+
+  const pageContent = getLocationPageContent(location.slug);
+  if (pageContent) {
+    return <StructuredLocationPage location={location} content={pageContent} />;
   }
 
   const officeCoords = [-6.2588, 106.8235];

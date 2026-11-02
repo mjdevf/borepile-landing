@@ -15,6 +15,7 @@ import {
   faq as faqData,
 } from '../src/data/content.js';
 import { SITE, PRICE_DISCLAIMER_TEXT } from '../src/data/siteFacts.js';
+import { getLocationPageContent } from '../src/data/locationContent.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -61,7 +62,7 @@ function sourceFileForPath(pathname) {
   if (pathname === '/') return 'index.html';
   if (pathname === '/blog/') return 'public/blog/index.html';
   if (pathname === '/borepile-terdekat/') return 'src/data/siteFacts.js';
-  if (pathname.startsWith('/location/')) return 'src/data/content.js';
+  if (pathname.startsWith('/location/')) return 'src/data/locationContent.js';
   if (pathname.startsWith('/blog/')) return path.posix.join('public', pathname.replace(/^\//, ''));
   return null;
 }
@@ -79,7 +80,144 @@ function esc(s) {
     .replace(/'/g, '&#39;');
 }
 
+function renderRich(parts) {
+  if (typeof parts === 'string') return esc(parts);
+  return parts
+    .map((part) =>
+      typeof part === 'string'
+        ? esc(part)
+        : `<a href="${esc(part.href)}" style="color:#A8422A;font-weight:600;text-decoration:none;">${esc(part.text)}</a>`
+    )
+    .join('');
+}
+
+function renderStructuredLocationBody(loc, page) {
+  const city = loc.city;
+  const waUrl = page.cta.url;
+
+  const introHtml = page.intro
+    .map(
+      (p) =>
+        `<p style="line-height:1.75;font-size:17px;margin-bottom:14px;color:#17171A;">${esc(p)}</p>`
+    )
+    .join("");
+
+  const districtsHtml = page.districts
+    ? `<section style="margin-top:36px;">
+      <h2 style="font-size:22px;margin-bottom:12px;color:#17171A;">${esc(page.districts.heading)}</h2>
+      <p style="line-height:1.75;color:#5B5A55;margin-bottom:12px;">${page.districts.list.map((d) => esc(d)).join(", ")}.</p>
+      <p style="line-height:1.75;color:#5B5A55;">${renderRich(page.districts.closing)}</p>
+    </section>`
+    : "";
+
+  const methodHtml = page.method
+    ? `<section style="margin-top:36px;">
+      <h2 style="font-size:22px;margin-bottom:12px;color:#17171A;">${esc(page.method.heading)}</h2>
+      ${page.method.paragraphs
+        .map(
+          (p) =>
+            `<p style="line-height:1.75;color:#5B5A55;margin-bottom:12px;">${renderRich(p)}</p>`
+        )
+        .join("")}
+    </section>`
+    : "";
+
+  const surveyHtml = page.survey
+    ? `<section style="margin-top:36px;">
+      <h2 style="font-size:22px;margin-bottom:12px;color:#17171A;">${esc(page.survey.heading)}</h2>
+      <p style="line-height:1.75;color:#5B5A55;margin-bottom:8px;">${esc(page.survey.intro)}</p>
+      <ul style="line-height:1.75;color:#5B5A55;padding-left:22px;margin-bottom:12px;">
+        ${page.survey.items.map((item) => `<li>${esc(item)}</li>`).join("")}
+      </ul>
+      <p style="line-height:1.75;color:#5B5A55;">${renderRich(page.survey.closing)}</p>
+    </section>`
+    : "";
+
+  const priceHtml = page.price
+    ? `<section style="margin-top:36px;">
+      <h2 style="font-size:22px;margin-bottom:12px;color:#17171A;">${esc(page.price.heading)}</h2>
+      <p style="line-height:1.75;color:#5B5A55;">${esc(page.price.text)}</p>
+    </section>`
+    : "";
+
+  const faqHtml =
+    page.faq && page.faq.length
+      ? `<section style="margin-top:36px;">
+      <h2 style="font-size:22px;margin-bottom:12px;color:#17171A;">${esc(page.faqHeading)}</h2>
+      ${page.faq
+        .map(
+          (f) =>
+            `<div style="border:1px solid #E1E0DA;border-radius:8px;padding:14px 18px;margin-bottom:12px;background:#ffffff;"><h3 style="font-size:16px;margin:0 0 8px;color:#17171A;">${esc(f.q)}</h3><p style="line-height:1.7;margin:0;color:#5B5A55;">${esc(f.a)}</p></div>`
+        )
+        .join("")}
+    </section>`
+      : "";
+
+  const projectsHtml = page.projects
+    ? `<section style="margin-top:36px;">
+      <h2 style="font-size:22px;margin-bottom:12px;color:#17171A;">Proyek kami di ${esc(city)}</h2>
+      <ul style="line-height:1.75;color:#5B5A55;padding-left:22px;">
+        ${page.projects.map((item) => `<li>${esc(item)}</li>`).join("")}
+      </ul>
+    </section>`
+    : "";
+
+  const footLinks = [
+    `<a href="/" style="color:#A8422A;text-decoration:none;">Beranda</a>`,
+    ...navLinks
+      .filter((l) => l.href !== "/#hero")
+      .map(
+        (l) =>
+          `<a href="${l.href}" style="color:#5B5A55;text-decoration:none;">${esc(l.label)}</a>`
+      ),
+    ...footerData.blogLinks.map(
+      (l) =>
+        `<a href="${l.href}" style="color:#5B5A55;text-decoration:none;">${esc(l.title)}</a>`
+    ),
+    ...footerData.serviceLinks.map(
+      (l) =>
+        `<a href="${l.href}" style="color:#5B5A55;text-decoration:none;">${esc(l.title.trim())}</a>`
+    ),
+  ].join(" · ");
+
+  return `<main id="main-content" style="padding:40px 20px;font-family:system-ui,-apple-system,sans-serif;max-width:960px;margin:0 auto;color:#17171A;">
+    <nav aria-label="Breadcrumb" style="margin-bottom:20px;font-size:14px;color:#5B5A55;">
+      <a href="/" style="color:#A8422A;text-decoration:none;font-weight:600;">Beranda</a> &rsaquo;
+      <span style="color:#5B5A55;">Jasa Bore Pile ${esc(city)}</span>
+    </nav>
+
+    <h1 style="font-size:32px;line-height:1.3;margin-bottom:16px;color:#17171A;">${esc(page.h1)}</h1>
+    ${introHtml}
+    ${districtsHtml}
+    ${methodHtml}
+    ${surveyHtml}
+    ${priceHtml}
+    ${projectsHtml}
+    ${faqHtml}
+
+    <p style="line-height:1.75;color:#5B5A55;margin-top:24px;">Lihat halaman <a href="/borepile-terdekat/" style="color:#A8422A;font-weight:600;text-decoration:none;">jasa borepile terdekat</a> untuk wilayah lain di Jabodetabek.</p>
+
+    <section style="margin-top:40px;background:#17171A;color:#ffffff;border-radius:8px;padding:32px;text-align:center;">
+      <h2 style="font-size:24px;margin:0 0 12px;color:#ffffff;">Butuh Jasa Bore Pile di ${esc(city)}?</h2>
+      <p style="margin:0 0 20px;color:#E1E0DA;line-height:1.6;">${esc(page.cta.text)}</p>
+      <a href="${waUrl}" style="background:#A8422A;color:#ffffff;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:700;display:inline-block;box-shadow:0 4px 12px rgba(37,99,235,0.3);">${esc(page.cta.button)}</a>
+    </section>
+
+    <div style="margin-top:32px;">
+      <a href="/" style="display:inline-block;padding:10px 20px;background:#F3F2EE;border:1px solid #E1E0DA;border-radius:6px;color:#17171A;text-decoration:none;font-weight:600;">&larr; Kembali ke Beranda Utama Majujaya</a>
+    </div>
+
+    <footer style="margin-top:36px;border-top:1px solid #E1E0DA;padding-top:20px;font-size:13px;line-height:1.8;color:#5B5A55;">
+      <p style="font-weight:600;margin-bottom:8px;color:#17171A;">Navigasi &amp; Tautan Halaman:</p>
+      ${footLinks}
+    </footer>
+  </main>`;
+}
+
 function renderLocationBody(loc) {
+  const page = getLocationPageContent(loc.slug);
+  if (page) return renderStructuredLocationBody(loc, page);
+
   const city = loc.city;
   const wa = '6281514811120';
   const waUrl = `https://api.whatsapp.com/send/?phone=${wa}&text=${encodeURIComponent(`Halo Majujaya, saya mau konsultasi bore pile di ${city}. Tolong info harga & survey lokasi gratis.`)}`;
@@ -366,10 +504,12 @@ function generateLocationPages() {
       
       const dom = new JSDOM(homepageHtml);
       const document = dom.window.document;
+      const page = getLocationPageContent(loc.slug);
+      const pageFaq = page && page.faq && page.faq.length ? page.faq : loc.faq;
 
       const canonicalUrl = `https://borepilemajujaya.com/location/${loc.slug}/`;
-      const title = loc.title || (loc.headline ? `${loc.headline} | Majujaya` : `Jasa Bore Pile ${loc.city} — Survey Gratis | Majujaya`);
-      const description = loc.metaDesc || `Jasa bore pile & strauss pile profesional di ${loc.city} sejak 2013. Survey gratis, harga bersaing, 250+ titik. Melayani seluruh wilayah ${loc.city}.`;
+      const title = page?.title || loc.title || (loc.headline ? `${loc.headline} | Majujaya` : `Jasa Bore Pile ${loc.city} — Survey Gratis | Majujaya`);
+      const description = page?.metaDesc || loc.metaDesc || `Jasa bore pile & strauss pile profesional di ${loc.city} sejak 2013. Survey gratis, harga bersaing, 250+ titik. Melayani seluruh wilayah ${loc.city}.`;
 
       // Update Title
       const titleEl = document.querySelector('title');
@@ -412,10 +552,14 @@ function generateLocationPages() {
       for (const script of scripts) {
         try {
           const parsed = JSON.parse(script.textContent);
+          if (parsed['@type'] === 'LocalBusiness') {
+            parsed['@id'] = 'https://borepilemajujaya.com/#localbusiness';
+            script.textContent = JSON.stringify(parsed, null, 2);
+          }
           if (parsed['@type'] === 'FAQPage') {
             // FAQPage must mirror the FAQ visible on this page (not the homepage FAQ).
-            if (loc.faq && loc.faq.length) {
-              parsed.mainEntity = loc.faq.map((f) => ({
+            if (pageFaq && pageFaq.length) {
+              parsed.mainEntity = pageFaq.map((f) => ({
                 '@type': 'Question',
                 name: f.q,
                 acceptedAnswer: { '@type': 'Answer', text: stripTags(f.a) },
@@ -426,8 +570,12 @@ function generateLocationPages() {
             }
           }
           if (parsed['@type'] === 'Service') {
-            parsed.name = `Jasa Bore Pile & Strauss Pile ${loc.city}`;
+            parsed['@id'] = `${canonicalUrl}#service`;
+            parsed.name = `Jasa Bore Pile dan Strauss Pile di ${loc.city}`;
+            parsed.serviceType = ['Bore pile', 'Strauss pile'];
+            parsed.provider = { '@id': 'https://borepilemajujaya.com/#localbusiness' };
             parsed.areaServed = { '@type': 'AdministrativeArea', name: loc.city };
+            parsed.url = canonicalUrl;
             script.textContent = JSON.stringify(parsed, null, 2);
           }
           if (parsed['@type'] === 'BreadcrumbList') {
@@ -435,7 +583,7 @@ function generateLocationPages() {
               {
                 '@type': 'ListItem',
                 'position': 1,
-                'name': 'Home',
+                'name': 'Beranda',
                 'item': 'https://borepilemajujaya.com/'
               },
               {
