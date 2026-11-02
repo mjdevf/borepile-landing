@@ -191,6 +191,38 @@ export const LOCATION_CONTENT = {
       ]
     ),
   }),
+  "jakarta-timur": fullPage({
+    city: "Jakarta Timur",
+    title: "Jasa Bore Pile Jakarta Timur | Survey Gratis | Majujaya",
+    metaDesc:
+      "Jasa bore pile dan strauss pile di Jakarta Timur: Matraman, Pulogadung, Jatinegara, Kramat Jati. Survey lokasi gratis, estimasi biaya jelas. Chat WA sekarang.",
+    intro: [
+      "Majujaya Bore Pile mengerjakan pondasi bore pile dan strauss pile di Jakarta Timur, dari Matraman sampai Cipayung. Kantor kami ada di Sunter, Jakarta Utara. Kami berdiri sejak 2013 dan sudah menyelesaikan 250+ titik pengeboran di Jabodetabek dan sekitarnya.",
+      "Survey lokasi gratis. Setelah survey, Anda menerima penawaran resmi (RAB).",
+    ],
+    districts: districtSection(
+      "Jakarta Timur",
+      [
+        "Matraman",
+        "Pulogadung",
+        "Jatinegara",
+        "Kramat Jati",
+        "Pasar Rebo",
+        "Cakung",
+        "Duren Sawit",
+        "Makasar",
+        "Ciracas",
+        "Cipayung",
+      ],
+      [
+        "Kalau lokasi Anda berada di perbatasan, misalnya dekat Jakarta Selatan atau Bekasi, kirim titik lokasinya lewat WhatsApp. Lihat juga halaman ",
+        link("jasa bore pile Jakarta Selatan", "/location/jakarta-selatan/"),
+        " dan ",
+        link("jasa bore pile Bekasi", "/location/bekasi/"),
+        ".",
+      ]
+    ),
+  }),
 };
 
 export function getLocationPageContent(slug) {
