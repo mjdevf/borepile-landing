@@ -161,6 +161,36 @@ export const LOCATION_CONTENT = {
       ]
     ),
   }),
+  "jakarta-barat": fullPage({
+    city: "Jakarta Barat",
+    title: "Jasa Bore Pile Jakarta Barat | Survey Gratis | Majujaya",
+    metaDesc:
+      "Jasa bore pile dan strauss pile di Jakarta Barat: Cengkareng, Grogol Petamburan, Taman Sari. Survey lokasi gratis, estimasi biaya jelas. Chat WA sekarang.",
+    intro: [
+      "Majujaya Bore Pile mengerjakan pondasi bore pile dan strauss pile di Jakarta Barat, dari Cengkareng sampai Kembangan. Kantor kami ada di Sunter, Jakarta Utara. Kami berdiri sejak 2013 dan sudah menyelesaikan 250+ titik pengeboran di Jabodetabek dan sekitarnya.",
+      "Survey lokasi gratis. Setelah survey, Anda menerima penawaran resmi (RAB).",
+    ],
+    districts: districtSection(
+      "Jakarta Barat",
+      [
+        "Cengkareng",
+        "Grogol Petamburan",
+        "Taman Sari",
+        "Tambora",
+        "Kebon Jeruk",
+        "Kalideres",
+        "Palmerah",
+        "Kembangan",
+      ],
+      [
+        "Kalau lokasi Anda berada di perbatasan, misalnya dekat Jakarta Pusat atau Tangerang, kirim titik lokasinya lewat WhatsApp. Lihat juga halaman ",
+        link("jasa bore pile Jakarta Pusat", "/location/jakarta-pusat/"),
+        " dan ",
+        link("jasa bore pile Tangerang", "/location/tangerang/"),
+        ".",
+      ]
+    ),
+  }),
 };
 
 export function getLocationPageContent(slug) {
