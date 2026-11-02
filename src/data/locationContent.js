@@ -253,6 +253,50 @@ export const LOCATION_CONTENT = {
   }),
 };
 
+const THIN_REGIONS = [
+  "Bogor",
+  "Depok",
+  "Tangerang",
+  "Bekasi",
+  "Karawang",
+  "Cikarang",
+  "Purwakarta",
+  "Serang",
+  "Cilegon",
+  "Subang",
+  "Cianjur",
+];
+
+function thinPage(city) {
+  const rukoPhrase = city === "Purwakarta" ? "rumah, ruko" : "rumah dan ruko";
+  return {
+    thin: true,
+    title: `Jasa Bore Pile ${city} | Survey Gratis | Majujaya`,
+    metaDesc: `Jasa bore pile dan strauss pile di ${city} untuk ${rukoPhrase}. Survey lokasi gratis, estimasi biaya jelas, penawaran resmi setelah survey. Chat WA sekarang.`,
+    h1: `Jasa bore pile dan strauss pile di ${city}`,
+    intro: [
+      `Majujaya Bore Pile melayani jasa bore pile dan strauss pile di ${city}. Kantor kami ada di Sunter, Jakarta Utara, dan kami sudah mengerjakan 250+ titik sejak 2013.`,
+    ],
+    area: {
+      heading: `Area layanan di ${city}`,
+      text: `Kami melayani pekerjaan pondasi bore pile dan strauss pile di ${city} dan sekitarnya.`,
+    },
+    method: null,
+    survey: null,
+    price: { heading: "Biaya", text: PRICE_TEXT },
+    projects: null,
+    faq: FAQ,
+    faqHeading: `FAQ bore pile ${city}`,
+    cta: {
+      text: `Kirim lokasi proyek di ${city} lewat WhatsApp 0815-1481-1120.`,
+      button: "Chat WhatsApp Sekarang",
+      url: waUrl(city),
+    },
+  };
+}
+
 export function getLocationPageContent(slug) {
-  return LOCATION_CONTENT[slug] || null;
+  if (LOCATION_CONTENT[slug]) return LOCATION_CONTENT[slug];
+  const city = THIN_REGIONS.find((name) => name.toLowerCase() === slug);
+  return city ? thinPage(city) : null;
 }

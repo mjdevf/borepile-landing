@@ -102,6 +102,13 @@ function renderStructuredLocationBody(loc, page) {
     )
     .join("");
 
+  const areaHtml = page.area
+    ? `<section style="margin-top:36px;">
+      <h2 style="font-size:22px;margin-bottom:12px;color:#17171A;">${esc(page.area.heading)}</h2>
+      <p style="line-height:1.75;color:#5B5A55;">${esc(page.area.text)}</p>
+    </section>`
+    : "";
+
   const districtsHtml = page.districts
     ? `<section style="margin-top:36px;">
       <h2 style="font-size:22px;margin-bottom:12px;color:#17171A;">${esc(page.districts.heading)}</h2>
@@ -188,6 +195,7 @@ function renderStructuredLocationBody(loc, page) {
 
     <h1 style="font-size:32px;line-height:1.3;margin-bottom:16px;color:#17171A;">${esc(page.h1)}</h1>
     ${introHtml}
+    ${areaHtml}
     ${districtsHtml}
     ${methodHtml}
     ${surveyHtml}

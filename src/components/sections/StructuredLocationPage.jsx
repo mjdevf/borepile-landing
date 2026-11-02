@@ -75,6 +75,13 @@ const StructuredLocationPage = ({ location, content }) => {
             ))}
           </div>
 
+          {content.area && (
+            <section className="mb-10">
+              <h2 className="mb-4 text-2xl font-bold text-primary">{content.area.heading}</h2>
+              <p className="leading-relaxed text-secondary">{content.area.text}</p>
+            </section>
+          )}
+
           {content.districts && (
             <section className="mb-10">
               <h2 className="mb-4 text-2xl font-bold text-primary">{content.districts.heading}</h2>
