@@ -61,14 +61,17 @@ updated['/'] = gitDateForFiles(['index.html', 'src/App.jsx']) || existing['/'] |
 // 2. Blog index
 updated['/blog/'] = gitDateForFiles(['public/blog/index.html']) || existing['/blog/'] || today;
 
-// 3. Location pages
+// 3. Borepile terdekat
+updated['/borepile-terdekat/'] = gitDateForFiles(['scripts/prerender.js', 'src/data/siteFacts.js']) || existing['/borepile-terdekat/'] || today;
+
+// 4. Location pages
 const locationDate = gitDateForFiles(['src/data/content.js', 'src/components/sections/LocationPage.jsx']) || today;
 for (const loc of locationPages) {
   const url = `/location/${loc.slug}/`;
   updated[url] = locationDate || existing[url] || today;
 }
 
-// 4. Blog articles
+// 5. Blog articles
 const blogDir = path.join(REPO_ROOT, 'public', 'blog');
 if (fs.existsSync(blogDir)) {
   const blogFiles = fs.readdirSync(blogDir).filter((f) => f.endsWith('.html') && f !== 'index.html').sort();
