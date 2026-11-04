@@ -180,6 +180,9 @@ export default function Footer() {
               {link.label}
             </a>
           ))}
+          <a href="/borepile-terdekat/" className="text-sm text-secondary transition-colors hover:text-accent">
+            Jasa Borepile Terdekat
+          </a>
         </div>
 
         {/* Blog & Artikel */}

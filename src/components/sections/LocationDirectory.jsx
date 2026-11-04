@@ -68,6 +68,13 @@ export default function LocationDirectory() {
             </div>
           ))}
         </div>
+
+        <p className="mt-6 text-sm text-secondary">
+          Butuh tim yang lebih dekat? Lihat halaman{" "}
+          <a href="/borepile-terdekat/" className="font-semibold text-accent hover:underline">
+            jasa borepile terdekat
+          </a>.
+        </p>
       </div>
     </section>
   );

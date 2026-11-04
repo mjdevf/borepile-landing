@@ -401,6 +401,7 @@ function renderHomepageBody() {
         <h2 style="font-size:28px;font-weight:700;color:#17171A;margin-bottom:12px;text-align:center;">Area &amp; Wilayah Layanan Pengeboran</h2>
         <p style="text-align:center;color:#5B5A55;max-width:700px;margin:0 auto 32px;">Kami melayani pekerjaan pondasi bore pile dan strauss pile di 16 wilayah kota dan kabupaten di Jabodetabek, Banten, dan Jawa Barat dengan survey lokasi gratis:</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">${locationLinksHtml}</div>
+        <p style="text-align:center;margin-top:24px;"><a href="/borepile-terdekat/" style="color:#A8422A;font-weight:600;text-decoration:none;">jasa borepile terdekat</a></p>
       </section>
 
       <section id="tentang" style="margin-bottom:60px;background:#F8F8F6;border:1px solid #E1E0DA;border-radius:12px;padding:36px;">
@@ -445,6 +446,7 @@ function renderHomepageBody() {
           <h3 style="font-size:16px;font-weight:700;color:#17171A;margin-bottom:12px;">Navigasi</h3>
           <ul style="list-style:none;padding:0;line-height:2;">
             ${navLinks.map((l) => `<li><a href="${l.href}" style="color:#5B5A55;text-decoration:none;">${esc(l.label)}</a></li>`).join('')}
+            <li><a href="/borepile-terdekat/" style="color:#5B5A55;text-decoration:none;">Jasa Borepile Terdekat</a></li>
           </ul>
         </div>
         <div>
