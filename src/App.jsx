@@ -7,6 +7,7 @@ import Portfolio from "./components/sections/Portfolio";
 import AboutUs from "./components/sections/AboutUs";
 import TestimonialSection from "./components/sections/TestimonialSection";
 import HowItWorks from "./components/sections/HowItWorks";
+import ArticleGuides from "./components/sections/ArticleGuides";
 import FAQ from "./components/sections/FAQ";
 import { lazy, Suspense, useEffect } from "react";
 import ScrollToTop from "./components/ui/ScrollToTop";
@@ -59,6 +60,7 @@ export default function App() {
         </LazyOnView>
         <TestimonialSection />
         <HowItWorks />
+        <ArticleGuides />
         <FAQ />
         {/* Lazy load maps with fallback */}
         <LazyOnView id="maps" minHeight={640}>
