@@ -62,13 +62,14 @@ const LocationPage = () => {
   const whatsappUrl = "https://api.whatsapp.com/send/?phone=6281514811120";
 
   return (
-    <main id="main-content" className="bg-background">
+    <>
       <Navbar />
+      <main id="main-content" tabIndex={-1} className="bg-background">
       {/* Hero */}
       <AnimatedSection className="bg-surface pt-[72px] pb-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           {/* Breadcrumb */}
-          <nav className="mb-6 text-sm text-secondary" aria-label="Breadcrumb">
+          <nav className="mb-6 text-sm text-secondary" aria-label="Navigasi halaman">
             <ol className="flex items-center gap-2">
               <li><Link to="/" className="transition-colors hover:text-accent">Beranda</Link></li>
               <li className="text-outline">/</li>
@@ -274,10 +275,10 @@ const LocationPage = () => {
           </div>
         </div>
       </AnimatedSection>
-
+      </main>
       <Footer />
       <WhatsAppFloatingButton />
-    </main>
+    </>
   );
 };
 

@@ -27,6 +27,7 @@ export default function Hero() {
             height="1440"
             decoding="async"
             alt="Kontraktor bore pile profesional Majujaya sedang melakukan pengeboran pondasi di lokasi proyek"
+            loading="eager"
             fetchPriority="high"
             className="h-full w-full object-cover object-[70%_center] md:object-[center_35%]"
           />

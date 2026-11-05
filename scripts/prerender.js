@@ -102,6 +102,18 @@ function renderStructuredLocationBody(loc, page) {
     )
     .join("");
 
+  const contextHtml = page.context
+    ? `<section style="margin-top:36px;">
+      <h2 style="font-size:22px;margin-bottom:12px;color:#17171A;">${esc(page.context.heading)}</h2>
+      ${page.context.paragraphs
+        .map(
+          (p) =>
+            `<p style="line-height:1.75;color:#5B5A55;margin-bottom:12px;">${esc(p)}</p>`
+        )
+        .join("")}
+    </section>`
+    : "";
+
   const areaHtml = page.area
     ? `<section style="margin-top:36px;">
       <h2 style="font-size:22px;margin-bottom:12px;color:#17171A;">${esc(page.area.heading)}</h2>
@@ -159,6 +171,21 @@ function renderStructuredLocationBody(loc, page) {
     </section>`
       : "";
 
+  const relatedHtml =
+    page.relatedArticles && page.relatedArticles.length
+      ? `<section style="margin-top:36px;">
+      <h2 style="font-size:22px;margin-bottom:12px;color:#17171A;">Artikel terkait</h2>
+      <ul style="line-height:1.8;color:#5B5A55;padding-left:22px;">
+        ${page.relatedArticles
+          .map(
+            (article) =>
+              `<li><a href="${esc(article.href)}" style="color:#A8422A;font-weight:600;text-decoration:none;">${esc(article.title)}</a></li>`
+          )
+          .join("")}
+      </ul>
+    </section>`
+      : "";
+
   const projectsHtml = page.projects
     ? `<section style="margin-top:36px;">
       <h2 style="font-size:22px;margin-bottom:12px;color:#17171A;">Proyek kami di ${esc(city)}</h2>
@@ -194,6 +221,7 @@ function renderStructuredLocationBody(loc, page) {
 
     <h1 style="font-size:32px;line-height:1.3;margin-bottom:16px;color:#17171A;">${esc(page.h1)}</h1>
     ${introHtml}
+    ${contextHtml}
     ${areaHtml}
     ${districtsHtml}
     ${methodHtml}
@@ -201,6 +229,7 @@ function renderStructuredLocationBody(loc, page) {
     ${priceHtml}
     ${projectsHtml}
     ${faqHtml}
+    ${relatedHtml}
 
     <p style="line-height:1.75;color:#5B5A55;margin-top:24px;">Lihat halaman <a href="/borepile-terdekat/" style="color:#A8422A;font-weight:600;text-decoration:none;">jasa borepile terdekat</a> untuk wilayah lain di Jabodetabek.</p>
 
@@ -314,7 +343,7 @@ function renderLocationBody(loc) {
     <section style="margin-top:40px;background:#17171A;color:#ffffff;border-radius:8px;padding:32px;text-align:center;">
       <h2 style="font-size:24px;margin:0 0 12px;color:#ffffff;">Butuh Jasa Bore Pile Terpercaya di ${esc(city)}?</h2>
       <p style="margin:0 0 20px;color:#E1E0DA;line-height:1.6;">Konsultasikan spesifikasi bangunan dan kondisi tanah Anda bersama tim ahli kami. Survey lokasi GRATIS &amp; estimasi RAB detail tanpa biaya.</p>
-      <a href="${waUrl}" style="background:#A8422A;color:#ffffff;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:700;display:inline-block;box-shadow:0 4px 12px rgba(37,99,235,0.3);">Chat via WhatsApp 0815-1481-1120</a>
+      <a href="${waUrl}" style="background:#A8422A;color:#ffffff;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:700;display:inline-block;box-shadow:0 4px 12px rgba(37,99,235,0.3);">Konsultasi via WhatsApp 0815-1481-1120</a>
       <p style="font-size:13px;color:#D2D1CA;margin:14px auto 0;max-width:600px;"><em>*Harga estimasi, bukan harga pasti. Penawaran resmi (RAB) diberikan setelah survey lokasi gratis.</em></p>
     </section>
 
@@ -377,7 +406,7 @@ function renderHomepageBody() {
         <h1 style="font-size:36px;line-height:1.25;font-weight:800;color:#17171A;margin-bottom:20px;max-width:900px;margin-left:auto;margin-right:auto;">${esc(hero.headline)}</h1>
         <p style="font-size:18px;line-height:1.7;color:#5B5A55;max-width:800px;margin:0 auto 28px;">${esc(hero.subheadline)}</p>
         <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
-          <a href="${waUrl}" style="background:#A8422A;color:#ffffff;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:700;box-shadow:0 4px 12px rgba(37,99,235,0.3);">Chat via WhatsApp 0815-1481-1120</a>
+          <a href="${waUrl}" style="background:#A8422A;color:#ffffff;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:700;box-shadow:0 4px 12px rgba(37,99,235,0.3);">Konsultasi via WhatsApp 0815-1481-1120</a>
           <a href="/#layanan" style="background:#F3F2EE;color:#17171A;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:600;">Lihat Layanan Kami</a>
         </div>
       </section>
@@ -557,6 +586,7 @@ function generateLocationPages() {
 
       // Update Schema BreadcrumbList
       const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+      let hasBreadcrumb = false;
       for (const script of scripts) {
         try {
           const parsed = JSON.parse(script.textContent);
@@ -588,6 +618,7 @@ function generateLocationPages() {
             script.textContent = JSON.stringify(parsed, null, 2);
           }
           if (parsed['@type'] === 'BreadcrumbList') {
+            hasBreadcrumb = true;
             parsed.itemListElement = [
               {
                 '@type': 'ListItem',
@@ -607,6 +638,31 @@ function generateLocationPages() {
         } catch (_) {
           // ignore non-json
         }
+      }
+
+      if (!hasBreadcrumb) {
+        const breadcrumbSchema = {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Beranda',
+              item: 'https://borepilemajujaya.com/',
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: `Jasa Bore Pile ${loc.city}`,
+              item: canonicalUrl,
+            },
+          ],
+        };
+        const breadcrumbScript = document.createElement('script');
+        breadcrumbScript.type = 'application/ld+json';
+        breadcrumbScript.textContent = JSON.stringify(breadcrumbSchema, null, 2);
+        document.head.appendChild(breadcrumbScript);
       }
 
       // Write location file at /location/{slug}/index.html

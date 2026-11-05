@@ -1,4 +1,5 @@
 import { PRICE_DISCLAIMER_TEXT } from "./siteFacts.js";
+import LOCATION_EXPANDED from "./locationExpanded.json" with { type: "json" };
 
 const WA_NUMBER = "6281514811120";
 const WA_BASE = `https://api.whatsapp.com/send/?phone=${WA_NUMBER}&text=`;
@@ -31,6 +32,63 @@ function waUrl(city) {
 
 function link(text, href) {
   return { text, href };
+}
+
+const ARTICLES = {
+  softSoil: {
+    title: "Pondasi Rumah di Tanah Lembek",
+    href: "/blog/pondasi-rumah-di-tanah-lembek.html",
+  },
+  twoStory: {
+    title: "Bore Pile untuk Rumah 2 Lantai",
+    href: "/blog/bore-pile-untuk-rumah-2-lantai.html",
+  },
+  ruko: {
+    title: "Pondasi Ruko Bertingkat",
+    href: "/blog/pondasi-ruko-bertingkat-bore-pile-atau-strauss.html",
+  },
+  industrial: {
+    title: "Bore Pile untuk Gudang dan Pabrik",
+    href: "/blog/bore-pile-untuk-gudang-dan-pabrik.html",
+  },
+  soilTest: {
+    title: "Sondir dan Soil Test Sebelum Pondasi",
+    href: "/blog/sondir-dan-soil-test-sebelum-pondasi.html",
+  },
+  price: {
+    title: "Harga Bore Pile per Titik 2026",
+    href: "/blog/harga-bore-pile-per-titik-2026.html",
+  },
+  vsPile: {
+    title: "Bore Pile vs Tiang Pancang",
+    href: "/blog/bore-pile-vs-tiang-pancang.html",
+  },
+};
+
+const JAKARTA_SLUGS = new Set([
+  "jakarta-selatan",
+  "jakarta-pusat",
+  "jakarta-barat",
+  "jakarta-timur",
+  "jakarta-utara",
+]);
+
+const INDUSTRIAL_SLUGS = new Set(["karawang", "cikarang", "cilegon"]);
+
+function relatedArticlesFor(slug) {
+  if (JAKARTA_SLUGS.has(slug)) {
+    return [ARTICLES.ruko, ARTICLES.twoStory, ARTICLES.price];
+  }
+  if (INDUSTRIAL_SLUGS.has(slug)) {
+    return [ARTICLES.industrial, ARTICLES.vsPile, ARTICLES.soilTest];
+  }
+  if (slug === "tangerang" || slug === "bekasi") {
+    return [ARTICLES.softSoil, ARTICLES.ruko, ARTICLES.price];
+  }
+  if (slug === "purwakarta" || slug === "subang" || slug === "serang") {
+    return [ARTICLES.softSoil, ARTICLES.industrial, ARTICLES.soilTest];
+  }
+  return [ARTICLES.softSoil, ARTICLES.twoStory, ARTICLES.soilTest];
 }
 
 function joinDistricts(districts) {
@@ -93,18 +151,21 @@ function standardIntro(city, office) {
 }
 
 function fullPage(config) {
+  const slug = config.city.toLowerCase().replace(/\s+/g, "-");
   return {
     full: true,
     title: config.title,
     metaDesc: config.metaDesc,
     h1: `Jasa bore pile dan strauss pile di ${config.city}`,
     intro: config.intro,
+    context: null,
     districts: config.districts,
     method: methodSection(config.city),
     survey: surveySection(),
     price: { heading: "Biaya", text: PRICE_DISCLAIMER_TEXT },
     projects: null,
     faq: faqFor(config.city),
+    relatedArticles: relatedArticlesFor(slug),
     faqHeading: "Pertanyaan yang sering diajukan",
     cta: {
       text: `Kirim lokasi proyek di ${config.city} lewat WhatsApp 0815-1481-1120.`,
@@ -284,6 +345,8 @@ const THIN_REGIONS = [
 ];
 
 function thinPage(city) {
+  const slug = city.toLowerCase();
+  const expanded = LOCATION_EXPANDED[slug] || null;
   const rukoPhrase = city === "Purwakarta" ? "rumah, ruko" : "rumah dan ruko";
   return {
     thin: true,
@@ -293,15 +356,18 @@ function thinPage(city) {
     intro: [
       `Majujaya Bore Pile melayani jasa bore pile dan strauss pile di ${city}. Kantor kami ada di Sunter, Jakarta Utara, dan kami sudah mengerjakan 250+ titik sejak 2013.`,
     ],
-    area: {
+    context: expanded?.context || null,
+    area: expanded?.area || {
       heading: `Area layanan di ${city}`,
       text: `Kami melayani pekerjaan pondasi bore pile dan strauss pile di ${city} dan sekitarnya.`,
     },
-    method: null,
-    survey: null,
+    districts: null,
+    method: expanded?.method || null,
+    survey: surveySection(),
     price: { heading: "Biaya", text: PRICE_DISCLAIMER_TEXT },
     projects: null,
-    faq: faqFor(city),
+    faq: expanded?.faq || faqFor(city),
+    relatedArticles: relatedArticlesFor(slug),
     faqHeading: "Pertanyaan yang sering diajukan",
     cta: {
       text: `Kirim lokasi proyek di ${city} lewat WhatsApp 0815-1481-1120.`,

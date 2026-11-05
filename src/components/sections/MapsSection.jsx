@@ -131,7 +131,7 @@ function MapsSection() {
                 </a>
                 <a href={OFFICE_WHATSAPP} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-sm bg-accent p-3 text-on-primary transition-colors hover:bg-accent-dark">
                   <svg className="h-5 w-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382A10.244 10.244 0 0 0 12 3C6.477 3 2 7.477 2 13c0 2.005.646 3.875 1.718 5.471l-1.318 4.475 4.575-1.236A10.236 10.236 0 0 0 17.472 14.382z" /></svg>
-                  <span className="text-sm font-semibold">Chat via WhatsApp</span>
+                  <span className="text-sm font-semibold">Konsultasi via WhatsApp</span>
                 </a>
               </div>
             </div>

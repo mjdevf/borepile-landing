@@ -149,6 +149,7 @@ export default function Portfolio() {
                   alt={portfolioImages[selected].alt}
                   width={640}
                   height={480}
+                  loading="eager"
                   className="max-h-[75vh] max-w-full rounded-lg object-contain shadow-2xl"
                 />
               </picture>

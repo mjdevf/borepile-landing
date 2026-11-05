@@ -40,7 +40,7 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1}>
         <Hero />
         <TrustBar />
         <Services />
@@ -73,8 +73,8 @@ export default function App() {
         <ScrollToTop />
         <CTA />
         <WhatsAppFloatingButton />
-        <Footer />
       </main>
+      <Footer />
     </>
   );
 }

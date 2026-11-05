@@ -56,11 +56,12 @@ const StructuredLocationPage = ({ location, content }) => {
   const whatsappUrl = content.cta.url;
 
   return (
-    <main id="main-content" className="bg-background">
+    <>
       <Navbar />
+      <main id="main-content" tabIndex={-1} className="bg-background">
       <AnimatedSection className="bg-surface pt-[72px] pb-12">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
-          <nav className="mb-6 text-sm text-secondary" aria-label="Breadcrumb">
+          <nav className="mb-6 text-sm text-secondary" aria-label="Navigasi halaman">
             <ol className="flex items-center gap-2">
               <li>
                 <Link to="/" className="transition-colors hover:text-accent">
@@ -80,6 +81,17 @@ const StructuredLocationPage = ({ location, content }) => {
               <p key={index}>{paragraph}</p>
             ))}
           </div>
+
+          {content.context && (
+            <section className="mb-10">
+              <h2 className="mb-4 text-2xl font-bold text-primary">{content.context.heading}</h2>
+              <div className="space-y-4 leading-relaxed text-secondary">
+                {content.context.paragraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
+            </section>
+          )}
 
           {content.area && (
             <section className="mb-10">
@@ -164,6 +176,24 @@ const StructuredLocationPage = ({ location, content }) => {
             </section>
           )}
 
+          {content.relatedArticles && content.relatedArticles.length > 0 && (
+            <section className="mb-10 rounded-lg border border-border-muted bg-surface-container-low p-5">
+              <h2 className="mb-4 text-2xl font-bold text-primary">Artikel terkait</h2>
+              <ul className="space-y-2">
+                {content.relatedArticles.map((article) => (
+                  <li key={article.href}>
+                    <a
+                      href={article.href}
+                      className="font-semibold text-accent underline"
+                    >
+                      {article.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
           <p className="mb-10 leading-relaxed text-secondary">
             Lihat halaman{" "}
             <a href="/borepile-terdekat/" className="font-semibold text-accent underline">
@@ -228,10 +258,10 @@ const StructuredLocationPage = ({ location, content }) => {
           </div>
         </div>
       </AnimatedSection>
-
+      </main>
       <Footer />
       <WhatsAppFloatingButton />
-    </main>
+    </>
   );
 };
 

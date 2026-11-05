@@ -5,7 +5,7 @@ export const navLinks = [
   { label: "Tentang Kami", href: "/#tentang", id: "nav-about" },
   { label: "Layanan", href: "/#layanan", id: "nav-services" },
   { label: "Kalkulator", href: "/#kalkulator", id: "nav-calculator" },
-  { label: "Portfolio", href: "/#portfolio", id: "nav-portfolio" },
+  { label: "Portofolio", href: "/#portfolio", id: "nav-portfolio" },
   { label: "Lokasi & Layanan", href: "/#maps", id: "nav-maps" },
   { label: "Kontak", href: "/#kontak", id: "nav-contact" },
 ];
@@ -17,8 +17,8 @@ export const hero = {
   owner: "Subiyanto",
   ownerTitle: "Pimpinan",
   coverage: "Melayani Jakarta, Jabodetabek, Karawang, Cikarang, Purwakarta, Serang, Cilegon, dan seluruh wilayah Indonesia.",
-  cta: "Chat via WhatsApp",
-  ctaSecondary: "Lihat Portfolio",
+  cta: "Konsultasi via WhatsApp",
+  ctaSecondary: "Lihat Portofolio",
 };
 
 export const trustBar = {

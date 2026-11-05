@@ -3,7 +3,7 @@ export const PRICE = {
   STRAUSS_MAX: 5500000,
   MESIN_FROM: 2500000,
   MESIN_MAX: 14000000,
-  PRICE_RANGE_SCHEMA: "Rp800.000 - Rp14.000.000",
+  PRICE_RANGE_SCHEMA: "$$",
   AS_OF: "Oktober 2026",
 };
 
@@ -11,7 +11,7 @@ export const STRAUSS_FROM = "Rp800.000";
 export const STRAUSS_MAX = "Rp5.500.000";
 export const MESIN_FROM = "Rp2.500.000";
 export const MESIN_MAX = "Rp14.000.000";
-export const PRICE_RANGE_SCHEMA = "Rp800.000 - Rp14.000.000";
+export const PRICE_RANGE_SCHEMA = "$$";
 export const AS_OF = "Oktober 2026";
 
 export const DISCLAIMER_SHORT = "Harga estimasi, bukan harga pasti.";

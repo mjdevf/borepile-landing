@@ -86,7 +86,7 @@ export default function Footer() {
             >
               {/* Honeypot — invisible to users, traps bots */}
               <div className="absolute -left-[9999px]" aria-hidden="true">
-                <label htmlFor="_hp">Do not fill</label>
+                <label htmlFor="_hp">Jangan diisi</label>
                 <input id="_hp" name="_gotcha" type="text" tabIndex={-1} autoComplete="off" />
               </div>
               <div className="space-y-5">

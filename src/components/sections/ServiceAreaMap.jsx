@@ -116,7 +116,7 @@ export default function ServiceAreaMap() {
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-6">
-          <p className="font-mono text-xs text-accent">Peta Wilayah Layanan</p>
+          <h2 className="font-mono text-xs text-accent">Peta Wilayah Layanan</h2>
           <p className="mt-2 max-w-[520px] text-base text-secondary">
             Ketuk salah satu titik untuk lihat detail layanan bore pile di kota tersebut.
           </p>

@@ -31,7 +31,7 @@ export default function DrillVisualizer({
         <span className="font-mono text-xs text-accent">Visualisasi Struktur Tiang</span>
         <span className="text-xs font-mono text-secondary bg-surface-container-low px-2 py-1 rounded-sm border border-border-muted">Skala Adaptif</span>
       </div>
-      <svg viewBox="0 0 320 400" className="w-full max-w-[280px] h-auto drop-shadow-lg overflow-visible" aria-label="Drill visual diagram">
+      <svg viewBox="0 0 320 400" className="w-full max-w-[280px] h-auto drop-shadow-lg overflow-visible" aria-label="Diagram visualisasi pengeboran">
         <defs>
           <pattern id="soilPattern" width="20" height="20" patternUnits="userSpaceOnUse">
             {soilType === 'soft' && (

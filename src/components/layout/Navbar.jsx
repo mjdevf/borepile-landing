@@ -128,7 +128,7 @@ export default function Navbar() {
             onClick={() => setOpen(false)}
           >
             <Phone className="h-4 w-4" />
-            Hubungi via WhatsApp
+            Konsultasi via WhatsApp
           </Button>
         </div>
       </div>

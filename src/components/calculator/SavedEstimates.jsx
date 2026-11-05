@@ -93,7 +93,7 @@ borepilemajujaya.com`;
         </div>
         <div className="flex items-center gap-3 self-stretch sm:self-auto justify-between">
           {selectedIds.length > 0 && (
-            <button onClick={handleClearSelected} className={`text-xs ${textSec} hover:text-primary font-semibold underline cursor-pointer`}>Reset Pilihan</button>
+            <button onClick={handleClearSelected} className={`text-xs ${textSec} hover:text-primary font-semibold underline cursor-pointer`}>Atur Ulang Pilihan</button>
           )}
           <button onClick={onClearAll} className={`text-xs text-alert-red hover:text-alert-red/80 font-bold flex items-center gap-1.5 px-3 py-1.5 rounded-sm hover:bg-alert-red/5 border border-transparent hover:border-alert-red/20 transition-all cursor-pointer`}>
             <Trash2 className="h-3.5 w-3.5" /> Hapus Semua
@@ -153,8 +153,8 @@ borepilemajujaya.com`;
                     </tr>
                     <tr>
                       <td className="py-3 font-semibold text-secondary">Sistem Pengadaan</td>
-                      <td className="py-3">{itemA.input.includeMaterial ? <span className="text-success-green-dark font-bold bg-success-green/5 px-1.5 py-0.5 rounded border border-success-green/20">All-In Material</span> : <span className={textSec}>Jasa Bor Saja</span>}</td>
-                      <td className="py-3">{itemB.input.includeMaterial ? <span className="text-success-green-dark font-bold bg-success-green/5 px-1.5 py-0.5 rounded border border-success-green/20">All-In Material</span> : <span className={textSec}>Jasa Bor Saja</span>}</td>
+                      <td className="py-3">{itemA.input.includeMaterial ? <span className="text-success-green-dark font-bold bg-success-green/5 px-1.5 py-0.5 rounded border border-success-green/20">Termasuk Material</span> : <span className={textSec}>Jasa Bor Saja</span>}</td>
+                      <td className="py-3">{itemB.input.includeMaterial ? <span className="text-success-green-dark font-bold bg-success-green/5 px-1.5 py-0.5 rounded border border-success-green/20">Termasuk Material</span> : <span className={textSec}>Jasa Bor Saja</span>}</td>
                     </tr>
                     <tr>
                       <td className="py-3 font-semibold text-secondary flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5 text-on-surface-variant" /> Durasi Konstruksi</td>
@@ -194,7 +194,7 @@ borepilemajujaya.com`;
                   {copied ? 'Tersalin!' : 'Salin Perbandingan'}
                 </button>
                 <a href={handleGetComparisonWALink()} target="_blank" rel="noreferrer" className="bg-accent hover:bg-accent-dark text-on-primary px-5 py-2.5 rounded-sm font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer">
-                  <Phone className="h-4 w-4" /> Konsultasikan Kedua Opsi via WA
+                  <Phone className="h-4 w-4" /> Konsultasikan Kedua Opsi lewat WA
                 </a>
               </div>
             </div>

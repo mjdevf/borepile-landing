@@ -21,7 +21,7 @@ export default function CTA() {
             className="inline-flex h-[50px] items-center justify-center gap-2 rounded-sm bg-accent px-8 text-sm font-semibold text-on-primary transition-colors hover:bg-accent-dark active:scale-[0.98]"
           >
             <Phone className="h-4 w-4" />
-            Chat via WhatsApp
+            Konsultasi via WhatsApp
           </a>
           <a
             href="#portfolio"

@@ -128,7 +128,7 @@ export default function CalculatorSection() {
             Pilih metode, diameter, dan kedalaman. Hasilnya perkiraan awal sebelum survey lokasi.
           </p>
           <p className="max-w-[56ch] border-l-2 border-accent pl-3 text-xs leading-relaxed text-secondary">
-            <strong className="font-semibold text-accent">DISCLAIMER:</strong> Simulasi awal estimasi kisaran pasar, <strong className="font-semibold text-primary">bukan harga pasti</strong> (bukan harga jadi). Biaya aktual mengikuti hasil survey lokasi teknis gratis.
+            <strong className="font-semibold text-accent">Catatan:</strong> Simulasi awal estimasi kisaran pasar, <strong className="font-semibold text-primary">bukan harga pasti</strong> (bukan harga jadi). Biaya aktual mengikuti hasil survey lokasi teknis gratis.
           </p>
         </div>
 
@@ -197,10 +197,10 @@ export default function CalculatorSection() {
               <Step n={4} title="Opsi material">
                 <div className="flex items-center justify-between gap-4 rounded-sm border-[1.5px] border-border-muted bg-white px-4 py-3">
                   <div>
-                    <div className="text-base font-bold text-primary">Sistem All-In Material</div>
+                    <div className="text-base font-bold text-primary">Sistem Termasuk Material</div>
                     <div className="text-sm text-secondary">Besi SNI + ReadyMix K-300</div>
                   </div>
-                  <button type="button" role="switch" aria-checked={input.includeMaterial} aria-label="Sistem All-In Material" onClick={() => update('includeMaterial', !input.includeMaterial)}
+                  <button type="button" role="switch" aria-checked={input.includeMaterial} aria-label="Sistem Termasuk Material" onClick={() => update('includeMaterial', !input.includeMaterial)}
                     className="flex h-11 w-[52px] shrink-0 cursor-pointer items-center">
                     <span className={`relative block h-7 w-12 rounded-full transition-colors ${input.includeMaterial ? 'bg-accent' : 'bg-switch-off'}`}>
                       <span className={`absolute top-[3px] h-[22px] w-[22px] rounded-full bg-white transition-all ${input.includeMaterial ? 'left-[23px]' : 'left-[3px]'}`} />
@@ -239,7 +239,7 @@ export default function CalculatorSection() {
                     <div className={row}><span className="text-on-primary-subtle">Penanganan lumpur</span><span className="font-mono">Rp {(result.itemizedCosts.mudHandling / 1000000).toFixed(1)} Juta</span></div>
                   )}
                   <div className={row}><span className="text-on-primary-subtle">Volume beton ReadyMix</span><span className="font-mono">{result.concreteVolumeM3} m³</span></div>
-                  <div className={row}><span className="text-on-primary-subtle">Berat besi tulangan</span><span className="font-mono">{input.includeMaterial ? `${result.rebarWeightKg} Kg` : 'Disiapkan owner'}</span></div>
+                  <div className={row}><span className="text-on-primary-subtle">Berat besi tulangan</span><span className="font-mono">{input.includeMaterial ? `${result.rebarWeightKg} Kg` : 'Disiapkan pemilik'}</span></div>
                 </div>
 
                 <Button
