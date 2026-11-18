@@ -15,7 +15,8 @@ import {
   faq as faqData,
   portfolioImages,
 } from '../src/data/content.js';
-import { SITE, PRICE_DISCLAIMER_TEXT } from '../src/data/siteFacts.js';
+import { SITE, PRICE_DISCLAIMER_TEXT, PRICE_UPDATED } from '../src/data/siteFacts.js';
+import { STRAUSS_FROM, STRAUSS_MAX, MESIN_FROM, MESIN_MAX } from '../src/data/pricing.js';
 import { getLocationPageContent } from '../src/data/locationContent.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -122,8 +123,39 @@ function renderHeroSnapshotImage() {
         </div>`;
 }
 
-function renderPortfolioSnapshot() {
-  const figures = portfolioImages
+function renderPriceSnapshot() {
+  return `<section id="kalkulator" style="margin-bottom:60px;">
+        <h2 style="font-size:28px;font-weight:700;color:#17171A;margin-bottom:12px;">Kisaran Harga Bore Pile &amp; Strauss Pile</h2>
+        <p style="color:#5B5A55;max-width:700px;margin-bottom:20px;line-height:1.7;">Estimasi biaya per titik untuk wilayah Jabodetabek, diperbarui ${esc(PRICE_UPDATED)}. Harga final ditentukan setelah survey lokasi gratis.</p>
+        <div style="overflow-x:auto;">
+          <table style="width:100%;border-collapse:collapse;font-size:15px;">
+            <thead>
+              <tr style="background:#F3F2EE;">
+                <th style="padding:12px;border:1px solid #E1E0DA;text-align:left;">Metode</th>
+                <th style="padding:12px;border:1px solid #E1E0DA;text-align:left;">Diameter</th>
+                <th style="padding:12px;border:1px solid #E1E0DA;text-align:left;">Estimasi per titik</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:12px;border:1px solid #E1E0DA;"><strong>Strauss pile manual</strong></td>
+                <td style="padding:12px;border:1px solid #E1E0DA;">30&ndash;40 cm</td>
+                <td style="padding:12px;border:1px solid #E1E0DA;">${esc(STRAUSS_FROM)} &ndash; ${esc(STRAUSS_MAX)}</td>
+              </tr>
+              <tr>
+                <td style="padding:12px;border:1px solid #E1E0DA;"><strong>Bore pile mesin</strong></td>
+                <td style="padding:12px;border:1px solid #E1E0DA;">40&ndash;120 cm</td>
+                <td style="padding:12px;border:1px solid #E1E0DA;">${esc(MESIN_FROM)} &ndash; ${esc(MESIN_MAX)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:13px;line-height:1.7;color:#5B5A55;margin-top:12px;">${esc(PRICE_DISCLAIMER_TEXT)}</p>
+        <p style="margin-top:10px;"><a href="/blog/harga-bore-pile-per-titik-2026.html" style="color:#A8422A;font-weight:600;text-decoration:none;">Rincian harga bore pile per titik 2026 &rarr;</a></p>
+      </section>`;
+}
+
+function renderPortfolioSnapshot() {  const figures = portfolioImages
     .map((img) => {
       const webp = toWebp(img.src);
       return `<figure style="margin:0;">
@@ -451,6 +483,7 @@ function renderHomepageBody() {
   ).join('');
 
   const heroImageHtml = renderHeroSnapshotImage();
+  const priceHtml = renderPriceSnapshot();
   const portfolioHtml = renderPortfolioSnapshot();
 
   return `<div style="font-family:system-ui,-apple-system,sans-serif;color:#17171A;background:#ffffff;">
@@ -478,15 +511,12 @@ function renderHomepageBody() {
         <h2 style="font-size:28px;font-weight:700;color:#17171A;margin-bottom:12px;text-align:center;">Layanan Pondasi &amp; Pengeboran Tanah</h2>
         <p style="text-align:center;color:#5B5A55;max-width:650px;margin:0 auto 32px;">Solusi komprehensif mulai dari pengeboran tiang bore pile mesin, strauss pile manual, hingga investigasi tanah di seluruh Indonesia.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">${servicesHtml}</div>
-      <div id="kalkulator"></div>
-      <div id="maps"></div>
-      <div id="wilayah"></div>
-
       </section>
 
+      ${priceHtml}
       ${portfolioHtml}
 
-      <section id="wilayah-layanan" style="margin-bottom:60px;">
+      <section id="maps" style="margin-bottom:60px;">
         <h2 style="font-size:28px;font-weight:700;color:#17171A;margin-bottom:12px;text-align:center;">Area &amp; Wilayah Layanan Pengeboran</h2>
         <p style="text-align:center;color:#5B5A55;max-width:700px;margin:0 auto 32px;">Kami melayani pekerjaan pondasi bore pile dan strauss pile di 16 wilayah kota dan kabupaten di Jabodetabek, Banten, dan Jawa Barat dengan survey lokasi gratis:</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">${locationLinksHtml}</div>
