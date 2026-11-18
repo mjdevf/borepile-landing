@@ -13,6 +13,7 @@ import {
   services as servicesData,
   about,
   faq as faqData,
+  portfolioImages,
 } from '../src/data/content.js';
 import { SITE, PRICE_DISCLAIMER_TEXT } from '../src/data/siteFacts.js';
 import { getLocationPageContent } from '../src/data/locationContent.js';
@@ -91,6 +92,58 @@ function renderRich(parts) {
         : `<a href="${esc(part.href)}" style="color:#A8422A;font-weight:600;text-decoration:none;">${esc(part.text)}</a>`
     )
     .join('');
+}
+
+const PORTFOLIO_SIZES = '(max-width: 768px) 50vw, 20vw';
+const HERO_SNAPSHOT_IMAGE = {
+  src: '/images/portfolio/hero-bg-960.webp',
+  alt: 'Kontraktor bore pile profesional Majujaya sedang melakukan pengeboran pondasi di lokasi proyek',
+};
+
+function resizeVariant(src, size) {
+  return src.replace(/\.(jpe?g|png|webp)$/, `-${size}.$1`);
+}
+
+function toWebp(src) {
+  return src.replace(/\.(jpe?g|png)$/, '.webp');
+}
+
+/**
+ * Gambar asli ada di komponen React (Hero.jsx, Portfolio.jsx) tetapi tidak
+ * pernah sampai ke HTML statis karena #root diganti snapshot teks. Fungsi ini
+ * mengembalikan markup <picture> yang sama supaya crawler non-JS melihat gambar.
+ */
+function renderHeroSnapshotImage() {
+  return `<div style="margin-top:36px;">
+          <picture>
+            <source type="image/webp" srcset="/images/portfolio/hero-bg-640.webp 640w, /images/portfolio/hero-bg-960.webp 960w, /images/portfolio/hero-bg.webp 1920w" sizes="(max-width: 768px) 60vw, 100vw">
+            <img src="${HERO_SNAPSHOT_IMAGE.src}" width="1920" height="1440" alt="${esc(HERO_SNAPSHOT_IMAGE.alt)}" loading="eager" fetchpriority="high" decoding="async" style="width:100%;height:auto;display:block;border-radius:10px;">
+          </picture>
+        </div>`;
+}
+
+function renderPortfolioSnapshot() {
+  const figures = portfolioImages
+    .map((img) => {
+      const webp = toWebp(img.src);
+      return `<figure style="margin:0;">
+          <picture>
+            <source type="image/webp" srcset="${resizeVariant(webp, 640)} 640w, ${resizeVariant(webp, 320)} 320w" sizes="${PORTFOLIO_SIZES}">
+            <source type="image/jpeg" srcset="${resizeVariant(img.src, 640)} 640w, ${resizeVariant(img.src, 320)} 320w" sizes="${PORTFOLIO_SIZES}">
+            <img src="${img.src}" alt="${esc(img.alt)}" width="640" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border-radius:4px;">
+          </picture>
+          <figcaption style="font-size:13px;color:#5B5A55;margin-top:6px;">${esc(img.label)}</figcaption>
+        </figure>`;
+    })
+    .join('\n        ');
+
+  return `<section id="portfolio" style="margin-bottom:60px;">
+        <h2 style="font-size:28px;font-weight:700;color:#17171A;margin-bottom:12px;">Dokumentasi Proyek</h2>
+        <p style="color:#5B5A55;max-width:650px;margin-bottom:24px;line-height:1.7;">Perumahan, gedung bertingkat, sampai pengeboran lapangan. Setiap titik didokumentasikan.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;">
+        ${figures}
+        </div>
+      </section>`;
 }
 
 function renderStructuredLocationBody(loc, page) {
@@ -397,6 +450,9 @@ function renderHomepageBody() {
     (t) => `<div style="text-align:center;padding:12px;"><div style="font-size:28px;font-weight:800;color:#17171A;">${esc(t.value)}${esc(t.suffix)}</div><div style="font-size:14px;color:#5B5A55;">${esc(t.label)}</div></div>`
   ).join('');
 
+  const heroImageHtml = renderHeroSnapshotImage();
+  const portfolioHtml = renderPortfolioSnapshot();
+
   return `<div style="font-family:system-ui,-apple-system,sans-serif;color:#17171A;background:#ffffff;">
     <header style="border-bottom:1px solid #E1E0DA;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
       <a href="/" style="font-size:20px;font-weight:800;color:#17171A;text-decoration:none;">${esc(footerData.company)}</a>
@@ -411,6 +467,7 @@ function renderHomepageBody() {
           <a href="${waUrl}" style="background:#A8422A;color:#ffffff;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:700;box-shadow:0 4px 12px rgba(37,99,235,0.3);">Konsultasi via WhatsApp 0815-1481-1120</a>
           <a href="/#layanan" style="background:#F3F2EE;color:#17171A;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:600;">Lihat Layanan Kami</a>
         </div>
+        ${heroImageHtml}
       </section>
 
       <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;background:#F8F8F6;border:1px solid #E1E0DA;border-radius:12px;padding:24px;margin-bottom:60px;">
@@ -422,11 +479,12 @@ function renderHomepageBody() {
         <p style="text-align:center;color:#5B5A55;max-width:650px;margin:0 auto 32px;">Solusi komprehensif mulai dari pengeboran tiang bore pile mesin, strauss pile manual, hingga investigasi tanah di seluruh Indonesia.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">${servicesHtml}</div>
       <div id="kalkulator"></div>
-      <div id="portfolio"></div>
       <div id="maps"></div>
       <div id="wilayah"></div>
 
       </section>
+
+      ${portfolioHtml}
 
       <section id="wilayah-layanan" style="margin-bottom:60px;">
         <h2 style="font-size:28px;font-weight:700;color:#17171A;margin-bottom:12px;text-align:center;">Area &amp; Wilayah Layanan Pengeboran</h2>
@@ -1008,11 +1066,55 @@ function updateSitemapLastmod() {
   console.log(`🗓️  sitemap.xml lastmod updated (${useGit ? 'git history' : 'lastmod.json fallback'})`);
 }
 
+/**
+ * Image sitemap untuk beranda: hanya gambar yang benar-benar tampil di halaman
+ * (hero + 10 foto portofolio). Halaman lain belum punya <img>.
+ */
+function updateSitemapImages() {
+  const sitemapPath = path.join(DIST_DIR, 'sitemap.xml');
+  if (!fs.existsSync(sitemapPath)) return;
+
+  const homeUrl = `${SITE.url}/`;
+  const images = [
+    { loc: HERO_SNAPSHOT_IMAGE.src, title: HERO_SNAPSHOT_IMAGE.alt },
+    ...portfolioImages.map((img) => ({ loc: img.src, title: img.label })),
+  ];
+
+  const imagesXml = images
+    .map(
+      (img) => `    <image:image>
+      <image:loc>${esc(SITE.url + img.loc)}</image:loc>
+      <image:title>${esc(img.title)}</image:title>
+    </image:image>`
+    )
+    .join('\n');
+
+  let xml = fs.readFileSync(sitemapPath, 'utf8');
+  if (!xml.includes('xmlns:image=')) {
+    xml = xml.replace(
+      '<urlset ',
+      '<urlset xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" '
+    );
+  }
+
+  let injected = 0;
+  xml = xml.replace(/<url>([\s\S]*?)<\/url>/g, (block) => {
+    const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1];
+    if (loc !== homeUrl || block.includes('<image:image>')) return block;
+    injected++;
+    return block.replace('</url>', `${imagesXml}\n  </url>`);
+  });
+
+  fs.writeFileSync(sitemapPath, xml, 'utf8');
+  if (injected) console.log(`🖼️  sitemap.xml: ${images.length} gambar beranda ditambahkan`);
+}
+
 try {
   generateLocationPages();
   generateBorepileTerdekatPage();
   prerenderHomepage();
   updateSitemapLastmod();
+  updateSitemapImages();
 } catch (e) {
   console.error('🚨 Prerender failed:', e.message);
   console.error(e.stack);
