@@ -2,28 +2,43 @@
 /**
  * scripts/update-lastmod.mjs
  *
- * Menghasilkan dan memperbarui scripts/lastmod.json dari riwayat Git (git log -1 --format=%cs)
- * untuk setiap URL yang ada di sitemap.xml.
+ * Menghasilkan scripts/lastmod.json dan menulis ulang <lastmod> di
+ * public/sitemap.xml dari tanggal yang bisa dibuktikan.
  *
- * PENTING: Jalankan 'npm run lastmod' sebelum commit perubahan konten baru.
+ * Sumber tanggal:
+ *  - Artikel blog  : dateModified di JSON-LD halaman itu sendiri (otoritatif).
+ *  - Beranda, /blog/, /borepile-terdekat/ : tanggal commit Git bila tersedia,
+ *    jika tidak pakai nilai terakhir yang sudah ada di scripts/lastmod.json.
+ *  - Halaman lokasi: TIDAK diberi lastmod, karena isinya berasal dari data
+ *    bersama (locationContent.js) sehingga tidak ada tanggal per-kota yang
+ *    jujur. Tambahkan secara eksplisit di scripts/lastmod-overrides.json
+ *    hanya jika satu kota benar-benar diedit sendiri.
  *
- * Keterbatasan git history:
- * Halaman lokasi (/location/:slug/) mendapatkan konten dari src/data/content.js dan template
- * src/components/sections/LocationPage.jsx. Karena konten seluruh kota digabung dalam content.js,
- * tanggal commit terakhir dari content.js + LocationPage.jsx digunakan sebagai tanggal lastmod
- * untuk semua halaman lokasi.
+ * Aturan penting: jangan pernah memakai tanggal hari ini sebagai fallback.
+ * lastmod yang tidak akurat membuat Google mengabaikan lastmod seluruh situs.
+ *
+ * Jalankan 'npm run lastmod' sebelum commit perubahan konten.
  */
 
 import fs from 'fs';
 import path from 'path';
 import { execFileSync } from 'child_process';
 import { fileURLToPath } from 'url';
-import { locationPages } from '../src/data/content.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.join(__dirname, '..');
 const LASTMOD_FILE = path.join(__dirname, 'lastmod.json');
+const OVERRIDES_FILE = path.join(__dirname, 'lastmod-overrides.json');
+const SITEMAP_FILE = path.join(REPO_ROOT, 'public', 'sitemap.xml');
+
+function readJson(file, fallback = {}) {
+  try {
+    return JSON.parse(fs.readFileSync(file, 'utf8'));
+  } catch {
+    return fallback;
+  }
+}
 
 function gitDateForFiles(files) {
   for (const f of files) {
@@ -33,54 +48,89 @@ function gitDateForFiles(files) {
         encoding: 'utf8',
         stdio: ['ignore', 'pipe', 'ignore'],
       }).trim();
-      if (/^\d{4}-\d{2}-\d{2}$/.test(out)) {
-        return out;
-      }
+      if (/^\d{4}-\d{2}-\d{2}$/.test(out)) return out;
     } catch {
-      // ignore
+      // git tidak tersedia atau file belum pernah di-commit
     }
   }
   return null;
 }
 
-let existing = {};
-if (fs.existsSync(LASTMOD_FILE)) {
+function dateModifiedFromHtml(file) {
   try {
-    existing = JSON.parse(fs.readFileSync(LASTMOD_FILE, 'utf8'));
+    const html = fs.readFileSync(file, 'utf8');
+    const m = html.match(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})"/);
+    return m ? m[1] : null;
   } catch {
-    existing = {};
+    return null;
   }
 }
 
-const today = new Date().toISOString().slice(0, 10);
+const existing = readJson(LASTMOD_FILE);
+const overrides = readJson(OVERRIDES_FILE);
 const updated = {};
 
-// 1. Homepage
-updated['/'] = gitDateForFiles(['index.html', 'src/App.jsx']) || existing['/'] || today;
+// 1. Halaman tunggal
+updated['/'] = gitDateForFiles(['index.html', 'src/App.jsx']) || existing['/'] || null;
+updated['/blog/'] = gitDateForFiles(['public/blog/index.html']) || existing['/blog/'] || null;
+updated['/borepile-terdekat/'] =
+  gitDateForFiles(['scripts/prerender.js', 'src/data/siteFacts.js']) ||
+  existing['/borepile-terdekat/'] ||
+  null;
 
-// 2. Blog index
-updated['/blog/'] = gitDateForFiles(['public/blog/index.html']) || existing['/blog/'] || today;
-
-// 3. Borepile terdekat
-updated['/borepile-terdekat/'] = gitDateForFiles(['scripts/prerender.js', 'src/data/siteFacts.js']) || existing['/borepile-terdekat/'] || today;
-
-// 4. Location pages
-const locationDate = gitDateForFiles(['src/data/content.js', 'src/components/sections/LocationPage.jsx']) || today;
-for (const loc of locationPages) {
-  const url = `/location/${loc.slug}/`;
-  updated[url] = locationDate || existing[url] || today;
-}
-
-// 5. Blog articles
+// 2. Artikel blog: pakai dateModified di halaman
 const blogDir = path.join(REPO_ROOT, 'public', 'blog');
 if (fs.existsSync(blogDir)) {
-  const blogFiles = fs.readdirSync(blogDir).filter((f) => f.endsWith('.html') && f !== 'index.html').sort();
+  const blogFiles = fs
+    .readdirSync(blogDir)
+    .filter((f) => f.endsWith('.html') && f !== 'index.html')
+    .sort();
   for (const file of blogFiles) {
     const url = `/blog/${file}`;
-    const relFile = path.posix.join('public', 'blog', file);
-    updated[url] = gitDateForFiles([relFile]) || existing[url] || today;
+    updated[url] = dateModifiedFromHtml(path.join(blogDir, file)) || existing[url] || null;
   }
 }
 
-fs.writeFileSync(LASTMOD_FILE, JSON.stringify(updated, null, 2) + '\n', 'utf8');
-console.log(`✅ Successfully updated ${LASTMOD_FILE} (${Object.keys(updated).length} URLs)`);
+// 3. Override eksplisit (mis. satu halaman lokasi yang benar-benar diedit)
+for (const [url, date] of Object.entries(overrides)) {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(date)) updated[url] = date;
+}
+
+// 4. Buang entri tanpa tanggal
+const clean = {};
+for (const url of Object.keys(updated).sort()) {
+  if (updated[url]) clean[url] = updated[url];
+}
+
+fs.writeFileSync(LASTMOD_FILE, JSON.stringify(clean, null, 2) + '\n', 'utf8');
+
+// 5. Sinkronkan public/sitemap.xml
+if (fs.existsSync(SITEMAP_FILE)) {
+  let xml = fs.readFileSync(SITEMAP_FILE, 'utf8');
+  let added = 0;
+  let removed = 0;
+  xml = xml.replace(/<url>([\s\S]*?)<\/url>/g, (block) => {
+    const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1];
+    if (!loc) return block;
+    let pathname;
+    try {
+      pathname = new URL(loc).pathname;
+    } catch {
+      return block;
+    }
+    const date = clean[pathname];
+    if (!date) {
+      if (/<lastmod>/.test(block)) removed++;
+      return block.replace(/\s*<lastmod>[^<]*<\/lastmod>/, '');
+    }
+    if (/<lastmod>/.test(block)) {
+      return block.replace(/<lastmod>[^<]+<\/lastmod>/, `<lastmod>${date}</lastmod>`);
+    }
+    added++;
+    return block.replace('</loc>', `</loc>\n    <lastmod>${date}</lastmod>`);
+  });
+  fs.writeFileSync(SITEMAP_FILE, xml, 'utf8');
+  console.log(`📄 public/sitemap.xml: ${added} lastmod ditambahkan, ${removed} dihapus`);
+}
+
+console.log(`✅ scripts/lastmod.json diperbarui (${Object.keys(clean).length} URL)`);

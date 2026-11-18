@@ -49,13 +49,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&text=Terpcayadnofsil%20&display=swap" media="print" onload="this.media='all'" />
     <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Newsreader:wght@600&display=swap" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&text=Terpcayadnofsil%20&display=swap" rel="stylesheet" /></noscript>
 
-    <!-- Schema: LocalBusiness -->
+    <!-- Schema: GeneralContractor -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": "GeneralContractor",
       "@id": "https://borepilemajujaya.com/#localbusiness",
       "name": "Jasa Bore Pile Majujaya",
+      "legalName": "CV. Majujaya Bore Pile",
       "alternateName": ["Majujaya Bore Pile", "CV. Majujaya Bore Pile", "Bore Pile Majujaya", "Majujaya Borepile", "majujayaborepile"],
       "sameAs": ["https://majujayaborepile.com/"],
       "description": "Kontraktor profesional jasa bore pile, strauss pile, dan pengeboran tanah sejak tahun 2013. Melayani Jakarta, Bogor, Depok, Tangerang, Bekasi, Karawang, Cikarang, dan seluruh Indonesia dengan 250+ titik pengeboran yang telah diselesaikan.",
@@ -66,11 +67,12 @@
         "https://borepilemajujaya.com/images/subiyanto-borepile.jpg",
         "https://borepilemajujaya.com/og-image.jpg"
       ],
-      "priceRange": "$$",
+      "priceRange": "Rp800.000 - Rp14.000.000 per titik",
       "currenciesAccepted": "IDR",
       "paymentAccepted": "Cash, Transfer Bank",
       "founder": {
         "@type": "Person",
+        "@id": "https://borepilemajujaya.com/#subiyanto",
         "name": "Subiyanto"
       },
       "areaServed": [
@@ -96,12 +98,12 @@
         "@type": "OfferCatalog",
         "name": "Jasa Pengeboran dan Pondasi",
         "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Jasa Bore Pile Pondasi", "description": "Pengeboran dalam untuk pondasi bangunan bertingkat, rumah, dan konstruksi berat."}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Jasa Strauss Pile Manual", "description": "Pondasi strauss pile manual diameter 30cm, 40cm, 60cm, 80cm, sampai 100cm."}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Jasa Sumur Bor Air", "description": "Pengeboran sumur air bersih untuk rumah tangga, perumahan, hingga industri."}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Jasa Pengeboran Irigasi", "description": "Solusi pengeboran untuk sistem irigasi pertanian dan perkebunan."}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Jasa Soil Investigation", "description": "Uji sondir / soil test untuk analisis daya dukung tanah."}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Jasa Bore Pile Mesin", "description": "Pengeboran mesin untuk proyek skala besar."}}
+          {"@type": "Service", "name": "Jasa Bore Pile Pondasi", "description": "Pengeboran dalam untuk pondasi bangunan bertingkat, rumah, dan konstruksi berat.", "provider": {"@id": "https://borepilemajujaya.com/#localbusiness"}},
+          {"@type": "Service", "name": "Jasa Strauss Pile Manual", "description": "Pondasi strauss pile manual diameter 30cm, 40cm, 60cm, 80cm, sampai 100cm.", "provider": {"@id": "https://borepilemajujaya.com/#localbusiness"}, "offers": {"@type": "AggregateOffer", "priceCurrency": "IDR", "lowPrice": 800000, "highPrice": 5500000}},
+          {"@type": "Service", "name": "Jasa Sumur Bor Air", "description": "Pengeboran sumur air bersih untuk rumah tangga, perumahan, hingga industri.", "provider": {"@id": "https://borepilemajujaya.com/#localbusiness"}},
+          {"@type": "Service", "name": "Jasa Pengeboran Irigasi", "description": "Solusi pengeboran untuk sistem irigasi pertanian dan perkebunan.", "provider": {"@id": "https://borepilemajujaya.com/#localbusiness"}},
+          {"@type": "Service", "name": "Jasa Soil Investigation", "description": "Uji sondir / soil test untuk analisis daya dukung tanah.", "provider": {"@id": "https://borepilemajujaya.com/#localbusiness"}},
+          {"@type": "Service", "name": "Jasa Bore Pile Mesin", "description": "Pengeboran mesin untuk proyek skala besar.", "provider": {"@id": "https://borepilemajujaya.com/#localbusiness"}, "offers": {"@type": "AggregateOffer", "priceCurrency": "IDR", "lowPrice": 2500000, "highPrice": 14000000}}
         ]
       },
       "address": {
@@ -210,7 +212,12 @@
       "alternateName": ["Majujaya Bore Pile", "Jasa Bore Pile Majujaya", "Bore Pile Majujaya", "Majujaya Borepile", "majujayaborepile"],
       "sameAs": ["https://majujayaborepile.com/"],
       "url": "https://borepilemajujaya.com/",
-      "logo": "https://borepilemajujaya.com/favicon.svg",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://borepilemajujaya.com/icons/icon-512.png",
+        "width": 512,
+        "height": 512
+      },
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+62-815-1481-1120",

@@ -62,7 +62,9 @@ function sourceFileForPath(pathname) {
   if (pathname === '/') return 'index.html';
   if (pathname === '/blog/') return 'public/blog/index.html';
   if (pathname === '/borepile-terdekat/') return 'src/data/siteFacts.js';
-  if (pathname.startsWith('/location/')) return 'src/data/locationContent.js';
+  // Halaman lokasi tidak punya tanggal per-kota: isinya berasal dari data
+  // bersama. Jangan pakai tanggal commit satu file untuk 16 kota.
+  if (pathname.startsWith('/location/')) return null;
   if (pathname.startsWith('/blog/')) return path.posix.join('public', pathname.replace(/^\//, ''));
   return null;
 }
@@ -590,7 +592,7 @@ function generateLocationPages() {
       for (const script of scripts) {
         try {
           const parsed = JSON.parse(script.textContent);
-          if (parsed['@type'] === 'LocalBusiness') {
+          if (parsed['@type'] === 'LocalBusiness' || parsed['@type'] === 'GeneralContractor') {
             parsed['@id'] = 'https://borepilemajujaya.com/#localbusiness';
             script.textContent = JSON.stringify(parsed, null, 2);
           }
@@ -749,7 +751,7 @@ function generateBorepileTerdekatPage() {
     description,
     url,
     provider: {
-      '@type': 'LocalBusiness',
+      '@type': 'GeneralContractor',
       '@id': 'https://borepilemajujaya.com/#localbusiness',
       name: SITE.brand,
       telephone: '+62-815-1481-1120',
@@ -992,9 +994,11 @@ function updateSitemapLastmod() {
     }
     const source = sourceFileForPath(pathname);
     const gitDate = useGit && source ? gitLastmodForFile(source) : null;
-    const existing = block.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1];
-    const date = gitDate || fallback[pathname] || existing;
-    if (!date) return block;
+    // Tanggal eksplisit (mis. dateModified artikel) menang atas tanggal commit.
+    const date = fallback[pathname] || gitDate;
+    if (!date) {
+      return block.replace(/\s*<lastmod>[^<]*<\/lastmod>/, '');
+    }
     if (/<lastmod>/.test(block)) {
       return block.replace(/<lastmod>[^<]+<\/lastmod>/, `<lastmod>${date}</lastmod>`);
     }
