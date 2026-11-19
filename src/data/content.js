@@ -1243,6 +1243,8 @@ export const footer = {
   hours: "Senin - Jum'at: 08.00 - 17.00",
   blogLinks: [
     { title: "Blog Bore Pile", href: "/blog/" },
+    { title: "Apakah Rumah 2 Lantai Butuh Bore Pile?", href: "/blog/apakah-rumah-2-lantai-butuh-bore-pile.html" },
+    { title: "Syarat Tanah untuk Bore Pile", href: "/blog/syarat-tanah-untuk-bore-pile.html" },
     { title: "Tahapan Pengerjaan Bore Pile", href: "/blog/tahapan-pengerjaan-bore-pile.html" },
     { title: "Persiapan Sebelum Survey Bore Pile", href: "/blog/persiapan-sebelum-survey-bore-pile.html" },
     { title: "Cara Membaca Penawaran Bore Pile", href: "/blog/cara-membaca-penawaran-bore-pile.html" },
